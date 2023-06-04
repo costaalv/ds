@@ -35,7 +35,7 @@ ZYcla_ = clfb.predict(ZXcla)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_21818/3050324212.py[0m in [0;36m?[0;34m()[0m
+[0;32m/tmp/ipykernel_14274/3050324212.py[0m in [0;36m?[0;34m()[0m
 [1;32m      7[0m [0mZYcla[0m [0;34m=[0m [0mdtest[0m[0;34m[[0m[0;34m'city'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      8[0m [0;34m[0m[0m
 [1;32m      9[0m [0;31m# classificador[0m[0;34m[0m[0;34m[0m[0m
