@@ -1,0 +1,1558 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ICD_Aula2.2-est-descritiva';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aula 03 - MBA em Ciência de Dados: Modelos de regressão" href="ICD_Aula3-regress%C3%A3o.html" />
+    <link rel="prev" title="Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados" href="ICD_Aula2.1-limpeza.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FICD_Aula2.2-est-descritiva.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ICD_Aula2.2-est-descritiva.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-posicao">Medidas de posição</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moda">Moda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media-e-mediana">Média e Mediana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersao">Medidas de dispersão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacao">Correlação</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-entropia">Medidas de Entropia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios-de-fixacao">Exercícios de fixação</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="aula-02-02-mba-em-ciencia-de-dados-estatistica-descritiva">
+<h1>Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva<a class="headerlink" href="#aula-02-02-mba-em-ciencia-de-dados-estatistica-descritiva" title="Permalink to this headline">#</a></h1>
+<p>Francisco Aparecido Rodrigues, <a class="reference external" href="mailto:francisco&#37;&#52;&#48;icmc&#46;usp&#46;br">francisco<span>&#64;</span>icmc<span>&#46;</span>usp<span>&#46;</span>br</a>.<br>
+Universidade de São Paulo, São Carlos, Brasil.<br>
+Copyright (c) 2023.</p>
+<p>Nesta aula, vamos mostrar como descrevemos os dados em termos de medidas de estatística. Medidas de posição, dispersão e correlação serão cobertas, com aplicações em diferentes conjuntos de dados.</p>
+<section id="medidas-de-posicao">
+<h2>Medidas de posição<a class="headerlink" href="#medidas-de-posicao" title="Permalink to this headline">#</a></h2>
+<section id="moda">
+<h3>Moda<a class="headerlink" href="#moda" title="Permalink to this headline">#</a></h3>
+<p>Uma medida importante de tendência central é a moda, que retorna o elemento mais comum em um conjunto de dados. Geralmente, essa medida é usada para atributos nominais.<br>
+Vamos considerar um exemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: [0, 1, 1, 2, 2, 2, 3, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para calcularmos a moda, usamos o pacote Statistics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mode</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mode</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A moda de X:&#39;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A moda de X: 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos também identificar a moda visualmente em um gráfico de barras, que representa o valor mais frequente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#biblioteca gráfica para mostrar os gráficos</span>
+
+<span class="c1"># Usamos a funções sort e unique do Numpy para encontrar os valores </span>
+<span class="c1"># possíveis em ordem crescente.</span>
+<span class="c1"># esses valores serão mostrados na abscissa do gráfico.</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> 
+<span class="c1"># vamos calcular a frequência de cada valor presente na lista</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="c1"># armazena as frequencias</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice do vetor de frequências</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span> <span class="c1"># para os valores diferentes</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># conta as ocorrências</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">):</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">freq</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X:&#39;</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valores possíveis:&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequencia dos valores:&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+
+<span class="n">y_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Valores&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequência&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: [0, 1, 1, 2, 2, 2, 3, 3]
+Valores possíveis: [0 1 2 3]
+Frequencia dos valores: [1. 2. 3. 2.]
+</pre></div>
+</div>
+<img alt="_images/949e48540ad49353bcfc71464d72d05c828e2243d389aaf1ecfa6487911de335.png" src="_images/949e48540ad49353bcfc71464d72d05c828e2243d389aaf1ecfa6487911de335.png" />
+</div>
+</div>
+<p>Podemos aplicar a função em dados nominais:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A moda de Y:&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A moda de Y: red
+</pre></div>
+</div>
+</div>
+</div>
+<p>O gráfico de barras mostrando a frequêbncia:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#biblioteca gráfica para mostrar os gráficos</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span> <span class="c1">#usamos a funções sort e unique do Numpy </span>
+<span class="c1"># para encontrar os valores possíveis.</span>
+<span class="c1"># vamos calcular a frequência de cada valor presente na lista</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="c1"># armazena as frequencias</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice do vetor de frequências</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span> <span class="c1"># para os valores diferentes</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># conta as ocorrências</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">):</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">freq</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y:&#39;</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valores possíveis:&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequencia dos valores:&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+
+<span class="n">y_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Valores&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequência&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Y: [&#39;red&#39;, &#39;blue&#39;, &#39;blue&#39;, &#39;red&#39;, &#39;green&#39;, &#39;red&#39;, &#39;red&#39;]
+Valores possíveis: [&#39;blue&#39; &#39;green&#39; &#39;red&#39;]
+Frequencia dos valores: [2. 1. 4.]
+</pre></div>
+</div>
+<img alt="_images/972d560784a13313619af053efb6dd3c2abb9b5ff71682cde42cde17f60d29de.png" src="_images/972d560784a13313619af053efb6dd3c2abb9b5ff71682cde42cde17f60d29de.png" />
+</div>
+</div>
+</section>
+<section id="media-e-mediana">
+<h3>Média e Mediana<a class="headerlink" href="#media-e-mediana" title="Permalink to this headline">#</a></h3>
+<p>A média e mediana são medidas de tendência central usadas para dados quantitativos. Assim, a média:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A média:&#39;</span><span class="p">,</span> <span class="n">mx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: [1, 1, 1, 2, 2, 3, 4, 5, 5, 5]
+A média: 2.9
+</pre></div>
+</div>
+</div>
+</div>
+<p>No caso da mediana:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A mediana:&#39;</span><span class="p">,</span> <span class="n">md</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: [1, 1, 1, 2, 2, 3, 4, 5, 5, 5]
+A mediana: 2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se adicionarmos um valor extremo aos dados, vejamos como a média e a mediana se comportam:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X2:&#39;</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A nova média:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A nova mediana:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">X2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X2: [1, 1, 1, 2, 2, 3, 4, 5, 5, 100]
+A nova média: 12.4
+A nova mediana: 2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou seja, a média é altamente sensível a valores extremos, enquanto que a mediana é mais robusta.</p>
+<p>Vamos considerar uma distribuição de probabilidades. Os dados são gerados a partir de distribuições normal e exponencial.</p>
+<p>Para a distribuição normal, a média é indicada pela linha contínua e a mediana, pela tracejada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#biblioteca gráfica para mostrar os gráficos</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Média da distribuicao normal</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#desvio padrão da distribuição normal</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">md</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;p(x)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3cde872aa573325364e9d8e1bb5ba0735f001904e15034a694e341c8a4f6150a.png" src="_images/3cde872aa573325364e9d8e1bb5ba0735f001904e15034a694e341c8a4f6150a.png" />
+</div>
+</div>
+<p>Para a distribuição exponencial, a média é indicada pela linha contínua e a mediana, pela tracejada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#biblioteca gráfica para mostrar os gráficos</span>
+
+<span class="n">lbda</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># taxa da distribuição exponencial</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">lbda</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">lbda</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">md</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">lbda</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;p(x)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6f604b122cab36c94fd61fb78bd2068e9cae24fd996ad55a463c3dc383cb7e1e.png" src="_images/6f604b122cab36c94fd61fb78bd2068e9cae24fd996ad55a463c3dc383cb7e1e.png" />
+</div>
+</div>
+<p>Notamos que a média é similar à mediana se a distribuição é praticamente simétrica em relação à média. Caso a distribuição não seja simétrica, o mais adequado é usar a mediana como medida central.</p>
+</section>
+</section>
+<section id="medidas-de-dispersao">
+<h2>Medidas de dispersão<a class="headerlink" href="#medidas-de-dispersao" title="Permalink to this headline">#</a></h2>
+<p>As medidas de dispersão mais usadas são a variância e o desvio padrão. A distância interquantil (IQR) também é bastante usada e quantifica a diferença entre o terceiro e primeiro quantil. Já a amplitude simplesmente mede a diferença entre os valores máximo e mínimo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">iqr</span>
+
+<span class="k">def</span> <span class="nf">variancia</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">mx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">my</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Média de X:&#39;</span><span class="p">,</span> <span class="n">mx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variância de X:&#39;</span><span class="p">,</span> <span class="n">variancia</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR de X:&#39;</span><span class="p">,</span> <span class="n">iqr</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Amplitude de X:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y:&#39;</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Média de Y:&#39;</span><span class="p">,</span> <span class="n">my</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variância de Y:&#39;</span><span class="p">,</span> <span class="n">variancia</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR de Y:&#39;</span><span class="p">,</span> <span class="n">iqr</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Amplitude de Y:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: [0, 0, 1, 1, 18]
+Média de X: 4.0
+Variância de X: 61.5
+IQR de X: 1.0
+Amplitude de X: 18
+
+
+Y: [4, 4, 4, 4, 4]
+Média de Y: 4.0
+Variância de Y: 0.0
+IQR de Y: 0.0
+Amplitude de Y: 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notem que os dados acima possuem a mesma média, mas a variância é bastante diferente.</p>
+</section>
+<section id="correlacao">
+<h2>Correlação<a class="headerlink" href="#correlacao" title="Permalink to this headline">#</a></h2>
+<p>Vamos considerar alguns casos para vermos como se comporta o coeficiente de correlação de Pearson de acordo com diferentes tendências entre as variáveis <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">erro</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="c1"># ruído a ser incluído na relação linear.</span>
+<span class="k">for</span> <span class="n">sigma</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">erro</span><span class="o">*</span><span class="n">sigma</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+    <span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span> <span class="c1"># calcula a correlação</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">corr</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;corr = &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">1.7</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/adef59016fc0a3019ba37627e01e5c20e60470a6ac9c40f0c6531cf3d4e1d4df.png" src="_images/adef59016fc0a3019ba37627e01e5c20e60470a6ac9c40f0c6531cf3d4e1d4df.png" />
+<img alt="_images/e814eabedf194a017213910921b2ce256ae808d26840e0d800a5bcd4b2a72918.png" src="_images/e814eabedf194a017213910921b2ce256ae808d26840e0d800a5bcd4b2a72918.png" />
+<img alt="_images/b083d4e1443bf60f208751b0019bacdc9c08a454e697e5c9adca194bd87372bd.png" src="_images/b083d4e1443bf60f208751b0019bacdc9c08a454e697e5c9adca194bd87372bd.png" />
+<img alt="_images/0f5b80caadd72fc07b055623df8918955ffeefbff376192009809796eeb2fd07.png" src="_images/0f5b80caadd72fc07b055623df8918955ffeefbff376192009809796eeb2fd07.png" />
+<img alt="_images/33e35b1522809d7e6a809161ca55756e1444cb4113845030ea899e288e3a80a0.png" src="_images/33e35b1522809d7e6a809161ca55756e1444cb4113845030ea899e288e3a80a0.png" />
+<img alt="_images/fce3c851e0376cbde4d2a2d7aa75585a63acb92c8eed6b02bdf120293ba0bf71.png" src="_images/fce3c851e0376cbde4d2a2d7aa75585a63acb92c8eed6b02bdf120293ba0bf71.png" />
+<img alt="_images/23c0b93b4fb5facce6241c0502a7ee3f7125655492bab80444b10d0e40b251c6.png" src="_images/23c0b93b4fb5facce6241c0502a7ee3f7125655492bab80444b10d0e40b251c6.png" />
+<img alt="_images/5c5ff1ada6bcf7dd5e1d02ccbbe2b38224a1e541be911eb08f0da2c20aad1704.png" src="_images/5c5ff1ada6bcf7dd5e1d02ccbbe2b38224a1e541be911eb08f0da2c20aad1704.png" />
+<img alt="_images/f09c52b4b68acd8a0908bd3801f5fc2d1ab05a65a73111690409bb388b14fb2b.png" src="_images/f09c52b4b68acd8a0908bd3801f5fc2d1ab05a65a73111690409bb388b14fb2b.png" />
+<img alt="_images/cd209332e9fa6c92606b094604c67d3e317f2c760bb5864205d547cfc1d33d29.png" src="_images/cd209332e9fa6c92606b094604c67d3e317f2c760bb5864205d547cfc1d33d29.png" />
+</div>
+</div>
+<p>A medida de correlação é importante para analisar a relação entre as variáveis. Se duas variáveis são altamente correlacionadas, é adequado remover uma delas, de modo a reduzir informação redundante nos dados.</p>
+<p>Vamos considerar a base de dados da flor Iris:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># biblioteca pandas</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/iris.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># lê os dados a partir do arquivo</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span> <span class="c1"># comando acrescentado. colunas com strings causam erro. </span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="c1">#Plot Correlation Matrix using Matplotlib</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corr</span><span class="p">)),</span> <span class="n">corr</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corr</span><span class="p">)),</span> <span class="n">corr</span><span class="o">.</span><span class="n">columns</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Correlation between variables&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f571d0832833adafa7d5af6234001e8288f5017c94703cf580802086f4fb8c53.png" src="_images/f571d0832833adafa7d5af6234001e8288f5017c94703cf580802086f4fb8c53.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos mostrar a mesma tabela usando a biblioteca Searborn:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">sns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1e48a97f5d9b58fd1f9126c3bcbd0bfbfd2abc5a02468a5b3bac93d93f031c6b.png" src="_images/1e48a97f5d9b58fd1f9126c3bcbd0bfbfd2abc5a02468a5b3bac93d93f031c6b.png" />
+</div>
+</div>
+<p>Para obtermos um resumo das medidas estatística dos dados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.054000</td>
+      <td>3.758667</td>
+      <td>1.198667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.433594</td>
+      <td>1.764420</td>
+      <td>0.763161</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Além do coeficiente de Pearson, podemos considerar o coeficiente de correlação de Spearman:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span><span class="p">,</span> <span class="n">spearmanr</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> 
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Log(X)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">corrs</span><span class="p">,</span> <span class="n">p_values</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">corr</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+<span class="n">corrs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">corrs</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Pearson corr. = &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">20000</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Spearman corr. = &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">corrs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">20000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a0b922d70fa40c8fa57c9d7cdeb0de62c686f8e880682b88d01013ab59c58345.png" src="_images/a0b922d70fa40c8fa57c9d7cdeb0de62c686f8e880682b88d01013ab59c58345.png" />
+</div>
+</div>
+<p>Notem que nesse caso, os coeficientes de Spearman e Pearson são diferentes. Veja o material da aula teórica.</p>
+<section id="medidas-de-entropia">
+<h3>Medidas de Entropia<a class="headerlink" href="#medidas-de-entropia" title="Permalink to this headline">#</a></h3>
+<p>A entropia de Shannon para um dado de N lados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entropia de Shannon: &quot;</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropia de Shannon:  2.584962500721156
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notem que essa entropia é máxima, visto que a distribuição uniforme é a que oferece maior informação e maior dificuldade na previsao. Para um vetor com um único valor, a entropia é mínima (ou seja, um dado com faces iguais).
+Vejam o exemplo abaixo para uma moeda cujas probabilidade de sair cara e coroa variam. Modifique os valores e veja o que acontece com a entropia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># probabilidade de sair cara e coroa</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entropia de Shannon: &quot;</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+
+<span class="n">Px</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span> <span class="c1"># a soma dos elementos do vetor deve ser igual a 1.</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entropia de Shannon: &quot;</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+
+<span class="n">Px</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entropia de Shannon: &quot;</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropia de Shannon:  0.0
+Entropia de Shannon:  0.8112781244591328
+Entropia de Shannon:  1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Entropia de relativa (divergência de Kulback-Leibler) pode ser usada para comparar distribuições.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(P,Q) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(Q,P) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL(P,Q) =  0.10134076548572565
+KL(Q,P) =  0.09924413610176086
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se as distribuições forem iguais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(P,P) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(Q,Q) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL(P,P) =  0.0
+KL(Q,Q) =  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(P,Q) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(Q,P) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL(P,Q) =  0.20380924824852756
+KL(Q,P) =  0.15308505475833867
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(P,Q) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;KL(Q,P) = &#39;</span><span class="p">,</span> <span class="n">entropy</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL(P,Q) =  0.20380924824852756
+KL(Q,P) =  0.15308505475833867
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercicios-de-fixacao">
+<h2>Exercícios de fixação<a class="headerlink" href="#exercicios-de-fixacao" title="Permalink to this headline">#</a></h2>
+<p>Não é necessário entregar os exercícios abaixo, mas é importante resolvê-los para fixar os conteúdos estudados.</p>
+<p>1 -  Considere uma moeda cuja probabilidade de sair cara é <span class="math notranslate nohighlight">\(p\)</span>. Monte um gráfico da entropia em função do valor de <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">entropy_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">entropy</span><span class="p">(</span><span class="n">p_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">p_i</span> <span class="ow">in</span> <span class="n">p</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">entropy_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;p (probabilidade de sair cara)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Entropia (bits)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Entropia em função de p&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1c9ce1dfd614f776209bb7d7dd0e27245c44570ade279afa8752d4d8d25c9d05.png" src="_images/1c9ce1dfd614f776209bb7d7dd0e27245c44570ade279afa8752d4d8d25c9d05.png" />
+</div>
+</div>
+<blockquote>
+<div><p>A entropia é uma medida de incerteza ou impureza em probabilidade e informação. Em termos simples, a entropia mede a quantidade de incerteza associada a uma distribuição de probabilidade.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Na teoria da informação, a entropia é usada para medir a quantidade média de informação em uma mensagem ou sinal. A entropia de uma distribuição de probabilidade é uma medida da quantidade de informação que precisamos conhecer para identificar o resultado de um evento aleatório.</p>
+</div></blockquote>
+<blockquote>
+<div><p>A entropia é frequentemente usada em diversas áreas, incluindo compressão de dados, codificação de informação, aprendizado de máquina e análise de sinal.</p>
+</div></blockquote>
+<p>2 - Gere dados a partir de uma distribuição de Poisson. Calcula a média e variância e compare seus valores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Parâmetro da distribuição de Poisson</span>
+<span class="n">lambd</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Gerar dados a partir de uma distribuição de Poisson</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="n">lambd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Calcular a média dos dados</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Calcular a variância dos dados</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Exibir resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Média: &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variância: &quot;</span><span class="p">,</span> <span class="n">variance</span><span class="p">)</span>
+
+<span class="c1"># Plotar histograma dos dados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Densidade de probabilidade&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribuição de Poisson&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Média:  4.9914
+Variância:  4.887926040000001
+</pre></div>
+</div>
+<img alt="_images/8fccca663c887168ec761a338f1c151f9dc6dbeecd67a01f2ebbf60c5e379ff4.png" src="_images/8fccca663c887168ec761a338f1c151f9dc6dbeecd67a01f2ebbf60c5e379ff4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 191 ms, sys: 130 ms, total: 321 ms
+Wall time: 110 ms
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>A média e a variância da distribuição de Poisson são dadas por λ, o parâmetro da distribuição. Neste caso, λ é igual a 5, então a média e a variância esperadas são iguais a 5. O código acima gera 10000 amostras da distribuição de Poisson com λ igual a 5, calcula a média e a variância dos dados gerados e exibe seus valores. Além disso, o código plota um histograma dos dados gerados para visualizar a distribuição.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Você deve ver que a média e a variância calculadas são aproximadamente iguais a 5, o que confirma a relação média = variância = λ da distribuição de Poisson.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Na distribuição de Poisson, a média e a variância são ambas iguais a λ, que no caso é igual a 5. Portanto, na distribuição de Poisson com λ = 5, a média e a variância esperadas são ambas iguais a 5.</p>
+</div></blockquote>
+<blockquote>
+<div><p>De forma matemática, se X é uma variável aleatória com distribuição de Poisson com parâmetro λ, então E(X) = λ e Var(X) = λ. Logo, para λ = 5, temos E(X) = 5 e Var(X) = 5.</p>
+</div></blockquote>
+<blockquote>
+<div><p>A média e a variância estimadas a partir dos dados gerados aleatoriamente podem não ser exatamente iguais ao parâmetro da distribuição de Poisson (λ = 5), mesmo que a distribuição dos dados seja de fato uma distribuição de Poisson. Isso ocorre porque a amostra gerada é apenas uma pequena parte dos dados teóricos que seriam gerados pela distribuição de Poisson.</p>
+</div></blockquote>
+<blockquote>
+<div><p>A média e a variância estimadas a partir da amostra serão apenas uma aproximação das verdadeiras média e variância da distribuição de Poisson, e quanto maior a amostra, mais próximas serão desses valores teóricos. Em outras palavras, ao aumentarmos o tamanho da amostra, a estimativa da média e da variância converge para os valores teóricos.</p>
+</div></blockquote>
+<p>3 - Calcula e a divergência de Kullback-Leibler entre as distribuições normal e Poisson. Gerem os dados com mesma média e variância.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="c1"># Parâmetros da distribuição normal</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+
+<span class="c1"># Parâmetros da distribuição de Poisson</span>
+<span class="n">lambd</span> <span class="o">=</span> <span class="n">mean</span>
+
+<span class="c1"># Gerar dados a partir de uma distribuição normal</span>
+<span class="n">normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Gerar dados a partir de uma distribuição de Poisson</span>
+<span class="n">poisson_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="n">lambd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Cálculo da DKL</span>
+<span class="n">dkl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">)</span> <span class="o">-</span>
+             <span class="n">st</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">poisson_data</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">lambd</span><span class="p">))</span>
+
+<span class="c1"># Exibir resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Divergência de Kullback-Leibler: &quot;</span><span class="p">,</span> <span class="n">dkl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Divergência de Kullback-Leibler:  -22.814298018930113
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>A divergência de Kullback-Leibler (DKL) mede a diferença entre duas distribuições de probabilidade. Neste caso, a DKL é calculada entre as distribuições normal e Poisson com a mesma média e variância. O código acima gera 1000 amostras de cada distribuição, calcula a DKL entre as duas distribuições e exibe seu valor.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Você deve ver que a DKL não é zero, o que indica que as duas distribuições não são idênticas. Isso é esperado, pois as distribuições normal e Poisson são distintas, apesar de terem a mesma média e variância.</p>
+</div></blockquote>
+<p>4 - Calcula e a divergência de Kullback-Leibler entre as distribuições Binomial e Poisson. Gerem os dados com mesma média e variância.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="c1"># Parâmetros da distribuição Binomial</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Parâmetros da distribuição de Poisson</span>
+<span class="n">lambd</span> <span class="o">=</span> <span class="n">mean</span>
+
+<span class="c1"># Gerar dados a partir de uma distribuição Binomial</span>
+<span class="n">binomial_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Gerar dados a partir de uma distribuição de Poisson</span>
+<span class="n">poisson_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="n">lambd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Cálculo da DKL</span>
+<span class="n">dkl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">binomial_data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span>
+             <span class="n">st</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">poisson_data</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">lambd</span><span class="p">))</span>
+
+<span class="c1"># Exibir resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Divergência de Kullback-Leibler: &quot;</span><span class="p">,</span> <span class="n">dkl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Divergência de Kullback-Leibler:  307.8013383194716
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>A divergência de Kullback-Leibler (DKL) mede a diferença entre duas distribuições de probabilidade. Neste caso, a DKL é calculada entre as distribuições Binomial e Poisson com a mesma média e variância. O código acima gera 1000 amostras de cada distribuição, calcula a DKL entre as duas distribuições e exibe seu valor.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Você deve ver que a DKL não é zero, o que indica que as duas distribuições não são idênticas. Isso é esperado, pois as distribuições Binomial e Poisson são distintas, apesar de terem a mesma média e variância.</p>
+</div></blockquote>
+<p>5 - Para a função log(), investigue como as correlações de Pearson e Spearman variam de acordo com o intervalo dos dados.</p>
+<blockquote>
+<div><p>A correlação de Pearson é uma medida da relação linear entre duas variáveis, enquanto a correlação de Spearman é uma medida da relação monotônica entre duas variáveis. A função logarítmica afeta as correlações de Pearson e Spearman de diferentes maneiras, dependendo do intervalo de dados.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Se os dados estiverem no intervalo (0, infinito), a função logarítmica é estritamente crescente e não afetará a correlação de Spearman. No entanto, a correlação de Pearson pode ser afetada, pois a função logarítmica pode suavizar ou amplificar a relação linear entre as variáveis.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Se os dados estiverem no intervalo (1, infinito), a função logarítmica é estritamente crescente e ambas as correlações de Pearson e Spearman não serão afetadas.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Se os dados estiverem no intervalo (-infinito, 0) ou no intervalo (-infinito, 1), a função logarítmica é estritamente decrescente e afetará ambas as correlações de Pearson e Spearman. A correlação de Pearson será invertida (se a relação linear entre as variáveis for positiva, a correlação de Pearson será negativa, e vice-versa), e a correlação de Spearman será invertida se a relação monotônica for positiva, mas não será afetada se a relação monotônica for negativa.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Em resumo, o impacto da função logarítmica na correlação de Pearson e Spearman depende do intervalo de dados. Em geral, é importante ter cuidado ao aplicar transformações aos dados, pois elas podem afetar as correlações e distorcer a análise de dados.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Gera dados com correlação positiva</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Calcula correlação de Pearson</span>
+<span class="n">pearson_corr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Calcula correlação de Spearman</span>
+<span class="n">spearman_corr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Aplica logaritmo aos dados</span>
+<span class="n">x_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Calcula correlação de Pearson após logaritmo</span>
+<span class="n">pearson_corr_log</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">x_log</span><span class="p">,</span> <span class="n">y_log</span><span class="p">)</span>
+
+<span class="c1"># Calcula correlação de Spearman após logaritmo</span>
+<span class="n">spearman_corr_log</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">x_log</span><span class="p">,</span> <span class="n">y_log</span><span class="p">)</span>
+
+<span class="c1"># Plota dados antes e após logaritmo</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlação de Pearson: </span><span class="si">{</span><span class="n">pearson_corr</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_log</span><span class="p">,</span> <span class="n">y_log</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlação de Pearson após logaritmo: </span><span class="si">{</span><span class="n">pearson_corr_log</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;log(x)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;log(y)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlação de Spearman antes do logaritmo:&quot;</span><span class="p">,</span> <span class="n">spearman_corr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlação de Spearman após o logaritmo:&quot;</span><span class="p">,</span> <span class="n">spearman_corr_log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/54d2147efb8e0d15cf6fdc77005ce1db1640dbb2f83503924b244039b93b22c3.png" src="_images/54d2147efb8e0d15cf6fdc77005ce1db1640dbb2f83503924b244039b93b22c3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlação de Spearman antes do logaritmo: 0.9364416441644163
+Correlação de Spearman após o logaritmo: 0.9364416441644163
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Este exemplo gera dois gráficos, um antes e outro após a aplicação da função logarítmica aos dados. Os valores de correlação de Pearson e Spearman são calculados antes e depois da aplicação da função logarítmica e impressos na tela para fins de comparação. O resultado mostra que, após a aplicação da função logarítmica, a correlação de Pearson é suavizada enquanto a correlação de Spearman não é afetada.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Além disso, é importante notar que a correlação de Spearman é baseada na classificação dos dados, e a ordem relativa dos dados não é afetada pelo logaritmo. Portanto, a correlação de Spearman antes e depois do logaritmo deve ser rigorosamente a mesma.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ICD_Aula2.1-limpeza.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ICD_Aula3-regress%C3%A3o.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-posicao">Medidas de posição</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moda">Moda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media-e-mediana">Média e Mediana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersao">Medidas de dispersão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlacao">Correlação</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-entropia">Medidas de Entropia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios-de-fixacao">Exercícios de fixação</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

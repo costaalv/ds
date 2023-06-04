@@ -1,0 +1,1134 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-07-2 - Descritores de sinais';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-07-2 - Descritores de sinais.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-07-2 - Descritores de sinais.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-descritores-de-sinais-span"><span style="color:darkred">Descritores de sinais</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-caracteristicas-temporais-font"><font color="blue">Características temporais</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-caracteristicas-em-frequencia-font"><font color="blue">Características em frequência</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span">
+<h3><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span><a class="headerlink" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="span-style-color-darkred-descritores-de-sinais-span">
+<h3><span style="color:darkred">Descritores de sinais</span><a class="headerlink" href="#span-style-color-darkred-descritores-de-sinais-span" title="Permalink to this headline">#</a></h3>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<p><strong>Conteúdo:</strong></p>
+<ol class="arabic simple">
+<li><p>Características temporais / sequenciais</p></li>
+<li><p>Características em frequência</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="font-color-blue-caracteristicas-temporais-font">
+<h2><font color="blue">Características temporais</font><a class="headerlink" href="#font-color-blue-caracteristicas-temporais-font" title="Permalink to this headline">#</a></h2>
+<p>Características extraídas com relação ao domínio original do sinal, dos pontos amostrados em sequência (comumente temporal).</p>
+<p>Todo o sinal então pode ser <strong>descrito</strong> por meio dessas características computadas.</p>
+<p>Assim ao invés de utilizar a representação original, por meio de pontos amostrados sequencialmente, utilizo uma variável que <em>descreve</em> o conteúdo.</p>
+<p>Veremos as seguintes características:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Característica</p></th>
+<th class="text-left head"><p>(em inglês)</p></th>
+<th class="text-left head"><p>Descrição</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Cruzamentos por zero</p></td>
+<td class="text-left"><p>Zero Crossing Rate</p></td>
+<td class="text-left"><p>A taxa de mudanças de sinal (positivo/negativo) com a qual os dados mudam durante uma certa janela observada.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Energia</p></td>
+<td class="text-left"><p>Energy</p></td>
+<td class="text-left"><p>A soma dos quadrados das amplitudes normalizada pelo tamanho da janela.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Entropia da energia</p></td>
+<td class="text-left"><p>Entropy of energy</p></td>
+<td class="text-left"><p>A entropia das energias normalizadas de janelas. Uma medida relacionada a mudanças abruptas.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Momentos estatísticos</p></td>
+<td class="text-left"><p>Statistical moments</p></td>
+<td class="text-left"><p>Cálculo de momentos estatísticos do sinal global ou de forma local.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para estudar características temporais, vamos simular 3 sinais</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define amostragem ao longo do tempo</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="c1"># define os segundos</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="c1"># prepara o eixo real onde iremos amostrar a funcao</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">F</span><span class="p">))</span>
+
+<span class="c1"># computa a funcao</span>
+<span class="n">f_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_sin</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pontos: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Pontos: 400&#39;)
+</pre></div>
+</div>
+<img alt="_images/bc6f92ea9ec625f06e7ddfd825a5da0ed9f5f97f68bafc84f60845a58b671f4c.png" src="_images/bc6f92ea9ec625f06e7ddfd825a5da0ed9f5f97f68bafc84f60845a58b671f4c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define amostragem ao longo do tempo</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1"># define os segundos</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># prepara o eixo real onde iremos amostrar a funcao</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">F</span><span class="p">))</span>
+
+<span class="c1"># computa a funcao</span>
+<span class="n">f_1</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">15</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pontos: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Pontos: 600&#39;)
+</pre></div>
+</div>
+<img alt="_images/bdbd93a4588b95478d80c2a8c66c94a66fe95a36caade3d7aabc8e832fd32eb2.png" src="_images/bdbd93a4588b95478d80c2a8c66c94a66fe95a36caade3d7aabc8e832fd32eb2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define amostragem ao longo do tempo</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="c1"># define os segundos</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c1"># prepara o eixo real onde iremos amostrar a funcao</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">F</span><span class="p">))</span>
+
+<span class="n">f_2</span> <span class="o">=</span> <span class="mf">1.6</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="mf">1.3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">-</span><span class="mf">.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">-</span><span class="mf">.3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">f_2</span> <span class="o">=</span> <span class="n">f_2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">f_2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">1</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pontos: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">f_2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Pontos: 240&#39;)
+</pre></div>
+</div>
+<img alt="_images/36467d23fe1cf5ef3c9577179834e0a41c5bc0c17fd012e42a992c77c247ad6d.png" src="_images/36467d23fe1cf5ef3c9577179834e0a41c5bc0c17fd012e42a992c77c247ad6d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">taxa_cruzamentos_por_zero</span><span class="p">(</span><span class="n">sinal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Cruzamentos por zero em um intervalo de tempo &#39;&#39;&#39;</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sinal</span><span class="p">)</span>
+    <span class="n">cont_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">sinal</span><span class="p">))))</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">cont_zero</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># exemplifica usando funcao Seno</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">F</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_sin</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">f_sin</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">f_sin</span><span class="p">)),</span> <span class="s1">&#39;-.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff8f3540f10&gt;]
+</pre></div>
+</div>
+<img alt="_images/a1f176c135db9e9f7db26762489ffc7b741f2b69a4425435474e6b49df09846b.png" src="_images/a1f176c135db9e9f7db26762489ffc7b741f2b69a4425435474e6b49df09846b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">taxa_cruzamentos_por_zero</span><span class="p">(</span><span class="n">f_sin</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">taxa_cruzamentos_por_zero</span><span class="p">(</span><span class="n">f_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">taxa_cruzamentos_por_zero</span><span class="p">(</span><span class="n">f_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  0.03884711779448621
+F1 =  0.05008347245409015
+F2 =  0.0502092050209205
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">energia</span><span class="p">(</span><span class="n">sinal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Energia do sinal (normalizada)&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sinal</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sinal</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">energia</span><span class="p">(</span><span class="n">f_sin</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">energia</span><span class="p">(</span><span class="n">f_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">energia</span><span class="p">(</span><span class="n">f_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  0.5
+F1 =  0.8859123670816744
+F2 =  2.1975914192605948
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropia_energia</span><span class="p">(</span><span class="n">sinal</span><span class="p">,</span> <span class="n">n_blocos</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Entropia da energia do sinal&#39;&#39;&#39;</span>
+    <span class="c1"># energia total </span>
+    <span class="n">energia_sinal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sinal</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sinal</span><span class="p">)</span>
+    
+    <span class="c1"># calcula janelas dentro do sinal</span>
+    <span class="n">M_janelas</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">M</span> <span class="o">/</span> <span class="n">n_blocos</span><span class="p">))</span>
+    <span class="c1"># verifica se tamanho dos blocos </span>
+    <span class="c1"># é multiplo do tamanho do sinal</span>
+    <span class="k">if</span> <span class="n">M</span> <span class="o">!=</span> <span class="n">M_janelas</span> <span class="o">*</span> <span class="n">n_blocos</span><span class="p">:</span>
+        <span class="n">sinal</span> <span class="o">=</span> <span class="n">sinal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">M_janelas</span> <span class="o">*</span> <span class="n">n_blocos</span><span class="p">]</span>
+
+    <span class="c1"># monta matriz [M_janelas x n_blocos]</span>
+    <span class="n">janelas</span> <span class="o">=</span> <span class="n">sinal</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">M_janelas</span><span class="p">,</span> <span class="n">n_blocos</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1"># Computa energias de cada janela (normalizada pela do sinal)</span>
+    <span class="n">e_janelas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">janelas</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">energia_sinal</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>
+    <span class="c1">#print(e_janelas)</span>
+
+    <span class="c1"># Computa entropia entre energias das janelas</span>
+    <span class="n">entropia</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">e_janelas</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">e_janelas</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">entropia</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">entropia_energia</span><span class="p">(</span><span class="n">f_sin</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">entropia_energia</span><span class="p">(</span><span class="n">f_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">entropia_energia</span><span class="p">(</span><span class="n">f_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  3.307447020274472
+F1 =  2.8566827232155663
+F2 =  3.248062627163687
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">momentos_estatisticos</span><span class="p">(</span><span class="n">sinal</span><span class="p">,</span> <span class="n">n_blocos</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Calcula quatro momentos estatísticos</span>
+<span class="sd">       Parâmetros</span>
+<span class="sd">           n_blocos: número de blocos para calcular </span>
+<span class="sd">                     momentos localmente (default = 1, global)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># calcula janelas dentro do sinal</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sinal</span><span class="p">)</span>
+    <span class="n">M_janelas</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">M</span> <span class="o">/</span> <span class="n">n_blocos</span><span class="p">))</span>
+    <span class="c1"># verifica se tamanho dos blocos </span>
+    <span class="c1"># é multiplo do tamanho do sinal</span>
+    <span class="k">if</span> <span class="n">M</span> <span class="o">!=</span> <span class="n">M_janelas</span> <span class="o">*</span> <span class="n">n_blocos</span><span class="p">:</span>
+        <span class="n">sinal</span> <span class="o">=</span> <span class="n">sinal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">M_janelas</span> <span class="o">*</span> <span class="n">n_blocos</span><span class="p">]</span>
+
+    <span class="c1"># monta matriz [M_janelas x n_blocos]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n_blocos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">janelas</span> <span class="o">=</span> <span class="n">sinal</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">janelas</span> <span class="o">=</span> <span class="n">sinal</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">M_janelas</span><span class="p">,</span> <span class="n">n_blocos</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># 4 momentos estatísticos</span>
+    <span class="n">m0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">janelas</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># media</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">janelas</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># desvio padrao</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">janelas</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># obliquidade</span>
+    <span class="n">m3</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">janelas</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">-</span><span class="mi">3</span> <span class="c1"># curtose</span>
+    
+    <span class="k">return</span> <span class="n">m0</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">m3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">momentos_estatisticos</span><span class="p">(</span><span class="n">f_sin</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">momentos_estatisticos</span><span class="p">(</span><span class="n">f_1</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">momentos_estatisticos</span><span class="p">(</span><span class="n">f_2</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  [ 0.      0.7071  0.     -2.25  ]
+F1 =  [ 0.5985  0.7264 -0.0651 -1.6074]
+F2 =  [0.4903 1.399  0.3078 0.4553]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="font-color-blue-caracteristicas-em-frequencia-font">
+<h2><font color="blue">Características em frequência</font><a class="headerlink" href="#font-color-blue-caracteristicas-em-frequencia-font" title="Permalink to this headline">#</a></h2>
+<p>Processar o sinal em seu domínio original tem algumas limitações.</p>
+<p>Transformações matemáticas que <strong>alterem a representação</strong> dos dados podem ajudar na análise de sinais não estruturados.</p>
+<ul class="simple">
+<li><p>A análise de componentes principais por exemplo, altera a base dos dados produzindo um novo espaço de características.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Para sinais e imagens uma técnica amplamente utilizada é a <strong>Transformada de Fourier</strong>, que descreve sinais por meio de coeficientes de frequência.</p>
+<ul class="simple">
+<li><p>Ao invés de utilizar a representação de sinais por meio dos pontos amostrados ao longo de <span class="math notranslate nohighlight">\(x\)</span>, vamos mudar o eixo para frequências <span class="math notranslate nohighlight">\(u\)</span>.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Representação em frequência</strong> : representar um sinal pela combinação de senos e cossenos em diferentes frequências</p>
+</div></blockquote>
+<p>Assume que: <em>podemos aproximar qualquer sinal somando senos e cossenos com diferentes frequências e com diferentes amplitudes</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define amostragem ao longo do tempo</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="c1"># define os segundos</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1"># prepara o eixo real onde iremos amostrar a funcao</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">F</span><span class="p">))</span>
+
+<span class="n">f_sin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="n">f_sin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">f_sin4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_sin1</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_sin2</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_sin4</span><span class="p">,</span> <span class="s1">&#39;g:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff8eb1b7910&gt;]
+</pre></div>
+</div>
+<img alt="_images/1ebe782c6b2f2801222bb47c72082e87dca47252b4d6066b234e21a3b9f9e8f2.png" src="_images/1ebe782c6b2f2801222bb47c72082e87dca47252b4d6066b234e21a3b9f9e8f2.png" />
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Aúdio e música</strong> podem ser bem caracterizados por diferentes frequências</p>
+<ul class="simple">
+<li><p>Frequências <em>baixas</em> caracterizam sons <em>graves</em> (ondas mais <em>lentas</em>)</p></li>
+<li><p>Frequências <em>altas</em> caracterizam sons <em>agudos</em> (ondas mais <em>rápidas</em>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FS</span> <span class="o">=</span> <span class="mi">22050</span> <span class="c1"># define amostragem de 22KHz</span>
+<span class="n">secs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># 1 segundo de áudio</span>
+
+<span class="c1"># prepara audio simulado</span>
+<span class="n">Fr1</span> <span class="o">=</span> <span class="mi">164</span>  <span class="c1"># primeira frequencia 164 Hz (E3)</span>
+<span class="n">Fr2</span> <span class="o">=</span> <span class="mi">261</span>  <span class="c1"># segunda frequencia 261 Hz (C4)</span>
+<span class="n">Fr3</span> <span class="o">=</span> <span class="mi">440</span>  <span class="c1"># segunda frequencia 440 Hz (A4)</span>
+
+<span class="c1"># pesos de cada frequência</span>
+<span class="n">wFr1</span> <span class="o">=</span> <span class="mf">1.0</span> 
+<span class="n">wFr2</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">wFr3</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="c1"># montando áudio </span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">FS</span><span class="p">))</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">wFr1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fr1</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="n">wFr2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fr2</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="n">wFr3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fr3</span><span class="p">)</span>
+
+<span class="c1"># converte para 2^16 valores diferentes</span>
+<span class="n">audio16</span> <span class="o">=</span> <span class="p">(</span><span class="n">audio</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">15</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">audio</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+
+<span class="c1"># toca áudio</span>
+<span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio16</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+                <audio  controls="controls" >
+                    <source src="data:audio/wav;base64,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" type="audio/wav" />
+                    Your browser does not support the audio element.
+                </audio>
+              </div></div>
+</div>
+<blockquote>
+<div><p><strong>Transformada de Fourier</strong> <font color=blue>”descobre”</font> as frequências (e coeficientes/pesos) de um sinal arbitrário</p>
+</div></blockquote>
+<p>para cada frequência <span class="math notranslate nohighlight">\(u = 0..N-1\)</span>:
+$<span class="math notranslate nohighlight">\(F(u) = \sum_{t=0}^{N-1} f(t) e^{-j2\pi \frac{u x}{N}}\)</span>$</p>
+<p>Utilizamos para isso o algoritmo FFT - Fast Fourier Transform</p>
+<p>O valor absoluto da transformada é chamado de <em>espectro de frequência</em> ou <em>magnitude do espectro</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_fft16</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">audio16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f_fft16</span><span class="p">[:</span><span class="mi">500</span><span class="p">])</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02e1423a11f5882ee1a51798885a8832b090014b7041cf2b90e403ebd8ae2cbd.png" src="_images/02e1423a11f5882ee1a51798885a8832b090014b7041cf2b90e403ebd8ae2cbd.png" />
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Característica</p></th>
+<th class="text-left head"><p>(em inglês)</p></th>
+<th class="text-left head"><p>Descrição</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Centróide espectral</p></td>
+<td class="text-left"><p>Spectral Centroid</p></td>
+<td class="text-left"><p>O centro de gravidade do espectro.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Dispersão do espectro</p></td>
+<td class="text-left"><p>Spectral Spread</p></td>
+<td class="text-left"><p>O desvio padrão do espectro do sinal.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Entropia espectral</p></td>
+<td class="text-left"><p>Spectral Entropy</p></td>
+<td class="text-left"><p>Entropia das energias espectrais normalizadas, para um conjunto de sub-janelas.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">centroide_dispersao_espectral</span><span class="p">(</span><span class="n">sinal</span><span class="p">,</span> <span class="n">tx_amostragem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Calcula o centro de massa e dispersão do espectro do sinal&#39;&#39;&#39;</span>
+    
+    <span class="n">fft_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">sinal</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fft_abs</span><span class="p">)</span>
+    
+    <span class="c1"># indices de frequencia</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx_amostragem</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">N</span><span class="p">))</span>
+
+    <span class="c1"># calcula a distribuicao do espectro normalizando para soma unitária</span>
+    <span class="n">Xt</span> <span class="o">=</span> <span class="n">fft_abs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span> <span class="o">/</span> <span class="n">Xt</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">NUM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ind</span> <span class="o">*</span> <span class="n">Xt</span><span class="p">)</span>
+    <span class="n">DEN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0001</span> 
+
+    <span class="c1"># Centroide:</span>
+    <span class="n">centroide</span> <span class="o">=</span> <span class="p">(</span><span class="n">NUM</span> <span class="o">/</span> <span class="n">DEN</span><span class="p">)</span>
+
+    <span class="c1"># Dispersão:</span>
+    <span class="n">dispersao</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">ind</span> <span class="o">-</span> <span class="n">centroide</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Xt</span><span class="p">)</span> <span class="o">/</span> <span class="n">DEN</span><span class="p">)</span>
+
+    <span class="c1"># Normalizando:</span>
+    <span class="n">centroide</span> <span class="o">=</span> <span class="n">centroide</span> <span class="o">/</span> <span class="p">(</span><span class="n">tx_amostragem</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">dispersao</span> <span class="o">=</span> <span class="n">dispersao</span> <span class="o">/</span> <span class="p">(</span><span class="n">tx_amostragem</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">centroide</span><span class="p">,</span> <span class="n">dispersao</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">centroide_dispersao_espectral</span><span class="p">(</span><span class="n">f_sin</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">centroide_dispersao_espectral</span><span class="p">(</span><span class="n">f_1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">centroide_dispersao_espectral</span><span class="p">(</span><span class="n">f_2</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Am = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">centroide_dispersao_espectral</span><span class="p">(</span><span class="n">audio16</span><span class="p">,</span> <span class="mi">22050</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  [0.502475 0.479988]
+F1 =  [0.447326 0.436919]
+F2 =  [0.469231 0.382603]
+Am =  [0.500032 0.489037]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropia_espectral</span><span class="p">(</span><span class="n">sinal</span><span class="p">,</span> <span class="n">n_blocos</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the spectral entropy&quot;&quot;&quot;</span>
+    
+    <span class="n">fft_abs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">sinal</span><span class="p">))</span>
+    
+    <span class="n">entropia_esp</span> <span class="o">=</span> <span class="n">entropia_energia</span><span class="p">(</span><span class="n">fft_abs</span><span class="p">,</span> <span class="n">n_blocos</span><span class="o">=</span><span class="n">n_blocos</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">entropia_esp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seno = &quot;</span><span class="p">,</span> <span class="n">entropia_espectral</span><span class="p">(</span><span class="n">f_sin</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 = &quot;</span><span class="p">,</span> <span class="n">entropia_espectral</span><span class="p">(</span><span class="n">f_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F2 = &quot;</span><span class="p">,</span> <span class="n">entropia_espectral</span><span class="p">(</span><span class="n">f_2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Am = &quot;</span><span class="p">,</span> <span class="n">entropia_espectral</span><span class="p">(</span><span class="n">audio16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seno =  0.9997114903952453
+F1 =  0.9293991318115519
+F2 =  1.5846565485644761
+Am =  0.9997114952291062
+</pre></div>
+</div>
+</div>
+</div>
+<section id="resumo">
+<h3>Resumo:<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Sinais são dados não estruturados sequenciais</p>
+<ul>
+<li><p>amostras tomadas ao longo de uma sequência</p></li>
+<li><p>a taxa de amostragem é um parâmetro importante</p></li>
+</ul>
+</li>
+<li><p>Descritores</p>
+<ul>
+<li><p>no domínio original, ex: tempo</p></li>
+<li><p>no domínio da frequência</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-07-3%20-%20Descritores%20de%20imagens.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-descritores-de-sinais-span"><span style="color:darkred">Descritores de sinais</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-caracteristicas-temporais-font"><font color="blue">Características temporais</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-caracteristicas-em-frequencia-font"><font color="blue">Características em frequência</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

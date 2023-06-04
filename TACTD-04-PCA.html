@@ -1,0 +1,1187 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-04-PCA';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-05-Extracao%20de%20Texto.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-03-5-Codificacao_Categoricas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-04-PCA.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-04-PCA.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color='blue'> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-analise-de-componentes-principais-pca-font"><font color="blue">Análise de Componentes Principais - PCA</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceitos-basicos">Conceitos Básicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-de-covariancia-font"><font color="blue">Matriz de Covariância</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-de-componentes-principais">Análise de Componentes Principais</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-de-mudanca-de-base"><font color="blue">Matriz de mudança de base</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-teorema-espectral-font"><font color="blue"> Teorema Espectral</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-quociente-de-rayleigh-font"><font color="blue">Quociente de Rayleigh</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-quantidade-de-informacao-capturada-em-cada-direcao-principal-font"><font color="blue">Quantidade de Informação Capturada em Cada Direção Principal</font></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-pca-em-python">Calculando PCA em Python</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color='blue'> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font">
+<h1><font color='blue'>Técnicas Avançadas para Captura e Tratamento de Dados</font><a class="headerlink" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-analise-de-componentes-principais-pca-font">
+<h2><font color='blue'>Análise de Componentes Principais - PCA</font><a class="headerlink" href="#font-color-blue-analise-de-componentes-principais-pca-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="conteudo">
+<h2>Conteúdo<a class="headerlink" href="#conteudo" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Conceitos Fundamentais</p>
+<ul>
+<li><p>Covariância</p></li>
+<li><p>Matriz de Covariância</p></li>
+</ul>
+</li>
+<li><p>Componentes Principais</p>
+<ul>
+<li><p>Propriedades</p></li>
+</ul>
+</li>
+<li><p>Cálculo das Componentes Principais</p></li>
+</ul>
+<hr class="docutils" />
+<p>Bibliograpia:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1404.1100.pdf">A Tutorial on Principal Components Analysis,  Jonathon Shlens</a></p></li>
+<li><p><a class="reference external" href="https://wwwpub.utdallas.edu/~herve/abdi-wireCS-PCA2010-inpress.pdf">Principal Component Analysis,
+H. Abdi, L.J. Williams</a></p></li>
+</ul>
+</section>
+<section id="conceitos-basicos">
+<h2>Conceitos Básicos<a class="headerlink" href="#conceitos-basicos" title="Permalink to this headline">#</a></h2>
+<p>A compreenção do método de Análise de Componentes Principais envolve quatro conceitos matemáticos:</p>
+<ol class="arabic simple">
+<li><p>Matriz de Covariância e suas Propriedades</p></li>
+<li><p>Mudança de Base</p></li>
+<li><p>Teorema Espectral</p></li>
+<li><p>Quociente de Rayleigh</p></li>
+</ol>
+<section id="font-color-blue-matriz-de-covariancia-font">
+<h3><font color='blue'>Matriz de Covariância</font><a class="headerlink" href="#font-color-blue-matriz-de-covariancia-font" title="Permalink to this headline">#</a></h3>
+<p>Considere duas sequências de valores <span class="math notranslate nohighlight">\(\mathbf{x}=\{x_1,x_2,\ldots,x_k\}\)</span> e <span class="math notranslate nohighlight">\(\mathbf{y}=\{y_1,y_2,\ldots,y_k\}\)</span>.</p>
+<p>A covariância entre <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> e <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> é definida como:
+$<span class="math notranslate nohighlight">\(
+cov(\mathbf{x},\mathbf{y}) = \frac{1}{n}\sum_i (x_i-\mu_x)(y_i-\mu_y)
+\)</span><span class="math notranslate nohighlight">\(
+onde \)</span>\mu_x<span class="math notranslate nohighlight">\( e \)</span>\mu_y<span class="math notranslate nohighlight">\( são a média dos valores de \)</span>\mathbf{x}<span class="math notranslate nohighlight">\( e \)</span>\mathbf{y}$, respectivamente.</p>
+<p>Considere <span class="math notranslate nohighlight">\(\mathbf{X}=\{\mathbf{x}_1,\ldots,\mathbf{x}_n\} \)</span> um conjunto de pontos em  <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>.</p>
+<p>Pode-se organizar os pontos como colunas de uma matriz <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> (matriz de dados) com dimensões <span class="math notranslate nohighlight">\(d\times n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \mathbf{X}=
+    \begin{bmatrix}
+      |&amp;|&amp;&amp;|\\
+      \mathbf{x}_1&amp;\mathbf{x}_2&amp;\dots&amp;\mathbf{x}_n\\
+      |&amp;|&amp;&amp;|
+    \end{bmatrix}=
+    \begin{bmatrix}
+      x_{11}                &amp; {x_{12}} &amp;\dots  &amp; x_{1n}\\
+      {x_{21}} &amp; x_{22}               &amp;\dots  &amp; {x_{2n}}\\
+      \vdots               &amp;\vdots               &amp;\ddots &amp;\vdots\\
+      x_{d1}                &amp; {x_{d2}}&amp;\dots  &amp; x_{dn}
+    \end{bmatrix}
+\end{split}\]</div>
+<p>Denotando as linhas da matriz <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> por <span class="math notranslate nohighlight">\({x}_{1:},\ldots,{x}_{d:}\)</span>,
+a matriz de covariância de <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> é:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+cov(\mathbf{X})=
+\begin{bmatrix}
+      {cov(x_{1:},x_{1:})} &amp; cov(x_{1:},x_{2:})          &amp; \dots  &amp;cov(x_{1:},x_{d:})\\
+      cov(x_{2:},x_{1:})          &amp; {cov(x_{2:},x_{2:})} &amp; \dots  &amp;cov(x_{2:},x_{d:})\\
+      \vdots                      &amp;      \vdots                 &amp;\ddots  &amp;\vdots\\
+      cov(x_{d:},x_{1:})          &amp;cov(x_{d:},x_{2:})           &amp;\dots   &amp;{cov(x_{d:},x_{d:})}
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>Importante</strong>:</p>
+<ul class="simple">
+<li><p>Cada entrada da matrix <span class="math notranslate nohighlight">\(cov(\mathbf{X})\)</span> corresponde a correlação entre duas coordenadas do conjunto de pontos  <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p></li>
+<li><p>Os elementos na diagonal da matriz correspondem à variância de cada coordenada.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;:k&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;:k&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;variancia da coordenada y&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
+             <span class="p">);</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;:k&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;:k&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;variancia da coordenada x&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
+             <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dce82713d08a0042cf002e5832b18d207dd2ab2d365817c4ba2c7e4abfd5c362.png" src="_images/dce82713d08a0042cf002e5832b18d207dd2ab2d365817c4ba2c7e4abfd5c362.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1">#### figura da esquerda</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$cov(x,y)\approx 1$&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="sa">r</span><span class="s1">&#39;$(x\uparrow,y\uparrow)$&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span><span class="s1">&#39;--k&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="sa">r</span><span class="s1">&#39;$(x\downarrow,y\downarrow)$&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="s1">&#39;--k&#39;</span><span class="p">);</span>
+
+<span class="c1">#### figura da direita</span>
+<span class="n">Xnc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$cov(x,y)\approx 0$&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="sa">r</span><span class="s1">&#39;$(x\uparrow,y\downarrow)$&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xnc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span><span class="s1">&#39;--k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c42d24713324ccfd96af3be3a5d71fc9bc0f6aabb1039605ed7316e3919ccf75.png" src="_images/c42d24713324ccfd96af3be3a5d71fc9bc0f6aabb1039605ed7316e3919ccf75.png" />
+</div>
+</div>
+<p><strong>Propriedades</strong>:</p>
+<ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(cov(\mathbf{X})\)</span> é uma matriz simétrica</p></li>
+<li><p><span class="math notranslate nohighlight">\(cov(\mathbf{X})\)</span> é semi definida positiva</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Prova da propriedade 3</strong>: <span class="math notranslate nohighlight">\(cov(\mathbf{X})\)</span> é semi definida positiva</p>
+<p>O segredo da prova é enxergar que:
+$<span class="math notranslate nohighlight">\(
+cov(\mathbf{X})=\frac{1}{n}\sum_i (\mathbf{x}_{i}-\mu)(\mathbf{x}_{i}-\mu)^\top
+\)</span><span class="math notranslate nohighlight">\(
+onde \)</span>\mu=\frac{1}{n}\sum_i \mathbf{x}_{i}$</p>
+<p>Assim,
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}^\top cov(\mathbf{X})\mathbf{u}\\
+=\mathbf{u}^\top\left( \frac{1}{n}\sum_i (\mathbf{x}_{i}-\mu)(\mathbf{x}_{i}-\mu)^\top \right)\mathbf{u}\\
+=  \frac{1}{n}\sum_i \mathbf{u}^\top(\mathbf{x}_{i}-\mu)(\mathbf{x}_{i}-\mu)^\top \mathbf{u}\\
+=\frac{1}{n}\sum_i \left((\mathbf{x}_{i}-\mu)^\top \mathbf{u}\right)^2\geq 0
+\)</span>$</p>
+<hr class="docutils" />
+<p>Assumindo que os dados estão centralizados, isto é, <span class="math notranslate nohighlight">\(\mu=0\)</span>, a matriz de covariância pode ser calculada como:</p>
+<div class="math notranslate nohighlight">
+\[
+cov(\mathbf{X})=\frac{1}{n}\mathbf{X}\mathbf{X}^\top
+\]</div>
+</section>
+</section>
+<section id="analise-de-componentes-principais">
+<h2>Análise de Componentes Principais<a class="headerlink" href="#analise-de-componentes-principais" title="Permalink to this headline">#</a></h2>
+<p>(Principal Component Analysis - PCA)</p>
+<p>A idéia do método de <em>Análise de Componentes Principais</em> é encontrar uma nova base para representar os dados de modo que a covariância entre coordenadas distintas nesta nova base seja zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1">#### figura da esquerda</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+
+<span class="c1">#### figura da direita</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Novo sistema de coordenadas&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/469fb7d33d8fc591372e5224a2e692f976a72371c5d521bf8df7efcc0fc734f1.png" src="_images/469fb7d33d8fc591372e5224a2e692f976a72371c5d521bf8df7efcc0fc734f1.png" />
+</div>
+</div>
+<hr class="docutils" />
+<section id="font-color-blue-matriz-de-mudanca-de-base">
+<h3><font color='blue'>Matriz de mudança de base<a class="headerlink" href="#font-color-blue-matriz-de-mudanca-de-base" title="Permalink to this headline">#</a></h3>
+</font>
+<p>Seja <span class="math notranslate nohighlight">\(\mathbf{x}=\{x_1,\ldots,x_d\}\)</span> um ponto representado na base Cartesiana, ou seja:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{x}=x_1(1,0,0,\ldots,0)+x_2(0,1,0,\ldots,0)+\cdots+x_d(0,0,0,\ldots,1)
+\]</div>
+<p>Seja <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> a matriz cujas colunas <span class="math notranslate nohighlight">\(\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_d\)</span> formam uma base ortogonal para o espaço <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>. As coordendas do ponto <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> na base formada pelos vetores <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> são dadas por:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y} = \mathbf{U}^\top\mathbf{x}
+\]</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+
+<span class="c1">#### Gerando 6 pontos representados no sistema cartesiano</span>
+<span class="c1">#### cuja base é e1=[1,0] e e2=[0,1]</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">],[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">]])</span>
+
+<span class="c1">#### Considere uma nova base dada pelos vetores u1=[1,1] e u2[-1,1]</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>  <span class="c1"># matriz de mudança de base</span>
+<span class="n">Yc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Xc</span><span class="p">)</span>             <span class="c1"># coordenadas na nova base</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sistema Cartesiano&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;nova base&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+             <span class="p">);</span>
+
+<span class="c1">#### figura da direita</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Novo sistema de coordenadas&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Yc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Yc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/86e4bf0f8cbe9d25fc057001edc963aba79b3d84fb9a57fb696726aa8c48b897.png" src="_images/86e4bf0f8cbe9d25fc057001edc963aba79b3d84fb9a57fb696726aa8c48b897.png" />
+</div>
+</div>
+<p>No contexto de PCA, buscamos uma matriz de mudança de base <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{Y}=\mathbf{P}\mathbf{X} \Longrightarrow \mathbf{Y}\mathbf{Y}^\top = \mathbf{D}
+\]</div>
+<p>onde <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> é uma matriz diagonal onde os elementos da diagonal correspondem a variância de cada uma das coordenadas.</p>
+<p>Uma vez que <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> tenha sido calculada:</p>
+<ul class="simple">
+<li><p>as coordenadas dos pontos na nova base serão descorrelacionadas</p></li>
+<li><p>algumas das coordenadas terão variância próximo de zero (coordenadas relacionada com ruído nos dados)</p></li>
+<li><p>a dimensão dos dados poderá ser reduzida sem grandes perdas de informação</p></li>
+</ul>
+<p><strong>Calculando a mudança de base</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{Y}=\mathbf{P}\mathbf{X} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{Y}\mathbf{Y}^\top=(\mathbf{PX})(\mathbf{PX})^\top=\mathbf{P}\mathbf{X}\mathbf{X}^\top\mathbf{P}^\top
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="font-color-blue-teorema-espectral-font">
+<h3><font color='blue'> Teorema Espectral</font><a class="headerlink" href="#font-color-blue-teorema-espectral-font" title="Permalink to this headline">#</a></h3>
+<p>Se <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> é matriz simétrica, então:
+$<span class="math notranslate nohighlight">\(
+\mathbf{A}=\mathbf{UDU}^\top \rightarrow \mathbf{U}^\top\mathbf{AU}=\mathbf{D}
+\)</span><span class="math notranslate nohighlight">\(
+onde \)</span>\mathbf{U}<span class="math notranslate nohighlight">\( é matriz ortogonal contendo os autovetores de \)</span>\mathbf{A}<span class="math notranslate nohighlight">\( e \)</span>\mathbf{D}<span class="math notranslate nohighlight">\( é matriz diagonal contendo os autovalores reais de \)</span>\mathbf{A}$</p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(\mathbf{XX}^\top\)</span> é uma matriz simétrica semi-definida positiva. Logo, os autovalores <span class="math notranslate nohighlight">\(\lambda _i\)</span> são reais e não negativos. Armazenando os autovetores de <span class="math notranslate nohighlight">\(\mathbf{XX}^\top\)</span> em uma matriz  <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> e fazendo:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}=\mathbf{U}^\top\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{YY}^\top=\mathbf{U}^\top\mathbf{X}\mathbf{X}^\top\mathbf{U} = \mathbf{D}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{D}=
+\begin{bmatrix}
+cov(y_{1:},y_{1:}) &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; cov(y_{2:},y_{2:}) &amp; \ldots &amp; 0 \\
+  &amp;            &amp; \vdots &amp; \\
+0 &amp; 0 &amp; \ldots &amp; cov(y_{d:},y_{d:}) \\
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>Importante</strong>: <span class="math notranslate nohighlight">\(cov(y_{i:},y_{i:}) = \lambda_i\)</span>, ou seja, os autovalores de <span class="math notranslate nohighlight">\(\mathbf{XX}^\top\)</span> correspondem as variâncias das coordenadas na nova base. Os autovetores de <span class="math notranslate nohighlight">\(\mathbf{XX}^\top\)</span> são os elementos da nova base, sendo que coordenadas distintas dos dados nesta nova base são “descorrelacionadas”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1">#### figura da esquerda</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1">#### figura da direita</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],[</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.65</span><span class="p">],[</span><span class="mf">0.65</span><span class="p">,</span><span class="o">-</span><span class="mf">0.65</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$cov(y_1,y_1)=\lambda_1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span>
+              <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+              <span class="p">);</span>
+
+<span class="c1">#### figura da direita</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">Xc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],[</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.65</span><span class="p">],[</span><span class="mf">0.65</span><span class="p">,</span><span class="o">-</span><span class="mf">0.65</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.17</span><span class="p">,</span><span class="mf">0.17</span><span class="p">],[</span><span class="mf">0.17</span><span class="p">,</span><span class="o">-</span><span class="mf">0.17</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$cov(y_2,y_2)=\lambda_2$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+             <span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/291d207d0d12d957dd726864fa941a64dde957a6b4615a8a616fd2f62f959d4e.png" src="_images/291d207d0d12d957dd726864fa941a64dde957a6b4615a8a616fd2f62f959d4e.png" />
+</div>
+</div>
+<p>As coordenadas dos pontos no novo sistema de coordenadas são dados por:
+$<span class="math notranslate nohighlight">\(
+\mathbf{y_i}=\mathbf{U}^\top\mathbf{x_i}
+\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section id="font-color-blue-quociente-de-rayleigh-font">
+<h3><font color='blue'>Quociente de Rayleigh</font><a class="headerlink" href="#font-color-blue-quociente-de-rayleigh-font" title="Permalink to this headline">#</a></h3>
+<p>Assumindo que os autovalores estão ordenados <span class="math notranslate nohighlight">\(\lambda_1\geq\cdots\geq\lambda_d\)</span>, o <em>Quociente de Rayleigh</em> assegura:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u}_1^\top\mathbf{XX}^\top\mathbf{u}_1=\lambda_1 \rightarrow \mathbf{u}_1 \mbox{ (direção de maior variância)}\\
+\mathbf{u}_d^\top\mathbf{XX}^\top\mathbf{u}_d=\lambda_d \rightarrow \mathbf{u}_d \mbox{ (direção de menor variância)}
+\end{split}\]</div>
+<hr class="docutils" />
+<p>Desta forma, pode-se desprezar as direções (coordenadas) de menor variância, uma vez que estas tipicamente correspondem a ruído nos dados</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{Y}}=
+\begin{bmatrix}
+y_{11} &amp; y_{21} &amp; \cdots &amp; y_{n1} \\
+       &amp;        &amp; \vdots &amp; \\
+y_{1k} &amp; y_{2k} &amp; \cdots &amp; y_{n} \\
+0 &amp; 0 &amp; \cdots &amp; 0 \\
+       &amp;        &amp; \vdots &amp; \\
+0 &amp; 0 &amp; \cdots &amp; 0 \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>pode-se reconstuir os dados “sem ruído” na base original fazendo:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf{X}}=\mathbf{U}\hat{\mathbf{Y}}
+\]</div>
+</section>
+<section id="font-color-blue-quantidade-de-informacao-capturada-em-cada-direcao-principal-font">
+<h3><font color='blue'>Quantidade de Informação Capturada em Cada Direção Principal</font><a class="headerlink" href="#font-color-blue-quantidade-de-informacao-capturada-em-cada-direcao-principal-font" title="Permalink to this headline">#</a></h3>
+<p>Como visto acima, as direções com variância próximas de zero podem ser desconsideradas, uma vez que correspondem ao ruído inerente dos dados.</p>
+<p>Podemos medir a “quantidade de informação” capturada por cada direção através da chamada <em>proporção de variância explicada</em>, que matemáticamente é dada por:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\lambda_i}{\lambda_1+\cdots+\lambda_d}
+\]</div>
+<p>Para cada <span class="math notranslate nohighlight">\(i\)</span>, o valor acima mede a proporção da variância capturada por cada direção principal. Desta forma, se quisermos encontrar quantas direções são necessárias para
+capturar 90% da variância, basta encontrarmos o menor <span class="math notranslate nohighlight">\(k\)</span> tal que:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\lambda_1+\cdots+\lambda_d}\sum_{i=1}^k \lambda_i \geq 0.9
+\]</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="calculando-pca-em-python">
+<h1>Calculando PCA em Python<a class="headerlink" href="#calculando-pca-em-python" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># importing the packages</span>
+<span class="c1">###########</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># reading data_frame</span>
+<span class="c1">###########</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;isolet1234.csv&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6238, 618)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># printing the 10 rows and 8 columns of the DataFrame</span>
+<span class="c1">###########</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,:</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       c0      c1      c2      c3      c4      c5      c6      c7
+0 -0.4394 -0.0930  0.1718  0.4620  0.6226  0.4704  0.3578  0.0478
+1 -0.4348 -0.1198  0.2474  0.4036  0.5026  0.6328  0.4948  0.0338
+2 -0.2330  0.2124  0.5014  0.5222 -0.3422 -0.5840 -0.7168 -0.6342
+3 -0.3808 -0.0096  0.2602  0.2554 -0.4290 -0.6746 -0.6868 -0.6650
+4 -0.3412  0.0946  0.6082  0.6216 -0.1622 -0.3784 -0.4324 -0.4358
+5 -0.4634  0.0306  0.3546  0.4448 -0.1022 -0.4184 -0.6388 -0.4370
+6 -0.3364 -0.0102  0.2132  0.2018 -0.6146 -0.8380 -0.8130 -0.7240
+7 -0.4798 -0.1580  0.1764  0.1820 -0.6378 -0.8400 -0.7280 -0.6654
+8 -0.3928  0.0424  0.2166  0.2124 -0.4564 -0.6200 -0.7112 -0.6602
+9 -0.5494 -0.0940  0.2868  0.2964 -0.5326 -0.7204 -0.7518 -0.7398
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># converting data columns to numpy array</span>
+<span class="c1">###########</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">data_pca</span><span class="o">=</span><span class="n">PCA</span><span class="p">(</span><span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="n">data_transformed</span> <span class="o">=</span> <span class="n">data_pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1">#print(data_transformed.explained_variance_)</span>
+<span class="c1">#print(&#39;\n &#39;,data_transformed.explained_variance_ratio_)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span> 
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="s1">&#39;*&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/19f1886f93f3439f231cfd0fd4cf5a0b97e7c6f70942fc2e50a44c03ea7c7917.png" src="_images/19f1886f93f3439f231cfd0fd4cf5a0b97e7c6f70942fc2e50a44c03ea7c7917.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># projecting data in 2D</span>
+<span class="c1">###########</span>
+
+<span class="n">pca_proj</span><span class="o">=</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data_2d</span><span class="o">=</span><span class="n">pca_proj</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_2d</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_2d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">data_2d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6238, 2)
+</pre></div>
+</div>
+<img alt="_images/36a3a6b268baeab4cb040d43a63251c1484d16ee611a24e4d40022f6b4ae1973.png" src="_images/36a3a6b268baeab4cb040d43a63251c1484d16ee611a24e4d40022f6b4ae1973.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-03-5-Codificacao_Categoricas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-05-Extracao%20de%20Texto.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-analise-de-componentes-principais-pca-font"><font color="blue">Análise de Componentes Principais - PCA</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceitos-basicos">Conceitos Básicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-de-covariancia-font"><font color="blue">Matriz de Covariância</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-de-componentes-principais">Análise de Componentes Principais</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-de-mudanca-de-base"><font color="blue">Matriz de mudança de base</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-teorema-espectral-font"><font color="blue"> Teorema Espectral</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-quociente-de-rayleigh-font"><font color="blue">Quociente de Rayleigh</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-quantidade-de-informacao-capturada-em-cada-direcao-principal-font"><font color="blue">Quantidade de Informação Capturada em Cada Direção Principal</font></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-pca-em-python">Calculando PCA em Python</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

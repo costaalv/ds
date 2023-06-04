@@ -1,0 +1,1948 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Aula 03 - MBA em Ciência de Dados: Modelos de regressão &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ICD_Aula3-regressão';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes." href="ICD_Aula4-classificacao-Knn-NB-RL.html" />
+    <link rel="prev" title="Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva" href="ICD_Aula2.2-est-descritiva.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FICD_Aula3-regressão.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ICD_Aula3-regressão.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Aula 03 - MBA em Ciência de Dados: Modelos de regressão</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressao-linear-simples">Regressão linear simples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressao-linear-multipla">Regressão linear múltipla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-nao-lineares">Variáveis não lineares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-sobre-os-parametros">Inferência sobre os parâmetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-sobre-o-modelo-em-um-conjunto-de-dados">Inferência sobre o modelo em um conjunto de dados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios-de-fixacao">Exercícios de fixação</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="aula-03-mba-em-ciencia-de-dados-modelos-de-regressao">
+<h1>Aula 03 - MBA em Ciência de Dados: Modelos de regressão<a class="headerlink" href="#aula-03-mba-em-ciencia-de-dados-modelos-de-regressao" title="Permalink to this headline">#</a></h1>
+<p>Francisco Aparecido Rodrigues, <a class="reference external" href="mailto:francisco&#37;&#52;&#48;icmc&#46;usp&#46;br">francisco<span>&#64;</span>icmc<span>&#46;</span>usp<span>&#46;</span>br</a>.<br>
+Universidade de São Paulo, São Carlos, Brasil.<br>
+Copyright (c) 2023.</p>
+<section id="regressao-linear-simples">
+<h2>Regressão linear simples<a class="headerlink" href="#regressao-linear-simples" title="Permalink to this headline">#</a></h2>
+<p>Vimos que para a regressão linear simples, temos o modelo: <span class="math notranslate nohighlight">\(Y \approx \beta_0 + \beta_1 X\)</span></p>
+<p>Vamos implementar esse método a seguir. Inicialmente, definimos os dados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># define os dados</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4e31de52c4127ed171b685c1ad268cabb7670da9e007a1a4f694ce8b863fd0f3.png" src="_images/4e31de52c4127ed171b685c1ad268cabb7670da9e007a1a4f694ce8b863fd0f3.png" />
+</div>
+</div>
+<p>A seguir, implementamos uma função para calcular os coeficientes.</p>
+<p>Estimando os coeficiente através do método dos mínimos quadrados, obtemos:
+$<span class="math notranslate nohighlight">\(
+    \begin{cases}
+    \hat{\beta}_1=\frac{\sum_{i=1}^n (x_i- \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{\sigma_{xy}}{\sigma_{xx}}\\
+    \hat{\beta}_0= \bar{y}-\hat{\beta_1}\bar{x}
+    \end{cases}
+    \)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">variance</span> 
+<span class="kn">import</span> <span class="nn">math</span> 
+
+<span class="k">def</span> <span class="nf">linear_regression</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
+    <span class="c1"># número de observações/pontos</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+  
+    <span class="c1"># médias de x e y</span>
+    <span class="n">m_x</span><span class="p">,</span> <span class="n">m_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> 
+    <span class="n">SS_xy</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">SS_xx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">SS_xy</span> <span class="o">=</span> <span class="n">SS_xy</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">m_x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">m_y</span><span class="p">)</span>
+        <span class="n">SS_xx</span> <span class="o">=</span> <span class="n">SS_xx</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">m_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+  
+    <span class="c1"># calcula os coeficientes de regressão</span>
+    <span class="n">b_1</span> <span class="o">=</span> <span class="n">SS_xy</span> <span class="o">/</span> <span class="n">SS_xx</span> 
+    <span class="n">b_0</span> <span class="o">=</span> <span class="n">m_y</span> <span class="o">-</span> <span class="n">b_1</span><span class="o">*</span><span class="n">m_x</span> 
+  
+    <span class="k">return</span> <span class="p">(</span><span class="n">b_0</span><span class="p">,</span> <span class="n">b_1</span><span class="p">)</span> 
+
+<span class="c1"># função para mostrar os dados e o ajuste linear</span>
+<span class="k">def</span> <span class="nf">plot_regression_line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> 
+    <span class="c1"># mostra os dados</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> 
+  
+    <span class="c1"># prediz os valores</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> 
+  
+    <span class="c1"># mostra a reta de regressão</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> 
+  
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assim, aplicando ao conjunto de dados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># estima os coeficientes</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">linear_regression</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated coefficients:</span><span class="se">\n</span><span class="s2">b_0 = </span><span class="si">{}</span><span class="s2">  </span><span class="se">\n</span><span class="s2">b_1 = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> 
+  
+<span class="c1"># mostra o ajuste linear</span>
+<span class="n">plot_regression_line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated coefficients:
+b_0 = 1.2363636363636363  
+b_1 = 1.1696969696969697
+</pre></div>
+</div>
+<img alt="_images/e19dc9dca3277362d74865aa2a556dc58f9de5ea9dcc9bd98d8e316d3c5aca99.png" src="_images/e19dc9dca3277362d74865aa2a556dc58f9de5ea9dcc9bd98d8e316d3c5aca99.png" />
+</div>
+</div>
+<p>Para quantificar a acurácia do modelo, usamos o erro padrão residual (residual standard error):
+$<span class="math notranslate nohighlight">\(
+RSE = \sqrt{\frac{1}{n-2}\sum_{i=1}^n (y_i-\hat{y}_i)^2}
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#funcao que calcula o RSE</span>
+<span class="k">def</span> <span class="nf">RSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">RSE</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># valor predito</span>
+        <span class="n">RSE</span> <span class="o">=</span> <span class="n">RSE</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">RSE</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">RSE</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">RSE</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RSE:&#39;</span><span class="p">,</span> <span class="n">RSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RSE: 0.8384690232980003
+</pre></div>
+</div>
+</div>
+</div>
+<p>Outra medida importante é o coeficiente R2, que mede a proporção da variabilidade em Y que pode ser explicada a partir de X.
+$<span class="math notranslate nohighlight">\(
+R^2 = 1-\frac{\sum_{i=1}^n (y_i-\hat{y}_i)^2}{\sum_{i=1}^n(y_i-\bar{y})^2}, \quad 0\leq R^2\leq 1
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># valor predito</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">ym</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">R2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">c1</span><span class="o">/</span><span class="n">c2</span>
+    <span class="k">return</span> <span class="n">R2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.952538038613988
+</pre></div>
+</div>
+</div>
+</div>
+<p>Quanto mais próximo de um, melhor é o ajuste da regressão linear.</p>
+</section>
+<section id="regressao-linear-multipla">
+<h2>Regressão linear múltipla<a class="headerlink" href="#regressao-linear-multipla" title="Permalink to this headline">#</a></h2>
+<p>Para o caso multivariado, vimos que a estimação dos coeficientes pelo método dos mínimos quadrados resulta na relação:
+$<span class="math notranslate nohighlight">\(
+\beta = (\text{X}^T \text{X})^{-1} \text{X}^T \text{y}
+\)</span><span class="math notranslate nohighlight">\(
+onde
+\)</span><span class="math notranslate nohighlight">\(
+\text{X} = \begin{pmatrix}
+1 &amp; x_{11} &amp;x_{12} &amp;\ldots &amp;x_{1d} \\
+1 &amp; x_{21} &amp;x_{22} &amp;\ldots &amp;x_{2d} \\
+\ldots &amp; \ldots &amp;\ldots &amp;\ldots &amp;\ldots \\
+1 &amp; x_{n1} &amp;x_{n2} &amp;\ldots &amp;x_{nd} \\
+\end{pmatrix}
+\)</span>$</p>
+<p>Vamos considerar dados reais e a biblioteca scikit-learn. Inicialmente, carregamos os dados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># le os dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/BostonHousing.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="c1"># valor a ser predito</span>
+<span class="n">ylabel</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de linhas e colunas:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de linhas e colunas: (506, 14)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>crim</th>
+      <th>zn</th>
+      <th>indus</th>
+      <th>chas</th>
+      <th>nox</th>
+      <th>rm</th>
+      <th>age</th>
+      <th>dis</th>
+      <th>rad</th>
+      <th>tax</th>
+      <th>ptratio</th>
+      <th>b</th>
+      <th>lstat</th>
+      <th>medv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00632</td>
+      <td>18.0</td>
+      <td>2.31</td>
+      <td>0</td>
+      <td>0.538</td>
+      <td>6.575</td>
+      <td>65.2</td>
+      <td>4.0900</td>
+      <td>1</td>
+      <td>296</td>
+      <td>15.3</td>
+      <td>396.90</td>
+      <td>4.98</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.02731</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>6.421</td>
+      <td>78.9</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>396.90</td>
+      <td>9.14</td>
+      <td>21.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.02729</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>7.185</td>
+      <td>61.1</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>392.83</td>
+      <td>4.03</td>
+      <td>34.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.03237</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>6.998</td>
+      <td>45.8</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>394.63</td>
+      <td>2.94</td>
+      <td>33.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.06905</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>7.147</td>
+      <td>54.2</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>396.90</td>
+      <td>5.33</td>
+      <td>36.2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.02985</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>6.430</td>
+      <td>58.7</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>394.12</td>
+      <td>5.21</td>
+      <td>28.7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.08829</td>
+      <td>12.5</td>
+      <td>7.87</td>
+      <td>0</td>
+      <td>0.524</td>
+      <td>6.012</td>
+      <td>66.6</td>
+      <td>5.5605</td>
+      <td>5</td>
+      <td>311</td>
+      <td>15.2</td>
+      <td>395.60</td>
+      <td>12.43</td>
+      <td>22.9</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.14455</td>
+      <td>12.5</td>
+      <td>7.87</td>
+      <td>0</td>
+      <td>0.524</td>
+      <td>6.172</td>
+      <td>96.1</td>
+      <td>5.9505</td>
+      <td>5</td>
+      <td>311</td>
+      <td>15.2</td>
+      <td>396.90</td>
+      <td>19.15</td>
+      <td>27.1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.21124</td>
+      <td>12.5</td>
+      <td>7.87</td>
+      <td>0</td>
+      <td>0.524</td>
+      <td>5.631</td>
+      <td>100.0</td>
+      <td>6.0821</td>
+      <td>5</td>
+      <td>311</td>
+      <td>15.2</td>
+      <td>386.63</td>
+      <td>29.93</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.17004</td>
+      <td>12.5</td>
+      <td>7.87</td>
+      <td>0</td>
+      <td>0.524</td>
+      <td>6.004</td>
+      <td>85.9</td>
+      <td>6.5921</td>
+      <td>5</td>
+      <td>311</td>
+      <td>15.2</td>
+      <td>386.71</td>
+      <td>17.10</td>
+      <td>18.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Transformamos os dados para o formato numpy para facilitar o acesso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">ncol</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>O código está convertendo o DataFrame pandas em um array NumPy e, em seguida, separando as variáveis independentes (X) e dependente (y) para a análise de regressão.</p>
+<p>data.to_numpy() é uma função do pandas que converte um DataFrame em um array NumPy. Em seguida, as dimensões do array são obtidas usando a função shape, que retorna o número de linhas e colunas do array.</p>
+<p>A variável dependente (y) é definida como a última coluna do array NumPy (ou seja, data[:, -1]). A variável independente (X) é definida como todas as colunas, exceto a última coluna do array NumPy (ou seja, data[:, 0:ncol-1]).</p>
+<p>Essa separação das variáveis independentes e dependentes é necessária para a análise de regressão, pois o modelo de regressão linear múltipla usa as variáveis independentes para prever a variável dependente.</p>
+<p>Em resumo, o código converte o DataFrame pandas em um array NumPy e separa as variáveis independentes e dependentes para a análise de regressão.</p>
+<p>Selecionamos os conjuntos de teste e treinamento, sendo que <span class="math notranslate nohighlight">\(p\)</span>% dos dados serão usados como teste e (1-p)%, como treinamento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="c1"># divide o conjunto em treinamento e teste</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># fracao e elementos no conjnto de teste</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>O ajuste dos coeficientes da regressão linear é feito usando apenas o conjunto de treinamento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># modelo de regressão linear múltipla</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notem que como temos várias variáveis, não é possível mostrar os resultados em mais de três dimensões. Nesse caso, uma maneira de visualizar a precisão na predição é graficar os valores reais versus as predições, como mostramos abaixo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediction&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># mostra os valores preditos e originais</span>
+<span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">),(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yl</span> <span class="o">=</span> <span class="n">xl</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># salva a figura em um arquivo</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;regression-LR.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1e9bbf1c21cc19ed08974e4dff926e18adb6e1f239800e6032a6286d666c24c.png" src="_images/c1e9bbf1c21cc19ed08974e4dff926e18adb6e1f239800e6032a6286d666c24c.png" />
+</div>
+</div>
+<p>Quanto mais próximo da reta em vermelho, melhor será a predição, pois essa reta representa o caso em que <span class="math notranslate nohighlight">\(\hat{y} = y\)</span>.</p>
+<p>Para quantificarmos o ajuste, calculamos o coeficiente R2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.7112260057484908
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variaveis-nao-lineares">
+<h2>Variáveis não lineares<a class="headerlink" href="#variaveis-nao-lineares" title="Permalink to this headline">#</a></h2>
+<p>Notem que o modelo não precisa ter termos lineares em X, mas apenas nos parâmetros. Por exemplo, modelo abaixo ainda é linear nos parâmetros: $<span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 x + \beta_2 x^2 + \epsilon\)</span>$</p>
+<p>Vamos considerar um exemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6496dd8317647f4083bb4805e1f086979082ec8342944904a20c221af52b71de.png" src="_images/6496dd8317647f4083bb4805e1f086979082ec8342944904a20c221af52b71de.png" />
+</div>
+</div>
+<p>Geramos os dados quadráticos inserindo mais uma coluna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+
+<span class="c1"># define a transformação nos dados</span>
+<span class="n">transformer</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dados originais:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># transforma os dados incluindo uma nova coluna com valores quadráticos</span>
+<span class="n">x_</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Novos dados:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dados originais:
+ [[ 5]
+ [15]
+ [25]
+ [35]
+ [45]
+ [55]]
+Novos dados:
+ [[   5.   25.]
+ [  15.  225.]
+ [  25.  625.]
+ [  35. 1225.]
+ [  45. 2025.]
+ [  55. 3025.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>O modelo será dado por: $<span class="math notranslate nohighlight">\(y = \beta_0 + \beta_1 x + \beta_2 x^2 + \epsilon\)</span>$</p>
+<p>Vamos aplicar a regressão linear:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mostrando os valores preditos (<span class="math notranslate nohighlight">\(\hat{y}\)</span>) e os originais (<span class="math notranslate nohighlight">\(y\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediction&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># mostra a reta diagonal, que representa a predição perfeita</span>
+<span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">),(</span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yl</span> <span class="o">=</span> <span class="n">xl</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0f969bd43578d67efb1ad7d1951531a864e545b641a92e94fb7fa7dd641fc453.png" src="_images/0f969bd43578d67efb1ad7d1951531a864e545b641a92e94fb7fa7dd641fc453.png" />
+</div>
+</div>
+<p>Mostrando os valores no gráfico original:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dados originais&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Dados preditos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bdbd33074e98fbcfe714e9fa3057d14662b33556d51ef23023183ff8f06d2b4a.png" src="_images/bdbd33074e98fbcfe714e9fa3057d14662b33556d51ef23023183ff8f06d2b4a.png" />
+</div>
+</div>
+<p>O coeficiente R2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.8908516262498563
+</pre></div>
+</div>
+</div>
+</div>
+<p>Portanto, para ajustar um modelo com variáveis não lineares, basta gerarmos um novo conjunto de dados inserindo novas colunas aos dados originais e realizar o procedimento de regressão multivariada. Cada coluna inserida contém os dados originais elevados a uma potência definida pelos termos do modelo.</p>
+</section>
+<section id="ridge-regression">
+<h2>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">#</a></h2>
+<p>Vamos considerar dados sobre propaganda em rádio, televisão e jornais. Estamos interessados em determinar se o investimento em propaganda aumenta as vendas e, em caso afirmativo, qual seria o veículo de divulgação mais vantajoso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># leitura dos dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Advertising.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="c1"># remove nan (Not a Number)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># remove the first column (if useless)</span>
+<span class="c1"># define a variável de saída</span>
+<span class="n">ylabel</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de observações e atributos:&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">list_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de observações e atributos: (200, 4)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TV</th>
+      <th>radio</th>
+      <th>newspaper</th>
+      <th>sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>230.1</td>
+      <td>37.8</td>
+      <td>69.2</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>44.5</td>
+      <td>39.3</td>
+      <td>45.1</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>17.2</td>
+      <td>45.9</td>
+      <td>69.3</td>
+      <td>9.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>151.5</td>
+      <td>41.3</td>
+      <td>58.5</td>
+      <td>18.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>180.8</td>
+      <td>10.8</td>
+      <td>58.4</td>
+      <td>12.9</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>8.7</td>
+      <td>48.9</td>
+      <td>75.0</td>
+      <td>7.2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>57.5</td>
+      <td>32.8</td>
+      <td>23.5</td>
+      <td>11.8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>120.2</td>
+      <td>19.6</td>
+      <td>11.6</td>
+      <td>13.2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8.6</td>
+      <td>2.1</td>
+      <td>1.0</td>
+      <td>4.8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>199.8</td>
+      <td>2.6</td>
+      <td>21.2</td>
+      <td>10.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Converte os dados para numpy para facilitar a manipulação</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">ncol</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ajustando o modelo de regressão múltipla simples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># fracao de elementos no conjunto de teste</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># modelo de regressão linear múltipla</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">RSME</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RSME:&quot;</span><span class="p">,</span> <span class="n">RSME</span><span class="p">)</span>          <span class="c1"># Calculate the test MSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RSME: 3.7967972367152183
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.8609466508230368
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notem que esse resultado é o mesmo se aplicarmos a função Ridge com alpha = 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Código original alterado. O parâmetro normalize foi removido da classe Ridge no scikit-learn 1.0.</span>
+<span class="c1"># A partir da versão 1.0 do scikit-learn, a maneira recomendada de normalizar as variáveis independentes</span>
+<span class="c1"># é usar a classe StandardScaler ou a função scale antes de aplicar a regressão Ridge.</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Crie um pipeline que primeiro normaliza os dados e então aplica a regressão Ridge</span>
+<span class="n">ridge2</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">ridge2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>   <span class="c1"># Fit a ridge regression on the training data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>  <span class="c1"># Use this model to predict the test data</span>
+
+<span class="n">RMSE</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RSME:&quot;</span><span class="p">,</span> <span class="n">RSME</span><span class="p">)</span>  <span class="c1"># Calculate the test RMSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RSME: 3.7967972367152183
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos mostrar a predição e os valores originais para <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">RidgeCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Crie um pipeline que primeiro normaliza os dados e então aplica a regressão Ridge</span>
+<span class="n">ridge2</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ridge2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>             <span class="c1"># Fit a ridge regression on the training data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>           <span class="c1"># Use this model to predict the test data</span>
+<span class="n">RSME</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">RMSE</span><span class="p">)</span>          <span class="c1"># Calculate the test MSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE: 1.9485372043446385
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediction&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">),(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yl</span> <span class="o">=</span> <span class="n">xl</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="c1">#plt.grid(True)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/68526970b7f64bf42dcc64c1892e35438d4ba2b8b5fc52cbc3165770b28e0a8d.png" src="_images/68526970b7f64bf42dcc64c1892e35438d4ba2b8b5fc52cbc3165770b28e0a8d.png" />
+</div>
+</div>
+<p>O coeficiente R2 quantifica a qualidade do ajuste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.8608226691408615
+</pre></div>
+</div>
+</div>
+</div>
+<p>No modelo ridge regression, temos que o parâmetro <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>. Vamos analisar como o coeficiente R2 varia de acordo com <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vR2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">valpha</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># variamos os valaores de alpha</span>
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="n">ridge2</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">))</span>
+    <span class="c1">#ridge2 = Ridge(alpha = alpha, normalize = True) # normalize foi removido da classe</span>
+    <span class="n">ridge2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>             <span class="c1"># Fit a ridge regression on the training data</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>           <span class="c1"># Use this model to predict the test data</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">vR2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+    <span class="n">valpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valpha</span><span class="p">,</span> <span class="n">vR2</span><span class="p">,</span> <span class="s1">&#39;-ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/739522a84914a277365d6da2eddc3342bef3a3678a1f457d7a53e2d8f10dd4e4.png" src="_images/739522a84914a277365d6da2eddc3342bef3a3678a1f457d7a53e2d8f10dd4e4.png" />
+</div>
+</div>
+<p>Para <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, o coeficiente R2 diminui, indicando que o ajuste tradicional, para <span class="math notranslate nohighlight">\(\alpha = 0\)</span>, resulta em um resultado melhor.</p>
+<p>Ou seja, para esse conjunto de dados, a melhor opção é considerar a regressão linear simples.</p>
+<section id="lasso">
+<h3>LASSO<a class="headerlink" href="#lasso" title="Permalink to this headline">#</a></h3>
+<p>Usando os dados anteriores, vamos aplicar o método Lasso (least absolute shrinkage and selection operator) aos dados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="c1"># notice that we need to normalize the attributes: normalize = True</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>             <span class="c1"># Fit a ridge regression on the training data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>           <span class="c1"># Use this model to predict the test data</span>
+<span class="n">RSME</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>         <span class="c1"># Calculate the test MSE</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RSME:&#39;</span><span class="p">,</span> <span class="n">RSME</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RSME: 3.78474366872837
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediction&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">xl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">),(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yl</span> <span class="o">=</span> <span class="n">xl</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="c1">#plt.grid(True)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9dddca15d2e39ca8d1355627d468b5b5a6f3126631ba15eeecd25447de2f447b.png" src="_images/9dddca15d2e39ca8d1355627d468b5b5a6f3126631ba15eeecd25447de2f447b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>          <span class="c1"># Calculate the test MSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2: 0.861388098941966
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que o valor de R2 é menor do que o obtido nos exemplos anteriores, indicando que para os dados que estamos analisando, a regressão simples oferece o melhor resultado.</p>
+<p>Variando alpha, vemos que o coeficiente R2 diminui ainda mais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vR2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">valpha</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="c1">#lasso = Lasso(alpha = alpha, normalize = True)</span>
+    <span class="n">lasso</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">))</span>
+    <span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>             <span class="c1"># Fit a ridge regression on the training data</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>           <span class="c1"># Use this model to predict the test data</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">vR2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+    <span class="n">valpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valpha</span><span class="p">,</span> <span class="n">vR2</span><span class="p">,</span> <span class="s1">&#39;-ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7562b2f3d5f4ede9aec2084034523335adef4017e62dcc449559da2bc444bdaf.png" src="_images/7562b2f3d5f4ede9aec2084034523335adef4017e62dcc449559da2bc444bdaf.png" />
+</div>
+</div>
+<p>No método Lasso, podemos calcular os coeficientes de modo a selecionar os atributos mais importantes. Se algum atributo apresentar os respectivo coeficiente igual a zero, então esse atributo não contribui para a regressão.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lasso = Lasso(alpha = 0.1, normalize = True)</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>             <span class="c1"># Fit a ridge regression on the training data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coeficientes: TV, radio, newspaper&#39;</span><span class="p">)</span>
+<span class="c1">#lasso.coef_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lasso</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;lasso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span> <span class="c1"># acessa o estimador Lasso dentro do pipeline,</span>
+<span class="c1"># e .coef_ obtém os coeficientes desse modelo.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coeficientes: TV, radio, newspaper
+[3.59030605 2.83747278 0.06852482]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou seja, vemos que a variável newspaper recebeu peso igual a zero, indicando que não é importante na predição. Portanto, não vale a pena investir em anúncios em jornais, pois o ganho nas vendas pode ser obtido com investimentos em TV e radio.</p>
+</section>
+</section>
+<section id="inferencia-sobre-os-parametros">
+<h2>Inferência sobre os parâmetros<a class="headerlink" href="#inferencia-sobre-os-parametros" title="Permalink to this headline">#</a></h2>
+<p>Vamos gerar os dados e usar a biblioteca ols para realizar a inferência sobre os parâmetros do modelo. (<a class="reference external" href="https://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.OLS.html">https://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.OLS.html</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1"># dados</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># ajusta o modelo de regressão linear</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># mostra os resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_predicted</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="c1"># sumários estatístico com OLS</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e6c6bb344da9c7d50169c1e5eea1d3447687e0aea0724b41f2b90761c9d50199.png" src="_images/e6c6bb344da9c7d50169c1e5eea1d3447687e0aea0724b41f2b90761c9d50199.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.953
+Model:                            OLS   Adj. R-squared:                  0.947
+Method:                 Least Squares   F-statistic:                     160.6
+Date:                Sat, 03 Jun 2023   Prob (F-statistic):           1.41e-06
+Time:                        19:43:38   Log-Likelihood:                -11.312
+No. Observations:                  10   AIC:                             26.62
+Df Residuals:                       8   BIC:                             27.23
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      1.2364      0.493      2.509      0.036       0.100       2.373
+x              1.1697      0.092     12.671      0.000       0.957       1.383
+==============================================================================
+Omnibus:                        0.948   Durbin-Watson:                   2.059
+Prob(Omnibus):                  0.622   Jarque-Bera (JB):                0.392
+Skew:                          -0.461   Prob(JB):                        0.822
+Kurtosis:                       2.702   Cond. No.                         10.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/scipy/stats/_stats_py.py:1736: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=10
+  warnings.warn(&quot;kurtosistest only valid for n&gt;=20 ... continuing &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notem que a inferência sobre o modelo é feita de forma automática, calculado o valor p (P&gt;|t|) e determinando o intervalo de confiança 95%.</p>
+<p>Podemos ainda calcular esse intervalo conforme abaixo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IC: &#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">conf_int</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IC:                    0         1
+Intercept  0.099934  2.372793
+x          0.956824  1.382570
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos considerar um caso em que o modelo não se aplica, ou seja, não há uma relação linear entre as variáveis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+
+<span class="c1"># dados</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># ajusta o modelo de regressão linear</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Mostra os resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_predicted</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;regress-random.svg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="c1"># sumários estatístico com OLS</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6c4ab0ee2469ac4657ccc213f707446111f1c418defce242e20262259169ba68.png" src="_images/6c4ab0ee2469ac4657ccc213f707446111f1c418defce242e20262259169ba68.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.001
+Model:                            OLS   Adj. R-squared:                 -0.020
+Method:                 Least Squares   F-statistic:                   0.02665
+Date:                Sat, 03 Jun 2023   Prob (F-statistic):              0.871
+Time:                        19:43:39   Log-Likelihood:                -71.304
+No. Observations:                  50   AIC:                             146.6
+Df Residuals:                      48   BIC:                             150.4
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0390      0.286      0.136      0.892      -0.537       0.615
+x              0.0806      0.494      0.163      0.871      -0.912       1.073
+==============================================================================
+Omnibus:                        6.024   Durbin-Watson:                   2.081
+Prob(Omnibus):                  0.049   Jarque-Bera (JB):                2.542
+Skew:                          -0.224   Prob(JB):                        0.281
+Kurtosis:                       1.991   Cond. No.                         4.31
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Portanto, vemos que os parâmetros são não-significativos (P &gt; 0.05), conforme o esperado, pois geramos dados onde não há uma relação linear entre as variáveis.</p>
+<p>No caso multivariado, vamos considerar que y não depende de X3, que deve ser não significativo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># número de observações</span>
+<span class="c1"># gera os dados</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="n">e</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="c1"># sumários estatístico com o OLS</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;y ~ x1 + x2 + x3&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Parâmetros:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.847
+Model:                            OLS   Adj. R-squared:                  0.846
+Method:                 Least Squares   F-statistic:                     916.3
+Date:                Sat, 03 Jun 2023   Prob (F-statistic):          8.25e-202
+Time:                        19:43:39   Log-Likelihood:                -1507.3
+No. Observations:                 500   AIC:                             3023.
+Df Residuals:                     496   BIC:                             3039.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.2219      0.709      5.953      0.000       2.828       5.615
+x1             1.9849      0.078     25.557      0.000       1.832       2.138
+x2             3.2020      0.075     42.463      0.000       3.054       3.350
+x3            -0.0210      0.085     -0.247      0.805      -0.188       0.146
+==============================================================================
+Omnibus:                        0.735   Durbin-Watson:                   1.945
+Prob(Omnibus):                  0.692   Jarque-Bera (JB):                0.817
+Skew:                           0.021   Prob(JB):                        0.665
+Kurtosis:                       2.807   Cond. No.                         30.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Parâmetros:
+ Intercept    4.221891
+x1           1.984922
+x2           3.202007
+x3          -0.021012
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Logo, vemos que X3 é não significativo (valor p igual a 0.805).</p>
+<section id="inferencia-sobre-o-modelo-em-um-conjunto-de-dados">
+<h3>Inferência sobre o modelo em um conjunto de dados<a class="headerlink" href="#inferencia-sobre-o-modelo-em-um-conjunto-de-dados" title="Permalink to this headline">#</a></h3>
+<p>Vamos realizar essa operação em um conjunto de dados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+
+<span class="c1"># le os dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/BostonHousing.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="c1">#data = pd.read_csv(&#39;data/Advertising.csv&#39;, header=(0), index_col=[0])</span>
+<span class="c1"># valor a ser predito</span>
+<span class="n">ylabel</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de linhas e colunas:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># monta o modelo: y ~ x1 + x2 + ...</span>
+<span class="n">model_string</span> <span class="o">=</span>  <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+    <span class="n">model_string</span> <span class="o">=</span> <span class="n">model_string</span> <span class="o">+</span> <span class="s1">&#39;+&#39;</span> <span class="o">+</span> <span class="n">s</span>
+<span class="n">model_string</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;~&#39;</span> <span class="o">+</span> <span class="n">model_string</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo as ser ajustado: &#39;</span><span class="p">,</span> <span class="n">model_string</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="n">model_string</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de linhas e colunas: (506, 14)
+Modelo as ser ajustado:  medv~crim+zn+indus+chas+nox+rm+age+dis+rad+tax+ptratio+b+lstat
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   medv   R-squared:                       0.741
+Model:                            OLS   Adj. R-squared:                  0.734
+Method:                 Least Squares   F-statistic:                     108.1
+Date:                Sat, 03 Jun 2023   Prob (F-statistic):          6.72e-135
+Time:                        19:43:39   Log-Likelihood:                -1498.8
+No. Observations:                 506   AIC:                             3026.
+Df Residuals:                     492   BIC:                             3085.
+Df Model:                          13                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     36.4595      5.103      7.144      0.000      26.432      46.487
+crim          -0.1080      0.033     -3.287      0.001      -0.173      -0.043
+zn             0.0464      0.014      3.382      0.001       0.019       0.073
+indus          0.0206      0.061      0.334      0.738      -0.100       0.141
+chas           2.6867      0.862      3.118      0.002       0.994       4.380
+nox          -17.7666      3.820     -4.651      0.000     -25.272     -10.262
+rm             3.8099      0.418      9.116      0.000       2.989       4.631
+age            0.0007      0.013      0.052      0.958      -0.025       0.027
+dis           -1.4756      0.199     -7.398      0.000      -1.867      -1.084
+rad            0.3060      0.066      4.613      0.000       0.176       0.436
+tax           -0.0123      0.004     -3.280      0.001      -0.020      -0.005
+ptratio       -0.9527      0.131     -7.283      0.000      -1.210      -0.696
+b              0.0093      0.003      3.467      0.001       0.004       0.015
+lstat         -0.5248      0.051    -10.347      0.000      -0.624      -0.425
+==============================================================================
+Omnibus:                      178.041   Durbin-Watson:                   1.078
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              783.126
+Skew:                           1.521   Prob(JB):                    8.84e-171
+Kurtosis:                       8.281   Cond. No.                     1.51e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.51e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que o atributo age é não significativo (valor p igual a 0.958).</p>
+</section>
+</section>
+<section id="exercicios-de-fixacao">
+<h2>Exercícios de fixação<a class="headerlink" href="#exercicios-de-fixacao" title="Permalink to this headline">#</a></h2>
+<p>Não é necessário entregar os exercícios abaixo, mas é importante resolvê-los para fixar os conteúdos estudados.</p>
+<p>1 - Considere a base BostonHousing. Compare o coeficiente R2 obtido através de regressão linear múltipla, Lasso e ridge regression. Para os métodos Lasso e ridge regression, faça um gráfico de <span class="math notranslate nohighlight">\(\alpha \times\)</span> R2 como foi feito nos exemplos anteriores.</p>
+<p>2 - Para os dados gerados pelo código abaixo, ajuste um modelo de regressão não-linear considerando um polinômio de grau 3, conforme feito na aula.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c78829eaaf7f98f3149a58ed171f3117d0fb0d20b2b84c21ed5276df540208c9.png" src="_images/c78829eaaf7f98f3149a58ed171f3117d0fb0d20b2b84c21ed5276df540208c9.png" />
+</div>
+</div>
+<p>3 - Determine as variáveis que mais influenciam o preço de imóveis em Boston usando Lasso.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ICD_Aula2.2-est-descritiva.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ICD_Aula4-classificacao-Knn-NB-RL.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressao-linear-simples">Regressão linear simples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressao-linear-multipla">Regressão linear múltipla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-nao-lineares">Variáveis não lineares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-sobre-os-parametros">Inferência sobre os parâmetros</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-sobre-o-modelo-em-um-conjunto-de-dados">Inferência sobre o modelo em um conjunto de dados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios-de-fixacao">Exercícios de fixação</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-07-3 - Descritores de imagens';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-07-4%20-%20Bag%20of%20features.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-07-3 - Descritores de imagens.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-07-3 - Descritores de imagens.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-descritores-de-imagens-span"><span style="color:darkred">Descritores de imagens</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-cor">Características de cor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vantagens-em-utilizar-descritores">vantagens em utilizar descritores:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-descritores-de-cor">outros descritores de cor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-textura">Características de textura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-descritores-de-imagens">Outros descritores de imagens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span">
+<h3><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span><a class="headerlink" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="span-style-color-darkred-descritores-de-imagens-span">
+<h3><span style="color:darkred">Descritores de imagens</span><a class="headerlink" href="#span-style-color-darkred-descritores-de-imagens-span" title="Permalink to this headline">#</a></h3>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<p><strong>Conteúdo:</strong></p>
+<ol class="arabic simple">
+<li><p>Características de cor baseadas em histograma</p></li>
+<li><p>Características de textura por padrões binários locais</p></li>
+</ol>
+<hr class="docutils" />
+<p>Existem centenas de <em>descritores de imagens</em>. Os clássicos relacionam aspectos visuais que podemos decrever como humanos. Entre outros:</p>
+<ul class="simple">
+<li><p>cor</p></li>
+<li><p>textura</p></li>
+<li><p>forma</p></li>
+<li><p>gradiente</p></li>
+</ul>
+<p>Descritores simples podem ser muito úteis para recuperação de imagens baseada em conteúdo por meio de <em>engenharia de características</em></p>
+<p>Atualmente, Deep Learning (a ser visto futuramente no curso) é considerado o estado da arte para esse tipo de análise, mas suas características possuem baixo nível de interpretação.</p>
+<p>Veremos dois exemplos de descritores interpretáveis e que podem ser úteis para propósito geral e como base para construir soluções mais complexas.</p>
+</section>
+</section>
+<section id="caracteristicas-de-cor">
+<h2>Características de cor<a class="headerlink" href="#caracteristicas-de-cor" title="Permalink to this headline">#</a></h2>
+<p>Imagens possuem sua cor codificada em:</p>
+<ul class="simple">
+<li><p><strong>tons de cinza / intensidades</strong>: 1 canal de cor com 8 bits por pixel</p>
+<ul>
+<li><p>16 em alguns casos, como o de imagens médicas</p></li>
+</ul>
+</li>
+<li><p><strong>coloridas</strong>: RGB, com 3 canais de cor com 8 bits cada (total 24 bits)</p>
+<ul>
+<li><p>também podem ser codificadas em outros espaços de cores, como HSV (Hue, Saturation, Value), Lab, Luv, entre outros.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>O descritor de cor (ou intensidade) mais simples é o <strong>histograma global de cores</strong>.</p>
+<p>Vamos usar como exemplo um caso anterior que vimos na primeira aula!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio.v2</span> <span class="k">as</span> <span class="nn">imageio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># carregar e exibir imagens da &quot;base de dados&quot;</span>
+<span class="n">img1</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/cebolinha3.jpg&quot;</span><span class="p">)</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/cebolinha2.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># carregar imagem de consulta e codificar funcao de distancia</span>
+<span class="c1"># computar as distancias e exibir</span>
+<span class="n">imgQ</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/cebolinha1.jpg&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Euclidean_distance</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Calcula a distancia Euclidiana entre dois vetores de mesmo tamanho&quot;&quot;&quot;</span>
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">dQ1</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="n">img1</span><span class="p">)</span>
+<span class="n">dQ2</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="n">img2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgQ</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consulta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 1 : </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2 : </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">imageio.v2</span> <span class="k">as</span> <span class="nn">imageio</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;imageio&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">histograma_global</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+
+    <span class="c1"># um único canal de cor</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">hist</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="c1"># mais do que um canal de cor RGB</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">hist_R</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">img</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+        <span class="n">hist_G</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">img</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+        <span class="n">hist_B</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">img</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+        
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">hist_R</span><span class="p">,</span> <span class="n">hist_G</span><span class="p">,</span> <span class="n">hist_B</span><span class="p">])</span>
+    
+    <span class="c1"># normaliza o vetor resultante pela soma dos valores</span>
+    <span class="n">hist</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+    <span class="n">hist</span> <span class="o">/=</span> <span class="p">(</span><span class="n">hist</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>        
+    
+    <span class="k">return</span> <span class="n">hist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HQ</span> <span class="o">=</span> <span class="n">histograma_global</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">H1</span> <span class="o">=</span> <span class="n">histograma_global</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">H2</span> <span class="o">=</span> <span class="n">histograma_global</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+
+<span class="n">dQ1_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">HQ</span><span class="p">,</span> <span class="n">H1</span><span class="p">)</span>
+<span class="n">dQ2_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">HQ</span><span class="p">,</span> <span class="n">H2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgQ</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consulta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 1: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ2_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ1_H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rank 2: 0.4683&#39;)
+</pre></div>
+</div>
+<img alt="_images/acd1c3d641a5e2b25923cb3de62aca627e98f8d2e38b8792438cafac10e9ac9a.png" src="_images/acd1c3d641a5e2b25923cb3de62aca627e98f8d2e38b8792438cafac10e9ac9a.png" />
+</div>
+</div>
+<section id="vantagens-em-utilizar-descritores">
+<h3>vantagens em utilizar descritores:<a class="headerlink" href="#vantagens-em-utilizar-descritores" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>vetores de característica possuem menor dimensão do que o espaço de pixels e podem ser usados como índices,</p></li>
+<li><p>imagens de resolução diferentes podem ser comparadas,</p></li>
+<li><p>é possível aplicar redução de dimensionalidade</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimensionalidade pixels = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">imgQ</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimensionalidade histograma = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">HQ</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensionalidade pixels =  674028
+Dimensionalidade histograma =  192
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img3</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/magali.jpg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimensionalidade pixels = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">img3</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1">#dQ3 = Euclidean_distance(imgQ, img3)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensionalidade pixels =  923520
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.transform</span> <span class="kn">import</span> <span class="n">resize</span>
+
+<span class="n">imgQ_shape</span> <span class="o">=</span> <span class="n">imgQ</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># Obtem a forma da imagem &#39;imgQ&#39;</span>
+
+<span class="n">img3_resized</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span><span class="n">img3</span><span class="p">,</span> <span class="n">imgQ_shape</span><span class="p">)</span>  <span class="c1"># Redimensiona &#39;img3&#39; para ter o mesmo formato de &#39;imgQ&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimensionalidade pixels = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">img3_resized</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="n">dQ3</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="n">img3_resized</span><span class="p">)</span>  <span class="c1"># Agora você pode calcular a distância Euclidiana</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dQ3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensionalidade pixels =  674028
+181973.0906349875
+</pre></div>
+</div>
+</div>
+</div>
+<p>O erro é de incompatibilidade nos tamanhos das imagens, de forma que diferentes resoluções não permita comparação direta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H3</span> <span class="o">=</span> <span class="n">histograma_global</span><span class="p">(</span><span class="n">img3</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">dQ3_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">HQ</span><span class="p">,</span> <span class="n">H3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgQ</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consulta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">234</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 1 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ2_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ3_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ1_H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rank 2 : 0.4683&#39;)
+</pre></div>
+</div>
+<img alt="_images/654a279009ff75a0e3936c3eb935e8400b5cbcb032b1c690b4bea7fab63ce73f.png" src="_images/654a279009ff75a0e3936c3eb935e8400b5cbcb032b1c690b4bea7fab63ce73f.png" />
+</div>
+</div>
+</section>
+<section id="outros-descritores-de-cor">
+<h3>outros descritores de cor<a class="headerlink" href="#outros-descritores-de-cor" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Border/Interior Classification (BIC): computa dois histogramas um para regiões planas (interior) e um para bordas ou regiões com variação (border)</p></li>
+<li><p>Autocorrelograma de cores: computa uma matriz que verifica a ocorrência de uma cor em relação às outras</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="caracteristicas-de-textura">
+<h3>Características de textura<a class="headerlink" href="#caracteristicas-de-textura" title="Permalink to this headline">#</a></h3>
+<p>Consideram não apenas os valores absolutos dos pixels, mas também sua relação com vizinhos.</p>
+<ul class="simple">
+<li><p>regiões planas tem significado diferente de regiões com alta variação</p></li>
+<li><p>diferentes padrões de variação possuem significado diferente de textura</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Textura</p></th>
+<th class="text-center head"><p>Exemplo</p></th>
+<th class="text-center head"><p>Textura</p></th>
+<th class="text-center head"><p>Exemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Entrelaçado</p></td>
+<td class="text-center"><p><img alt="Entrelaçado" src="_images/texture_interlaced.jpg" /></p></td>
+<td class="text-center"><p>Borbulhante</p></td>
+<td class="text-center"><p><img alt="Borbulhante" src="_images/texture_bubbly.jpg" /></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Espargido</p></td>
+<td class="text-center"><p><img alt="Polvilhado" src="_images/texture_sprinkled.jpg" /></p></td>
+<td class="text-center"><p>Pontilhado</p></td>
+<td class="text-center"><p><img alt="Pontuado" src="_images/texture_dotted2.jpg" /></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Trançado</p></td>
+<td class="text-center"><p><img alt="Trançado" src="_images/texture_braided.jpg" /></p></td>
+<td class="text-center"><p>Xadrez</p></td>
+<td class="text-center"><p><img alt="Xadrez" src="_images/texture_chequered.jpg" /></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ainda que características de <em>frequência</em> possam ser utilizadas nesse caso, a Tranformada de Fourier não permite a localização das frequências, atuando apenas de forma global.</p>
+<p>Um descritor bastante utilizado é o <strong>Local Binary Patterns (LBP)</strong>, implementado na biblioteca <code class="docutils literal notranslate"><span class="pre">scikit-image</span></code></p>
+<p>Ele busca por padrões locais em que cada pixel central é comparado com os vizinhos de forma binária:</p>
+<ul class="simple">
+<li><p>valores maiores o iguais se transformam em 1</p></li>
+<li><p>valores menores se transformam em 0</p></li>
+</ul>
+<p><img src="imagens/LBP.png" width=460></img></p>
+<p>Considerando uma vizinhança de 8 pixels, temos <span class="math notranslate nohighlight">\(2^8 = 256\)</span> códigos distintos, dos quais obtemos um histograma</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">feature</span>
+
+<span class="k">def</span> <span class="nf">lbp_features</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    
+    <span class="c1"># LBP opera em imagens de um só canal, aqui vamos converter </span>
+    <span class="c1"># RGB para escala de cinza usando o método Luminance</span>
+    <span class="n">img_gray</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">*</span><span class="mf">0.3</span> <span class="o">+</span> <span class="n">img</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">*</span><span class="mf">0.59</span> <span class="o">+</span> <span class="n">img</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">*</span><span class="mf">0.11</span>
+    
+    <span class="c1"># aqui definimos o numero de pontos e o raio, padrao = 8, 1</span>
+    <span class="n">lbp</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">local_binary_pattern</span><span class="p">(</span><span class="n">img_gray</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># lbp retorna um matriz com os códigos, então devemos extraír o histograma</span>
+    <span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">lbp</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># normaliza o histograma</span>
+    <span class="n">hist</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+    <span class="n">hist</span> <span class="o">/=</span> <span class="p">(</span><span class="n">hist</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">)</span>
+    <span class="c1"># return the histogram of Local Binary Patterns</span>
+
+    <span class="k">return</span> <span class="n">hist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img1</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_dotted.jpg&quot;</span><span class="p">)</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_dotted3.jpg&quot;</span><span class="p">)</span>
+<span class="n">img3</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_dotted2.jpg&quot;</span><span class="p">)</span>
+<span class="n">img4</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_interlaced.jpg&quot;</span><span class="p">)</span>
+<span class="n">img5</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_chequered.jpg&quot;</span><span class="p">)</span>
+<span class="n">img6</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;dados/texture_sprinkled.jpg&quot;</span><span class="p">)</span>
+
+<span class="n">lbp1</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img1</span><span class="p">)</span>
+<span class="n">lbp2</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img2</span><span class="p">)</span>
+<span class="n">lbp3</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img3</span><span class="p">)</span>
+<span class="n">lbp4</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img4</span><span class="p">)</span>
+<span class="n">lbp5</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img5</span><span class="p">)</span>
+<span class="n">lbp6</span> <span class="o">=</span> <span class="n">lbp_features</span><span class="p">(</span><span class="n">img6</span><span class="p">)</span>
+
+<span class="n">dQ2_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">lbp1</span><span class="p">,</span> <span class="n">lbp2</span><span class="p">)</span>
+<span class="n">dQ3_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">lbp1</span><span class="p">,</span> <span class="n">lbp3</span><span class="p">)</span>
+<span class="n">dQ4_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">lbp1</span><span class="p">,</span> <span class="n">lbp4</span><span class="p">)</span>
+<span class="n">dQ5_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">lbp1</span><span class="p">,</span> <span class="n">lbp5</span><span class="p">)</span>
+<span class="n">dQ6_H</span> <span class="o">=</span> <span class="n">Euclidean_distance</span><span class="p">(</span><span class="n">lbp1</span><span class="p">,</span> <span class="n">lbp6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consulta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">232</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 1 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ2_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">233</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ3_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">234</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img4</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 3 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ4_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img5</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 4 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ5_H</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img6</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 5 : </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dQ6_H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rank 5 : 0.2586&#39;)
+</pre></div>
+</div>
+<img alt="_images/ac7875c019f48a8672ea7edd294fdece0953f050ba8b64d05b232cf44dd8b2fb.png" src="_images/ac7875c019f48a8672ea7edd294fdece0953f050ba8b64d05b232cf44dd8b2fb.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lbp1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp1</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consulta&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">232</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp2</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">233</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp3</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 2&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">234</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp4</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 3&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp5</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 4&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">lbp6</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rank 5&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.8900000000000001, 9.89, 0.0, 0.3422533333181221)
+</pre></div>
+</div>
+<img alt="_images/437acaca5e3c1489448f1743de800c4963745c9c903f0f32a230885c2850db37.png" src="_images/437acaca5e3c1489448f1743de800c4963745c9c903f0f32a230885c2850db37.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="outros-descritores-de-imagens">
+<h3>Outros descritores de imagens<a class="headerlink" href="#outros-descritores-de-imagens" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>HoG - histogram of oriented gradients</p>
+<ul>
+<li><p>usados em reconhecimento de pessoas e objetos</p></li>
+</ul>
+</li>
+<li><p>Haar-like features</p>
+<ul>
+<li><p>usados em detecção facial</p></li>
+</ul>
+</li>
+<li><p>SIFT - scale-invariant feature transform</p>
+<ul>
+<li><p>foi por um bom tempo estado-da-arte, posteriormente patenteado mas há similares como o DAISY</p></li>
+</ul>
+</li>
+<li><p>BRIEF - descritor binário local</p>
+<ul>
+<li><p>também similar ao SIFT, mas binário e utilizado para matching de regiões em imagens</p></li>
+</ul>
+</li>
+<li><p>Gray-level Co-ocurrence Matrices (GLCM) - também conhecidos por descritores de Haralick</p>
+<ul>
+<li><p>utilizado para textura</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="resumo">
+<h3>Resumo:<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Imagens são dados não estruturados espaciais</p>
+<ul>
+<li><p>amostras tomadas em uma grade regular</p></li>
+<li><p>a representação pode ser em intensidades (um canal) ou cores (geralmente RGB, 3 canais)</p></li>
+</ul>
+</li>
+<li><p>Descritores</p>
+<ul>
+<li><p>pixels da imagem</p></li>
+<li><p>histogramas de cores ou intensidades</p></li>
+<li><p>textura, com relação entre pixels numa vizinhança</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-07-2%20-%20Descritores%20de%20sinais.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-07-4%20-%20Bag%20of%20features.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-descritores-de-imagens-span"><span style="color:darkred">Descritores de imagens</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-cor">Características de cor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vantagens-em-utilizar-descritores">vantagens em utilizar descritores:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-descritores-de-cor">outros descritores de cor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-textura">Características de textura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-descritores-de-imagens">Outros descritores de imagens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

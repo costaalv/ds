@@ -1,0 +1,1847 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-03-3-Normalizacao';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-03-4-Transformacao.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-03-2-Discretizacao.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-03-3-Normalizacao.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-03-3-Normalizacao.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-normalizacao-ou-padronizacao-de-atributos-span"><span style="color:darkred">Normalização ou Padronização de atributos</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-valores-de-variaveis">Intervalos de valores de variáveis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacao">Normalização</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max">Min-max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media">Média</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robusta">Robusta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padronizacao-z-score-whitening">Padronização <span class="math notranslate nohighlight">\(z\)</span>-score (<em>whitening</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normas">Normas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-em-experimentos-envolvendo-treinamento-e-teste-font"><font color="blue">Em experimentos envolvendo treinamento e teste:</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizadores-no-sklearn">Normalizadores no <em>sklearn</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span">
+<h3><span style="color:darkred">Coleta de dados e Preparação de atributos</span><a class="headerlink" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="span-style-color-darkred-normalizacao-ou-padronizacao-de-atributos-span">
+<h3><span style="color:darkred">Normalização ou Padronização de atributos</span><a class="headerlink" href="#span-style-color-darkred-normalizacao-ou-padronizacao-de-atributos-span" title="Permalink to this headline">#</a></h3>
+<p>Material Produzido por Moacir Antonelli Ponti<br>
+<em>colaboração de Eugenio Ferreira Cabral</em></p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+</section>
+<hr class="docutils" />
+<section id="intervalos-de-valores-de-variaveis">
+<h3>Intervalos de valores de variáveis<a class="headerlink" href="#intervalos-de-valores-de-variaveis" title="Permalink to this headline">#</a></h3>
+<p>Variáveis possuem intervalos diferentes de valores possíveis devido a sua natureza.</p>
+<p>A princípio é positivo que tenhamos acesso ao valor real das variáveis, mas a depender do modelo que utilizamos, variáveis de maior magnitude dominam as estatísticas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carregando as bibliotecas necessárias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># carregando dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/municipios_mba.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gid</th>
+      <th>UF</th>
+      <th>nome</th>
+      <th>Censo</th>
+      <th>PIB</th>
+      <th>pop</th>
+      <th>classe</th>
+      <th>desemprego</th>
+      <th>pop_sanea</th>
+      <th>expec_vida</th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>urbaniz</th>
+      <th>dens_pop_urbana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>752</td>
+      <td>ACRE</td>
+      <td>Acrelândia</td>
+      <td>2010.0</td>
+      <td>151120.015625</td>
+      <td>12241</td>
+      <td>2</td>
+      <td>5.2</td>
+      <td>33.532382</td>
+      <td>73.6</td>
+      <td>19.2</td>
+      <td>660</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>747</td>
+      <td>ACRE</td>
+      <td>Assis Brasil</td>
+      <td>2010.0</td>
+      <td>48347.300781</td>
+      <td>5662</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>32.252163</td>
+      <td>74.2</td>
+      <td>18.9</td>
+      <td>664</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>748</td>
+      <td>ACRE</td>
+      <td>Brasiléia</td>
+      <td>2010.0</td>
+      <td>194979.828125</td>
+      <td>20238</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>31.663354</td>
+      <td>75.3</td>
+      <td>19.5</td>
+      <td>667</td>
+      <td>baixo</td>
+      <td>média</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>754</td>
+      <td>ACRE</td>
+      <td>Bujari</td>
+      <td>2010.0</td>
+      <td>88708.031250</td>
+      <td>6772</td>
+      <td>2</td>
+      <td>4.8</td>
+      <td>33.501357</td>
+      <td>73.4</td>
+      <td>19.1</td>
+      <td>659</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>751</td>
+      <td>ACRE</td>
+      <td>Capixaba</td>
+      <td>2010.0</td>
+      <td>89052.679688</td>
+      <td>9287</td>
+      <td>1</td>
+      <td>4.4</td>
+      <td>33.431383</td>
+      <td>75.4</td>
+      <td>18.1</td>
+      <td>661</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s2">&quot;- tipo: &quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gid - tipo:  int64
+UF - tipo:  object
+nome - tipo:  object
+Censo - tipo:  float64
+PIB - tipo:  float64
+pop - tipo:  int64
+classe - tipo:  int64
+desemprego - tipo:  float64
+pop_sanea - tipo:  float64
+expec_vida - tipo:  float64
+pobreza - tipo:  float64
+IDH - tipo:  int64
+urbaniz - tipo:  object
+dens_pop_urbana - tipo:  object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos estudar as variáveis abaixo, exibindo seus gráficos de caixa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pobreza&#39;</span><span class="p">,</span> <span class="s1">&#39;IDH&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB&#39;</span><span class="p">]</span>
+<span class="n">attrs_cat</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pobreza&#39;</span><span class="p">,</span> <span class="s1">&#39;IDH&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB&#39;</span><span class="p">,</span> <span class="s1">&#39;UF&#39;</span><span class="p">,</span> <span class="s1">&#39;nome&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/f7ccd3749c82638d58544bb24edc2aa69bb08715f3226c80205d601e6d90beeb.png" src="_images/f7ccd3749c82638d58544bb24edc2aa69bb08715f3226c80205d601e6d90beeb.png" />
+</div>
+</div>
+<p>Muitos métodos, em especial de aprendizado, utilizam funções de divergência/distância para aprender.</p>
+<p>Por exemplo, podemos utilizar a distância Euclidiana entre dois vetores <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(b\)</span> dada por:
+$<span class="math notranslate nohighlight">\(dEuc(a,b) = \sqrt{\sum^n_{i=1} (a_i - b_i)^2}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implementando a função</span>
+<span class="k">def</span> <span class="nf">dEuclidean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>   
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos selecionar um grupo de exemplos para comparar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">select_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">&lt;</span><span class="mf">0.0015</span>
+
+<span class="c1"># aqui copiamos e resetamos o índice do dataframe</span>
+<span class="n">subdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">select_data</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">subdata</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemplos selecionados: &quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">subdata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplos selecionados:  5
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>gid</th>
+      <th>UF</th>
+      <th>nome</th>
+      <th>Censo</th>
+      <th>PIB</th>
+      <th>pop</th>
+      <th>classe</th>
+      <th>desemprego</th>
+      <th>pop_sanea</th>
+      <th>expec_vida</th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>urbaniz</th>
+      <th>dens_pop_urbana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1690</td>
+      <td>3099</td>
+      <td>MINAS GERAIS</td>
+      <td>Campos Gerais</td>
+      <td>2010.0</td>
+      <td>240981.671875</td>
+      <td>27964</td>
+      <td>1</td>
+      <td>6.8</td>
+      <td>76.217741</td>
+      <td>77.3</td>
+      <td>4.3</td>
+      <td>738</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2737</td>
+      <td>2336</td>
+      <td>PARAÍBA</td>
+      <td>São Domingos</td>
+      <td>2010.0</td>
+      <td>12841.704102</td>
+      <td>2822</td>
+      <td>1</td>
+      <td>9.2</td>
+      <td>49.034312</td>
+      <td>74.3</td>
+      <td>16.9</td>
+      <td>657</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3412</td>
+      <td>1280</td>
+      <td>PIAUÍ</td>
+      <td>Campo Largo do Piauí</td>
+      <td>2010.0</td>
+      <td>18738.593750</td>
+      <td>7035</td>
+      <td>1</td>
+      <td>4.6</td>
+      <td>29.272712</td>
+      <td>71.4</td>
+      <td>21.2</td>
+      <td>643</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3468</td>
+      <td>949</td>
+      <td>PIAUÍ</td>
+      <td>Jardim do Mulato</td>
+      <td>2010.0</td>
+      <td>14268.646484</td>
+      <td>4318</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>29.503772</td>
+      <td>70.4</td>
+      <td>21.9</td>
+      <td>647</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4704</td>
+      <td>5000</td>
+      <td>SANTA CATARINA</td>
+      <td>Xaxim</td>
+      <td>2010.0</td>
+      <td>538854.125000</td>
+      <td>25444</td>
+      <td>2</td>
+      <td>8.3</td>
+      <td>74.267921</td>
+      <td>79.5</td>
+      <td>0.9</td>
+      <td>778</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecionando um exemplo próximo ao primeiro para comparar</span>
+<span class="n">ind_0</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,:])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Exemplo &#39;a&#39; para comparação: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">attrs_cat</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vetor de atributos: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplo &#39;a&#39; para comparação: 
+pobreza             5.5
+IDH                 732
+PIB        28926.710938
+UF         MINAS GERAIS
+nome              Canaã
+Name: 1692, dtype: object
+Vetor de atributos: 
+[5.50000000e+00 7.32000000e+02 2.89267109e+04]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percorremos todos, comparando com &#39;a&#39;</span>
+<span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subdata</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dEuclidean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distancias obtidas entre &#39;a&#39; e os selecionados: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distancias obtidas entre &#39;a&#39; e os selecionados: 
+[212055.   16085.2  10188.5  14658.3 509927.4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos agora inspecionar o exemplo relativo à menor distância:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># argmin retorna a posição com o valor mínimo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span><span class="n">attrs_cat</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pobreza                    21.2
+IDH                         643
+PIB                 18738.59375
+UF                        PIAUÍ
+nome       Campo Largo do Piauí
+Name: 2, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note que foi selecionado um exemplo de outro estado e com valor de IDH  (643 vs 732) e pobreza (21.2 vs 5.5) bastante diferente!</p>
+<p>Na verdade, esses atributos tem peso pequeno na distância.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos zerar esses atributos, e recomputar as distâncias</span>
+<span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Novo vetor de atributos:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Novo vetor de atributos:
+[    0.            0.        28926.7109375]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subdata</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dEuclidean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Novas distâncias e exemplo mais próximo:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span><span class="n">attrs_cat</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Novas distâncias e exemplo mais próximo:
+[212056.2  16098.4  10208.4  14672.4 509928. ]
+pobreza                    21.2
+IDH                         643
+PIB                 18738.59375
+UF                        PIAUÍ
+nome       Campo Largo do Piauí
+Name: 2, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="normalizacao">
+<h2>Normalização<a class="headerlink" href="#normalizacao" title="Permalink to this headline">#</a></h2>
+<p>Há várias formas de normalização e sua escolha depende também do cenário.</p>
+<p>Alguns desses métodos também são chamados de <em>scalers</em>, reescalamento de atributos ou <em>feature (re)scaling</em></p>
+<ol class="arabic simple">
+<li><p>min-max</p></li>
+<li><p>pela média</p></li>
+<li><p>robusta (por quantis)</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span>-score (<em>whitening</em>, <em>standard scaler</em>)</p></li>
+<li><p>Normas:</p>
+<ul class="simple">
+<li><p>L1 (ou de soma unitária)</p></li>
+<li><p>L2</p></li>
+<li><p>L<span class="math notranslate nohighlight">\(\infty\)</span> (ou pelo máximo)</p></li>
+</ul>
+</li>
+</ol>
+<section id="min-max">
+<h3>Min-max<a class="headerlink" href="#min-max" title="Permalink to this headline">#</a></h3>
+<p>Gera um atributo <span class="math notranslate nohighlight">\(x'\)</span> num novo intervalo <span class="math notranslate nohighlight">\([a,b]\)</span></p>
+<div class="math notranslate nohighlight">
+\[x' = a+\frac{[x-\min(x)](b-a)}{\max(x)-\min(x)}\]</div>
+<p>para <span class="math notranslate nohighlight">\([0,1]\)</span></p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x-\min(x)}{\max(x)-\min(x)}\]</div>
+</section>
+<section id="media">
+<h3>Média<a class="headerlink" href="#media" title="Permalink to this headline">#</a></h3>
+<p>Gera um atributo <span class="math notranslate nohighlight">\(x´\)</span> centralizado com relação a média, em que <span class="math notranslate nohighlight">\(\bar{x}\)</span> é a média entre todos os valores de <span class="math notranslate nohighlight">\(x\)</span></p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x-\bar{x}}{\max(x)-\min(x)}\]</div>
+</section>
+<section id="robusta">
+<h3>Robusta<a class="headerlink" href="#robusta" title="Permalink to this headline">#</a></h3>
+<p>Gera um atributo <span class="math notranslate nohighlight">\(x\)</span> centralizado com relação a mediana, e normalizado com relação aos valores dos percentis 75 e 25</p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x-\operatorname{median}(x)}{Q_{75}(x)-Q_{25}(x)}\]</div>
+</section>
+<section id="padronizacao-z-score-whitening">
+<h3>Padronização <span class="math notranslate nohighlight">\(z\)</span>-score (<em>whitening</em>)<a class="headerlink" href="#padronizacao-z-score-whitening" title="Permalink to this headline">#</a></h3>
+<p>Gera um atributo <span class="math notranslate nohighlight">\(x\)</span> centralizado com relação a média e cujo desvio padrão passa a ser unitário</p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x-\bar{x}}{\sigma},\]</div>
+<p><span class="math notranslate nohighlight">\(\bar{x}\)</span> é a média entre todos os valores de <span class="math notranslate nohighlight">\(x\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> é o desvio padrão calculado a partir de <span class="math notranslate nohighlight">\(x\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="normas">
+<h3>Normas<a class="headerlink" href="#normas" title="Permalink to this headline">#</a></h3>
+<p>São mais comumente usadas para normalizar <em>instâncias</em> e não <em>atributos</em></p>
+<p><strong>Norma L1 ou de soma unitária</strong></p>
+<p>Gera um atributo <span class="math notranslate nohighlight">\(x\)</span> cuja soma dos valores é unitária. Isso permite por exemplo interpretar o atributo como um vetor distribuição de probabilidade.</p>
+<div class="math notranslate nohighlight">
+\[x' = \frac{x}{||x_i||},\]</div>
+<p><span class="math notranslate nohighlight">\(||x_i||\)</span> é a norma do vetor <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Calculada pela soma dos valores absolutos <span class="math notranslate nohighlight">\(||x_i|| = \sum_i |x_i|\)</span>, essa normalização é também chamada de norma L1 pois é a norma considerada no denominador.</p>
+<p>Temos ainda outras opções:</p>
+<p><strong>norma L2 (ou Euclidiana)</strong>
+$<span class="math notranslate nohighlight">\(x' = \frac{x}{||x_i||_2},\)</span><span class="math notranslate nohighlight">\(
+    sendo \)</span>||x_i||<em>2 = \sqrt{\sum^n</em>{i=1} x_i^2}$,</p>
+<p><strong>norma L<span class="math notranslate nohighlight">\(\infty\)</span> (ou Infinita, ou Chessboard)</strong>
+$<span class="math notranslate nohighlight">\(x' = \frac{x}{||x_i||_\infty},\)</span>$</p>
+<p>sendo <span class="math notranslate nohighlight">\(||x_i||_\infty = \max_i(x_i)\)</span>,</p>
+<hr class="docutils" />
+<p>Vamos calcular o <span class="math notranslate nohighlight">\(z\)</span>-score das variáveis e recomputar as distâncias!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attrs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pobreza&#39;, &#39;IDH&#39;, &#39;PIB&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percorrendo variáveis e normalizando</span>
+<span class="c1"># pelo método z-score</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+    <span class="c1"># computa média e desvio padrao</span>
+    <span class="n">var_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">var_sigm</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+    <span class="c1"># computa normalização</span>
+    <span class="n">var_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">-</span> <span class="n">var_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">var_sigm</span>
+
+    <span class="c1"># novo nome e variável normalizada</span>
+    <span class="n">newvar</span> <span class="o">=</span> <span class="n">var</span> <span class="o">+</span> <span class="s1">&#39;_z&#39;</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">newvar</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_norm</span>
+
+<span class="c1"># descrevendo os novos atributos</span>
+<span class="n">attrs_n</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pobreza_z&#39;</span><span class="p">,</span> <span class="s1">&#39;IDH_z&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB_z&#39;</span><span class="p">]</span>    
+<span class="n">attrs_cat_n</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pobreza_z&#39;</span><span class="p">,</span> <span class="s1">&#39;IDH_z&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB_z&#39;</span><span class="p">,</span> <span class="s1">&#39;UF&#39;</span><span class="p">,</span> <span class="s1">&#39;nome&#39;</span><span class="p">]</span>   
+<span class="n">data</span><span class="p">[</span><span class="n">attrs_n</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pobreza_z</th>
+      <th>IDH_z</th>
+      <th>PIB_z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>4.730000e+03</td>
+      <td>5.565000e+03</td>
+      <td>5.565000e+03</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.364938e-16</td>
+      <td>6.332960e-16</td>
+      <td>1.021445e-17</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-1.245828e+00</td>
+      <td>-1.212018e+01</td>
+      <td>-9.081290e-02</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-8.979751e-01</td>
+      <td>-7.829776e-01</td>
+      <td>-8.566745e-02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-6.145397e-01</td>
+      <td>2.767312e-01</td>
+      <td>-7.902384e-02</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>9.185886e-01</td>
+      <td>5.963259e-01</td>
+      <td>-5.921052e-02</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.181165e+00</td>
+      <td>1.925167e+00</td>
+      <td>6.125307e+01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">select_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">&lt;</span><span class="mf">0.0015</span>
+<span class="n">subdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">select_data</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemplos selecionados: &quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplos selecionados:  5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecionando um exemplo próximo ao primeiro para comparar</span>
+<span class="n">ind_0</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">attrs_n</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,:])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Exemplo &#39;a&#39; para comparação: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">attrs_cat_n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vetor de atributos: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplo &#39;a&#39; para comparação: 
+pobreza_z       -0.627423
+IDH_z            0.310373
+PIB_z           -0.087164
+UF           MINAS GERAIS
+nome                Canaã
+Name: 1692, dtype: object
+Vetor de atributos: 
+[-0.62742308  0.31037276 -0.08716414]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># argmin retorna a posição com o valor mínimo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span><span class="n">attrs_cat_n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pobreza_z                1.395276
+IDH_z                   -1.186676
+PIB_z                   -0.088769
+UF                          PIAUÍ
+nome         Campo Largo do Piauí
+Name: 2, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subdata</span><span class="p">[</span><span class="n">attrs_n</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dEuclidean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distancias obtidas entre &#39;a&#39; e os selecionados: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distancias obtidas entre &#39;a&#39; e os selecionados: 
+[0.2 1.9 2.5 2.6 1. ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span><span class="n">attrs_cat</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">attrs_cat</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pobreza              4.3
+IDH                  738
+PIB        240981.671875
+UF          MINAS GERAIS
+nome       Campos Gerais
+Name: 0, dtype: object 
+
+pobreza             5.5
+IDH                 732
+PIB        28926.710938
+UF         MINAS GERAIS
+nome              Canaã
+Name: 1692, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uma <strong>desvantagem</strong> da normalização é que os valores perdem a semântica original.</p>
+<p>Por exemplo, o que significa uma pobreza de -0.78 ?</p>
+<p>Por isso é conveniente manter os atributos originais para depois interpretar os resultados</p>
+</section>
+<section id="font-color-blue-em-experimentos-envolvendo-treinamento-e-teste-font">
+<h3><font color="blue">Em experimentos envolvendo treinamento e teste:</font><a class="headerlink" href="#font-color-blue-em-experimentos-envolvendo-treinamento-e-teste-font" title="Permalink to this headline">#</a></h3>
+<p>A normalização deve ser <strong>calculada no treinamento</strong>, e depois apenas <strong>aplicada</strong> no teste</p>
+<p>Por exemplo, no caso da <span class="math notranslate nohighlight">\(z\)</span>-score:</p>
+<ul class="simple">
+<li><p>os valores da média e desvio padrão devem ser calculados no treinamento,</p></li>
+<li><p>depois aplicados para normalizar o(s) exemplo(s) de teste</p></li>
+</ul>
+<p>Vamos selecionar um subconjunto maior para mostrar essa ideia, sendo que o exemplo <span class="math notranslate nohighlight">\(a\)</span> para comparação será considerado exemplo de teste.</p>
+<p>Aqui vamos calcular a normalização apenas no subconjunto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reselecionando dados, agora um pouco mais!</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">select_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">&lt;</span><span class="mf">0.01</span>
+<span class="n">subdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">select_data</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># vamos remover linhas com nulos e resetar o índice!</span>
+<span class="n">subdata</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemplos selecionados: &quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">subdata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplos selecionados:  11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>gid</th>
+      <th>UF</th>
+      <th>nome</th>
+      <th>Censo</th>
+      <th>PIB</th>
+      <th>pop</th>
+      <th>classe</th>
+      <th>desemprego</th>
+      <th>pop_sanea</th>
+      <th>expec_vida</th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>urbaniz</th>
+      <th>dens_pop_urbana</th>
+      <th>pobreza_z</th>
+      <th>IDH_z</th>
+      <th>PIB_z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>218</td>
+      <td>4858</td>
+      <td>BAHIA</td>
+      <td>Anguera</td>
+      <td>2010.0</td>
+      <td>26372.318359</td>
+      <td>9826</td>
+      <td>1</td>
+      <td>10.3</td>
+      <td>48.376886</td>
+      <td>73.9</td>
+      <td>17.5</td>
+      <td>661</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.918589</td>
+      <td>-0.883902</td>
+      <td>-0.087567</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>244</td>
+      <td>4834</td>
+      <td>BAHIA</td>
+      <td>Belo Campo</td>
+      <td>2010.0</td>
+      <td>54279.222656</td>
+      <td>15185</td>
+      <td>1</td>
+      <td>8.7</td>
+      <td>51.105803</td>
+      <td>73.5</td>
+      <td>18.2</td>
+      <td>659</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>1.008773</td>
+      <td>-0.917544</td>
+      <td>-0.083169</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>315</td>
+      <td>4399</td>
+      <td>BAHIA</td>
+      <td>Crisópolis</td>
+      <td>2010.0</td>
+      <td>85858.242188</td>
+      <td>20279</td>
+      <td>1</td>
+      <td>9.0</td>
+      <td>51.088871</td>
+      <td>74.1</td>
+      <td>16.7</td>
+      <td>655</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.815521</td>
+      <td>-0.984827</td>
+      <td>-0.078193</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>357</td>
+      <td>4476</td>
+      <td>BAHIA</td>
+      <td>Ibirataia</td>
+      <td>2010.0</td>
+      <td>104637.359375</td>
+      <td>24544</td>
+      <td>1</td>
+      <td>10.1</td>
+      <td>50.641199</td>
+      <td>74.8</td>
+      <td>17.5</td>
+      <td>661</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.918589</td>
+      <td>-0.883902</td>
+      <td>-0.075234</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>555</td>
+      <td>113</td>
+      <td>BAHIA</td>
+      <td>São Felipe</td>
+      <td>2010.0</td>
+      <td>80595.312500</td>
+      <td>20952</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>50.838526</td>
+      <td>74.0</td>
+      <td>18.0</td>
+      <td>663</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.983006</td>
+      <td>-0.850261</td>
+      <td>-0.079023</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>582</td>
+      <td>183</td>
+      <td>BAHIA</td>
+      <td>Souto Soares</td>
+      <td>2010.0</td>
+      <td>53800.070312</td>
+      <td>19407</td>
+      <td>1</td>
+      <td>10.1</td>
+      <td>50.903280</td>
+      <td>72.3</td>
+      <td>16.9</td>
+      <td>655</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.841288</td>
+      <td>-0.984827</td>
+      <td>-0.083245</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>663</td>
+      <td>1561</td>
+      <td>CEARÁ</td>
+      <td>Cedro</td>
+      <td>2010.0</td>
+      <td>90544.523438</td>
+      <td>25591</td>
+      <td>1</td>
+      <td>6.5</td>
+      <td>43.265475</td>
+      <td>74.6</td>
+      <td>18.3</td>
+      <td>687</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>1.021656</td>
+      <td>-0.446562</td>
+      <td>-0.077455</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>860</td>
+      <td>1467</td>
+      <td>ESPIRITO SANTO</td>
+      <td>Piúma</td>
+      <td>2010.0</td>
+      <td>127082.007812</td>
+      <td>17212</td>
+      <td>1</td>
+      <td>8.3</td>
+      <td>73.872039</td>
+      <td>79.5</td>
+      <td>4.2</td>
+      <td>742</td>
+      <td>baixo</td>
+      <td>baixa</td>
+      <td>-0.794908</td>
+      <td>0.478581</td>
+      <td>-0.071698</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1283</td>
+      <td>1743</td>
+      <td>MARANHÃO</td>
+      <td>Raposa</td>
+      <td>2010.0</td>
+      <td>100919.585938</td>
+      <td>25837</td>
+      <td>1</td>
+      <td>6.4</td>
+      <td>26.969824</td>
+      <td>69.3</td>
+      <td>26.1</td>
+      <td>644</td>
+      <td>médio</td>
+      <td>baixa</td>
+      <td>2.026564</td>
+      <td>-1.169855</td>
+      <td>-0.075820</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>5433</td>
+      <td>5488</td>
+      <td>TOCANTINS</td>
+      <td>Aparecida do Rio Negro</td>
+      <td>2010.0</td>
+      <td>40615.371094</td>
+      <td>4200</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>27.491647</td>
+      <td>73.8</td>
+      <td>11.7</td>
+      <td>696</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.171350</td>
+      <td>-0.295175</td>
+      <td>-0.085322</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5505</td>
+      <td>587</td>
+      <td>TOCANTINS</td>
+      <td>Muricilândia</td>
+      <td>2010.0</td>
+      <td>29540.205078</td>
+      <td>2958</td>
+      <td>2</td>
+      <td>6.4</td>
+      <td>28.840913</td>
+      <td>74.4</td>
+      <td>11.5</td>
+      <td>694</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+      <td>0.145583</td>
+      <td>-0.328817</td>
+      <td>-0.087067</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percorrendo variáveis e normalizando</span>
+<span class="n">means</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+    <span class="n">var_mean</span> <span class="o">=</span> <span class="n">subdata</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">var_sigm</span> <span class="o">=</span> <span class="n">subdata</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="c1"># computa normalização</span>
+    <span class="n">var_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">subdata</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">-</span> <span class="n">var_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">var_sigm</span>
+    <span class="c1"># novo nome e variável normalizada</span>
+    <span class="n">newvar</span> <span class="o">=</span> <span class="n">var</span> <span class="o">+</span> <span class="s1">&#39;_z&#39;</span>
+    <span class="n">subdata</span><span class="p">[</span><span class="n">newvar</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_norm</span>
+    
+    <span class="c1"># guardando valores da normalização</span>
+    <span class="n">means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var_mean</span><span class="p">)</span>
+    <span class="n">stds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var_sigm</span><span class="p">)</span>
+
+<span class="c1"># selecionando um exemplo próximo ao primeiro para comparar</span>
+<span class="n">ind_0</span> <span class="o">=</span> <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,:])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Exemplo &#39;a&#39; para comparação: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind_0</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">attrs_cat</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Vetor de atributos: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">anorm</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">means</span><span class="p">)</span><span class="o">/</span><span class="n">stds</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Vetor de atributos normalizado: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">anorm</span><span class="p">)</span>
+
+<span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Vetor de atributos de teste: &#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subdata</span><span class="p">[</span><span class="n">attrs_n</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dEuclidean</span><span class="p">(</span><span class="n">anorm</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">*Exemplo mais próximo&quot;</span><span class="p">)</span>
+<span class="c1"># argmin retorna a posição com o valor mínimo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span><span class="n">attrs_cat</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exemplo &#39;a&#39; para comparação: 
+pobreza               17.4
+IDH                    657
+PIB           52209.539062
+UF                   BAHIA
+nome       Antônio Cardoso
+Name: 220, dtype: object
+ - Vetor de atributos: 
+[1.74000000e+01 6.57000000e+02 5.22095391e+04]
+ - Vetor de atributos normalizado: 
+[ 0.24569143 -0.61136435 -0.60122108]
+- Vetor de atributos de teste: 
+[ 0.26395228 -0.46978523 -1.37812957]
+[ 0.39177823 -0.54057479 -0.53898704]
+[ 0.11786548 -0.6821539   0.41057362]
+[ 0.26395228 -0.46978523  0.9752495 ]
+[ 0.35525653 -0.39899568  0.25232073]
+[ 0.15438718 -0.6821539  -0.55339484]
+[0.41003908 0.45047899 0.55148706]
+[-2.16474073  2.39719178  1.65014554]
+[ 1.83438536 -1.07149646  0.86345846]
+[-0.795177    0.76903199 -0.9498502 ]
+[-0.8316987   0.69824244 -1.28287326]
+
+*Exemplo mais próximo
+pobreza            16.9
+IDH                 655
+PIB        53800.070312
+UF                BAHIA
+nome       Souto Soares
+Name: 5, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Observe</strong> que o vetor de características poder gerar valores abaixo de -1 ou acima de 1, o que não ocorreu anteriormente quando o exemplo que comparamos foi utilizado no cálculo da normalização.</p>
+<p><font color="red">A informação da normalização não pode vazar do teste para o treinamento!</font></p>
+<p>Uma consequência possível é que, mesmo normalizando o treinamento para um determinado intervalo, ex: [-1,1], no teste podemos observar valores <em>fora</em> desse intervalo.</p>
+<ul class="simple">
+<li><p>Se soubermos o que é esperado numa variável é possível minimizar isso, por exemplo considerando valores de mínimo e máximo para além dos presentes no treinamento</p></li>
+</ul>
+</section>
+<section id="normalizadores-no-sklearn">
+<h3>Normalizadores no <em>sklearn</em><a class="headerlink" href="#normalizadores-no-sklearn" title="Permalink to this headline">#</a></h3>
+<table align="center">
+	<thead>
+		<tr>
+			<th>Tipo</th>
+			<th>Intervalo</th>
+			<th>Média</th>
+			<th>Desv. Padrão</th>
+			<th>Observação</th>
+		</tr>
+    </thead>
+    <tbody>
+		<tr>
+			<td>MinMaxScaler </td>
+			<td>$[a,b]$*</td>
+			<td>Varia</td>
+			<td>Varia</td>
+            <td>Restringe o intervalo e mantem a distribuição dos dados. É sensivel à outliers.</td>
+		</tr>
+		<tr>
+			<td>StandardScaler</td>
+			<td>Varia</td>
+			<td>$0$</td>
+			<td>$1$</td>
+			<td>Não restringe o intervalo e transforma para a Distribuição Normal Padrão. É sensivel à outliers.</td>
+		</tr>
+		<tr>
+			<td>RobustScaler</td>
+			<td>Varia</td>
+			<td>$0$*</td>
+			<td>$1$*</td>
+			<td>Não restringe o intervalo e transforma para média zero. É tolerante à outliers.</td>
+		</tr>
+		<tr>
+			<td>Normalizer</td>
+			<td>Varia</td>
+			<td>Varia</td>
+			<td>Varia</td>
+			<td>Transforma a norma para $1$ para cada exemplo* e não para cada coluna.</td>
+		</tr>
+	</tbody>
+</table>
+<ul class="simple">
+<li><p>consultar <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing">documentação oficial</a></p></li>
+</ul>
+<table align="center">
+	<thead>
+		<tr>
+			<th>Tipo</th>
+			<th>Quando usar?</th>
+		</tr>
+    </thead>
+    <tbody>
+		<tr>
+			<td>MinMaxScaler </td>
+			<td>Quando os limites (sup. e inf.) dos dados são conhecidos</td>
+        </tr>
+		<tr>
+			<td>StandardScaler</td>
+			<td>Quando é necessário transformar o atributo em uma distribuição normal padrão<br>(assumindo que os dados já seguem um distribuição normal), podendo distorcer a distancia relativa entre os dados.<br>Além disso, alguns algoritmos esperam que essa transformação seja feita previamente.</td>
+		</tr>
+		<tr>
+			<td>RobustScaler</td>
+			<td>Similar ao StandardScaler, mas usado quando queremos que os outliers não tenham muita influência</td>
+		</tr>
+		<tr>
+			<td>Normalizer</td>
+			<td>1. Quando queremos simplificar calculos (e.g. distancia coseno, projeções, angulos)<br>2. Quando queremos oferecer estabilidade númerica (e.g. gradient descent, expectation maximization, regularization)<br>3. Quando queremos intepretar vetor como distribuição de probabilidades</td>
+		</tr>
+	</tbody>
+</table><p><strong>Algoritmos que comumente esperam dados normalizados/padronizados</strong> (lista não exaustiva)</p>
+<ul class="simple">
+<li><p>LinearRegression</p></li>
+<li><p>KNeighborsRegressor</p></li>
+<li><p>PCA</p></li>
+<li><p>LinearDiscriminantAnalysis</p></li>
+<li><p>MLPRegressor</p></li>
+<li><p>SVC</p></li>
+</ul>
+</section>
+<section id="resumo">
+<h3>Resumo:<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Normalizar pode ser fundamental para obter modelos que consideram todos os atributos de forma equilibrada</p></li>
+<li><p>O método deve considerar as características dos dados</p></li>
+<li><p>Apenas o conjunto de <em>treinamento</em> deve ser usado para computar os parâmetros da normalização</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-03-2-Discretizacao.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-03-4-Transformacao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-normalizacao-ou-padronizacao-de-atributos-span"><span style="color:darkred">Normalização ou Padronização de atributos</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-valores-de-variaveis">Intervalos de valores de variáveis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacao">Normalização</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max">Min-max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media">Média</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robusta">Robusta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padronizacao-z-score-whitening">Padronização <span class="math notranslate nohighlight">\(z\)</span>-score (<em>whitening</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normas">Normas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-em-experimentos-envolvendo-treinamento-e-teste-font"><font color="blue">Em experimentos envolvendo treinamento e teste:</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizadores-no-sklearn">Normalizadores no <em>sklearn</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1497 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-02-2-Outliers';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-02-3-Faltantes.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-02-1-Redundancia.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-02-2-Outliers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-02-2-Outliers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-deteccao-e-remocao-de-outliers-span"><span style="color:darkred">Detecção e remoção de outliers</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detectando-outliers">Detectando outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desvio-padrao-e-amplitude-inter-quartil-por-dispersao">1. Desvio padrão e amplitude inter-quartil (por dispersão)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variavel-total">variável total</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escrevendo-uma-funcao-para-remocao-de-outliers-segundo-o-iqr">Escrevendo uma função para remoção de outliers segundo o IQR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicao-dos-dados-distribuicao-normal">2. Distribuição dos dados (distribuição Normal)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-univariada">Normal univariada</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamento">3. Agrupamento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-e-consideracoes-finais">Resumo e considerações finais</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h1>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span">
+<h2><span style="color:darkred">Tratamento e limpeza de bases de dados</span><a class="headerlink" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="span-style-color-darkred-deteccao-e-remocao-de-outliers-span">
+<h2><span style="color:darkred">Detecção e remoção de outliers</span><a class="headerlink" href="#span-style-color-darkred-deteccao-e-remocao-de-outliers-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<p><strong>Referência complementar:</strong></p>
+<ul class="simple">
+<li><p>CHANDOLA, Varun; BANERJEE, Arindam; KUMAR, Vipin. Outlier detection: a survey. ACM Computing Surveys, v. 14, p. 15, 2007.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="detectando-outliers">
+<h2>Detectando outliers<a class="headerlink" href="#detectando-outliers" title="Permalink to this headline">#</a></h2>
+<p><strong>Relembrando - outliers, pontos “fora-da-curva” ou pontos aberrantes</strong> : exemplos ou instâncias que, dentre do espaço de possíveis valores, recaem num intervalo <em>fora</em> daquele relativo a maior parte dos exemplos de uma base de dados.</p>
+<p>Detectar outliers por meio de análise exploratória é útil para entender o comportamento da base de dados.</p>
+<p>Existem também métodos <strong>estatísticos</strong> e de <strong>aprendizado de máquina</strong> que auxiliam nesse processo e que podem facilitar essa análise, detectando <em>outliers</em> de forma automática.</p>
+<ol class="arabic simple">
+<li><p>Dispersão: desvio padrão e intervalo interquartil</p></li>
+<li><p>Distribuição: Normal univaridada</p></li>
+<li><p>Agrupamento</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/houses_to_rent_mba2.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>floor</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>tax</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>São Paulo</td>
+      <td>70.0</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>7</td>
+      <td>2065</td>
+      <td>3300</td>
+      <td>211</td>
+      <td>42</td>
+      <td>5618.0</td>
+      <td>324</td>
+      <td>23</td>
+      <td>108</td>
+      <td>3</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>São Paulo</td>
+      <td>320.0</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>2.0</td>
+      <td>20</td>
+      <td>1200</td>
+      <td>4960</td>
+      <td>1750</td>
+      <td>63</td>
+      <td>7973.0</td>
+      <td>720</td>
+      <td>78</td>
+      <td>240</td>
+      <td>11</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Porto Alegre</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>6</td>
+      <td>1000</td>
+      <td>2800</td>
+      <td>nr</td>
+      <td>41</td>
+      <td>3841.0</td>
+      <td>64</td>
+      <td>269</td>
+      <td>128</td>
+      <td>38</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Porto Alegre</td>
+      <td>51.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>270</td>
+      <td>1112</td>
+      <td>22</td>
+      <td>17</td>
+      <td>1421.0</td>
+      <td>46</td>
+      <td>73</td>
+      <td>92</td>
+      <td>10</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>São Paulo</td>
+      <td>25.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>800</td>
+      <td>25</td>
+      <td>11</td>
+      <td>836.0</td>
+      <td>1548</td>
+      <td>78</td>
+      <td>516</td>
+      <td>11</td>
+      <td>flat</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city                object
+area               float64
+rooms              float64
+bathroom             int64
+parking spaces     float64
+floor               object
+hoa                  int64
+rent                 int64
+tax                 object
+insurance            int64
+total              float64
+page hits            int64
+days available       int64
+interactions         int64
+weeks available      int64
+type                object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11765, 16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos visualizar dois atributos para estudar a distribuição dos dados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;area&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d85c0e34ef89a1b5386876c9c13a27c86b2cd7cf06010b2a83652676f78e86a0.png" src="_images/d85c0e34ef89a1b5386876c9c13a27c86b2cd7cf06010b2a83652676f78e86a0.png" />
+</div>
+</div>
+<section id="desvio-padrao-e-amplitude-inter-quartil-por-dispersao">
+<h3>1. Desvio padrão e amplitude inter-quartil (por dispersão)<a class="headerlink" href="#desvio-padrao-e-amplitude-inter-quartil-por-dispersao" title="Permalink to this headline">#</a></h3>
+<p>Para cada atributo, podemos estudar como os valores estão relacionados com a dispersão dos dados.</p>
+<p>Entre as medidas de dispersão temos:</p>
+<ul>
+<li><p>desvio padrão amostral (<em>standard deviation</em>)</p></li>
+<li><p>amplitude - ou intervalo - interquartil (IQR, <em>interquartile range</em>)
+Sejam:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_{1}\)</span> o valor relativo aos primeiros 25% dados,</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{2}\)</span> o valor relativo aos primeiros 50% dados (mediana),</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{3}\)</span> o valor relativo aos primeiros 75% dos dados,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[IQR = Q_{3} - Q_{1}\]</div>
+</li>
+</ul>
+<p>Considerando que os dados são bem ajustados por uma distribuição normal (ou Gaussiana), podemos comparar o uso dessas medidas de dispersão como critério para detectar outliers.</p>
+<img src="./imagens/IQR.png" width=380><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># esses valores estão disponíveis via describe()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>11687.000000</td>
+      <td>11686.000000</td>
+      <td>11765.000000</td>
+      <td>8800.000000</td>
+      <td>1.176500e+04</td>
+      <td>11765.000000</td>
+      <td>11765.000000</td>
+      <td>1.176500e+04</td>
+      <td>11765.000000</td>
+      <td>11765.000000</td>
+      <td>11765.000000</td>
+      <td>11765.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>145.652691</td>
+      <td>2.496406</td>
+      <td>2.280408</td>
+      <td>2.181705</td>
+      <td>1.162632e+03</td>
+      <td>4033.429154</td>
+      <td>56.525032</td>
+      <td>5.622370e+03</td>
+      <td>593.139992</td>
+      <td>73.644454</td>
+      <td>228.023969</td>
+      <td>10.307012</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>288.676311</td>
+      <td>1.165594</td>
+      <td>1.445071</td>
+      <td>1.519448</td>
+      <td>1.486720e+04</td>
+      <td>3564.190560</td>
+      <td>97.487374</td>
+      <td>1.579576e+04</td>
+      <td>559.727661</td>
+      <td>35.725794</td>
+      <td>174.183959</td>
+      <td>5.101312</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000e+00</td>
+      <td>200.000000</td>
+      <td>3.000000</td>
+      <td>2.635000e+02</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>56.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.600000e+02</td>
+      <td>1600.000000</td>
+      <td>22.000000</td>
+      <td>2.176000e+03</td>
+      <td>144.000000</td>
+      <td>51.000000</td>
+      <td>100.000000</td>
+      <td>7.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>91.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>5.610000e+02</td>
+      <td>2790.000000</td>
+      <td>37.000000</td>
+      <td>3.762000e+03</td>
+      <td>432.000000</td>
+      <td>72.000000</td>
+      <td>180.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>190.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>1.300000e+03</td>
+      <td>5100.000000</td>
+      <td>70.000000</td>
+      <td>6.990000e+03</td>
+      <td>900.000000</td>
+      <td>93.000000</td>
+      <td>312.000000</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>24606.000000</td>
+      <td>10.000000</td>
+      <td>25.000000</td>
+      <td>12.000000</td>
+      <td>1.117000e+06</td>
+      <td>45000.000000</td>
+      <td>6000.000000</td>
+      <td>1.119892e+06</td>
+      <td>6444.000000</td>
+      <td>358.000000</td>
+      <td>2148.000000</td>
+      <td>51.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pelo método do desvio padrão e IQR temos:</p>
+<section id="variavel-total">
+<h4>variável total<a class="headerlink" href="#variavel-total" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecionando segundo o total</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+
+<span class="n">desvp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">media</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mediana</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mediana = </span><span class="si">%.2f</span><span class="s2">, IQR = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mediana</span><span class="p">,</span> <span class="n">IQR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;media   = </span><span class="si">%.2f</span><span class="s2">, desvio padrao = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">media</span><span class="p">,</span> <span class="n">desvp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mediana = 3762.00, IQR = 4814.00
+media   = 5622.37, desvio padrao = 15795.76
+</pre></div>
+</div>
+</div>
+</div>
+<p>Detectando outliers segundo o <strong>desvio padrão</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># apenas outliers segundo std</span>
+<span class="n">dataout_std</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span>  <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">media</span><span class="o">-</span><span class="p">(</span><span class="n">desvp</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> 
+                   <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">media</span><span class="o">+</span><span class="p">(</span><span class="n">desvp</span><span class="o">*</span><span class="mi">2</span><span class="p">))]</span>
+
+<span class="c1"># apenas inliers segundo std</span>
+<span class="n">dc_std</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">media</span><span class="o">-</span><span class="p">(</span><span class="n">desvp</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> 
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">media</span><span class="o">+</span><span class="p">(</span><span class="n">desvp</span><span class="o">*</span><span class="mi">2</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">dc_std</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> <span class="n">dc_std</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;area&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/65e12bede15a83227d6978bf6f1b266b6750f530e033f684d0a309205498536a.png" src="_images/65e12bede15a83227d6978bf6f1b266b6750f530e033f684d0a309205498536a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># apenas outliers segundo IQR</span>
+<span class="n">dataout_iqr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span>   <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">Q1</span><span class="o">-</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="mf">1.5</span><span class="p">))</span> 
+                    <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="mf">1.5</span><span class="p">))]</span>
+
+<span class="c1"># apenas inliers segundo IQR</span>
+<span class="n">dc_iqr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span><span class="o">-</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="mf">1.5</span><span class="p">))</span> 
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="mf">1.5</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Desvio Padrao</span><span class="se">\t</span><span class="s1">IQR&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dc_std</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="n">dc_iqr</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Desvio Padrao	IQR
+              total         total
+count  11758.000000  11068.000000
+mean    5356.795348   4557.751599
+std     4566.356503   3233.790034
+min      263.500000    263.500000
+25%     2173.250000   2092.000000
+50%     3760.000000   3544.500000
+75%     6990.000000   6230.000000
+max    32751.000000  14199.000000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">dc_iqr</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> <span class="n">dc_iqr</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;area&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ca005d30e04b70e9f19d6a7d964c1fe598b8af2a2bdace911e380e43c7312d1c.png" src="_images/ca005d30e04b70e9f19d6a7d964c1fe598b8af2a2bdace911e380e43c7312d1c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="escrevendo-uma-funcao-para-remocao-de-outliers-segundo-o-iqr">
+<h3>Escrevendo uma função para remoção de outliers segundo o IQR<a class="headerlink" href="#escrevendo-uma-funcao-para-remocao-de-outliers-segundo-o-iqr" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_outliers_IQR</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcao para remover outliers com base no IQR</span>
+<span class="sd">    Parametros:</span>
+<span class="sd">        - df : dataframe</span>
+<span class="sd">        - attributes: atributos a considerar na remoção</span>
+<span class="sd">        - factor: fator do IQR a considerar</span>
+<span class="sd">    Retorno:</span>
+<span class="sd">        dataframe com os outliers removidos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+        <span class="c1"># verifica se variável é numerica</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">Q1</span> <span class="o">=</span> <span class="n">dfn</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="c1">#Q2 = dfn[var].quantile(0.50)</span>
+            <span class="n">Q3</span> <span class="o">=</span> <span class="n">dfn</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+            <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+            
+            <span class="c1"># apenas inliers segundo IQR</span>
+            <span class="n">dfn</span> <span class="o">=</span> <span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span><span class="o">-</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">)),:]</span>
+
+    <span class="k">return</span> <span class="n">dfn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="n">remove_outliers_IQR</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Nota:</strong> <font color="blue">Reparamos que, além de “city”, também “floor”, “tax” e “type” não são considerados numéricos. Há algo a ser investigado se esses atributos forem ser utilizados!</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> <span class="n">dc</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;total&#39;</span><span class="p">]);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apos remocao de outliers&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Apos remocao de outliers&#39;)
+</pre></div>
+</div>
+<img alt="_images/002ca8f576ccbba29b4395beb5e17f224bdc07b853f6622882e3616935575b4a.png" src="_images/002ca8f576ccbba29b4395beb5e17f224bdc07b853f6622882e3616935575b4a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;area&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">);</span> <span class="n">dc</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;area&#39;</span><span class="p">]);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apos remocao de outliers&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Apos remocao de outliers&#39;)
+</pre></div>
+</div>
+<img alt="_images/2b8cd9f59777cf69b365ab054b8c361430727e20c601e6ab41a276bf907b0d05.png" src="_images/2b8cd9f59777cf69b365ab054b8c361430727e20c601e6ab41a276bf907b0d05.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dados originais: &quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Após remoção de outliers: &quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dados originais:  11765
+Após remoção de outliers:  8242
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribuicao-dos-dados-distribuicao-normal">
+<h3>2. Distribuição dos dados (distribuição Normal)<a class="headerlink" href="#distribuicao-dos-dados-distribuicao-normal" title="Permalink to this headline">#</a></h3>
+<p>Podemos assumir que os dados possuem uma distribuição de probabilidade conhecida.</p>
+<p>Assim temos um algoritmo que:</p>
+<ol class="arabic simple">
+<li><p>Estima os parâmetros da distribuição</p></li>
+<li><p>Para cada ponto, computa a probabilidade <span class="math notranslate nohighlight">\(p\)</span> de pertencer à distribuição</p>
+<ol class="arabic simple">
+<li><p>se <span class="math notranslate nohighlight">\(p &lt; \varepsilon\)</span>, considerar o ponto como outlier</p></li>
+<li><p>senão, o ponto é inlier</p></li>
+</ol>
+</li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\varepsilon\)</span> é um limiar (threshold) pré-definido, exemplo: 0.01 (1%)</p>
+<p>Vamos utilizar a distribuição Normal ou Gaussiana, mas outras podem ser também utilizadas.</p>
+<section id="normal-univariada">
+<h4>Normal univariada<a class="headerlink" href="#normal-univariada" title="Permalink to this headline">#</a></h4>
+<p>A distribuição Normal (ou Gaussiana) univariada (para uma única variável) é parametrizada por: média (centralidade) e variância (dispersão).</p>
+<ul class="simple">
+<li><p>isso significa que os dados podem ser completamente descritos por esses dois valores.</p></li>
+</ul>
+<p>Escrevemos que um conjunto de dados é bem modelado por uma Gaussiana:
+$<span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>$</p>
+<p>A equação que define a distribuição Gaussiana é dada por uma exponencial negativa conforme se afasta de um ponto médio <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># média = 5</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># variancia = 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">10.00</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">15</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100,)
+[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.  1.1 1.2 1.3 1.4]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">termo_gauss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">s2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">termo_gauss</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/468ba1513660c2f61ff99faad14844b289076ab17918dc864f45c57a976f400e.png" src="_images/468ba1513660c2f61ff99faad14844b289076ab17918dc864f45c57a976f400e.png" />
+</div>
+</div>
+<p>A probabilidade de um determinado ponto <span class="math notranslate nohighlight">\(x\)</span> pertencer à <span class="math notranslate nohighlight">\(X\)</span> é dada por:</p>
+<div class="math notranslate nohighlight">
+\[p(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</div>
+<p>Esse termo que multiplica a exponencial é para <em>normalizar</em> os valores de forma a somar 1, pois isso é <strong>requerido para que consideremos uma distribuição de probabilidade</strong>.</p>
+<ul class="simple">
+<li><p>a soma de todas as probabilidades tem que ser 1 (100%)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_gauss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(((</span><span class="n">x</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">s2</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">s2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">dist_gauss</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d1d8f72c9707ac30d6db75088219aff687e7eb3106f68f671fd5d5992fcfebce.png" src="_images/d1d8f72c9707ac30d6db75088219aff687e7eb3106f68f671fd5d5992fcfebce.png" />
+</div>
+</div>
+<p>Vamos analisar um dos atributos, “weeks available” (semanas disponível), primeiro visualizando quantos valores distintos existem e o histograma</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weeks available&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hw</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weeks available&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8ec6cf55066feb6dad7d2af944bf41b3e77128fce7a70a5c9fb79df9076f2411.png" src="_images/8ec6cf55066feb6dad7d2af944bf41b3e77128fce7a70a5c9fb79df9076f2411.png" />
+</div>
+</div>
+<p>Notamos que o atributo parece ter o formato de uma Gaussiana, então vamos aplicar o algoritmo.</p>
+<p>Vamos projetar uma função, mas agora que retorne os índices dos prováveis outliers</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">detect_outlier_Normal</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">plotdist</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcao para detectar outliers com base na distribuicao Gaussiana univariada</span>
+<span class="sd">    Parametros:</span>
+<span class="sd">        - attribute: vetor de atributos/features</span>
+<span class="sd">        - epsilon: limiar para rejeitar pontos como pertencendo a distribuicao (default:0.001)</span>
+<span class="sd">        - plotdist: opcao que permite grafar a distribuicao com os parametros estimados</span>
+<span class="sd">    Retorno:</span>
+<span class="sd">        vetor com os índices dos outliers detectados</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+    <span class="n">stdv</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+        
+    <span class="c1"># array vazio</span>
+    <span class="n">outliers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># para cada atributo</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">attribute</span><span class="p">))):</span>
+        <span class="c1"># computa probabilidade</span>
+        <span class="n">p_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">stdv</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">stdv</span><span class="p">)</span>
+        <span class="c1"># limiar para considerar outlier</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p_x</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">):</span>
+            <span class="n">outliers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            
+    <span class="n">outliers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
+    
+    <span class="c1"># opcao para plotar a distribuicao marcando outliers</span>
+    <span class="k">if</span> <span class="n">plotdist</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mean</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">stdv</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">mean</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">stdv</span><span class="p">),</span><span class="n">stdv</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span>
+        <span class="n">dist_gauss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">stdv</span><span class="o">**</span><span class="mi">2</span><span class="p">))))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">stdv</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dist_gauss</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="n">outliers</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;xr&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">outliers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outl</span> <span class="o">=</span> <span class="n">detect_outlier_Normal</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weeks available&#39;</span><span class="p">],</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">plotdist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/392501f7a801b41fd5f5940aa99b28fe67494100df33fd3ae7e50f7c0d920d7d.png" src="_images/392501f7a801b41fd5f5940aa99b28fe67494100df33fd3ae7e50f7c0d920d7d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">outl</span><span class="p">,</span><span class="s1">&#39;weeks available&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2        38
+15       42
+68       30
+69       32
+100      47
+         ..
+10964    36
+11373    47
+11575    41
+11706    47
+11727    33
+Name: weeks available, Length: 98, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weeks_remout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weeks available&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">outl</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Após a remoção a distribuição dos dados é:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hw2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">weeks_remout</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a099726e55d80e21fb7d5e9672c4109c0dfde40562036ddf572f722bbe4ac6e3.png" src="_images/a099726e55d80e21fb7d5e9672c4109c0dfde40562036ddf572f722bbe4ac6e3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hw</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weeks available&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8ec6cf55066feb6dad7d2af944bf41b3e77128fce7a70a5c9fb79df9076f2411.png" src="_images/8ec6cf55066feb6dad7d2af944bf41b3e77128fce7a70a5c9fb79df9076f2411.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="agrupamento">
+<h3>3. Agrupamento<a class="headerlink" href="#agrupamento" title="Permalink to this headline">#</a></h3>
+<p>Outra técnica consiste em utilizar aprendizado não-supervisionado, inferindo agrupamentos e verificando se há pontos isolados em certos grupos.</p>
+<p>Vamos considerar um par de atributos para considerar ao <em>mesmo tempo</em>: <code class="docutils literal notranslate"><span class="pre">rent</span></code> e <code class="docutils literal notranslate"><span class="pre">hoa</span></code></p>
+<p>O método utilizado será o DBSCAN - <em>Density-Based Spatial Clustering of Applications with Noise</em>, mas outros também podem ser empregados na mesma lógica:</p>
+<ul class="simple">
+<li><p>agrupamentos (clusters) isolados com poucos pontos tendem a indicar outliers</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dc</span><span class="p">[</span><span class="s1">&#39;rent&#39;</span><span class="p">])</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dc</span><span class="p">[</span><span class="s1">&#39;hoa&#39;</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># aprende o agrupamento com DBSCAN</span>
+<span class="c1"># argumentos: </span>
+<span class="c1">#    eps = distancia máxima para dois pontos serem considerados vizinhos</span>
+<span class="c1">#        (depende bastante da amplitude dos atributos)</span>
+<span class="c1">#    min_samples = minimo de exemplos numa vizinhanca para considerar um </span>
+<span class="c1">#               agrupamento</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
+
+<span class="c1"># número de rótulos -1 sao considerados ruidosos</span>
+<span class="c1"># vamos considerá-los como outliers</span>
+<span class="n">n_outl_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># fora os outliers, quantos clusters foram encontrados:</span>
+<span class="n">n_clusters_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">clusters</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># índices dos outliers</span>
+<span class="n">outl_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">clusters</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de grupos estimado: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">n_clusters_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de outliers estimados: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">n_outl_</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">outl_ind</span><span class="p">],</span> <span class="n">X2</span><span class="p">[</span><span class="n">outl_ind</span><span class="p">],</span><span class="s1">&#39;xr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de grupos estimado: 62
+Número de outliers estimados: 121
+</pre></div>
+</div>
+<img alt="_images/ae3074d4c266428a3330444dade38e4e7133b0f38e937605f137450e2ac70e76.png" src="_images/ae3074d4c266428a3330444dade38e4e7133b0f38e937605f137450e2ac70e76.png" />
+</div>
+</div>
+</section>
+<section id="resumo-e-consideracoes-finais">
+<h3>Resumo e considerações finais<a class="headerlink" href="#resumo-e-consideracoes-finais" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>É possível projetar métodos automáticos para detectar anomalias em bases de dados maiores e mais complexas.</p></li>
+<li><p>Nessa aula vimos métodos estatísticos e baseados em aprendizado não-supervisionado.</p></li>
+<li><p>Há ainda métodos projetados exclusivamente para detectar anomalias, que também podem ser utilizados.</p>
+<ul>
+<li><p>Esses métodos consideram diferentes embasamentos teóricos,</p></li>
+<li><p>a maior parte considera que será feito um treinamento com dados não contaminados.</p></li>
+<li><p>podem ser utilizadas para realizar o que é chamado de <em>detecção de novidades</em>: reconhecer se um novo ponto é um outlier dado um conjunto de treinamento sem outliers</p></li>
+</ul>
+</li>
+<li><p>Para tratar bases de dados, combinar métodos automáticos com análise exploratória é importante</p>
+<ul>
+<li><p>produzir um relatório inicial com os problemas levantados e então buscar conhecimento do domínio para entender os dados em mãos</p></li>
+</ul>
+</li>
+<li><p>Estratégia para melhor controle da remoção dos outliers</p>
+<ul>
+<li><p>Ao checar a base de dados, passando por todos os atributos para verificação de outliers, uma opção interessante é criar uma coluna de marcação, em que cada linha é marcada com <code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">1</span></code> se for encontrado outlier em alguma coluna. Ao final, depois que todas as colunas tiverem sido verificadas, realizar a remoção das linhas indesejadas.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-02-1-Redundancia.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-02-3-Faltantes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-deteccao-e-remocao-de-outliers-span"><span style="color:darkred">Detecção e remoção de outliers</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detectando-outliers">Detectando outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desvio-padrao-e-amplitude-inter-quartil-por-dispersao">1. Desvio padrão e amplitude inter-quartil (por dispersão)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variavel-total">variável total</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escrevendo-uma-funcao-para-remocao-de-outliers-segundo-o-iqr">Escrevendo uma função para remoção de outliers segundo o IQR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicao-dos-dados-distribuicao-normal">2. Distribuição dos dados (distribuição Normal)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-univariada">Normal univariada</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamento">3. Agrupamento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-e-consideracoes-finais">Resumo e considerações finais</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

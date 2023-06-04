@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-01-1-Tipos_de_dados';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-01-2-Informacoes_Faltantes.html" />
+    <link rel="prev" title="Aula 8 - Modelos Lineares Generalizados" href="ECD_08_MaterialBase-MLGs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-01-1-Tipos_de_dados.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-01-1-Tipos_de_dados.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span"><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-nao-estruturados">1. Dados não estruturados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ess3-texto-foi-escritto-para-mstrar-como-somvs-capzes-de-corigir-err0s">“Ess3 texto foi escritto para mstrar como somvs capzes de corigir err0s”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-1-imagens">Exemplo 1: imagens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-2-texto">Exemplo 2: texto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-estruturados">2. Dados estruturados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminologia-de-bases-relacionais">Terminologia de bases relacionais</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-dados">Tipos de dados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-e-consideracoes-finais">3. Resumo e considerações finais</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h1>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span">
+<h2><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span><a class="headerlink" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span" title="Permalink to this headline">#</a></h2>
+<p><strong>Material Produzido por Moacir Antonelli Ponti</strong></p>
+<p><strong>Cemeai - ICMC/USP São Carlos</strong></p>
+</section>
+<hr class="docutils" />
+<section id="dados-nao-estruturados">
+<h2>1. Dados não estruturados<a class="headerlink" href="#dados-nao-estruturados" title="Permalink to this headline">#</a></h2>
+<p>Símbolos organizados em documentos de vários formatos.</p>
+<p>Seu propósito é serem lidos e analisados por humanos dentro de um contexto cultural.</p>
+<p>Como humanos temos capacidades de compreender dados não estruturados pois podemos:</p>
+<ul class="simple">
+<li><p>interpretar mistura de símbolos e elementos
+<img alt="documento" src="_images/documento.jpg" /></p></li>
+<li><p>detectar e corrigir erros</p></li>
+</ul>
+<section id="ess3-texto-foi-escritto-para-mstrar-como-somvs-capzes-de-corigir-err0s">
+<h3>“Ess3 texto foi escritto para mstrar como somvs capzes de corigir err0s”<a class="headerlink" href="#ess3-texto-foi-escritto-para-mstrar-como-somvs-capzes-de-corigir-err0s" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>preencher informacoes faltantes</p></li>
+</ul>
+<p><img alt="preencher" src="_images/fillgaps.jpg" /></p>
+<ul class="simple">
+<li><p>lidar com ambiguidade
+<img alt="ambiguidade" src="_images/ambiguidade.png" /></p></li>
+<li><p>reconhecer e compreender humor e sentimentos por meio de elementos complexos
+<img alt="twit" src="_images/mafalda.jpg" /></p></li>
+</ul>
+<p>Por isso são de <strong>difícil análise automática/computacional</strong></p>
+</section>
+<section id="exemplo-1-imagens">
+<h3>Exemplo 1: imagens<a class="headerlink" href="#exemplo-1-imagens" title="Permalink to this headline">#</a></h3>
+<p>Imagens são exemplos de objetos não estruturados, pois seu conteúdo é projetado para interpretacão humana.</p>
+<p>Vamos carregar duas imagens relacionadas a uma palavra chave: “cebolinha”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio.v2</span> <span class="k">as</span> <span class="nn">imageio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># carregar e exibir imagens da &quot;base de dados&quot;</span>
+<span class="n">img1</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;imagens/cebolinha2.jpg&quot;</span><span class="p">)</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;imagens/cebolinha3.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># exibir imagens</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">imageio.v2</span> <span class="k">as</span> <span class="nn">imageio</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;imageio&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nesse exemplo, vamos considerar que essas são as imagens de <em>referência</em> sobre o conceito <strong>cebolinha</strong> e agora vamos obter uma nova imagem, de consulta, a qual queremos comparar com as duas imagens de referência.</p>
+<p>Vamos computar a distância entre a imagem de consulta, e ambas imagens referência, e considerar mais similar aquela com a menor distância. Imagens estão em formato binário, e podem ser vistas como sequências de bytes.</p>
+<p>Há várias formas de calcular a distância. Seja um par de objetos a serem comparados: <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span>, cada um contendo elementos <span class="math notranslate nohighlight">\(i=1 \cdots N\)</span>, então a distância Euclidiana é:</p>
+<div class="math notranslate nohighlight">
+\[ d(A,B) = \sqrt{ \sum_{i}^N (A_i - B_i)^2 } \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carregar imagem de consulta e codificar funcao de distancia</span>
+<span class="c1"># computar as distancias e exibir</span>
+<span class="n">imgQ</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;imagens/cebolinha1.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># codificar função de distância</span>
+<span class="k">def</span> <span class="nf">img_distance</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Calcula a distancia Euclidiana entre dois vetores de mesmo tamanho&quot;&quot;&quot;</span>
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># computar as imagens e exibir</span>
+<span class="n">dQ1</span> <span class="o">=</span> <span class="n">img_distance</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="n">img1</span><span class="p">)</span>
+<span class="n">dQ2</span> <span class="o">=</span> <span class="n">img_distance</span><span class="p">(</span><span class="n">imgQ</span><span class="p">,</span> <span class="n">img2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imagem da esquerda:&quot;</span><span class="p">,</span> <span class="n">dQ1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imagem da direita:&quot;</span><span class="p">,</span><span class="n">dQ2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Imagem da esquerda: 7850.7686884788545
+Imagem da direita: 5827.087265521257
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notamos que, pela distância Euclidiana, a imagem da direita é a mais similar! Vamos revelar a imagem de consulta:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostrar imagem de consulta</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgQ</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Query&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">imgQ</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>674028
+</pre></div>
+</div>
+<img alt="_images/7b318c7c89406ec7bae8978ad0865fe754d3e5144f24ac39f8f7e14bdcda2b84.png" src="_images/7b318c7c89406ec7bae8978ad0865fe754d3e5144f24ac39f8f7e14bdcda2b84.png" />
+</div>
+</div>
+</section>
+<section id="exemplo-2-texto">
+<h3>Exemplo 2: texto<a class="headerlink" href="#exemplo-2-texto" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Querido amado. Eu sou a Sra. Josan Nowak. uma viúva idosa que sofre de câncer de longa data. Estou escrevendo este e-mail para você com lágrimas pesadas em meus olhos e grande tristeza em meu coração porque atualmente estou internada em um hospital particular devido à minha condição de saúde, tenho uma doença grave de câncer. Prezado, estou entrando em contato com você para informar meu desejo. decidi doar a quantia de ($4.800.000,00 dólares) que herdei do meu falecido amado marido para trabalho humanitário, atualmente o fundo ainda está no banco, e recentemente, meu médico me disse que não posso sair devido a minha doença, tomei essa decisão porque não tenho nenhum filho que herdará esse dinheiro apósminha morte e minha saúde está piorando a cada dia, então não querouma situação em que esse fundo seja usado de maneira ímpia. Aguardo sua resposta em breve para mais informações. Sua irmã em cristo Senhora Josan Nowak&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Olá,*****. No Banco ****** seu imóvel quitado garante oportunidades de crédito ainda melhores. Com o Crédito com Garantia de Imóvel Especial você realiza seus sonhos fazendo um empréstimo a partir de R$30 mil, com parcelas que cabem no seu bolso. Simule agora&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;*****. Seu investimento no Tesouro Direto - protocolo 130444310x - já foi liquidado no banco e sua contratação foi concluída com sucesso! Você pode acessar o Extrato do Tesouro Direto para vê-lo.&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># exibir textos e seus tamanhos</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">emails</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Querido amado. Eu sou a Sra. Josan Nowak. uma viúva idosa que sofre de câncer de longa data. Estou escrevendo este e-mail para você com lágrimas pesadas em meus olhos e grande tristeza em meu coração porque atualmente estou internada em um hospital particular devido à minha condição de saúde, tenho uma doença grave de câncer. Prezado, estou entrando em contato com você para informar meu desejo. decidi doar a quantia de ($4.800.000,00 dólares) que herdei do meu falecido amado marido para trabalho humanitário, atualmente o fundo ainda está no banco, e recentemente, meu médico me disse que não posso sair devido a minha doença, tomei essa decisão porque não tenho nenhum filho que herdará esse dinheiro apósminha morte e minha saúde está piorando a cada dia, então não querouma situação em que esse fundo seja usado de maneira ímpia. Aguardo sua resposta em breve para mais informações. Sua irmã em cristo Senhora Josan Nowak: 929
+Olá,*****. No Banco ****** seu imóvel quitado garante oportunidades de crédito ainda melhores. Com o Crédito com Garantia de Imóvel Especial você realiza seus sonhos fazendo um empréstimo a partir de R$30 mil, com parcelas que cabem no seu bolso. Simule agora: 259
+*****. Seu investimento no Tesouro Direto - protocolo 130444310x - já foi liquidado no banco e sua contratação foi concluída com sucesso! Você pode acessar o Extrato do Tesouro Direto para vê-lo.: 195
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Como comparar os emails? Como obter informações que, por exemplo, permitam dizer que um deles é spam?</p>
+</div></blockquote>
+<p>Alguns desafios incluem</p>
+<ul class="simple">
+<li><p>lidar com diferentes tamanhos de strings, símbolos e números</p></li>
+<li><p>definir função de distância</p></li>
+</ul>
+<p><strong>Exemplos de documentos não estruturados:</strong></p>
+<ul class="simple">
+<li><p>emails,</p></li>
+<li><p>artigos,</p></li>
+<li><p>documentos em PDF,</p></li>
+<li><p>comentários e postagens em redes sociais,</p></li>
+<li><p>interacão entre consumidores,</p></li>
+<li><p>áudio,</p></li>
+<li><p>dados adquiridos por sensores</p></li>
+</ul>
+<p>Características de dados não estruturados:</p>
+<ul class="simple">
+<li><p><strong>binários</strong> e/ou <strong>caracteres</strong></p></li>
+<li><p><strong>alta flexibilidade</strong> (não possuem esquema)</p></li>
+<li><p><strong>coleta</strong> feita com baixo <strong>controle</strong> (<em>in the wild</em>)</p></li>
+<li><p><strong>não verificados</strong> / <strong>não certificados</strong></p></li>
+<li><p>possuem alta <strong>redundância</strong></p></li>
+<li><p>possuem alta <strong>dimensionalidade</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="dados-estruturados">
+<h2>2. Dados estruturados<a class="headerlink" href="#dados-estruturados" title="Permalink to this headline">#</a></h2>
+<p>Dados cujos elementos são <em>endereçáveis</em>, facilitando armazenamento e recuperação, organizados em um repositório formatado.</p>
+<p>Em contrapartida aos dados não-estruturados nos quais não há um esquema que mostre o atributo ou a informação que eu desejaria recuperar mas que não é disponível de forma direta.</p>
+<p>Dados estruturados estão prontos para ser armazenados em <strong>bases de dados relacionais</strong>, por exemplo:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>username</p></th>
+<th class="text-left head"><p>Primeiro Nome</p></th>
+<th class="text-left head"><p>Sobrenome</p></th>
+<th class="head"><p>Ano de nascimento</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><a class="reference external" href="mailto:joao&#37;&#52;&#48;provider&#46;com">joao<span>&#64;</span>provider<span>&#46;</span>com</a></p></td>
+<td class="text-left"><p>João</p></td>
+<td class="text-left"><p>Oliveira</p></td>
+<td><p>1996</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><a class="reference external" href="mailto:bet89&#37;&#52;&#48;hoster&#46;net">bet89<span>&#64;</span>hoster<span>&#46;</span>net</a></p></td>
+<td class="text-left"><p>Elizabete</p></td>
+<td class="text-left"><p>Costa Silva</p></td>
+<td><p>1989</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><a class="reference external" href="mailto:maria&#37;&#52;&#48;internet&#46;com&#46;br">maria<span>&#64;</span>internet<span>&#46;</span>com<span>&#46;</span>br</a></p></td>
+<td class="text-left"><p>Maria Cláudia</p></td>
+<td class="text-left"><p>Nunes de Souza</p></td>
+<td><p>1976</p></td>
+</tr>
+</tbody>
+</table>
+<p>transpondo informações das imagens que mostramos no caso não estruturado:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="text-center head"><p>Conceito</p></th>
+<th class="text-right head"><p>Categoria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>01</p></td>
+<td class="text-center"><p>Cebolinha</p></td>
+<td class="text-right"><p>Personagem</p></td>
+</tr>
+<tr class="row-odd"><td><p>02</p></td>
+<td class="text-center"><p>Cebolinha</p></td>
+<td class="text-right"><p>Personagem</p></td>
+</tr>
+<tr class="row-even"><td><p>03</p></td>
+<td class="text-center"><p>Cebolinha</p></td>
+<td class="text-right"><p>Alimento</p></td>
+</tr>
+</tbody>
+</table>
+<p>Mas note que as informações estruturadas não são suficientes para dar uma idéia completa da imagem a que nos referimos! Em particular, os IDs 01 e 02 tem exatamente os mesmos dados estruturados.</p>
+<section id="terminologia-de-bases-relacionais">
+<h3>Terminologia de bases relacionais<a class="headerlink" href="#terminologia-de-bases-relacionais" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>Campo, atributo ou variável</strong>: um elemento específico para o qual temos dados, por exemplo: username na primeira tabela mostrada, relativo a <em>coluna</em> da tabela</p></li>
+<li><p><strong>Tupla ou registro</strong>: um conjunto de valores de atributos, por exemplo: (<a class="reference external" href="mailto:joao&#37;&#52;&#48;provider&#46;com">joao<span>&#64;</span>provider<span>&#46;</span>com</a>, João, Oliveira, 1996), relativo à <em>linha</em> da tabela</p></li>
+<li><p><strong>Tabela ou relação</strong>: conjunto de linhas e colunas compartilhando os mesmos atributos, organizando a mesma informação acerca de um tipo de objeto</p></li>
+</ul>
+<p>Em dados estruturados podemos ainda definir relações com outros dados.</p>
+<p>Por exemplo, definimos duas tabelas, a primeira para a imagem, e a segunda para conceitos.</p>
+<p><em>Tabela 1 - Conceitos</em></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID_c</p></th>
+<th class="text-center head"><p>Descricão</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td class="text-center"><p>Cebolinha</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td class="text-center"><p>Coentro</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabela 2 - Imagens</em></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID_i</p></th>
+<th class="text-center head"><p>Conceito (Conceitos-&gt;ID_c)</p></th>
+<th class="text-right head"><p>Categoria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>01</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>Personagem</p></td>
+</tr>
+<tr class="row-odd"><td><p>02</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>Personagem</p></td>
+</tr>
+<tr class="row-even"><td><p>03</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-right"><p>Alimento</p></td>
+</tr>
+<tr class="row-odd"><td><p>04</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-right"><p>Alimento</p></td>
+</tr>
+</tbody>
+</table>
+<p>Aqui, temos esquema, e podemos definir que, por exemplo:</p>
+<ul class="simple">
+<li><p>ID_c, ID_i e Conceito são sempre números inteiros</p></li>
+<li><p>ID_c não pode se repetir em tuplas distintas na tabela</p></li>
+<li><p>ID_i não pode se repetir em tuplas distintas na tabela</p></li>
+<li><p>Conceito pode conter apenas valores que existam em ID_c na tabela Conceitos</p></li>
+</ul>
+<p>A possibilidade de realizar validação e controle de entrada torna esses dados mais confiáveis.</p>
+<p>Finalmente, é possível projetar <strong>buscas</strong> para recuperar informação de forma eficiente!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conceitos</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ID_c&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="s1">&#39;Descricao&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cebolinha&#39;</span><span class="p">,</span> <span class="s1">&#39;Coentro&#39;</span><span class="p">]}</span>
+
+
+<span class="n">imagens</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID_i&#39;</span><span class="p">:</span>      <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+           <span class="s1">&#39;Conceito&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+           <span class="s1">&#39;Categoria&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Personagem&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;Personagem&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;Alimento&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;Alimento&#39;</span><span class="p">]</span>
+          <span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df_conc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">conceitos</span><span class="p">)</span>
+<span class="n">df_imag</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">imagens</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_conc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_imag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ID_c  Descricao
+0     1  Cebolinha
+1     2    Coentro
+
+   ID_i  Conceito   Categoria
+0     1         1  Personagem
+1     2         1  Personagem
+2     3         1    Alimento
+3     4         2    Alimento
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_imag</span><span class="p">[</span> <span class="n">df_imag</span><span class="p">[</span><span class="s1">&#39;Categoria&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Alimento&#39;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID_i</th>
+      <th>Conceito</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>Alimento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2</td>
+      <td>Alimento</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">df_conc</span><span class="p">[</span> <span class="n">df_conc</span><span class="p">[</span><span class="s1">&#39;Descricao&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Cebolinha&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ID_c  Descricao
+0     1  Cebolinha
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use com cuidado, só funciona se a consulta anterior retornar alguma linha</span>
+<span class="n">df_imag</span><span class="p">[</span><span class="n">df_imag</span><span class="p">[</span><span class="s1">&#39;Conceito&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ID_c&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID_i</th>
+      <th>Conceito</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Personagem</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>Personagem</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>Alimento</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="tipos-de-dados">
+<h3>Tipos de dados<a class="headerlink" href="#tipos-de-dados" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>numéricos: mais simples de lidar podemos extrair medidas, estatísticas, etc.</p></li>
+<li><p>categóricos: podemos medir sua frequência, mas compará-los é mais difícil</p></li>
+</ul>
+<p>Muitos métodos estatísticos e de aprendizado de máquina não permitem trabalhar com dados categóricos diretamente!</p>
+</section>
+</section>
+<section id="resumo-e-consideracoes-finais">
+<h2>3. Resumo e considerações finais<a class="headerlink" href="#resumo-e-consideracoes-finais" title="Permalink to this headline">#</a></h2>
+<p>Dados não estruturados:</p>
+<ul class="simple">
+<li><p>representam grande parte dos dados disponíveis, tanto em sistemas privados quanto publicamente</p></li>
+<li><p>continua a crescer devido a</p>
+<ul>
+<li><p>menor custo e facilidade de aquisição</p></li>
+<li><p>dispositivos móveis conectados</p></li>
+</ul>
+</li>
+</ul>
+<p>Dados estruturados:</p>
+<ul class="simple">
+<li><p>robustos</p></li>
+<li><p>fáceis de versionar</p></li>
+<li><p>mais confiáveis</p></li>
+<li><p>maior custo de manutenção</p></li>
+</ul>
+<p><strong>Muitos esforços são direcionados a obter dados estruturados a partir de dados não estruturados!</strong></p>
+<p>Nesse processo uma série de escolhas precisam ser feitas para ter sucesso no resultado desejado.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ECD_08_MaterialBase-MLGs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Aula 8 - Modelos Lineares Generalizados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-01-2-Informacoes_Faltantes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span"><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-nao-estruturados">1. Dados não estruturados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ess3-texto-foi-escritto-para-mstrar-como-somvs-capzes-de-corigir-err0s">“Ess3 texto foi escritto para mstrar como somvs capzes de corigir err0s”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-1-imagens">Exemplo 1: imagens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-2-texto">Exemplo 2: texto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-estruturados">2. Dados estruturados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminologia-de-bases-relacionais">Terminologia de bases relacionais</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-dados">Tipos de dados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-e-consideracoes-finais">3. Resumo e considerações finais</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

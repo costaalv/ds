@@ -1,0 +1,2406 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-02-3-Faltantes';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-02-4-Desbalanceamento.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-02-2-Outliers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-02-3-Faltantes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-02-3-Faltantes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-informacoes-faltantes-span"><span style="color:darkred">Informações faltantes</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacoes-faltantes">Informações faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimento-com-tratamento-de-dados">Experimento com tratamento de dados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tratando-duplicatas">Tratando duplicatas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchendo-dados-faltantes">Preenchendo dados faltantes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-com-valor-constante">Preenchimento com valor constante</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-pela-media">Preenchimento pela média</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h1>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span">
+<h2><span style="color:darkred">Tratamento e limpeza de bases de dados</span><a class="headerlink" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="span-style-color-darkred-informacoes-faltantes-span">
+<h2><span style="color:darkred">Informações faltantes</span><a class="headerlink" href="#span-style-color-darkred-informacoes-faltantes-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+</section>
+<hr class="docutils" />
+<section id="informacoes-faltantes">
+<h2>Informações faltantes<a class="headerlink" href="#informacoes-faltantes" title="Permalink to this headline">#</a></h2>
+<p>Problemas com dados do tipo: faltantes (e errôneos, os quais também ocasionam perdas) podem levar a impactos nos modelos estatísticos e de aprendizado.</p>
+<p>A primeira etapa é <strong>detectar corretamente</strong> as informações faltantes, estudar os atributos onde ocorrem, separando em:</p>
+<ul class="simple">
+<li><p>Dados faltantes: no Python <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, sendo indefinidos ou não encontrados</p></li>
+<li><p>Dados errôneos: valores que devem ser removidos para não prejudicar a análise. Comumente não são <em>outliers</em> mas dados corrompidos no armazenamento, transmissão ou inputação.</p></li>
+</ul>
+<p>A seguir, temos como opções</p>
+<ol class="arabic simple">
+<li><p>Remover as linhas/instâncias contendo valores faltantes</p></li>
+<li><p>Preencher valores faltantes utilizando algum método</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="c1"># https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/houses_to_rent_mba2.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>floor</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>tax</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>São Paulo</td>
+      <td>70.0</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>7</td>
+      <td>2065</td>
+      <td>3300</td>
+      <td>211</td>
+      <td>42</td>
+      <td>5618.0</td>
+      <td>324</td>
+      <td>23</td>
+      <td>108</td>
+      <td>3</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>São Paulo</td>
+      <td>320.0</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>2.0</td>
+      <td>20</td>
+      <td>1200</td>
+      <td>4960</td>
+      <td>1750</td>
+      <td>63</td>
+      <td>7973.0</td>
+      <td>720</td>
+      <td>78</td>
+      <td>240</td>
+      <td>11</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Porto Alegre</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>6</td>
+      <td>1000</td>
+      <td>2800</td>
+      <td>nr</td>
+      <td>41</td>
+      <td>3841.0</td>
+      <td>64</td>
+      <td>269</td>
+      <td>128</td>
+      <td>38</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Porto Alegre</td>
+      <td>51.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>270</td>
+      <td>1112</td>
+      <td>22</td>
+      <td>17</td>
+      <td>1421.0</td>
+      <td>46</td>
+      <td>73</td>
+      <td>92</td>
+      <td>10</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>São Paulo</td>
+      <td>25.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>800</td>
+      <td>25</td>
+      <td>11</td>
+      <td>836.0</td>
+      <td>1548</td>
+      <td>78</td>
+      <td>516</td>
+      <td>11</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>11760</th>
+      <td>São Paulo</td>
+      <td>150.0</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>8</td>
+      <td>0</td>
+      <td>13500</td>
+      <td>0</td>
+      <td>172</td>
+      <td>13672.0</td>
+      <td>2124</td>
+      <td>114</td>
+      <td>708</td>
+      <td>16</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>11761</th>
+      <td>Porto Alegre</td>
+      <td>63.0</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td>402</td>
+      <td>1478</td>
+      <td>24</td>
+      <td>22</td>
+      <td>1926.0</td>
+      <td>58</td>
+      <td>86</td>
+      <td>116</td>
+      <td>12</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>11762</th>
+      <td>São Paulo</td>
+      <td>285.0</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>17</td>
+      <td>3100</td>
+      <td>15000</td>
+      <td>973</td>
+      <td>191</td>
+      <td>19264.0</td>
+      <td>612</td>
+      <td>99</td>
+      <td>204</td>
+      <td>14</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>11763</th>
+      <td>Brotas</td>
+      <td>100.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>-</td>
+      <td>0</td>
+      <td>800</td>
+      <td>116</td>
+      <td>39</td>
+      <td>955.0</td>
+      <td>148</td>
+      <td>127</td>
+      <td>148</td>
+      <td>18</td>
+      <td>house</td>
+    </tr>
+    <tr>
+      <th>11764</th>
+      <td>Brotas</td>
+      <td>200.0</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>-</td>
+      <td>0</td>
+      <td>1450</td>
+      <td>226</td>
+      <td>75</td>
+      <td>1751.0</td>
+      <td>104</td>
+      <td>85</td>
+      <td>104</td>
+      <td>12</td>
+      <td>house</td>
+    </tr>
+  </tbody>
+</table>
+<p>11765 rows × 16 columns</p>
+</div></div></div>
+</div>
+<section id="experimento-com-tratamento-de-dados">
+<h3>Experimento com tratamento de dados<a class="headerlink" href="#experimento-com-tratamento-de-dados" title="Permalink to this headline">#</a></h3>
+<p>Vamos utilizar essa base de dados como meio de estudo, com duas tarefas:</p>
+<ol class="arabic simple">
+<li><p>classificador para predizer a <strong>cidade</strong> com base nos atributos: imposto, valor total e valor do seguro</p></li>
+<li><p>regressor para predizer o <strong>total</strong> do aluguel com base nos atributos: área, número de quartos, andar, tipo, número de vagas na garagem e número de banheiros.</p></li>
+</ol>
+<p>Repassaremos conceitos como <strong>remoção de duplicatas e de outliers</strong></p>
+<ol class="arabic simple">
+<li><p>Separar essa base de dados em conjuntos de treinamento (X) e teste (Z)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtem amostra dos dados para treinamento</span>
+<span class="n">frac_trein</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">dtrain</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="n">frac_trein</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># amostra trein.</span>
+<span class="n">dtest</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># amostra teste</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dtrain</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">dtest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11765
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos tentar obter um <strong>classificador</strong> sem realizar nenhum tratamento na base de dados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preparando os atributos</span>
+<span class="n">Xcla</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;total&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">]]</span>
+<span class="n">Ycla</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="c1"># dados de teste</span>
+<span class="n">ZXcla</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;total&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">]]</span>
+<span class="n">ZYcla</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="c1"># classificador</span>
+<span class="n">clfb</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xcla</span><span class="p">,</span><span class="n">Ycla</span><span class="p">)</span>
+<span class="n">ZYcla_</span> <span class="o">=</span> <span class="n">clfb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipykernel_21818/3050324212.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ZYcla</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># classificador</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">clfb</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">clfb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xcla</span><span class="p">,</span><span class="n">Ycla</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">ZYcla_</span> <span class="o">=</span> <span class="n">clfb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">?</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span> 
+<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="c1"># Validate or convert input data</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>         <span class="k">if</span> <span class="n">issparse</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sparse multilabel-indicator for y is not supported.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>         <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">multi_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPE</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span>         <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/base.py</span> in <span class="ni">?</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>                 <span class="k">if</span> <span class="s2">&quot;estimator&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">check_y_params</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span>                     <span class="n">check_y_params</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">default_check_params</span><span class="p">,</span> <span class="o">**</span><span class="n">check_y_params</span><span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>                 <span class="n">y</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">check_y_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">584</span>                 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span> 
+<span class="g g-Whitespace">    </span><span class="mi">587</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/validation.py</span> in <span class="ni">?</span><span class="nt">(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1102</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1103</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">estimator_name</span><span class="si">}</span><span class="s2"> requires y to be passed, but the target y is None&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1104</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1105</span> 
+<span class="ne">-&gt; </span><span class="mi">1106</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1108</span>         <span class="n">accept_sparse</span><span class="o">=</span><span class="n">accept_sparse</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1109</span>         <span class="n">accept_large_sparse</span><span class="o">=</span><span class="n">accept_large_sparse</span><span class="p">,</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/validation.py</span> in <span class="ni">?</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>                         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">_asarray_with_order</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="n">xp</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">880</span>             <span class="k">except</span> <span class="n">ComplexWarning</span> <span class="k">as</span> <span class="n">complex_warning</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>                     <span class="s2">&quot;Complex data not supported</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span>                 <span class="p">)</span> <span class="kn">from</span> <span class="nn">complex_warning</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/_array_api.py</span> in <span class="ni">?</span><span class="nt">(array, dtype, order, copy, xp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="n">xp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_namespace</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>     <span class="k">if</span> <span class="n">xp</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s2">&quot;numpy.array_api&quot;</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>         <span class="c1"># Use NumPy API to support order</span>
+<span class="ne">--&gt; </span><span class="mi">185</span>         <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>         <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>         <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1996</span>     <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1997</span>         <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+<span class="ne">-&gt; </span><span class="mi">1998</span>         <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1999</span>         <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2000</span>             <span class="n">astype_is_view</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2001</span>             <span class="ow">and</span> <span class="n">using_copy_on_write</span><span class="p">()</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;-&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Encontramos o primeiro erro! Vamos olhar para os atributos antes de treinar…</strong>
+Note que o erro é de conversão de string para float. Vamos imprimir os tipos dos atributos e seus valores únicos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city                object
+area               float64
+rooms              float64
+bathroom             int64
+parking spaces     float64
+floor               object
+hoa                  int64
+rent                 int64
+tax                 object
+insurance            int64
+total              float64
+page hits            int64
+days available       int64
+interactions         int64
+weeks available      int64
+type                object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">dtrain</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">40</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total de faltantes: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------
+city : object
+             city  size
+0  Belo Horizonte   368
+1          Brotas     3
+2        Campinas   244
+3    Porto Alegre   332
+4  Rio de Janeiro   440
+5       São Paulo  2143
+----------------------------------------
+area : float64
+count     3509.000000
+mean       146.410373
+std        433.867590
+min         12.000000
+25%         56.000000
+50%         91.000000
+75%        181.000000
+max      24606.000000
+Name: area, dtype: float64
+Total de faltantes:  21 
+
+----------------------------------------
+rooms : float64
+count    3503.000000
+mean        2.477591
+std         1.150322
+min         1.000000
+25%         2.000000
+50%         2.000000
+75%         3.000000
+max        10.000000
+Name: rooms, dtype: float64
+Total de faltantes:  27 
+
+----------------------------------------
+bathroom : int64
+count    3530.000000
+mean        2.274504
+std         1.444447
+min         1.000000
+25%         1.000000
+50%         2.000000
+75%         3.000000
+max        20.000000
+Name: bathroom, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+parking spaces : float64
+count    2669.000000
+mean        2.137505
+std         1.482347
+min         1.000000
+25%         1.000000
+50%         2.000000
+75%         3.000000
+max         8.000000
+Name: parking spaces, dtype: float64
+Total de faltantes:  861 
+
+----------------------------------------
+floor : object
+   floor  size
+0      -   767
+1      1   358
+2     10   119
+3     11   108
+4    110     1
+5     12    79
+6     13    77
+7     14    68
+8     15    47
+9     16    27
+10    17    28
+11    18    24
+12    19    18
+13     2   327
+14    20    18
+15    21    22
+16    22     6
+17    23     9
+18    24     7
+19    25    10
+20    26    12
+21    27     2
+22    28     1
+23     3   316
+24     4   234
+25     5   207
+26     6   176
+27     7   171
+28     8   163
+29     9   128
+----------------------------------------
+hoa : int64
+count     3530.000000
+mean       956.393484
+std       1750.021079
+min          0.000000
+25%        185.750000
+50%        578.500000
+75%       1313.500000
+max      81150.000000
+Name: hoa, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+rent : int64
+count     3530.000000
+mean      3963.537960
+std       3331.642415
+min        450.000000
+25%       1612.000000
+50%       2800.000000
+75%       5010.000000
+max      30000.000000
+Name: rent, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+tax : object
+      tax  size
+0       -     2
+1     ---     1
+2       0   535
+3       1     7
+4      10     4
+..    ...   ...
+719   990     1
+720  9900     1
+721   996     1
+722   997     1
+723   nsa     1
+
+[724 rows x 2 columns]
+----------------------------------------
+insurance : int64
+count    3530.000000
+mean       53.907932
+std        46.370137
+min         5.000000
+25%        22.000000
+50%        37.000000
+75%        70.000000
+max       451.000000
+Name: insurance, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+total : float64
+count     3530.000000
+mean      5324.564023
+std       4668.449630
+min        499.000000
+25%       2177.000000
+50%       3773.500000
+75%       6885.500000
+max      95608.000000
+Name: total, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+page hits : int64
+count    3530.000000
+mean      594.931445
+std       562.364827
+min         0.000000
+25%       144.000000
+50%       432.000000
+75%       900.000000
+max      6156.000000
+Name: page hits, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+days available : int64
+count    3530.000000
+mean       73.780453
+std        35.859787
+min         0.000000
+25%        51.000000
+50%        72.000000
+75%        93.000000
+max       358.000000
+Name: days available, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+interactions : int64
+count    3530.000000
+mean      228.125779
+std       174.531705
+min         0.000000
+25%        96.000000
+50%       180.000000
+75%       312.000000
+max      2052.000000
+Name: interactions, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+weeks available : int64
+count    3530.000000
+mean       10.324929
+std         5.118995
+min         0.000000
+25%         7.000000
+50%        10.000000
+75%        13.000000
+max        51.000000
+Name: weeks available, dtype: float64
+Total de faltantes:  0 
+
+----------------------------------------
+type : object
+    type  size
+0   flat  2763
+1  house   767
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note que:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">city</span></code> e <code class="docutils literal notranslate"><span class="pre">type</span></code> são do tipo object contendo strings (palavras),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">floor</span></code> e <code class="docutils literal notranslate"><span class="pre">tax</span></code> aparecem como object mas contendo números!</p></li>
+</ul>
+<p>Precisamos procurar por problemas e remover os valores não numéricos como <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+<p>Uma forma fácil é simplesmente forçar a <strong>conversão para numérico</strong> e atribuir <code class="docutils literal notranslate"><span class="pre">NaN</span></code> aos elementos não convertidos.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">floor</span></code> possui um único valor não numérico <code class="docutils literal notranslate"><span class="pre">-</span></code>:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;floor&#39;</span><span class="p">])</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;7&#39; &#39;5&#39; &#39;3&#39; &#39;11&#39; &#39;-&#39; &#39;2&#39; &#39;15&#39; &#39;6&#39; &#39;1&#39; &#39;20&#39; &#39;4&#39; &#39;17&#39; &#39;21&#39; &#39;8&#39; &#39;13&#39; &#39;9&#39;
+ &#39;18&#39; &#39;12&#39; &#39;10&#39; &#39;19&#39; &#39;14&#39; &#39;23&#39; &#39;22&#39; &#39;26&#39; &#39;25&#39; &#39;16&#39; &#39;27&#39; &#39;110&#39; &#39;24&#39; &#39;28&#39;]
+</pre></div>
+</div>
+<img alt="_images/355be55f4512ae47d82920998f967618bb9c9110289df2db9afb9f974cdca996.png" src="_images/355be55f4512ae47d82920998f967618bb9c9110289df2db9afb9f974cdca996.png" />
+</div>
+</div>
+<p>Esse valor parece estar relacionado ao <code class="docutils literal notranslate"><span class="pre">0</span></code> (térreo)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_orig</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># substituir `-` por `0`</span>
+<span class="n">dtrain</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+
+<span class="c1"># coerce obriga a conversão, jogando para NaN o que não foi convertido</span>
+<span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="c1">#dtrain.loc[:,&#39;floor&#39;] = pd.to_numeric(dtrain.loc[:,&#39;floor&#39;], downcast=&#39;integer&#39;, errors=&#39;coerce&#39;)</span>
+
+<span class="c1"># tax será convertido diretamente, sem substituicao de valores</span>
+<span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="c1">#dtrain.loc[:,&#39;tax&#39;] = pd.to_numeric(dtrain.loc[:,&#39;tax&#39;], downcast=&#39;float&#39;, errors=&#39;coerce&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vamos fazer o mesmo com o teste</span>
+<span class="n">dtest</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+<span class="c1">#dtest.loc[:,&#39;floor&#39;] = pd.to_numeric(dtest.loc[:,&#39;floor&#39;], downcast=&#39;integer&#39;, errors=&#39;coerce&#39;)</span>
+<span class="c1">#dtest.loc[:,&#39;tax&#39;] = pd.to_numeric(dtest.loc[:,&#39;tax&#39;], downcast=&#39;float&#39;, errors=&#39;coerce&#39;)</span>
+
+<span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Após tratar os casos de conversão, podemos <strong>remover os faltantes</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Treinamento antes: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Teste antes: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtest</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Treinamento antes: 3530
+Teste antes: 8235
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">dtest</span> <span class="o">=</span> <span class="n">dtest</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Treinamento após remoção faltantes: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Teste após remoção faltantes: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtest</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Treinamento após remoção faltantes: 2626
+Teste após remoção faltantes: 6035
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">dtrain</span><span class="p">:</span>
+    <span class="c1"># imprime variavel e seu tipo</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="c1"># se nao numérico</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span> <span class="s2">&quot;distintos: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, intervalo: &quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antes: </span><span class="si">%d</span><span class="s2">, Depois: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city : object
+	 6 distintos: [&#39;Rio de Janeiro&#39; &#39;São Paulo&#39; &#39;Belo Horizonte&#39; &#39;Porto Alegre&#39; &#39;Campinas&#39;
+ &#39;Brotas&#39;]
+area : float64, intervalo: 20.0 , 24606.0
+rooms : float64, intervalo: 1.0 , 10.0
+bathroom : int64, intervalo: 1 , 20
+parking spaces : float64, intervalo: 1.0 , 8.0
+floor : int8, intervalo: 0 , 110
+hoa : int64, intervalo: 0 , 14000
+rent : int64, intervalo: 500 , 30000
+tax : float32, intervalo: 0.0 , 28120.0
+insurance : int64, intervalo: 5 , 451
+total : float64, intervalo: 559.0 , 32183.0
+page hits : int64, intervalo: 0 , 6156
+days available : int64, intervalo: 0 , 358
+interactions : int64, intervalo: 0 , 2052
+weeks available : int64, intervalo: 0 , 51
+type : object
+	 2 distintos: [&#39;flat&#39; &#39;house&#39;]
+Antes: 3530, Depois: 2626
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tratando-duplicatas">
+<h3>Tratando duplicatas<a class="headerlink" href="#tratando-duplicatas" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_nd</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antes: </span><span class="si">%d</span><span class="s2">, Depois: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtrain_nd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antes: 2626, Depois: 2454
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preparando os atributos</span>
+<span class="n">attrsclass</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;total&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;bathroom&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">]</span>
+<span class="n">Xcla</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">Ycla</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="c1"># dados de teste</span>
+<span class="n">ZXcla</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">ZYcla</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="c1"># classificador</span>
+<span class="n">clfb</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xcla</span><span class="p">,</span><span class="n">Ycla</span><span class="p">)</span>
+<span class="n">ZYcla_</span> <span class="o">=</span> <span class="n">clfb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+
+<span class="c1"># dados sem duplicatas</span>
+<span class="n">Xcla_nd</span> <span class="o">=</span> <span class="n">dtrain_nd</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">Ycla_nd</span> <span class="o">=</span> <span class="n">dtrain_nd</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="c1"># classificador dados não duplicados</span>
+<span class="n">clfnd</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfnd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xcla_nd</span><span class="p">,</span><span class="n">Ycla_nd</span><span class="p">)</span>
+<span class="n">ZYcland_</span> <span class="o">=</span> <span class="n">clfnd</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original: </span><span class="si">%d</span><span class="s2">, Tratado: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Xcla</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xcla_nd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: 2626, Tratado: 2454
+</pre></div>
+</div>
+</div>
+</div>
+<p>É importante verificar como é a <strong>distribuição das classes</strong> nessa base de dados para utilizar a medida adequada de avaliação</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>São Paulo         1652
+Belo Horizonte     318
+Rio de Janeiro     245
+Porto Alegre       216
+Campinas           192
+Brotas               3
+Name: city, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como nesse caso as classes não são igualmente distribuídas, vamos computar, além da acurácia simples, também a <em>acurácia balanceada</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_base</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcla_</span><span class="p">)</span>
+<span class="n">acc_nd</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcland_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">acc_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- sem duplicatas e com dados faltantes removidos: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">acc_nd</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="n">ab_base</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcla_</span><span class="p">)</span>
+<span class="n">ab_nd</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcland_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Acurácia balanceada base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- sem duplicatas e com dados faltantes removidos: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_nd</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acurácia base: 70.14
+- sem duplicatas e com dados faltantes removidos: 69.66
+
+Acurácia balanceada base: 40.65
+- sem duplicatas e com dados faltantes removidos: 40.63
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Treinando regressor</span>
+<span class="c1">## preparando atributos de entrada</span>
+<span class="n">attrsreg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span><span class="s1">&#39;bathroom&#39;</span><span class="p">,</span> <span class="s1">&#39;floor&#39;</span><span class="p">];</span>
+<span class="n">Xreg</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="c1">## variável resposta/saída</span>
+<span class="n">Yreg</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+
+<span class="c1">## preparando teste</span>
+<span class="n">ZXreg</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="n">ZYreg</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+
+<span class="c1">## dados sem duplicatas</span>
+<span class="n">Xreg_nd</span> <span class="o">=</span> <span class="n">dtrain_nd</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="n">Yreg_nd</span> <span class="o">=</span> <span class="n">dtrain_nd</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regb</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xreg</span><span class="p">,</span> <span class="n">Yreg</span><span class="p">)</span>
+<span class="n">ZYreg_</span> <span class="o">=</span> <span class="n">regb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXreg</span><span class="p">)</span>
+
+<span class="n">reg_nd</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg_nd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xreg_nd</span><span class="p">,</span> <span class="n">Yreg_nd</span><span class="p">)</span>
+<span class="n">ZYreg_nd_</span> <span class="o">=</span> <span class="n">reg_nd</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXreg</span><span class="p">)</span>
+
+<span class="n">mae_base</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">ZYreg</span><span class="p">,</span> <span class="n">ZYreg_</span><span class="p">)</span>
+<span class="n">mae_nd</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">ZYreg</span><span class="p">,</span> <span class="n">ZYreg_nd_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_base</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto após limpeza: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_nd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erro médio absoluto: 2638.399
+Erro médio absoluto após limpeza: 2635.644
+</pre></div>
+</div>
+</div>
+</div>
+<p>Percorrendo atributos de interesse para remover outliers</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_outliers_IQR</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+        <span class="c1"># verifica se variável é numerica</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">Q1</span> <span class="o">=</span> <span class="n">dfn</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="n">Q2</span> <span class="o">=</span> <span class="n">dfn</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span>
+            <span class="n">Q3</span> <span class="o">=</span> <span class="n">dfn</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+            <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+            
+            <span class="c1"># apenas inliers segundo IQR</span>
+            <span class="n">dfn</span> <span class="o">=</span> <span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span><span class="o">-</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">)),:]</span>
+
+    <span class="k">return</span> <span class="n">dfn</span>
+
+<span class="n">attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;total&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;bathroom&#39;</span><span class="p">]</span>
+<span class="n">dtrain_out</span> <span class="o">=</span> <span class="n">remove_outliers_IQR</span><span class="p">(</span><span class="n">dtrain_nd</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+<span class="n">dtest_out</span> <span class="o">=</span> <span class="n">remove_outliers_IQR</span><span class="p">(</span><span class="n">dtest</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antes: </span><span class="si">%d</span><span class="s2">, Depois: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain_nd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtrain_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antes: 2454, Depois: 2167
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">dtrain</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">attributes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2d86e457e32e52a080953e65110fd7c2c7170823457db929e97592bd47d16040.png" src="_images/2d86e457e32e52a080953e65110fd7c2c7170823457db929e97592bd47d16040.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">dtrain_out</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">attributes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6c9115dea1870bc48c95348d2d19bdee3fec56e14bc186d28955128afdb6567d.png" src="_images/6c9115dea1870bc48c95348d2d19bdee3fec56e14bc186d28955128afdb6567d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Treinando classificador com dados após remoção de outliers</span>
+<span class="n">Xclao</span> <span class="o">=</span> <span class="n">dtrain_out</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">Yclao</span> <span class="o">=</span> <span class="n">dtrain_out</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+<span class="n">ZXclao</span> <span class="o">=</span> <span class="n">dtest_out</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">ZYclao</span> <span class="o">=</span> <span class="n">dtest_out</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">clfo</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xclao</span><span class="p">,</span><span class="n">Yclao</span><span class="p">)</span>
+<span class="n">ZYcla_o_</span> <span class="o">=</span> <span class="n">clfo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_o</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcla_o_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Acurácia balanceada base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- sem duplicatas e com dados faltantes removidos: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_nd</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- tratando outliers: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_o</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acurácia balanceada base: 40.65
+- sem duplicatas e com dados faltantes removidos: 40.63
+- tratando outliers: 40.41
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># avaliando regressor</span>
+<span class="n">Xreg_o</span> <span class="o">=</span> <span class="n">dtrain_out</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="n">Yreg_o</span> <span class="o">=</span> <span class="n">dtrain_out</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+
+<span class="n">reg_o</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg_o</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xreg_o</span><span class="p">,</span> <span class="n">Yreg_o</span><span class="p">)</span>
+<span class="n">ZYreg_o_</span> <span class="o">=</span> <span class="n">reg_o</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXreg</span><span class="p">)</span>
+
+<span class="n">mae_o</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">ZYreg</span><span class="p">,</span> <span class="n">ZYreg_o_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_base</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto limpeza: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_nd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto tratando outliers: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_o</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erro médio absoluto: 2638.40
+Erro médio absoluto limpeza: 2635.64
+Erro médio absoluto tratando outliers: 2378.14
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preenchendo-dados-faltantes">
+<h1>Preenchendo dados faltantes<a class="headerlink" href="#preenchendo-dados-faltantes" title="Permalink to this headline">#</a></h1>
+<p>No experimento anterior lidamos com dados faltantes <strong>removendo linhas</strong>,</p>
+<p>Agora vamos carregar novamente os dados e para <strong>preencher os dados</strong>, mantendo o tratamento de remoção de duplicatas, dos atributos string e de remoção de outliers</p>
+<p>Há várias formas de se preencher dados faltantes</p>
+<ol class="arabic simple">
+<li><p><strong>com zeros ou valor constante</strong>:
+para manter a instância e permitir o uso dos outros atributos
+<br></p></li>
+<li><p><strong>pela média</strong>: similar ao anterior, mas aqui preenchemos com a média do atributo para os valores observados
+<br></p></li>
+<li><p><strong>por vizinhos mais próximos</strong>: refinamento do método da média, no qual, para cada valor faltante, primeiro encontramos as <span class="math notranslate nohighlight">\(k\)</span> instâncias mais próximas àquela contendo o valor faltante e obtemos a média do atributo a partir dos <span class="math notranslate nohighlight">\(k\)</span> vizinhos mais próximos
+<br></p></li>
+<li><p><strong>por regressão</strong>: para cada atributo faltante, aprendemos um regressor capaz de predizer o atributo faltante com base em um ou mais atributos auxiliares</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/houses_to_rent_mba2.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># obtem amostra dos dados para treinamento</span>
+<span class="n">dtrain</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="n">frac_trein</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dtest</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">dtrain_orig</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># substituir - por 0</span>
+<span class="n">dtrain</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+<span class="c1"># coerce obriga a conversão, jogando para Nan que não foi convertido</span>
+<span class="c1">#dtrain.loc[:,&#39;floor&#39;] = pd.to_numeric(dtrain.loc[:,&#39;floor&#39;], downcast=&#39;integer&#39;, errors=&#39;coerce&#39;)</span>
+<span class="c1">#dtrain.loc[:,&#39;tax&#39;] = pd.to_numeric(dtrain.loc[:,&#39;tax&#39;], downcast=&#39;float&#39;, errors=&#39;coerce&#39;)</span>
+<span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="n">dtest</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+<span class="c1">#dtest.loc[:,&#39;floor&#39;] = pd.to_numeric(dtest.loc[:,&#39;floor&#39;], downcast=&#39;integer&#39;, errors=&#39;coerce&#39;)</span>
+<span class="c1">#dtest.loc[:,&#39;tax&#39;] = pd.to_numeric(dtest.loc[:,&#39;tax&#39;], downcast=&#39;float&#39;, errors=&#39;coerce&#39;)</span>
+<span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># remove duplicatas</span>
+<span class="n">dtrain_nd</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dados originais: </span><span class="si">%d</span><span class="s2">, após remocao duplicatas: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtrain_nd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># remove outliers</span>
+<span class="n">attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;total&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;bathroom&#39;</span><span class="p">]</span>
+<span class="n">dtrain_out</span> <span class="o">=</span> <span class="n">remove_outliers_IQR</span><span class="p">(</span><span class="n">dtrain_nd</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+<span class="n">dtest_out</span> <span class="o">=</span> <span class="n">remove_outliers_IQR</span><span class="p">(</span><span class="n">dtest</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Após remocao outliers: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dtrain_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dados originais: 3530, após remocao duplicatas: 3285
+Após remocao outliers: 2892
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_missing_att</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># verificando atributos faltantes</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
+        <span class="c1"># somamos o número de variáveis nulas (NaN)</span>
+        <span class="n">nullatt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">nullatt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s2">&quot;- faltantes: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">nullatt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_missing_att</span><span class="p">(</span><span class="n">dtrain_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area - faltantes: 18
+rooms - faltantes: 22
+parking spaces - faltantes: 761
+</pre></div>
+</div>
+</div>
+</div>
+<section id="preenchimento-com-valor-constante">
+<h2>Preenchimento com valor constante<a class="headerlink" href="#preenchimento-com-valor-constante" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_out_fill0</span> <span class="o">=</span> <span class="n">dtrain_out</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_missing_att</span><span class="p">(</span><span class="n">dtrain_out_fill0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="preenchimento-pela-media">
+<h2>Preenchimento pela média<a class="headerlink" href="#preenchimento-pela-media" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_missing_average</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dfn</span><span class="p">:</span>
+        <span class="n">nullatt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dfn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">nullatt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">nullatt</span><span class="p">,</span> <span class="s1">&#39;faltantes&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># obtem a media para os dados completos no atributo</span>
+        <span class="c1"># dfn[i].notnull() -&gt; elementos completos no atributo i</span>
+        <span class="c1"># dfn.loc[dfn[i].notnull(),i] -&gt; filtra os valores completos do atributo i</span>
+        <span class="n">avg_compl</span> <span class="o">=</span> <span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">(),</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dfn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">média =&#39;</span><span class="p">,</span> <span class="n">avg_compl</span><span class="p">)</span>
+        <span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_compl</span>
+        
+    <span class="k">return</span> <span class="n">dfn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_mism</span> <span class="o">=</span> <span class="n">fill_missing_average</span><span class="p">(</span><span class="n">dtrain_out</span><span class="p">)</span>
+
+<span class="n">check_missing_att</span><span class="p">(</span><span class="n">dtrain_mism</span><span class="p">)</span>
+<span class="n">dtrain_mism</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area 18 faltantes
+	média = 112.30967292971468
+rooms 22 faltantes
+	média = 2.3142857142857145
+parking spaces 761 faltantes
+	média = 1.8259033317691225
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>floor</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>tax</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9572</th>
+      <td>São Paulo</td>
+      <td>80.0</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>1.825903</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2837</td>
+      <td>342.0</td>
+      <td>36</td>
+      <td>3215.0</td>
+      <td>540</td>
+      <td>91</td>
+      <td>180</td>
+      <td>13</td>
+      <td>house</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>São Paulo</td>
+      <td>90.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2.000000</td>
+      <td>5</td>
+      <td>1478</td>
+      <td>2500</td>
+      <td>355.0</td>
+      <td>32</td>
+      <td>4365.0</td>
+      <td>612</td>
+      <td>49</td>
+      <td>204</td>
+      <td>7</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>4476</th>
+      <td>Belo Horizonte</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>1.825903</td>
+      <td>2</td>
+      <td>150</td>
+      <td>1100</td>
+      <td>68.0</td>
+      <td>15</td>
+      <td>1333.0</td>
+      <td>54</td>
+      <td>70</td>
+      <td>54</td>
+      <td>10</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>3592</th>
+      <td>São Paulo</td>
+      <td>180.0</td>
+      <td>3.0</td>
+      <td>4</td>
+      <td>3.000000</td>
+      <td>3</td>
+      <td>1600</td>
+      <td>3500</td>
+      <td>65.0</td>
+      <td>45</td>
+      <td>5210.0</td>
+      <td>396</td>
+      <td>36</td>
+      <td>132</td>
+      <td>5</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>10548</th>
+      <td>Belo Horizonte</td>
+      <td>26.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1.000000</td>
+      <td>1</td>
+      <td>60</td>
+      <td>750</td>
+      <td>67.0</td>
+      <td>10</td>
+      <td>887.0</td>
+      <td>108</td>
+      <td>45</td>
+      <td>108</td>
+      <td>6</td>
+      <td>flat</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_missing_regression</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">attributes_reg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Funcao para preencher dados faltantes por regressao</span>
+<span class="sd">        parametros:</span>
+<span class="sd">            df - dataframe</span>
+<span class="sd">            attributes - lista de atributos a preencher (alvo/saida)</span>
+<span class="sd">            attributes_reg - lista dos respectivos atributos a serem usados na regressao</span>
+<span class="sd">                             como variaveis de entrada</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">attributes</span><span class="p">),</span> <span class="s1">&#39; attributos: &#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">attributes</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;: preencher &#39;</span><span class="p">,</span> <span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39; usando &#39;</span><span class="p">,</span> <span class="n">attributes_reg</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; -- &#39;</span><span class="p">)</span>
+        <span class="n">nullatt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dfn</span><span class="p">[</span><span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">nullatt</span><span class="p">,</span> <span class="s1">&#39; faltantes&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nullatt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        
+        <span class="c1"># atributo de entrada para dados completos</span>
+        <span class="n">Xa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfn</span><span class="p">[</span><span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">dfn</span><span class="p">[</span><span class="n">attributes_reg</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">notnull</span><span class="p">(),</span> 
+                              <span class="n">attributes_reg</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="c1"># atributo de saida para dados completos</span>
+        <span class="n">Ya</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfn</span><span class="p">[</span><span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">dfn</span><span class="p">[</span><span class="n">attributes_reg</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">notnull</span><span class="p">(),</span> 
+                              <span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        
+        <span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+        <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xa</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Ya</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        
+        <span class="c1"># seleciona as variáveis de entrada </span>
+        <span class="c1"># relativa aos valores faltantes para fazer a regressao</span>
+        <span class="n">Zr</span> <span class="o">=</span> <span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">dfn</span><span class="p">[</span><span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="n">attributes_reg</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        
+        <span class="c1"># prediz as variaveis faltantes</span>
+        <span class="n">Za</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Zr</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="c1"># monta array para substituir a variavel agora preenchida</span>
+        <span class="n">att_fill</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dfn</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">att_fill</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">att_fill</span><span class="p">))]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Za</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="c1">#dfn.loc[:,attributes[i]] = att_fill.astype(np.int32)</span>
+        <span class="n">dfn</span><span class="p">[</span><span class="n">attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">att_fill</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+        <span class="c1">#print(dfn.loc[df[attributes[i]].isnull(), attributes[i]])</span>
+        
+    <span class="k">return</span> <span class="n">dfn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span>     <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;parking spaces&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;tax&#39;</span><span class="p">]</span>
+<span class="n">attributes_reg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;rent&#39;</span><span class="p">,</span> <span class="s1">&#39;tax&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">]</span>
+
+<span class="n">dtrain_misr</span> <span class="o">=</span> <span class="n">fill_missing_regression</span><span class="p">(</span><span class="n">dtrain_out</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">attributes_reg</span><span class="p">)</span>
+
+<span class="n">check_missing_att</span><span class="p">(</span><span class="n">dtrain_misr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4  attributos: 
+- 0 : preencher  rooms  usando  area -- 22  faltantes
+- 1 : preencher  parking spaces  usando  rent -- 761  faltantes
+- 2 : preencher  area  usando  tax -- 18  faltantes
+- 3 : preencher  tax  usando  hoa -- 0  faltantes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_out</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>floor</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>tax</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9572</th>
+      <td>São Paulo</td>
+      <td>80.0</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2837</td>
+      <td>342.0</td>
+      <td>36</td>
+      <td>3215.0</td>
+      <td>540</td>
+      <td>91</td>
+      <td>180</td>
+      <td>13</td>
+      <td>house</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>São Paulo</td>
+      <td>90.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>5</td>
+      <td>1478</td>
+      <td>2500</td>
+      <td>355.0</td>
+      <td>32</td>
+      <td>4365.0</td>
+      <td>612</td>
+      <td>49</td>
+      <td>204</td>
+      <td>7</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>4476</th>
+      <td>Belo Horizonte</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>150</td>
+      <td>1100</td>
+      <td>68.0</td>
+      <td>15</td>
+      <td>1333.0</td>
+      <td>54</td>
+      <td>70</td>
+      <td>54</td>
+      <td>10</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>3592</th>
+      <td>São Paulo</td>
+      <td>180.0</td>
+      <td>3.0</td>
+      <td>4</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>1600</td>
+      <td>3500</td>
+      <td>65.0</td>
+      <td>45</td>
+      <td>5210.0</td>
+      <td>396</td>
+      <td>36</td>
+      <td>132</td>
+      <td>5</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>10548</th>
+      <td>Belo Horizonte</td>
+      <td>26.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>60</td>
+      <td>750</td>
+      <td>67.0</td>
+      <td>10</td>
+      <td>887.0</td>
+      <td>108</td>
+      <td>45</td>
+      <td>108</td>
+      <td>6</td>
+      <td>flat</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain_misr</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>area</th>
+      <th>rooms</th>
+      <th>bathroom</th>
+      <th>parking spaces</th>
+      <th>floor</th>
+      <th>hoa</th>
+      <th>rent</th>
+      <th>tax</th>
+      <th>insurance</th>
+      <th>total</th>
+      <th>page hits</th>
+      <th>days available</th>
+      <th>interactions</th>
+      <th>weeks available</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9572</th>
+      <td>São Paulo</td>
+      <td>80</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2837</td>
+      <td>342.0</td>
+      <td>36</td>
+      <td>3215.0</td>
+      <td>540</td>
+      <td>91</td>
+      <td>180</td>
+      <td>13</td>
+      <td>house</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>São Paulo</td>
+      <td>90</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1478</td>
+      <td>2500</td>
+      <td>355.0</td>
+      <td>32</td>
+      <td>4365.0</td>
+      <td>612</td>
+      <td>49</td>
+      <td>204</td>
+      <td>7</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>4476</th>
+      <td>Belo Horizonte</td>
+      <td>80</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>150</td>
+      <td>1100</td>
+      <td>68.0</td>
+      <td>15</td>
+      <td>1333.0</td>
+      <td>54</td>
+      <td>70</td>
+      <td>54</td>
+      <td>10</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>3592</th>
+      <td>São Paulo</td>
+      <td>180</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1600</td>
+      <td>3500</td>
+      <td>65.0</td>
+      <td>45</td>
+      <td>5210.0</td>
+      <td>396</td>
+      <td>36</td>
+      <td>132</td>
+      <td>5</td>
+      <td>flat</td>
+    </tr>
+    <tr>
+      <th>10548</th>
+      <td>Belo Horizonte</td>
+      <td>26</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>60</td>
+      <td>750</td>
+      <td>67.0</td>
+      <td>10</td>
+      <td>887.0</td>
+      <td>108</td>
+      <td>45</td>
+      <td>108</td>
+      <td>6</td>
+      <td>flat</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Treinando classificador preenchimento media</span>
+<span class="n">Xclamism</span> <span class="o">=</span> <span class="n">dtrain_mism</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">Yclamism</span> <span class="o">=</span> <span class="n">dtrain_mism</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">clfmm</span> <span class="o">=</span>  <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xclamism</span><span class="p">,</span><span class="n">Yclamism</span><span class="p">)</span>
+<span class="n">ZYcla_mm_</span> <span class="o">=</span> <span class="n">clfmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+
+<span class="c1"># Treinando classificador prenchimento pelo regressor</span>
+<span class="n">Xclamisr</span> <span class="o">=</span> <span class="n">dtrain_misr</span><span class="p">[</span><span class="n">attrsclass</span><span class="p">]</span>
+<span class="n">Yclamisr</span> <span class="o">=</span> <span class="n">dtrain_misr</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">clfmr</span> <span class="o">=</span>  <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clfmr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xclamisr</span><span class="p">,</span><span class="n">Yclamisr</span><span class="p">)</span>
+<span class="n">ZYcla_mr_</span> <span class="o">=</span> <span class="n">clfmr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXcla</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab_mm</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcla_mm_</span><span class="p">)</span>
+<span class="n">ab_mr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYcla</span><span class="p">,</span> <span class="n">ZYcla_mr_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Acurácia balanceada base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- sem duplicatas e com dados faltantes removidos: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_nd</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- tratando outliers: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_o</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- preenchendo faltantes média: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_mm</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- preenchendo faltantes regressão: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ab_mr</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acurácia balanceada base: 40.65
+- sem duplicatas e com dados faltantes removidos: 40.63
+- tratando outliers: 40.41
+- preenchendo faltantes média: 40.15
+- preenchendo faltantes regressão: 43.94
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Treinando regressor</span>
+<span class="n">Xreg_mism</span> <span class="o">=</span> <span class="n">dtrain_mism</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="n">Xreg_misr</span> <span class="o">=</span> <span class="n">dtrain_misr</span><span class="p">[</span><span class="n">attrsreg</span><span class="p">]</span>
+<span class="n">Yreg_mis</span> <span class="o">=</span> <span class="n">dtrain_misr</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+
+<span class="n">regmm</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xreg_mism</span><span class="p">,</span> <span class="n">Yreg_mis</span><span class="p">)</span>
+<span class="n">ZYreg_mism_</span> <span class="o">=</span> <span class="n">regmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXreg</span><span class="p">)</span>
+
+<span class="n">regmr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regmr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xreg_misr</span><span class="p">,</span> <span class="n">Yreg_mis</span><span class="p">)</span>
+<span class="n">ZYreg_misr_</span> <span class="o">=</span> <span class="n">regmr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXreg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mae_mism</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">ZYreg</span><span class="p">,</span> <span class="n">ZYreg_mism_</span><span class="p">)</span>
+<span class="n">mae_misr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">ZYreg</span><span class="p">,</span> <span class="n">ZYreg_misr_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro médio absoluto: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_base</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- limpeza: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_nd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- tratando outliers: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_o</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- preenchendo faltantes média: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_mism</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- preenchendo faltantes regressão: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mae_misr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erro médio absoluto: 2638.399
+- limpeza: 2635.644
+- tratando outliers: 2378.140
+- preenchendo faltantes média: 2506.438
+- preenchendo faltantes regressão: 2504.711
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-02-2-Outliers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-02-4-Desbalanceamento.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-informacoes-faltantes-span"><span style="color:darkred">Informações faltantes</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacoes-faltantes">Informações faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimento-com-tratamento-de-dados">Experimento com tratamento de dados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tratando-duplicatas">Tratando duplicatas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchendo-dados-faltantes">Preenchendo dados faltantes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-com-valor-constante">Preenchimento com valor constante</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-pela-media">Preenchimento pela média</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

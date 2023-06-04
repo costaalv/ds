@@ -1,0 +1,2091 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_06_Pandas I';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="PCD_07_Pandas%20II.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="PCD_05_Numpy%20II%20e%20Matplotlib.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_06_Pandas I.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_06_Pandas I.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color=blue> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-i-font"><font color="blue">Pandas Parte I</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-parte-i">Pandas - Parte I</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-series-font"><font color="blue">Series</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-series-com-font-color-blue-pandas-font">Criando séries com <font color="blue">pandas</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acessando-os-elementos-de-uma-serie">Acessando os elementos de uma série</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reindexacao">Reindexação</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tratando-valores-faltantes">Tratando valores faltantes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-aritmeticas-com-series">Operações aritméticas com séries</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenacao-dos-elementos-de-uma-serie">Ordenação dos elementos de uma série</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotulos-repetidos">Rótulos repetidos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-metodos">Outros métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-dataframes-font"><font color="blue">DataFrames</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulando-e-acessando-colunas"><strong>Manipulando e Acessando Colunas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#busca-com-expressoes-booleanas">Busca com expressões booleanas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-e-removendo-colunas">Criando e removendo colunas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulando-e-acessando-linhas"><strong>Manipulando e Acessando Linhas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenando-um-dataframe">Ordenando um DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperando-apenas-os-valores-do-dataframe">Recuperando apenas os valores do DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregando-arquivos">Carregando arquivos</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color=blue> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-programacao-para-ciencia-de-dados-font">
+<h1><font color=blue>Programação para Ciência de Dados</font><a class="headerlink" href="#font-color-blue-programacao-para-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-pandas-parte-i-font">
+<h2><font color=blue>Pandas Parte I</font><a class="headerlink" href="#font-color-blue-pandas-parte-i-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+<p><strong>Conteúdo:</strong></p>
+<ul class="simple">
+<li><p>Pandas - Part I:</p>
+<ul>
+<li><p>Séries</p></li>
+<li><p>DataFrame</p></li>
+</ul>
+</li>
+<li><p>I/O com Pandas</p></li>
+</ul>
+<p><strong>Referencias:</strong></p>
+<p><a class="reference external" href="https://www.ritchieng.com/pandas-introduction/">Introduction to Pandas</a></p>
+</section>
+<hr class="docutils" />
+<section id="pandas-parte-i">
+<h2>Pandas - Parte I<a class="headerlink" href="#pandas-parte-i" title="Permalink to this headline">#</a></h2>
+<p><font color='blue'>Pandas</font> é um pacote python construído com base no <font color='blue'>numpy</font> e <font color='blue'>matplotlib</font> que busca organizar dados no formato de tabela, atribuindo rótulos às linhas e colunas. O pacote <font color='blue'>pandas</font> fornece ainda um conjunto de funcionalidades que premite processar as informações de tabelas de forma bastante eficiente, implementando métodos fundamentais para fins de tratamento de dados.</p>
+<p>O <font color='blue'>pandas</font> organiza os dados em três tipos de estruturas:</p>
+<ul class="simple">
+<li><p>Series (Séries)</p></li>
+<li><p>DataFrame</p></li>
+<li><p>Panel (Paineis não serão abordados neste curso)</p></li>
+</ul>
+<section id="font-color-blue-series-font">
+<h3><font color='blue'>Series</font><a class="headerlink" href="#font-color-blue-series-font" title="Permalink to this headline">#</a></h3>
+<p>A estrutura de representação tipo <font color='blue'>series</font> do <font color='blue'>pandas</font> é semelhante a um array unidimensional, porém os elementos podem ser indexados por números inteiros (como em um array do <font color='blue'>numpy</font>) ou por meio de rótulos (labels) que não precisam ser únicos e podem ser organizados de forma hierárquica.</p>
+<ul class="simple">
+<li><p>Quando os índices ou rótulos não são informados explicitamente, <font color='blue'>pandas</font> cria uma indexação com números inteiros automaticamente, variando os índices de <span class="math notranslate nohighlight">\(0\)</span> (zero) a <span class="math notranslate nohighlight">\(n-1\)</span>, onde <span class="math notranslate nohighlight">\(n\)</span> é o número de elementos na série.</p></li>
+<li><p>Os rótulos são usados para realizar buscas rápidas, alinhamento de dados e operações de junção de dados.</p></li>
+</ul>
+<section id="criando-series-com-font-color-blue-pandas-font">
+<h4>Criando séries com <font color='blue'>pandas</font><a class="headerlink" href="#criando-series-com-font-color-blue-pandas-font" title="Permalink to this headline">#</a></h4>
+<p>Séries podem ser criadas no <font color='blue'>pandas</font> de diferentes formas, a partir de:</p>
+<ul class="simple">
+<li><p>listas</p></li>
+<li><p>arrays</p></li>
+<li><p>dicionários</p></li>
+<li><p>DataFrames</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Criando Séries a partir de listas</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando uma série a partir de uma lista. Neste caso os índices (ou rótulos) não são fornecidos,</span>
+<span class="c1"># então o pandas cria os índices automaticamente</span>
+
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    a
+1    b
+2    c
+3    d
+4    e
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># indices pondem ser informados utilizando o parâmetro index</span>
+
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">))]</span>  <span class="c1"># criando rótulos no formato id0, id1, etc..</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id0    a
+id1    b
+id2    c
+id3    d
+id4    e
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Criando Séries a partir de dicionários</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando uma série a partir de um dicionário. As chaves do dicionário se tornam os rótulos e</span>
+<span class="c1"># os valores os elementos da série</span>
+
+<span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="mi">33</span><span class="p">}</span> 
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A    50
+B    10
+C    80
+D    33
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="acessando-os-elementos-de-uma-serie">
+<h4>Acessando os elementos de uma série<a class="headerlink" href="#acessando-os-elementos-de-uma-serie" title="Permalink to this headline">#</a></h4>
+<p>Os elementos de uma série podem ser acessados:</p>
+<ul class="simple">
+<li><p>informando o índice (ou rótulo) dos elementos desejados (pode ser uma lista)</p></li>
+<li><p>via fatiamente (slicing) semelhante ao <font color='blue'>numpy</font> array</p>
+<ul>
+<li><p>o fatiamento pode ser feito utilizando os índices como números inteiros ou os rótulos</p></li>
+<li><p><strong>CUIDADO:</strong> quando o slicing é feito com rótulos, o último elemento é retornado na subsérie</p></li>
+</ul>
+</li>
+<li><p>via máscara booleana</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando uma série a partir de um dicionário.</span>
+<span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="mi">33</span><span class="p">}</span> 
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elemento &quot;A&quot;: &#39;</span><span class="p">,</span><span class="n">series</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">])</span> <span class="c1"># acessando o elemento com rótulo &#39;A&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elementos &quot;C&quot; e &quot;D&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">series</span><span class="p">[[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]])</span> <span class="c1"># acessando elementos com rótulo &#39;C&#39;,&#39;D&#39; a partir de lista de rótulos</span>
+                                                  <span class="c1"># quando se utiliza uma lista de rótulos, uma subsérie é retornada</span>
+                                                  <span class="c1"># e não somente os valores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elemento &quot;A&quot;:  50
+Elementos &quot;C&quot; e &quot;D&quot;:
+ C    80
+D    33
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fatiamento (slicing) com índices e rótulos (ambos podem ser utilizados)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elemento de indice 0: &#39;</span><span class="p">,</span><span class="n">series</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># retornando o elemento de índice 0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elementos com indice entre 0 e 2:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">series</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># slicing dos elementos com </span>
+                                                    <span class="c1"># índice 0 entre 2 (uma subsérie é retornada)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elementos com rótulo entre &quot;B&quot; e &quot;D&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">series</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="s1">&#39;D&#39;</span><span class="p">])</span> 
+                                            <span class="c1"># slicing com rótulos (uma subsérie é retornada)</span>
+                                            
+<span class="c1"># CUIDADO: quando o slicing é feito com rótulos, o último elemento é retornado na subsérie</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elemento de indice 0:  50
+Elementos com indice entre 0 e 2:
+ A    50
+B    10
+C    80
+dtype: int64
+Elementos com rótulo entre &quot;B&quot; e &quot;D&quot;:
+ B    10
+C    80
+D    33
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># máscaras booleanas podem ser utilizadas para recuperar elementos da série que correspondem ao valor True da máscara</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">series</span><span class="o">&gt;=</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A    50
+B    10
+C    80
+D    33
+dtype: int64
+A     True
+B    False
+C     True
+D     True
+dtype: bool
+A    50
+C    80
+D    33
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reindexacao">
+<h4>Reindexação<a class="headerlink" href="#reindexacao" title="Permalink to this headline">#</a></h4>
+<p>O método <font color='blue'>reindex</font> permite reindexar a série (modifica a ordem dos elementos).</p>
+<ul class="simple">
+<li><p>Caso um novo rótulo que não esteja presente na série original seja fornecido para o comando <font color='blue'>reindex</font>, um valor <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (significa que o dado está faltando) é utilizado como valor para o novo rótulo.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">indice</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># rótulos para serem utilizados na série</span>
+<span class="n">valores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">valores</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">indice</span><span class="p">)</span> <span class="c1"># cria uma série a partir de um array com rótulos 0, 1 e 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;série original&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">reindexado&#39;</span><span class="p">)</span>   
+<span class="n">s_nan</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># gera uma nova ordem para os elementos. Note que os rótulos 4 e 2</span>
+                                <span class="c1"># não estavam presentes na série original. &#39;NaN&#39; é atribuido como valores </span>
+                                <span class="c1"># associados aos novos rótulos </span>
+                                <span class="c1"># ATENÇÃO: uma nova série é gerada, a original não é afetada</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>série original
+0    0
+1    1
+3    2
+dtype: int64
+
+reindexado
+4    NaN
+3    2.0
+2    NaN
+1    1.0
+0    0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tratando-valores-faltantes">
+<h4>Tratando valores faltantes<a class="headerlink" href="#tratando-valores-faltantes" title="Permalink to this headline">#</a></h4>
+<p>Valores faltantes em uma série podem ser identificados através do método <font color='blue'>isna</font>,
+o qual gera uma máscara booleana.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_nan</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># reindexação insere valores faltantes na série</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_nan</span><span class="p">)</span>
+
+<span class="n">s_mask_nan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">s_nan</span><span class="p">)</span>    <span class="c1"># identifica os valores faltantes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_mask_nan</span><span class="p">)</span>
+
+<span class="n">s_nan</span><span class="p">[</span><span class="n">s_mask_nan</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>     <span class="c1"># substitui os valores faltantes por -1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4    NaN
+3    2.0
+2    NaN
+1    1.0
+0    0.0
+dtype: float64
+4     True
+3    False
+2     True
+1    False
+0    False
+dtype: bool
+4   -1.0
+3    2.0
+2   -1.0
+1    1.0
+0    0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Valores faltantes no processo de reindexação (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>) podem ser preenchidos atribuindo um valor por meio do parâmetro <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reindexado e tratando valores faltantes</span>
+<span class="n">s_fvalue</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">fill_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># valores faltantes são substituídos por -1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_fvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4   -1
+3    2
+2   -1
+1    1
+0    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operacoes-aritmeticas-com-series">
+<h4>Operações aritméticas com séries<a class="headerlink" href="#operacoes-aritmeticas-com-series" title="Permalink to this headline">#</a></h4>
+<p>Operações aritméticas entre séries são realizadas de acordo com os rótulos, ou seja, quando os rótulos nas duas séries envolvidas na operação são iguais, a operação é realizada, caso contrário um valor <code class="docutils literal notranslate"><span class="pre">NaN</span></code> é gerado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values_s1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>       <span class="c1"># criando os valores da série s1</span>
+<span class="n">index_s1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values_s1</span><span class="p">]</span>  <span class="c1"># criando os rótulos da série s1</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">values_s1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index_s1</span><span class="p">)</span>   <span class="c1"># criando a série s1</span>
+
+<span class="n">values_s2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>         <span class="c1"># criando os valores da série s2</span>
+<span class="n">index_s2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values_s2</span><span class="p">]</span>  <span class="c1"># criando os rótulos da série s2</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">values_s2</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index_s2</span><span class="p">)</span>   <span class="c1"># criando a série s2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">)</span>     <span class="c1"># apenas os valores dos rótulos que são iguais nas </span>
+                 <span class="c1"># séries s1 e s2 são somados</span>
+
+<span class="c1"># Note que apenas os valores cujos rótulos aparecem nas duas séries são somados</span>
+<span class="c1"># se o rótulo aparece em apenas uma série um valor NaN é inserido</span>
+<span class="c1"># No exemplo acima, id0 e id4 aparecem apenas na série s1</span>
+<span class="c1"># id9 aparece apenas na série s2                 </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>s1
+ id3    3
+id8    8
+id0    0
+id4    4
+id5    5
+dtype: int64
+s2
+ id3    3
+id9    9
+id8    8
+id5    5
+dtype: int64
+id0     NaN
+id3     6.0
+id4     NaN
+id5    10.0
+id8    16.0
+id9     NaN
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ordenacao-dos-elementos-de-uma-serie">
+<h4>Ordenação dos elementos de uma série<a class="headerlink" href="#ordenacao-dos-elementos-de-uma-serie" title="Permalink to this headline">#</a></h4>
+<p>O <font color='blue'>pandas</font> possui métodos para ordenar uma série pelos seus valores ou rótulos:</p>
+<ul class="simple">
+<li><p><font color='blue'>sort_index</font> ordena pelos rótulos</p></li>
+<li><p><font color='blue'>sort_values</font> ordena pelos valores</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span> <span class="c1"># gerando a série com 4 valores inteiros gerados de forma randômica</span>
+                                                                  <span class="c1"># cujos rótulos são [&#39;d&#39;,&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>  <span class="c1"># ordena pelos rótulos retornando uma nova série ordenada (a série original não é modificada)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">sort_values</span><span class="p">())</span> <span class="c1"># ordena pelos valores retornando uma nova série ordenada (a série original não é modificada)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d    7
+a    7
+b    8
+c    9
+dtype: int64
+a    7
+b    8
+c    9
+d    7
+dtype: int64
+d    7
+a    7
+b    8
+c    9
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rotulos-repetidos">
+<h4>Rótulos repetidos<a class="headerlink" href="#rotulos-repetidos" title="Permalink to this headline">#</a></h4>
+<p>Séries podem possuir rótulos repetidos, o que facilita recuperar partes da série de forma simples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ababcda&#39;</span><span class="p">))</span>  <span class="c1"># gerando uma série com valores de 0 a 6 com rótulos dados por [&#39;a&#39;,&#39;b&#39;,&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;a&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recuperando subserie de rótulos &quot;a&quot;:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span> <span class="c1"># recuperando a subsérie dos rótulos &#39;a&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recuperando subserie de rótulos &quot;b&quot;:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span> <span class="c1"># recuperando a subsérie dos rótulos &#39;b&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0
+b    1
+a    2
+b    3
+c    4
+d    5
+a    6
+dtype: int64
+Recuperando subserie de rótulos &quot;a&quot;:
+a    0
+a    2
+a    6
+dtype: int64
+Recuperando subserie de rótulos &quot;b&quot;:
+b    1
+b    3
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="outros-metodos">
+<h4>Outros métodos<a class="headerlink" href="#outros-metodos" title="Permalink to this headline">#</a></h4>
+<p>Existem muitos métodos implementados para operar sobre os valores. Alguns exemplos são:</p>
+<ul class="simple">
+<li><p><font color='blue'>unique</font> -      recupera os valores únicos da série</p></li>
+<li><p><font color='blue'>value_counts</font> - conta o número de ocorrências de cada valor</p></li>
+<li><p><font color='blue'>isin</font> -        verifica onde os valores indicados aparecem na série</p></li>
+<li><p>…(muito mais)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span> <span class="c1"># rótulos gerados automaticamente </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valores únicos da série:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Contagem do número de ocorrências de cada valor:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> <span class="c1"># retorna uma nova série cujo rótulo é o elemento e o </span>
+                                                                                 <span class="c1"># valor o número de vezes que o elemento aparece na série</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Verifica onde os valores ocorrem na série:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]))</span> <span class="c1"># retorna uma série máscara booleana com True na posição onde o valor ocorre</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores únicos da série:
+
+ [&#39;c&#39; &#39;a&#39; &#39;d&#39; &#39;b&#39;]
+
+Contagem do número de ocorrências de cada valor:
+
+ c    3
+a    3
+b    2
+d    1
+Name: count, dtype: int64
+
+Verifica onde os valores ocorrem na série:
+
+ 0    False
+1    False
+2     True
+3    False
+4    False
+5     True
+6     True
+7    False
+8    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="font-color-blue-dataframes-font">
+<h3><font color='blue'>DataFrames</font><a class="headerlink" href="#font-color-blue-dataframes-font" title="Permalink to this headline">#</a></h3>
+<p><font color='blue'>DataFrame</font> é uma estrutura de dados do <font color='blue'>pandas</font> semelhante a uma planilha (como uma planilha excel). Em um <font color='blue'>DataFrame</font> tanto as linhas como as colunas são indexadas por rótulos.</p>
+<p>Dataframes podem ser criados de muitas maneiras diferentes:</p>
+<ul class="simple">
+<li><p><strong>2-D NumPy array:</strong> Uma matriz de dados, podendo especificar os rótulos de linhas e colunas</p></li>
+<li><p><strong>Dicionário de arrays, listas, ou tuplas:</strong> Cada sequência se torna uma coluna. As sequências devem ter o mesmo número de elementos</p></li>
+<li><p><strong>Dicionário de séries:</strong> Cada séries se torna uma coluna. Os rótulos de cada séries são unidos para formar os rótulos das linhas</p></li>
+<li><p><strong>Dicionário de dicionário:</strong> Cada dicionário se torna uma coluna. Chaves dos dicionários se unem para formar os rótulos das linhas</p></li>
+<li><p><strong>Lista de dicionários ou séries:</strong> Cada elemento da lista se torna uma linha no DataFrame. A união das chaves (para dicionário) ou rótulos (para séries) gera os rótulos das colunas</p></li>
+<li><p><strong>Lista de listas or tuplas:</strong> Similar a uma matriz do numpy</p></li>
+<li><p><strong>DataFrame:</strong> O índice do DataFrame é mantido a não ser que um novo seja fornecido</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando um DataFrame a partir de um dicionário de listas</span>
+<span class="c1"># as chave se tornam os rótulos das colunas </span>
+<span class="c1"># as listas devem possuir o mesmo número de elementos</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span><span class="s1">&#39;FL&#39;</span><span class="p">,</span><span class="s1">&#39;FL&#39;</span><span class="p">],</span>    
+     <span class="s1">&#39;year&#39;</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2009</span><span class="p">],</span>    
+     <span class="s1">&#39;pop&#39;</span> <span class="p">:</span>   <span class="p">[</span><span class="mf">18.8</span><span class="p">,</span> <span class="mf">19.1</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">]}</span>
+
+<span class="n">df_d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># como os rótulos das linhas não foram especificados, pandas os gera automaticamente</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  state  year   pop
+0    FL  2010  18.8
+1    FL  2011  19.1
+2    GA  2008   9.7
+3    GA  2010   9.7
+4    GA  2011   9.8
+5    FL  2013   7.1
+6    FL  2009   8.3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Atenção:</strong> Dois métodos são muito úteis para analisar rapidamente um DataFrame: <font color='blue'>head</font> e <font color='blue'>dtypes</font></p>
+<ul class="simple">
+<li><p><font color='blue'>head</font> - mostra as 5 primeiras linhas do DataFrame.</p></li>
+<li><p><font color='blue'>dtypes</font> - mostra o tipo de dado em cada coluna</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_d</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># mostra as 5 primeiras linhas do DataFrame.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FL</td>
+      <td>2010</td>
+      <td>18.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>FL</td>
+      <td>2011</td>
+      <td>19.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>GA</td>
+      <td>2008</td>
+      <td>9.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GA</td>
+      <td>2010</td>
+      <td>9.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GA</td>
+      <td>2011</td>
+      <td>9.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_d</span><span class="o">.</span><span class="n">dtypes</span> <span class="c1"># mostra o tipo de dado de cada coluna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state     object
+year       int64
+pop      float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando um dataframe a partir de um dicionário de dicionários</span>
+<span class="n">dod</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FL&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2010</span><span class="p">:</span><span class="mf">18.1</span><span class="p">,</span> <span class="mi">2011</span><span class="p">:</span><span class="mf">19.1</span><span class="p">},</span>            <span class="c1"># as chaves do &quot;primeiro&quot; dicionário se tornam os rótulos das colunas</span>
+       <span class="s1">&#39;GA&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="mi">2008</span><span class="p">:</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mi">2010</span><span class="p">:</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mi">2011</span><span class="p">:</span><span class="mf">9.8</span><span class="p">}}</span>  <span class="c1"># as chaves dos dicionários internos (valores do primeiro dicionário)</span>
+                                                 <span class="c1"># se tornam os rótulos das linhas</span>
+
+<span class="n">df_dod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dod</span><span class="p">)</span>   <span class="c1"># criando o DataFrame</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_dod</span><span class="p">)</span>                  <span class="c1"># quando um valor não aparece como chave de um dicionário interno, &#39;NaN&#39; é inserido</span>
+                               <span class="c1"># como valor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        FL   GA
+2010  18.1  9.7
+2011  19.1  9.8
+2008   NaN  9.7
+</pre></div>
+</div>
+</div>
+</div>
+<section id="manipulando-e-acessando-colunas">
+<h4><strong>Manipulando e Acessando Colunas</strong><a class="headerlink" href="#manipulando-e-acessando-colunas" title="Permalink to this headline">#</a></h4>
+<p>Colunas podem ser acessadas:</p>
+<ul class="simple">
+<li><p>via seus rótulos dentro de colchetes [ ]</p></li>
+<li><p>utilizando rótulo como atributo (não recomendado acessar desta forma, pois existem restrições)</p></li>
+<li><p>via lista de rótulos dentro de colchetes [ ] (acessa várias colunas)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">],</span>    <span class="c1"># dicionário de listas</span>
+     <span class="s1">&#39;year&#39;</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">],</span>    
+     <span class="s1">&#39;pop&#39;</span> <span class="p">:</span>   <span class="p">[</span><span class="mf">18.8</span><span class="p">,</span> <span class="mf">19.1</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">]}</span>
+
+<span class="n">df_d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>   <span class="c1"># construindo o DataFrame a partir do dicionário de listas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rótulos das colunas:&#39;</span><span class="p">,</span><span class="n">df_d</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># imprime o nome das colunas</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coluna &quot;pop&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df_d</span><span class="p">[</span><span class="s1">&#39;pop&#39;</span><span class="p">])</span>   <span class="c1"># acessando a coluna &#39;pop&#39; (o resultado é uma série)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coluna &quot;year&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df_d</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>    <span class="c1"># acessando a coluna &#39;year&#39; como atributo, não recomendado acessar desta forma, </span>
+                                       <span class="c1"># pois existem restrições, (o resultado é uma série)</span>
+                                       
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coluna &quot;pop&quot; e &quot;year&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df_d</span><span class="p">[[</span><span class="s1">&#39;pop&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">]])</span> <span class="c1"># acessando simultaneamente as colunas &#39;pop&#39; e &#39;year&#39; (o resultado é um DataFrame)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rótulos das colunas: [&#39;state&#39; &#39;year&#39; &#39;pop&#39;]
+-----
+Coluna &quot;pop&quot;:
+ 0    18.8
+1    19.1
+2     9.7
+3     9.7
+4     9.8
+Name: pop, dtype: float64
+-----
+Coluna &quot;year&quot;:
+ 0    2010
+1    2011
+2    2008
+3    2010
+4    2011
+Name: year, dtype: int64
+-----
+Coluna &quot;pop&quot; e &quot;year&quot;:
+     pop  year
+0  18.8  2010
+1  19.1  2011
+2   9.7  2008
+3   9.7  2010
+4   9.8  2011
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="busca-com-expressoes-booleanas">
+<h4>Busca com expressões booleanas<a class="headerlink" href="#busca-com-expressoes-booleanas" title="Permalink to this headline">#</a></h4>
+<p>O método <font color='blue'>query</font> permite recuperar elementos utilizando uma expressão booleana fornecida como uma string. A string é interpretada, se o conteúdo da string contém rótulos das colunas, tal coluna é utilizada na comparação.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GB&#39;</span><span class="p">],</span>    <span class="c1"># dicionário de listas</span>
+     <span class="s1">&#39;year&#39;</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">],</span>    
+     <span class="s1">&#39;pop&#39;</span> <span class="p">:</span>   <span class="p">[</span><span class="mf">18.8</span><span class="p">,</span> <span class="mf">19.1</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">]}</span>
+
+<span class="n">df_d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>   <span class="c1"># construindo o DataFrame a partir do dicionário de listas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Buscando valores na coluna &quot;pop&quot; menores que 10</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_d</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;pop &lt; 10&#39;</span><span class="p">))</span> <span class="c1"># recupera as linhas do DataFrame cujos elementos da coluna &#39;pop&#39; sejam menores que 10</span>
+                              <span class="c1"># retorna um novo DataFrame</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Buscando valores na coluna &quot;pop&quot; menores que 10 e valores diferentes de GB na coluna &quot;state&quot;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_d</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;pop &lt; 10 &amp; state != &quot;GB&quot;&#39;</span><span class="p">))</span>  <span class="c1"># recupera as linhas do DataFrame cujos elementos da coluna &#39;pop&#39; são menores que 10 e da coluna &#39;state&#39; sejam diferentes de &quot;GB&quot;</span>
+                                               <span class="c1"># retorna um novo DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Buscando valores na coluna &quot;pop&quot; menores que 10
+
+  state  year  pop
+2    GA  2008  9.7
+3    GA  2010  9.7
+4    GB  2011  9.8
+
+Buscando valores na coluna &quot;pop&quot; menores que 10 e valores diferentes de GB na coluna &quot;state&quot;
+
+  state  year  pop
+2    GA  2008  9.7
+3    GA  2010  9.7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando um DataFrame a partir de um array bidimensional e especificando os rótulos de linhas e colunas</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rotulo_linhas</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;li&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="n">rotulo_colunas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;co&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">rotulo_linhas</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">rotulo_colunas</span><span class="p">)</span> <span class="c1"># criando o DataFrame e especificando os rótulos</span>
+                                                                  <span class="c1"># das linhas e colunas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>  <span class="c1"># mostrando as primeiras 5 linhas</span>
+
+<span class="c1"># retornando uma série tipo &#39;mascara booleana&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;df_a[&quot;co1&quot;] &lt; 20&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">[</span><span class="s1">&#39;co1&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>   <span class="c1"># retorna uma serie como máscara booleanos</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">(df_a[&quot;co2&quot;] &gt; 10) &amp; (df_a[&quot;co4&quot;] &lt; 20)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">df_a</span><span class="p">[</span><span class="s2">&quot;co2&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_a</span><span class="p">[</span><span class="s2">&quot;co4&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">))</span>   <span class="c1"># combinando expressões booleanas com o operador &amp; (AND)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">(df_a[&quot;co2&quot;] &gt; 10) | (df_a[&quot;co4&quot;] &lt; 20)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">df_a</span><span class="p">[</span><span class="s2">&quot;co2&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df_a</span><span class="p">[</span><span class="s2">&quot;co4&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">))</span>   <span class="c1"># combinando expressões booleanas com o operador | (OR)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li0   21   29   18    3   29
+li1   10   18   25   11    9
+li2   11   17   20   10   21
+li3   17   18    7   14    1
+li4    6   21   18   16   29
+df_a[&quot;co1&quot;] &lt; 20
+li0    False
+li1     True
+li2     True
+li3     True
+li4    False
+li5     True
+li6     True
+Name: co1, dtype: bool
+
+(df_a[&quot;co2&quot;] &gt; 10) &amp; (df_a[&quot;co4&quot;] &lt; 20)
+li0    False
+li1     True
+li2    False
+li3    False
+li4    False
+li5     True
+li6     True
+dtype: bool
+
+(df_a[&quot;co2&quot;] &gt; 10) | (df_a[&quot;co4&quot;] &lt; 20)
+li0    True
+li1    True
+li2    True
+li3    True
+li4    True
+li5    True
+li6    True
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="criando-e-removendo-colunas">
+<h4>Criando e removendo colunas<a class="headerlink" href="#criando-e-removendo-colunas" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Colunas podem ser criadas simplesmente atribuindo um novo rótulo ao DataFrame e especificando os elementos da coluna</p></li>
+<li><p>Colunas podem ser removidas utilizando os métodos <font color='blue'>drop</font> ou <font color='blue'>del</font></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;GB&#39;</span><span class="p">],</span>    <span class="c1"># dicionário de listas</span>
+     <span class="s1">&#39;year&#39;</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">],</span>    
+     <span class="s1">&#39;pop&#39;</span> <span class="p">:</span>   <span class="p">[</span><span class="mf">18.8</span><span class="p">,</span> <span class="mf">19.1</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">]}</span>
+
+<span class="n">df_d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>   <span class="c1"># construindo o DataFrame a partir do dicionário de listas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_d</span><span class="p">)</span>
+
+<span class="c1"># criando uma nova coluna com o rótulo &#39;new_col&#39; onde todos os elementos são zero</span>
+<span class="n">df_d</span><span class="p">[</span><span class="s1">&#39;new_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">df_d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1"># o comando shape funciona como no numpy e indica o </span>
+                                            <span class="c1"># número de linhas (shape[0]) e colunas (shape[1]) no DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  state  year   pop
+0    FL  2010  18.8
+1    FL  2011  19.1
+2    GA  2008   9.7
+3    GA  2010   9.7
+4    GB  2011   9.8
+
+   state  year   pop  new_col
+0    FL  2010  18.8      0.0
+1    FL  2011  19.1      0.0
+2    GA  2008   9.7      0.0
+3    GA  2010   9.7      0.0
+4    GB  2011   9.8      0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># removendo a coluna &#39;new_col&#39; criada na célula anterior do notebook</span>
+<span class="n">df_d</span> <span class="o">=</span> <span class="n">df_d</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;new_col&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># o parêmetro axis=1 indica que se está removendo coluna</span>
+                                      <span class="c1"># pois o método drop pode ser utilizado para remover linhas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_d</span><span class="p">)</span>
+
+<span class="c1"># A coluna também poderia ser removida com o comando &#39;del&#39;</span>
+<span class="c1"># del df_d[&#39;new_col&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  state  year   pop
+0    FL  2010  18.8
+1    FL  2011  19.1
+2    GA  2008   9.7
+3    GA  2010   9.7
+4    GB  2011   9.8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulando-e-acessando-linhas">
+<h4><strong>Manipulando e Acessando Linhas</strong><a class="headerlink" href="#manipulando-e-acessando-linhas" title="Permalink to this headline">#</a></h4>
+<p>As linhas de um DataFrame podem ser acessadas utilizando os métodos:</p>
+<ul class="simple">
+<li><p><font color='blue'>iloc</font> - manipula o DataFrame como uma matriz com índices inteiros, como se fosse um array</p></li>
+<li><p><font color='blue'>loc</font> - seleciona linhas pelos rótulos (ou índices) ou por máscara booleana</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Exemplos do uso de &#39;iloc&#39;</span>
+<span class="c1"># Criando um DataFrame a partir de um array e especificando os rótulos de linhas e colunas</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rotulo_linhas</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;li&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="n">rotulo_colunas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;co&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">rotulo_linhas</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">rotulo_colunas</span><span class="p">)</span> <span class="c1"># criando o DataFrame e especificando os rótulos</span>
+                                                                  <span class="c1"># das linhas e colunas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Acessando linha de indice 2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># retorna a linha como uma série </span>
+                     <span class="c1"># (rótulos das colunas se tornan os rótulos das linhas)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Acessando as linhas com indice 2 e 3 e todas as colunas a partir do indice 1:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">:])</span> <span class="c1"># slicing o DataFrame</span>
+                         <span class="c1"># o resutlado do slicing é um DataFrame (como um view do numpy)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li0    5   18    6   17   12
+li1    0   12    6    9   25
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li4   29   13   12    0   16
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+
+Acessando linha de indice 2:
+co0     8
+co1    28
+co2     9
+co3    19
+co4     2
+Name: li2, dtype: int64
+
+Acessando as linhas com indice 2 e 3 e todas as colunas a partir do indice 1:
+     co1  co2  co3  co4
+li2   28    9   19    2
+li3   20   27   12   17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exemplos do uso de &#39;loc&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span> <span class="c1"># imprimindo o DataFrame criado no exemplo anterior</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Acessando a linha com rótulo &quot;li2&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;li2&#39;</span><span class="p">])</span> <span class="c1"># retorna a linha como uma série </span>
+                       <span class="c1"># (rótulos das colunas se tornan os rótulos das linhas)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Acessando as linhas com rótulo &quot;li1&quot; e &quot;li3&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;li1&#39;</span><span class="p">,</span><span class="s1">&#39;li3&#39;</span><span class="p">]])</span> <span class="c1"># acessando múltiplas linhas via lista de rótulos</span>
+                               <span class="c1"># o resultado é um DataFrame</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Acessando as linhas entre os rótulos &quot;li1&quot; e &quot;li4&quot; na coluna &quot;co3&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;li1&#39;</span><span class="p">:</span><span class="s1">&#39;li4&#39;</span><span class="p">,</span><span class="s1">&#39;co3&#39;</span><span class="p">])</span> <span class="c1"># acessando múltiplas linhas via slicing</span>
+                                   <span class="c1"># note que o metodo loc inclui o último elemento </span>
+                                   <span class="c1"># (&#39;li4&#39; também é retornado)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li0    5   18    6   17   12
+li1    0   12    6    9   25
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li4   29   13   12    0   16
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+
+Acessando a linha com rótulo &quot;li2&quot;
+co0     8
+co1    28
+co2     9
+co3    19
+co4     2
+Name: li2, dtype: int64
+
+Acessando as linhas com rótulo &quot;li1&quot; e &quot;li3&quot;
+     co0  co1  co2  co3  co4
+li1    0   12    6    9   25
+li3   13   20   27   12   17
+
+Acessando as linhas entre os rótulos &quot;li1&quot; e &quot;li4&quot; na coluna &quot;co3&quot;
+li1     9
+li2    19
+li3    12
+li4     0
+Name: co3, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>O método <font color='blue'>loc</font> aceita expressões booleanas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># O método loc aceita expressoes booleanas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_a</span><span class="p">[</span><span class="s1">&#39;co2&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">15</span><span class="p">])</span> <span class="c1"># retorna todas as linhas onde o valor da coluna &#39;co2&#39; é maior ou igual a 15</span>
+                                   <span class="c1"># o resultado é um novo DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li3   13   20   27   12   17
+li5   25   18   21   17    0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ordenando-um-dataframe">
+<h4>Ordenando um DataFrame<a class="headerlink" href="#ordenando-um-dataframe" title="Permalink to this headline">#</a></h4>
+<p>Assim como nas séries, é possível ordernar pelos rótulos das linhas, mas ao ordernar por valor é necessário definir a coluna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;co1&#39;</span><span class="p">)</span>  <span class="c1"># ordena as linhas de acordo com a coluna &#39;co1&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>co0</th>
+      <th>co1</th>
+      <th>co2</th>
+      <th>co3</th>
+      <th>co4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>li1</th>
+      <td>0</td>
+      <td>12</td>
+      <td>6</td>
+      <td>9</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>li4</th>
+      <td>29</td>
+      <td>13</td>
+      <td>12</td>
+      <td>0</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>li0</th>
+      <td>5</td>
+      <td>18</td>
+      <td>6</td>
+      <td>17</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>li5</th>
+      <td>25</td>
+      <td>18</td>
+      <td>21</td>
+      <td>17</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>li3</th>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>12</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>li6</th>
+      <td>28</td>
+      <td>24</td>
+      <td>4</td>
+      <td>4</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>li2</th>
+      <td>8</td>
+      <td>28</td>
+      <td>9</td>
+      <td>19</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Atenção:</strong> sort_values, gera uma cópia. Para modificar o DataFrame, deve-se passar o parâmetro <code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">True</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;co0&#39;</span><span class="p">))</span> <span class="c1"># a ordenação não modifica o DataFrame original</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">DataFrame original não é afetado&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span>
+
+<span class="n">df_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;co0&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># o parâmetro &#39;inplace=True&#39; modifica o DataFrame original </span>
+                                     <span class="c1"># (porém não retorna um outro DataFrame)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Parâmetro &quot;inplace=True&quot; modifica o DataFrame original&#39;</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li1    0   12    6    9   25
+li0    5   18    6   17   12
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+li4   29   13   12    0   16
+
+DataFrame original não é afetado
+     co0  co1  co2  co3  co4
+li0    5   18    6   17   12
+li1    0   12    6    9   25
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li4   29   13   12    0   16
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+
+Parâmetro &quot;inplace=True&quot; modifica o DataFrame original
+     co0  co1  co2  co3  co4
+li1    0   12    6    9   25
+li0    5   18    6   17   12
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+li4   29   13   12    0   16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="recuperando-apenas-os-valores-do-dataframe">
+<h3>Recuperando apenas os valores do DataFrame<a class="headerlink" href="#recuperando-apenas-os-valores-do-dataframe" title="Permalink to this headline">#</a></h3>
+<p>O atributo <font color='blue'>values</font> converte o contéudo de um DataFrame em um <font color='blue'>numpy</font> array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1"># recuperando somente o conteúdo do DataFrame </span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df_a</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>  <span class="c1">#  o resultado é um array do numpy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     co0  co1  co2  co3  co4
+li1    0   12    6    9   25
+li0    5   18    6   17   12
+li2    8   28    9   19    2
+li3   13   20   27   12   17
+li5   25   18   21   17    0
+li6   28   24    4    4   17
+li4   29   13   12    0   16
+----------
+[[ 0 12  6  9 25]
+ [ 5 18  6 17 12]
+ [ 8 28  9 19  2]
+ [13 20 27 12 17]
+ [25 18 21 17  0]
+ [28 24  4  4 17]
+ [29 13 12  0 16]]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="carregando-arquivos">
+<h2>Carregando arquivos<a class="headerlink" href="#carregando-arquivos" title="Permalink to this headline">#</a></h2>
+<p>Pandas permite carregar (e escrever) arquivos de diversos formatos:</p>
+<ul class="simple">
+<li><p>Arquivos de texto</p></li>
+<li><p>Dados estruturados (JSON, XML, HTML, CSV)</p></li>
+<li><p>Excel (depende das biblitoecas xlrd e  openpyxl)</p></li>
+<li><p>Direto de base de dados</p>
+<ul>
+<li><p>pandas.io.sql  (read_frame)</p></li>
+</ul>
+</li>
+</ul>
+<p>A célula abaixo irá criar um arquivo tipo ‘.csv’ onde os elementos das colunas são separados por vírgula (padrão para arquivos ‘.csv’)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> simple.csv  
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">message</span>
+<span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">hello</span>
+<span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">world</span>
+<span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">foo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting simple.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carregar um CSV é bastante simples</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># importando o pacote pandas</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;simple.csv&#39;</span><span class="p">)</span>  <span class="c1"># o método read_csv carrega um arquivo no formato &#39;.csv&#39;</span>
+                                <span class="c1"># a primeira linha do arquivo se torna os rótulos das colunas</span>
+                                <span class="c1"># como os indices das linhas não foram especificados, são criados automaticamente</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rotulos das colunas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>    <span class="c1"># imprime o nome dos rótulos das colunas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># mostrando as 5 primeiras linhas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rotulos das colunas
+[&#39;a&#39; &#39;b&#39; &#39;c&#39; &#39;d&#39; &#39;message&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>hello</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>world</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pode-se especificar os nomes das colunas, fazendo com que a primeira linha do arquivo seja parte dos dados</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;simple.csv&#39;</span><span class="p">,</span>
+                 <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span><span class="s1">&#39;c2&#39;</span><span class="p">,</span><span class="s1">&#39;c3&#39;</span><span class="p">,</span><span class="s1">&#39;c4&#39;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c0</th>
+      <th>c1</th>
+      <th>c2</th>
+      <th>c3</th>
+      <th>c4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+      <td>message</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>hello</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>world</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pode-se fazer com que uma das colunas se torne os rótulos das linhas utilizando o parâmetro &#39;index_col&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;simple.csv&#39;</span><span class="p">,</span>
+                 <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span><span class="s1">&#39;c2&#39;</span><span class="p">,</span><span class="s1">&#39;c3&#39;</span><span class="p">,</span><span class="s1">&#39;c4&#39;</span><span class="p">],</span>
+                 <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;c4&#39;</span><span class="p">)</span>  <span class="c1"># coluna &#39;c4&#39; se torna rótulo das linhas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c0</th>
+      <th>c1</th>
+      <th>c2</th>
+      <th>c3</th>
+    </tr>
+    <tr>
+      <th>c4</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>message</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>hello</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>world</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>foo</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_csv</span></code> possui muitos outros parâmetros, veja documentação no link abaixo:</p>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_05_Numpy%20II%20e%20Matplotlib.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span style="color:blue"> MBA em Ciência de Dados</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PCD_07_Pandas%20II.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-i-font"><font color="blue">Pandas Parte I</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-parte-i">Pandas - Parte I</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-series-font"><font color="blue">Series</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-series-com-font-color-blue-pandas-font">Criando séries com <font color="blue">pandas</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acessando-os-elementos-de-uma-serie">Acessando os elementos de uma série</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reindexacao">Reindexação</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tratando-valores-faltantes">Tratando valores faltantes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-aritmeticas-com-series">Operações aritméticas com séries</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenacao-dos-elementos-de-uma-serie">Ordenação dos elementos de uma série</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotulos-repetidos">Rótulos repetidos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-metodos">Outros métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-dataframes-font"><font color="blue">DataFrames</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulando-e-acessando-colunas"><strong>Manipulando e Acessando Colunas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#busca-com-expressoes-booleanas">Busca com expressões booleanas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-e-removendo-colunas">Criando e removendo colunas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulando-e-acessando-linhas"><strong>Manipulando e Acessando Linhas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenando-um-dataframe">Ordenando um DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperando-apenas-os-valores-do-dataframe">Recuperando apenas os valores do DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregando-arquivos">Carregando arquivos</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

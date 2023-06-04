@@ -1,0 +1,1327 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-02-4-Desbalanceamento';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-03-1-Coleta_Aquisicao.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-02-3-Faltantes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-02-4-Desbalanceamento.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-02-4-Desbalanceamento.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-de-desbalanceamento-subamostragem-e-aumentacao-de-dados-span"><span style="color:darkred">Tratamento de desbalanceamento: subamostragem e aumentação de dados</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-desbalanceados">Dados Desbalanceados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-tratamento-de-desbalanceamento">Métodos de tratamento de desbalanceamento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subamostragem-aleatoria">Subamostragem aleatória</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tomeklinks">TomekLinks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edited-nearest-neighbors-enn">Edited Nearest Neighbors (ENN)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-multiclasse-com-uma-majoritaria">Caso multiclasse com uma majoritária</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sem-reamostragem-ponderando-classes-no-treinamento">Sem reamostragem : ponderando classes no treinamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-binario">Caso binário</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classificador-lightgbm">Classificador LightGBM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h1>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span">
+<h2><span style="color:darkred">Tratamento e limpeza de bases de dados</span><a class="headerlink" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="span-style-color-darkred-tratamento-de-desbalanceamento-subamostragem-e-aumentacao-de-dados-span">
+<h2><span style="color:darkred">Tratamento de desbalanceamento: subamostragem e aumentação de dados</span><a class="headerlink" href="#span-style-color-darkred-tratamento-de-desbalanceamento-subamostragem-e-aumentacao-de-dados-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+
+<span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgbm</span>
+
+<span class="kn">from</span> <span class="nn">imblearn</span> <span class="kn">import</span> <span class="n">over_sampling</span>
+<span class="kn">from</span> <span class="nn">imblearn</span> <span class="kn">import</span> <span class="n">under_sampling</span>
+<span class="kn">from</span> <span class="nn">imblearn</span> <span class="kn">import</span> <span class="n">combine</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgbm</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">imblearn</span> <span class="kn">import</span> <span class="n">over_sampling</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">imblearn</span> <span class="kn">import</span> <span class="n">under_sampling</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;lightgbm&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dados-desbalanceados">
+<h1>Dados Desbalanceados<a class="headerlink" href="#dados-desbalanceados" title="Permalink to this headline">#</a></h1>
+<p>Vamos estudar o problema de dados desbalanceados utilizando o conjunto de dados de natalidade em uma maternidade.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/TACTD-01-Desbalanceamento.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Weight</th>
+      <th>Hospital</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+      <td>3740</td>
+      <td>St Mary</td>
+      <td>201612</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M</td>
+      <td>39</td>
+      <td>12</td>
+      <td>2016</td>
+      <td>4130</td>
+      <td>St Mary</td>
+      <td>201612</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>M</td>
+      <td>42</td>
+      <td>12</td>
+      <td>2016</td>
+      <td>4250</td>
+      <td>St Mary</td>
+      <td>201612</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F</td>
+      <td>39</td>
+      <td>12</td>
+      <td>2016</td>
+      <td>3990</td>
+      <td>St Mary</td>
+      <td>201612</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+      <td>3760</td>
+      <td>St Mary</td>
+      <td>201612</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F    58
+M    18
+Name: Sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cont</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># relacao entre classe majoritaria e minoritaria</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">cont</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">cont</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># percentual</span>
+<span class="n">perce</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Problema com relaçao 1:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ratio</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classe minoritária com frequência: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">perce</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problema com relaçao 1:3.1
+Classe minoritária com frequência: 23.7%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nesse caso temos um desbalanceamento de aproximadamente 1:3</p>
+<p>Ao inferir modelos temos que tratar a amostra relativa ao Sexo Feminino e ao Sexo Masculino de forma a controlar por essa diferença.</p>
+<p>Em alguns métodos de aprendizado, por exemplo, a quantidade de dados é levada em consideração e pode trazer um peso maior para a categoria chamada de <em>majoritária</em>, nesse caso o sexo Feminino.</p>
+<p>O efeito de desbalanceamento pode causar o deslocamento de uma superfície de decisão aprendida, favorecendo a classe majoritária</p>
+<img src="imagens/desb_1_deci.png" width=280>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="metodos-de-tratamento-de-desbalanceamento">
+<h1>Métodos de tratamento de desbalanceamento<a class="headerlink" href="#metodos-de-tratamento-de-desbalanceamento" title="Permalink to this headline">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Subamostragem</strong>: remove exemplos da classe majoritária</p></li>
+<li><p><strong>Aumentação de dados/sobreamostragem</strong>: cria <em>novos</em> exemplos sintéticos/artificiais para a classe minoritária</p></li>
+</ol>
+<section id="subamostragem-aleatoria">
+<h2>Subamostragem aleatória<a class="headerlink" href="#subamostragem-aleatoria" title="Permalink to this headline">#</a></h2>
+<img src="imagens/desb_2_unders.png" width=400>
+</section>
+<section id="smote">
+<h2>SMOTE<a class="headerlink" href="#smote" title="Permalink to this headline">#</a></h2>
+<p>Método de sobreamostragem <em>Synthetic Minority Oversampling Technique</em></p>
+<img src="imagens/desb_3_SMOTE.png" width=600>
+</section>
+<section id="tomeklinks">
+<h2>TomekLinks<a class="headerlink" href="#tomeklinks" title="Permalink to this headline">#</a></h2>
+<p>Método de remoção de exemplos com base no vizinho mais próximo</p>
+<img src="imagens/desb_4_tomek.png" width=600>
+</section>
+<section id="edited-nearest-neighbors-enn">
+<h2>Edited Nearest Neighbors (ENN)<a class="headerlink" href="#edited-nearest-neighbors-enn" title="Permalink to this headline">#</a></h2>
+<p>Utiliza <span class="math notranslate nohighlight">\(k\)</span> vizinhos mais próximos ao invés de um único como no Tomek</p>
+<hr class="docutils" />
+<p>Vamos utilizar uma base de dados desbalanceada para mostrar alguns métodos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/houses_to_rent_mba_nomissing2.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># tratamento de dados</span>
+<span class="n">data_nred</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_nred</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+<span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">data_nred</span> <span class="o">=</span> <span class="n">data_nred</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/houses_to_rent_mba_nomissing2.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># tratamento de dados</span>
+<span class="n">data_nred</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_nred</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+<span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_nred</span><span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="c1">#data_nred.loc[:,&#39;floor&#39;] = pd.to_numeric(data_nred[&#39;floor&#39;], downcast=&#39;integer&#39;, errors=&#39;coerce&#39;)</span>
+<span class="c1">#data_nred.loc[:,&#39;tax&#39;] = pd.to_numeric(data_nred[&#39;tax&#39;], downcast=&#39;float&#39;, errors=&#39;coerce&#39;)</span>
+<span class="n">data_nred</span> <span class="o">=</span> <span class="n">data_nred</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remoção de outliers</span>
+<span class="k">def</span> <span class="nf">remove_outliers</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+        <span class="c1"># verifica se variável é numerica</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="n">Q2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="n">Q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+            <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+        
+        <span class="c1"># apenas inliers segundo IQR</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Q1</span><span class="o">-</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">Q3</span><span class="o">+</span><span class="p">(</span><span class="n">IQR</span><span class="o">*</span><span class="n">factor</span><span class="p">)),</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">,</span> <span class="s1">&#39;rent&#39;</span><span class="p">]</span>
+<span class="n">data_out</span> <span class="o">=</span> <span class="n">remove_outliers</span><span class="p">(</span><span class="n">data_nred</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antes: </span><span class="si">%d</span><span class="s2">, Depois tratamento: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data_nred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antes: 10695, Depois tratamento: 8811
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos separar essa base de dados em conjuntos de treinamento (X) e teste (Z)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frac_trein</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">dtrain</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="n">frac_trein</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dtest</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dtrain</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="caso-multiclasse-com-uma-majoritaria">
+<h2>Caso multiclasse com uma majoritária<a class="headerlink" href="#caso-multiclasse-com-uma-majoritaria" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>classificador para predizer a <strong>cidade</strong> com base no imposto, valor do condomínio e valor do seguro, e valor do condomínio</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Treinando classificador</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">]]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">ZX</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">]]</span>
+<span class="n">ZY</span> <span class="o">=</span> <span class="n">dtest</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">ZY_</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZX</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_base</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ZY</span><span class="p">,</span> <span class="n">ZY_</span><span class="p">)</span>
+<span class="n">accb_base</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZY</span><span class="p">,</span> <span class="n">ZY_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">acc_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia balanceada: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_base</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acurácia: 61.79
+Acurácia balanceada: 28.88
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>São Paulo         0.570348
+Rio de Janeiro    0.136803
+Belo Horizonte    0.110889
+Porto Alegre      0.105105
+Campinas          0.076855
+Name: city, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ca397a00a3b28663e80fdccead5a71009cdc63ec448b5482407e69ca45c1d87.png" src="_images/1ca397a00a3b28663e80fdccead5a71009cdc63ec448b5482407e69ca45c1d87.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">ZX</span><span class="p">,</span> <span class="n">ZY</span><span class="p">,</span>
+                                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># Rotacionando os rótulos em 90 graus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 2, 3, 4]),
+ [Text(0, 0, &#39;Belo Horizonte&#39;),
+  Text(1, 0, &#39;Campinas&#39;),
+  Text(2, 0, &#39;Porto Alegre&#39;),
+  Text(3, 0, &#39;Rio de Janeiro&#39;),
+  Text(4, 0, &#39;São Paulo&#39;)])
+</pre></div>
+</div>
+<img alt="_images/884bf8b0ee697a0e20ab34f268b206d56da0e2a91c5fcf1547a248f77c7e530f.png" src="_images/884bf8b0ee697a0e20ab34f268b206d56da0e2a91c5fcf1547a248f77c7e530f.png" />
+</div>
+</div>
+<p>Definimos uma estratégia de amostragem (se deixado em branco vai tentar igualar todas as classes)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># superamostrando a 50% da majoritária</span>
+
+<span class="n">majority_n</span> <span class="o">=</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">]</span>
+
+<span class="n">sampling_strategy</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">dtrain</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">city</span> <span class="o">!=</span> <span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span>
+        <span class="n">sampling_strategy</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">majority_n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Rio de Janeiro&#39;: 2564, &#39;Belo Horizonte&#39;: 2564, &#39;Porto Alegre&#39;: 2564, &#39;Campinas&#39;: 2564}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oversamp</span> <span class="o">=</span> <span class="n">over_sampling</span><span class="o">.</span><span class="n">SMOTE</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="n">sampling_strategy</span><span class="p">)</span> <span class="c1"># sampling_strategy pode ser usado para casos binários</span>
+<span class="n">Xo</span><span class="p">,</span> <span class="n">Yo</span> <span class="o">=</span> <span class="n">oversamp</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Yo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2e402c9d42e17bd55555eee0318df64024d03f8c4b26b3967a1bd46f5688a893.png" src="_images/2e402c9d42e17bd55555eee0318df64024d03f8c4b26b3967a1bd46f5688a893.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overunder</span> <span class="o">=</span> <span class="n">combine</span><span class="o">.</span><span class="n">SMOTEENN</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">Xc</span><span class="p">,</span> <span class="n">Yc</span> <span class="o">=</span> <span class="n">overunder</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Yc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7b1b6a3b5fa56a133b3f1df5517a84574f92e9799dc8803256a7907ad3315801.png" src="_images/7b1b6a3b5fa56a133b3f1df5517a84574f92e9799dc8803256a7907ad3315801.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subamostrando a 33% da majoritária</span>
+<span class="n">undersampling_strategy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.33</span><span class="o">*</span><span class="n">majority_n</span><span class="p">)}</span>
+
+<span class="n">undersamp</span> <span class="o">=</span> <span class="n">under_sampling</span><span class="o">.</span><span class="n">RandomUnderSampler</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="n">undersampling_strategy</span><span class="p">)</span>
+<span class="n">Xu</span><span class="p">,</span> <span class="n">Yu</span> <span class="o">=</span> <span class="n">undersamp</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Yu</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/90a239a185a88fbc250a6887815dacbe56132ff80585b3f659a5de89cbb22cd3.png" src="_images/90a239a185a88fbc250a6887815dacbe56132ff80585b3f659a5de89cbb22cd3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_ov</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">clf_ov</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xo</span><span class="p">,</span><span class="n">Yo</span><span class="p">)</span>
+<span class="n">ZYov_</span> <span class="o">=</span> <span class="n">clf_ov</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZX</span><span class="p">)</span>
+
+<span class="n">clf_un</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">clf_un</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xu</span><span class="p">,</span><span class="n">Yu</span><span class="p">)</span>
+<span class="n">ZYun_</span> <span class="o">=</span> <span class="n">clf_un</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZX</span><span class="p">)</span>
+
+<span class="n">clf_co</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">clf_co</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xc</span><span class="p">,</span><span class="n">Yc</span><span class="p">)</span>
+<span class="n">ZYco_</span> <span class="o">=</span> <span class="n">clf_co</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZX</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accb_ov</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZY</span><span class="p">,</span> <span class="n">ZYov_</span><span class="p">)</span>
+<span class="n">accb_un</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZY</span><span class="p">,</span> <span class="n">ZYun_</span><span class="p">)</span>
+<span class="n">accb_co</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZY</span><span class="p">,</span> <span class="n">ZYco_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia balanceada base: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_base</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- oversampling (SMOTE): </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_ov</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- undersampling: </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_un</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- oversampling + undersampling (SMOTEENN): </span><span class="si">%0.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_co</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acurácia balanceada base: 0.289
+- oversampling (SMOTE): 0.320
+- undersampling: 0.315
+- oversampling + undersampling (SMOTEENN): 0.355
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">ZX</span><span class="p">,</span> <span class="n">ZY</span><span class="p">,</span>
+                                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># Rotacionando os rótulos em 90 graus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/884bf8b0ee697a0e20ab34f268b206d56da0e2a91c5fcf1547a248f77c7e530f.png" src="_images/884bf8b0ee697a0e20ab34f268b206d56da0e2a91c5fcf1547a248f77c7e530f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_ov</span><span class="p">,</span> <span class="n">ZX</span><span class="p">,</span> <span class="n">ZY</span><span class="p">,</span>
+                                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># Rotacionando os rótulos em 90 graus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fa49938b2e7944fbb82a74e1b5796675cca5efa8f439c5ba8e626c6f7aa07edf.png" src="_images/fa49938b2e7944fbb82a74e1b5796675cca5efa8f439c5ba8e626c6f7aa07edf.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_co</span><span class="p">,</span> <span class="n">ZX</span><span class="p">,</span> <span class="n">ZY</span><span class="p">,</span>
+                                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># Rotacionando os rótulos em 90 graus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/34f67b19e53b58f16fa5c2155ce2469eefa0dd7b4e03f9bee4b4eaad18c922be.png" src="_images/34f67b19e53b58f16fa5c2155ce2469eefa0dd7b4e03f9bee4b4eaad18c922be.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_un</span><span class="p">,</span> <span class="n">ZX</span><span class="p">,</span> <span class="n">ZY</span><span class="p">,</span>
+                                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># Rotacionando os rótulos em 90 graus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/190283141ec6954ab08c242091d03b5552159e325934652d9ea843fb3506b5c2.png" src="_images/190283141ec6954ab08c242091d03b5552159e325934652d9ea843fb3506b5c2.png" />
+</div>
+</div>
+</section>
+<section id="sem-reamostragem-ponderando-classes-no-treinamento">
+<h2>Sem reamostragem : ponderando classes no treinamento<a class="headerlink" href="#sem-reamostragem-ponderando-classes-no-treinamento" title="Permalink to this headline">#</a></h2>
+<p>Alguns classificadores possuem a opção <code class="docutils literal notranslate"><span class="pre">class_weight</span></code> (ver documentação para detalhes), que permite calcular pesos com base na quantidade de dados, ou um dicionário com os pesos individuais</p>
+<section id="caso-binario">
+<h3>Caso binário<a class="headerlink" href="#caso-binario" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbinary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dtrain</span><span class="p">[</span><span class="n">dtrain</span><span class="o">.</span><span class="n">city</span><span class="o">==</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">],</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">dtrain</span><span class="o">.</span><span class="n">city</span><span class="o">==</span><span class="s1">&#39;Campinas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)])</span>
+<span class="n">dbinary_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dtrain</span><span class="p">[</span><span class="n">dtrain</span><span class="o">.</span><span class="n">city</span><span class="o">==</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">],</span> <span class="n">dtrain</span><span class="p">[</span><span class="n">dtrain</span><span class="o">.</span><span class="n">city</span><span class="o">==</span><span class="s1">&#39;Campinas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbinary</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>São Paulo    0.948927
+Campinas     0.051073
+Name: city, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbinary_test</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>São Paulo    0.9612
+Campinas     0.0388
+Name: city, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xb</span> <span class="o">=</span> <span class="n">dbinary</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">]]</span>
+<span class="n">Yb</span> <span class="o">=</span> <span class="n">dbinary</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">ZXb</span> <span class="o">=</span> <span class="n">dbinary_test</span><span class="p">[[</span><span class="s1">&#39;tax&#39;</span><span class="p">,</span><span class="s1">&#39;insurance&#39;</span><span class="p">,</span> <span class="s1">&#39;hoa&#39;</span><span class="p">]]</span>
+<span class="n">ZYb</span> <span class="o">=</span> <span class="n">dbinary_test</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="logistic-regression">
+<h4>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## classificador caso base</span>
+<span class="n">clf_b</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf_b</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">ZYb_</span> <span class="o">=</span> <span class="n">clf_b</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">accb_b</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">ZYb_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_cw</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">})</span>
+<span class="n">clf_cw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">ZYcw_</span> <span class="o">=</span> <span class="n">clf_cw</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">accb_cw10</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">ZYcw_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_cw</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span>
+<span class="n">clf_cw</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">ZYcw_</span> <span class="o">=</span> <span class="n">clf_cw</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">accb_cw100</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">ZYcw_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_bal</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+<span class="n">clf_bal</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">ZYbal_</span> <span class="o">=</span> <span class="n">clf_bal</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">accb_bal</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">ZYbal_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logistic Regression&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia balanceada base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_b</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ponderação classes 1/10: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_cw10</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ponderação classes 1/100: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_cw100</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- parametro balanceamento: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accb_bal</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Logistic Regression
+Acurácia balanceada base: 50.00
+- ponderação classes 1/10: 74.44
+- ponderação classes 1/100: 66.40
+- parametro balanceamento: 74.41
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classificador-lightgbm">
+<h4>Classificador LightGBM<a class="headerlink" href="#classificador-lightgbm" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_lgbm</span> <span class="o">=</span> <span class="n">lgbm</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">clf_lgbm_cw10</span> <span class="o">=</span> <span class="n">lgbm</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">})</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">clf_lgbm_cw100</span> <span class="o">=</span> <span class="n">lgbm</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+<span class="n">clf_lgbm_bal</span> <span class="o">=</span> <span class="n">lgbm</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span><span class="n">Yb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LGB_ZYb_</span> <span class="o">=</span> <span class="n">clf_lgbm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">LGB_ZYcw_</span> <span class="o">=</span> <span class="n">clf_lgbm_cw10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">LGB_ZYcw1_</span> <span class="o">=</span> <span class="n">clf_lgbm_cw100</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+<span class="n">LGB_ZYbal_</span> <span class="o">=</span> <span class="n">clf_lgbm_bal</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ZXb</span><span class="p">)</span>
+
+<span class="n">lgb_b</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">LGB_ZYb_</span><span class="p">)</span>
+<span class="n">lgb_cw</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">LGB_ZYcw_</span><span class="p">)</span>
+<span class="n">lgb_cw1</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">LGB_ZYcw1_</span><span class="p">)</span>
+<span class="n">lgb_bal</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">ZYb</span><span class="p">,</span> <span class="n">LGB_ZYbal_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LightGBM&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acurácia balanceada base: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lgb_b</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ponderação classes 1/10: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lgb_cw</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ponderação classes 1/100: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lgb_cw1</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- parametro balanceamento: </span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lgb_bal</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LightGBM
+Acurácia balanceada base: 81.34
+- ponderação classes 1/10: 85.54
+- ponderação classes 1/100: 87.55
+- parametro balanceamento: 86.97
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>desbalanceamento também pode ser um problema relevante em bases de dados reais</p></li>
+<li><p>ganhos significativos podem ser obtidos por meio de métodos de amostragem</p></li>
+<li><p>recomenda-se inicialmente o uso de subamostragem de classes majoritárias ou a ponderação de classes</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-02-3-Faltantes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-03-1-Coleta_Aquisicao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-e-limpeza-de-bases-de-dados-span"><span style="color:darkred">Tratamento e limpeza de bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-tratamento-de-desbalanceamento-subamostragem-e-aumentacao-de-dados-span"><span style="color:darkred">Tratamento de desbalanceamento: subamostragem e aumentação de dados</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-desbalanceados">Dados Desbalanceados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-tratamento-de-desbalanceamento">Métodos de tratamento de desbalanceamento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subamostragem-aleatoria">Subamostragem aleatória</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tomeklinks">TomekLinks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edited-nearest-neighbors-enn">Edited Nearest Neighbors (ENN)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-multiclasse-com-uma-majoritaria">Caso multiclasse com uma majoritária</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sem-reamostragem-ponderando-classes-no-treinamento">Sem reamostragem : ponderando classes no treinamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-binario">Caso binário</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classificador-lightgbm">Classificador LightGBM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

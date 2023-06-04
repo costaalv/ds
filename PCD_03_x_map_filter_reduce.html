@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Função ‘map’ &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_03_x_map_filter_reduce';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="PCD_04_Numpy%20I%20.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="PCD_03_Python%20III.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_03_x_map_filter_reduce.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_03_x_map_filter_reduce.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Função ‘map’</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Função ‘map’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-filter">Função ‘filter’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-reduce">Função ‘reduce’</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-01">Exemplo 01</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-02">Exemplo 02</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-03">Exemplo 03</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funcao-map">
+<h1>Função ‘map’<a class="headerlink" href="#funcao-map" title="Permalink to this headline">#</a></h1>
+<p>Em Python, a função map é usada para aplicar uma função a cada elemento de uma sequência (como uma lista, tupla ou conjunto) e retornar um iterador com os resultados. A sintaxe básica da função map é a seguinte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># map(funcao, sequencia)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>funcao: é uma função que será aplicada a cada elemento da sequência.</p></li>
+<li><p>sequencia: é a sequência de entrada que será percorrida pela função.</p></li>
+</ul>
+<p>A função map retorna um iterador que contém os resultados da aplicação da função em cada elemento da sequência. Esse iterador pode ser convertido em uma lista, tupla ou conjunto, se desejado.</p>
+<p>A função passada como argumento para map deve ter um único argumento, que é um elemento da sequência de entrada. Por exemplo, se a sequência de entrada for uma lista de números [1, 2, 3, 4], a função passada para map deve ser capaz de lidar com um número de cada vez, como a função quadrado definida abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadrado</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ao chamar a função map com a função quadrado e a lista [1, 2, 3, 4] como argumentos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">quadrado</span><span class="p">,</span> <span class="n">lista</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>map
+</pre></div>
+</div>
+</div>
+</div>
+<p>O resultado será um iterador com os quadrados de cada elemento da lista [1, 2, 3, 4]. Para visualizar os resultados como uma lista, podemos fazer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_resultado</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista_resultado</span><span class="p">)</span>
+<span class="c1"># Saída: [1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>É importante notar que a função map não altera a sequência de entrada original, mas cria um novo iterador com os resultados da aplicação da função. Além disso, a função passada para map não precisa ser uma função definida previamente, ela pode ser uma expressão lambda ou uma função definida em linha (também chamada de função anônima).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="funcao-filter">
+<h1>Função ‘filter’<a class="headerlink" href="#funcao-filter" title="Permalink to this headline">#</a></h1>
+<p>Em Python, a função filter é usada para criar uma nova sequência (como uma lista, tupla ou conjunto) contendo apenas os elementos de uma sequência de entrada que satisfazem a uma determinada condição. A sintaxe básica da função filter é a seguinte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter(funcao, sequencia)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>funcao: é uma função que recebe um elemento da sequência como argumento e retorna True ou False indicando se o elemento deve ser incluído na sequência de saída.</p></li>
+<li><p>sequencia: é a sequência de entrada que será filtrada.</p></li>
+</ul>
+<p>A função filter retorna um iterador que contém os elementos da sequência de entrada que satisfazem a condição da função passada como argumento. Esse iterador pode ser convertido em uma lista, tupla ou conjunto, se desejado.</p>
+<p>A função passada como argumento para filter deve retornar um valor booleano, indicando se o elemento deve ser incluído na sequência de saída ou não. Por exemplo, se a sequência de entrada for uma lista de números [1, 2, 3, 4], a função passada para filter deve ser capaz de lidar com um número de cada vez e retornar True ou False com base em uma determinada condição, como a função par definida abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">par</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ao chamar a função filter com a função par e a lista [1, 2, 3, 4] como argumentos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">lista</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>O resultado será um iterador com os elementos pares da lista [1, 2, 3, 4]. Para visualizar os resultados como uma lista, podemos fazer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_resultado</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista_resultado</span><span class="p">)</span>
+<span class="c1"># Saída: [2, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>É importante notar que a função filter não altera a sequência de entrada original, mas cria um novo iterador com os elementos que satisfazem a condição da função. Além disso, a função passada para filter não precisa ser uma função definida previamente, ela pode ser uma expressão lambda ou uma função definida em linha (também chamada de função anônima).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="funcao-reduce">
+<h1>Função ‘reduce’<a class="headerlink" href="#funcao-reduce" title="Permalink to this headline">#</a></h1>
+<p>A função reduce é uma função da biblioteca padrão de Python que permite aplicar uma função a uma sequência de elementos, de forma cumulativa, para reduzir a sequência a um único valor.</p>
+<p>A sintaxe básica da função reduce é a seguinte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reduce(funcao, sequencia)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><em>funcao</em>: é uma função que recebe dois argumentos e retorna um único valor. A função é aplicada cumulativamente à sequência, começando com os dois primeiros elementos, depois o resultado é combinado com o próximo elemento, e assim por diante, até que todos os elementos da sequência tenham sido processados. A função deve ser capaz de lidar com a operação entre dois elementos e retornar um resultado para ser combinado com o próximo elemento.</p></li>
+<li><p><em>sequencia</em>: é a sequência de entrada que será reduzida.</p></li>
+</ul>
+<p>É importante notar que a função reduce requer que a sequência tenha pelo menos dois elementos. Se a sequência tiver apenas um elemento, o valor desse elemento será retornado sem que a função seja aplicada a ele.</p>
+<p>Por exemplo, suponha que temos uma lista de números [1, 2, 3, 4, 5] e queremos calcular a soma de todos os elementos da lista. Podemos usar a função reduce com a função soma definida abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="k">def</span> <span class="nf">soma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para calcular a soma dos elementos da lista numeros, fazemos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">soma</span><span class="p">,</span> <span class="n">numeros</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="c1"># Saída: 15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>O primeiro passo é aplicar a função soma aos dois primeiros elementos da lista, 1 e 2, produzindo 3. Em seguida, a função é aplicada a 3 e 3, produzindo 6, e assim por diante até que todos os elementos da lista tenham sido processados.</p>
+<p>Outro exemplo é a concatenação de uma lista de strings. Suponha que temos a lista [‘a’, ‘b’, ‘c’, ‘d’] e queremos concatenar todos os elementos em uma única string. Podemos usar a função reduce com a função concatena definida abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">concatena</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para concatenar os elementos da lista letras, fazemos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letras</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">concatena</span><span class="p">,</span> <span class="n">letras</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="c1"># Saída: &#39;abcd&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abcd
+</pre></div>
+</div>
+</div>
+</div>
+<p>O primeiro passo é aplicar a função concatena aos dois primeiros elementos da lista, ‘a’ e ‘b’, produzindo ‘ab’. Em seguida, a função é aplicada a ‘ab’ e ‘c’, produzindo ‘abc’, e assim por diante até que todos os elementos da lista tenham sido processados.</p>
+<section id="exemplo-01">
+<h2>Exemplo 01<a class="headerlink" href="#exemplo-01" title="Permalink to this headline">#</a></h2>
+<p>Vamos supor que temos uma lista de dicionários, onde cada dicionário contém informações sobre uma pessoa, incluindo nome, idade e profissão. Queremos filtrar as pessoas que têm menos de 30 anos, mapear seus nomes em letras maiúsculas e reduzir a lista de nomes em uma única string, separando cada nome por vírgula.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">pessoas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;engenheira&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;programador&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;advogada&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Dave&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;estudante&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Eve&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;jornalista&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Frank&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;profissao&quot;</span><span class="p">:</span> <span class="s2">&quot;médico&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">nomes_filtrados</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;idade&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">,</span> <span class="n">pessoas</span><span class="p">)</span>
+<span class="n">nomes_maiusculas</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;nome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">nomes_filtrados</span><span class="p">)</span>
+<span class="n">nomes_concatenados</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">nomes_maiusculas</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nomes_concatenados</span><span class="p">)</span>
+<span class="c1"># Saída: &quot;ALICE, CAROL, DAVE, FRANK&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ALICE, CAROL, DAVE, FRANK
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primeiro, usamos a função filter para filtrar os dicionários que contêm pessoas com idade inferior a 30 anos. Em seguida, usamos a função map para converter os nomes das pessoas em letras maiúsculas. Finalmente, usamos a função reduce para concatenar os nomes em uma única string separada por vírgulas. O resultado final é a string “ALICE, CAROL, DAVE, FRANK”.</p>
+</section>
+<section id="exemplo-02">
+<h2>Exemplo 02<a class="headerlink" href="#exemplo-02" title="Permalink to this headline">#</a></h2>
+<p>Suponha que temos uma lista de compras com produtos e seus preços, e queremos calcular o preço total dos produtos que custam menos de R$10,00, aplicar um desconto de 5% em cada um desses produtos e, finalmente, somar o preço total desses produtos com o preço total dos demais produtos da lista. Podemos usar as funções filter, map e reduce para realizar essas operações em conjunto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">compras</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;maçã&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">5.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;laranja&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">2.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;uva&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">12.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;abacaxi&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">7.50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;mamão&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">4.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;limão&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">1.50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;manga&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">8.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;produto&#39;</span><span class="p">:</span> <span class="s1">&#39;melão&#39;</span><span class="p">,</span> <span class="s1">&#39;preco&#39;</span><span class="p">:</span> <span class="mf">6.00</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="n">precos_filtrados</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;preco&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="n">compras</span><span class="p">)</span>
+<span class="n">precos_descontados</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;preco&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">precos_filtrados</span><span class="p">)</span>
+<span class="n">preco_total_descontado</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">precos_descontados</span><span class="p">)</span>
+
+<span class="n">precos_maiores</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;preco&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">compras</span><span class="p">)</span>
+<span class="n">precos_normais</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;preco&#39;</span><span class="p">],</span> <span class="n">precos_maiores</span><span class="p">)</span>
+<span class="n">preco_total_normal</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">precos_normais</span><span class="p">)</span>
+
+<span class="n">preco_total</span> <span class="o">=</span> <span class="n">preco_total_descontado</span> <span class="o">+</span> <span class="n">preco_total_normal</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;O preço total da lista de compras é: R$ </span><span class="si">{</span><span class="n">preco_total</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O preço total da lista de compras é: R$ 47.62
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primeiro, usamos a função filter para filtrar os produtos que custam menos de 10 reais. Em seguida, usamos a função map para aplicar um desconto de 5% em cada um desses produtos. Usamos a função reduce para somar o preço total desses produtos. Fazemos o mesmo para os produtos que custam R$ 10,00 ou mais. Finalmente, somamos o preço total dos produtos com desconto com o preço total dos produtos que não estão com desconto, e imprimimos o resultado.</p>
+</section>
+<section id="exemplo-03">
+<h2>Exemplo 03<a class="headerlink" href="#exemplo-03" title="Permalink to this headline">#</a></h2>
+<p>Podemos adaptar o exemplo anterior para calcular a integral de uma função usando o método de Riemann, que consiste em aproximar a área sob a curva da função com uma soma de retângulos. Para isso, podemos usar as funções map, filter e reduce para calcular os valores da função em intervalos igualmente espaçados, filtrar os valores que estão abaixo de um determinado limite e calcular a soma dos valores que estão acima do limite, multiplicados pela largura dos intervalos.</p>
+<p>Suponha que queremos calcular a integral da função f(x) = x^2 no intervalo [0, 10]. Podemos dividir esse intervalo em n subintervalos de igual largura e usar o ponto médio de cada subintervalo para aproximar o valor da função em cada intervalo. Podemos então filtrar os valores que estão abaixo de um limite, como 50, e somar os valores que estão acima do limite multiplicados pela largura do intervalo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="n">pontos_medios</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">valores</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pontos_medios</span><span class="p">)</span>
+<span class="n">valores_acima</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">valores</span><span class="p">)</span>
+<span class="n">area_acima</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">valores_acima</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A área acima do limite é: </span><span class="si">{</span><span class="n">area_acima</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A área acima do limite é: 214.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aqui, definimos a função f(x) como a função cuja integral queremos calcular. Em seguida, definimos os limites inferior e superior do intervalo, a quantidade de subintervalos n e a largura de cada subintervalo dx. Usando a função map, calculamos os pontos médios de cada subintervalo e, em seguida, usamos a função map novamente para calcular os valores da função nos pontos médios. Usando a função filter, filtramos os valores que estão acima do limite e, em seguida, usamos a função reduce para calcular a soma desses valores multiplicados pela largura dos intervalos. Finalmente, imprimimos o resultado.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_03_Python%20III.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span style="color:blue"> MBA em Ciência de Dados</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PCD_04_Numpy%20I%20.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="color:blue"> MBA em Ciência de Dados</span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Função ‘map’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-filter">Função ‘filter’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-reduce">Função ‘reduce’</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-01">Exemplo 01</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-02">Exemplo 02</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-03">Exemplo 03</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

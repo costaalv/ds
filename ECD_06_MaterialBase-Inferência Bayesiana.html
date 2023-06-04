@@ -1,0 +1,1811 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Aula 6 - Inferência Bayesiana &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ECD_06_MaterialBase-Inferência Bayesiana';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aula 7 - Modelos de regressão" href="ECD_07_Materialbase-ModelosLineares.html" />
+    <link rel="prev" title="Aula 5 - Teste de hipóteses" href="ECD_05_Aula5-teste-hipoteses.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FECD_06_MaterialBase-Inferência Bayesiana.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ECD_06_MaterialBase-Inferência Bayesiana.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Aula 6 - Inferência Bayesiana</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programa">Programa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#o-paradigma-bayesiano">O paradigma Bayesiano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo">Exemplo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">Teorema de Bayes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicao-preditiva">Distribuição preditiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os-diferentes-tipos-de-prioris">Os diferentes tipos de prioris</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicoes-conjugadas">Distribuições conjugadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-priori-conjugada-beta-bernoulli">Exemplo de priori conjugada beta-Bernoulli</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacao-bayesiana">Estimação Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao-a-teoria-da-decisao">Introdução à Teoria da Decisão</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimadores-de-bayes">Estimadores de Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-de-perda">Funções de perda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-quadratica">Função de perda quadrática</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-absoluta">Função de perda absoluta</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-0-1">Função de perda 0-1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacao-por-intervalos">Estimação por Intervalos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacao-bayesiana">Computação Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplos">Exemplos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-beta-bernoulli-clientes-do-banco">Exemplo beta-Bernoulli: clientes do banco</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-normal-com-dados-simulados">Exemplo: normal com dados simulados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-aleatorias-nao-observaveis">Variáveis aleatórias não observáveis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-aleatorias-observaveis">Variáveis aleatórias observáveis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia">Inferência</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amostragem">Amostragem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amostragem-com-6-cadeias-em-paralelo">Amostragem com 6 cadeias em paralelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podemos-incluir-passos-com-outros-metodos">Podemos incluir passos com outros métodos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-de-resultados">Análise de resultados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estatistica-de-gelman-rubin-r-chapeu">Estatística de Gelman-Rubin (R chapéu)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="aula-6-inferencia-bayesiana">
+<h1>Aula 6 - Inferência Bayesiana<a class="headerlink" href="#aula-6-inferencia-bayesiana" title="Permalink to this headline">#</a></h1>
+<p>por <strong>Cibele Russo</strong></p>
+<p><strong>ICMC/USP - São Carlos SP</strong></p>
+<section id="programa">
+<h2>Programa<a class="headerlink" href="#programa" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>O paradigma Bayesiano.</p></li>
+<li><p>Os diferentes tipos de prioris.</p></li>
+<li><p>Distribuições conjugadas.</p></li>
+<li><p>Estimação Bayesiana.</p></li>
+<li><p>Densidade preditiva.</p></li>
+<li><p>Computação Bayesiana.</p></li>
+<li><p>Exemplos com PyMC3.</p></li>
+</ul>
+<p><strong>Referências e leituras recomendadas:</strong></p>
+<ol class="arabic simple">
+<li><p>Migon, H. S., Gamerman, D. and Louzada, F. (2014). Statistical Inference: An Integrated Approach, Second Edition, CRC Press.</p></li>
+<li><p>Caffo, B. (2016). Statistical Inference for Data Science. Leanpub.
+Disponível em <a class="reference external" href="https://leanpub.com/LittleInferenceBook">https://leanpub.com/LittleInferenceBook</a></p></li>
+<li><p><a class="reference external" href="https://pt.wikipedia.org/wiki/Infer%C3%AAncia_bayesiana">https://pt.wikipedia.org/wiki/Inferência_bayesiana</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/datawookie/talks/tree/master/2018-10-12-pycon-johannesburg">datawookie/talks</a></p></li>
+</ol>
+</section>
+<section id="o-paradigma-bayesiano">
+<h2>O paradigma Bayesiano<a class="headerlink" href="#o-paradigma-bayesiano" title="Permalink to this headline">#</a></h2>
+<p>Seja uma amostra aleatória <span class="math notranslate nohighlight">\(X_1,\ldots, X_n\)</span> que vem de um modelo <span class="math notranslate nohighlight">\(p(x|\theta)\)</span>, <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> e sejam <span class="math notranslate nohighlight">\(x_1,\ldots,x_n\)</span> os dados observados.</p>
+<p>Sob o <strong>paradigma clássico ou frequentista</strong>, <span class="math notranslate nohighlight">\(\theta\)</span> é um <strong>parâmetro fixo e desconhecido</strong>.</p>
+<p>Sob o <strong>paradigma Bayesiano</strong>, consideramos modelos probabilísticos para <strong>representar a incerteza</strong> a respeito de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Se temos informação <strong>a priori</strong> sobre o parâmetro <span class="math notranslate nohighlight">\(\theta\)</span>, antes de observar os dados, por que não usá-la?</p>
+<section id="exemplo">
+<h3>Exemplo:<a class="headerlink" href="#exemplo" title="Permalink to this headline">#</a></h3>
+<p>Na aplicação de dados bancários que vimos na Aula 1, suponha que antes de observar os dados, exista um conhecimento prévio de que a proporção p de inadimplentes esteja em torno de 20%. Como incorporar esse conhecimento prévio? Uma possibilidade seria considerar uma distribuição a priori beta para a proporção p.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mais sobre a distribuição beta: https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_beta</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
+
+<span class="c1"># Conjuntos de parâmetros da distribuição a priori para a proporção de inadimplentes</span>
+<span class="n">a_b_params</span> <span class="o">=</span> <span class="p">((</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plota as densidades da beta para cada conjunto de parâmetros</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_b_params</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_b_params</span><span class="p">),</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">prior</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">prior</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;a = </span><span class="si">{:.1f}</span><span class="s2">, b = </span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d7b7cc7344a72cc33bce26581d557caaf2cceb4bf0f2fc50a237ce0c41454843.png" src="_images/d7b7cc7344a72cc33bce26581d557caaf2cceb4bf0f2fc50a237ce0c41454843.png" />
+</div>
+</div>
+</section>
+<section id="teorema-de-bayes">
+<h3>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Permalink to this headline">#</a></h3>
+<p>Ver, por exemplo: <a class="reference external" href="https://pt.wikipedia.org/wiki/Teorema_de_Bayes">https://pt.wikipedia.org/wiki/Teorema_de_Bayes</a></p>
+<p>Sejam</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(\theta)\)</span> a <strong>distribuição a priori</strong> para <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(l(\theta,x) = p(x|\theta)\)</span> a <strong>verossimilhança</strong> de <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(\theta|x)\)</span> a <strong>distribuição a posteriori</strong> de <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+<p>O Teorema de Bayes ilustra o aumento de informação com a introdução do conhecimento a priori</p>
+<div class="math notranslate nohighlight">
+\[p(\theta|x) = \displaystyle \frac{p(x,\theta)}{p(x)} = \frac{p(x|\theta)p(\theta)}{p(x)} = \frac{p(x|\theta) p(\theta)}{\displaystyle\int p(\theta,x) d\theta}.\]</div>
+<p>Em outras palavras:</p>
+<p>distribuição a posteriori <span class="math notranslate nohighlight">\(\propto\)</span> verossimilhança <span class="math notranslate nohighlight">\(\times\)</span> distribuição a priori</p>
+<p>Para um valor fixo de <span class="math notranslate nohighlight">\(x\)</span>, as duas fontes de informação para <span class="math notranslate nohighlight">\(\theta\)</span> são</p>
+<ul class="simple">
+<li><p>a função <span class="math notranslate nohighlight">\(l(\theta;x)=p(x|\theta)\)</span> fornece a plausibilidade ou verossimilhança de cada um dos possíveis valores de <span class="math notranslate nohighlight">\(\theta\)</span> e</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(\theta)\)</span> é chamada distribuição a priori de <span class="math notranslate nohighlight">\(\theta\)</span>,</p></li>
+</ul>
+<p>que, combinadas, levam à distribuição a posteriori de <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(p(\theta|x)\)</span>.</p>
+<p><img alt="paradigmabayesiano.png" src="data:image/png;base64,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TZvo2LEjqampBYlSPEEMHS0iIy07UW7/fmVFv1deKYOtrfWMIOek1WqYM6cWfn4u6PUwenQIt2493t9hZuaDUf7Tp++TkmLdNRcff3yVrl3P0bNnIL/8EmnxbzEKQpJkIcQT4cSJEzz77LNEROQ+K71///5ERETQvn37x7tYAcotTOnXr99D4zl48CB16tTh2rVrBbqGeDJUqKB8I5KaqiM21jKjyTdupKgji88/72mRGAqTVgszZtSkVClb0tP1jBt35bFqiV1cHtxMp6frOXs29xaR1uD8+UQAQkNT+fbbW/TsGWh1r0mSZCFEibdv3z7atGlDTEyMyf329vbMmDGDdevW5Tlym2+POZKclbu7O3v37mXixIloc0m2b9y4QatWrbhw4UKBryNKNh+fBxNCr183XWZU1M6cURIkNzcb6tY1XtDEGnl52fL119UBCA5OZu3agreG8/S0xcbmweh6YGBigc6j18Nff8Xx009hbNkSRVycZW6KvvyyGp9+6kv37mWwsdEQGZmGv/8lli+3nnprSZKFECXayZMn6dq1K4mJpv+D07JlSyIiIvjwww8L76KFNJJsoNFomDx5MqGhodSuXdvkMWFhYbRt25Zbt2491rVEyVSzppP6OOvqe+YUEqIk57VrOxd5lw1ztmZr2tSNXr2U1TTnzbvNvXsFK2mxtdVQvvyDORAXLiTlcbRp6el63n8/mPffD2Hhwjt8+eUNunULtEhi2rChK716lWHiRF9Wr65HtWqO6PXK72j8+KtW0T5PkmQhRIkVEBBAixYtcp2g17NnT/788088PQv5q9/HmLiXl4oVK3L8+HGaN29ucn9kZCStW7cmLi6uUK4nSo7atZ3UxPT8+UdPvgrDtWtKcl6tWiF8W5OH2NgMXn75LF9/bb4+xh9+WBl3d1syMvQsXFjwFo3Vqz/43QQHP/rNzBdfXOfvv5VJf7VqOeHsrCUpKZN5827z3XeWu4GuVcuJdeueol075bN2z54Ypk69+dDnhYQk89pr52nf/jSbN98t6jCNSJIshCiRLl68SIcOHUhLMz27etSoUWzevBk7O+Mleh9bIZZb5OTm5sahQ4fo1auXyf03b96kfv363L1r/v+giOLLxcUGX18lAbtwoWBf4z+uiAhlhDVr6UdRyMjQc/duOps33+XIEfPcMDo5aRk+vAIA27ff4+7d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HT58GN27dxcjRMnJy1MjNjYLKSl58PFxQMOGTiW+JjOzAPPn30ZkpO5E1alTqxtcVo6IrA+TZCIrd+hQGv7zn7uCUggbGxmCgnzw/vveglrk996LxdWrwtpjQ+RyoE2bCggKqqYzYVDK1q1bh8mTJxs936tXL+zfv9+CEVFpxcfn4siRNGzdmqhTsw8U3lD+5z91RIqMiCyNSTKRBGRkFCAiIg2XLhUuhRUQ4IRu3SoZrMdUq4E33riA/PziuwZPTzu89VYFDBrkxeTYgDVr1mD69Ok6I8oA0KpVK0RERBjcqY8sQ6lUIyIiDSdOPEb16g7IzlYhJSUPd+7k4O7dHIOv6d27MubNq831wYkkhEkyEQnol2m4utqgXj0FGjVyRsOGTmja1Bk+PsYnRVGhGzduYN26dbh06RKcnZ3x9ttv44MPPoDM0DIiZDE//5yIr7++X6pr7e3lmD+/Fnr04JrWRFLDJJmIDFIqVbh1KwdeXvZwd+cO9mQ9vvrqPkJCEou9RqGQY+jQKhg1yhtOThw+JpIiJslERCQp2dkqLFhwB8ePF22mY2MjQ7VqDmjUyAnNm7ugRw93ODtLexIqkdQxSSYiIslKScmDnZ0MFSrwaQkR6WKSTERERESkh4VWRERERER6mCQTEREREelhkkxEREREpIdJMhERERGRHibJRERERER6mCQTEREREelhkkxEREREpIdJMhERERGRHibJRERERER6mCQTEREREelhkkxEREREpIdJMhERERGRHibJRERERER6/j+8KUSuy6fdfwAAAABJRU5ErkJggg==" /></p>
+<p>Assim, a forma usual do teorema de Bayes é
+<span class="math notranslate nohighlight">\(p(\theta|x) \propto l(\theta;x)p(\theta).\)</span></p>
+<p>O termo omitido <span class="math notranslate nohighlight">\(p(x)\)</span> é apenas uma constante normalizadora e não depende de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Para <span class="math notranslate nohighlight">\(x\)</span> fixo, a <strong>verossimilhança</strong>  fornece a <strong>plausibilidade</strong> de cada um dos possíveis valores de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Já a <strong>distribuição a priori</strong> <span class="math notranslate nohighlight">\(p(\theta)\)</span> incorpora o <strong>conhecimento do pesquisador</strong>.</p>
+<p>Essas duas quantidades combinadas são levadas à <strong>distribuição a posteriori</strong> de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>A <strong>distribuição a posteriori</strong> de <span class="math notranslate nohighlight">\(\theta\)</span> dados <span class="math notranslate nohighlight">\(x_1,\ldots,x_n\)</span> observados é dada por:</p>
+<div class="math notranslate nohighlight">
+\[p(\theta|x_1,\ldots,x_n) = \displaystyle\frac{p(x_1,\ldots,x_n|\theta)p(\theta)}{\int_{\Theta} p(x_1,\ldots,x_n|\theta)p(\theta)d\theta}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(x_1,\ldots,x_n|\theta) = \displaystyle\prod_{i=1}^n p(x_i|\theta)  = L(\theta|x_1,\ldots,x_n)\)</span> é a <strong>função de verossimilhança</strong> de <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>O denominador $<span class="math notranslate nohighlight">\(\int_{\Theta} p(x_1,\ldots,x_n|\theta)p(\theta)d\theta = C(x_1,\ldots,x_n).\)</span>$</p></li>
+</ul>
+<p>É comum escrever que</p>
+<p><span class="math notranslate nohighlight">\(p(\theta|x_1,\ldots,x_n) = \displaystyle\frac{ L(\theta|x_1,\ldots,x_n) p(\theta)}{ C(x_1,\ldots,x_n)}\propto L(\theta|x_1,\ldots,x_n) p(\theta)\)</span>,</p>
+</section>
+</section>
+<section id="distribuicao-preditiva">
+<h2>Distribuição preditiva<a class="headerlink" href="#distribuicao-preditiva" title="Permalink to this headline">#</a></h2>
+<p>A constante normalizadora da posteriori pode ser facilmente recuperada pois <span class="math notranslate nohighlight">\(p(\theta|x)=kp(x|\theta)p(\theta)\)</span> onde</p>
+<p><span class="math notranslate nohighlight">\(k^{-1}= \int p(x|\theta)p(\theta)d\theta=E_\theta[p(X|\theta)]= p(x)\)</span></p>
+<p>chamada <strong>distribuição preditiva</strong> (ou marginal) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Esta é a distribuição esperada para a observação <span class="math notranslate nohighlight">\(x\)</span> dado <span class="math notranslate nohighlight">\(\theta\)</span>. Assim,</p>
+<ul class="simple">
+<li><p>Antes de observar <span class="math notranslate nohighlight">\(X\)</span> podemos checar a adequação da priori fazendo predições via <span class="math notranslate nohighlight">\(p(x)\)</span>.</p></li>
+<li><p>Se <span class="math notranslate nohighlight">\(X\)</span> observado recebia pouca probabilidade preditiva então o modelo deve ser questionado, revisado, ou existe observação aberrante.</p></li>
+</ul>
+<p>Se, após observar <span class="math notranslate nohighlight">\(X=x\)</span>, estamos interessados na previsão de uma quantidade <span class="math notranslate nohighlight">\(Y\)</span>, também relacionada com <span class="math notranslate nohighlight">\(\theta\)</span>, e descrita probabilisticamente por <span class="math notranslate nohighlight">\(p(y|\theta)\)</span> então</p>
+<div class="math notranslate nohighlight">
+\[p(y|x)=\int p(y,\theta| x)d\theta =\displaystyle \int p(y|\theta,x)p(\theta| x)d\theta\]</div>
+<p>Os conceitos de priori e posteriori são relativos àquela observação que está sendo considerada no momento. Assim, <span class="math notranslate nohighlight">\(p(\theta| x)\)</span> é a posteriori de <span class="math notranslate nohighlight">\(\theta\)</span> em relação a <span class="math notranslate nohighlight">\(X\)</span> (que já foi observado) mas é a priori de <span class="math notranslate nohighlight">\(\theta\)</span> em relação a <span class="math notranslate nohighlight">\(Y\)</span> (que não foi observado ainda).</p>
+<p>Após observar <span class="math notranslate nohighlight">\(Y=y\)</span> uma nova posteriori (relativa a <span class="math notranslate nohighlight">\(X=x\)</span> e <span class="math notranslate nohighlight">\(Y=y\)</span>) é obtida aplicando-se novamente o teorema de Bayes.</p>
+<p><strong>Exemplo</strong> (Gamerman e Migon, 1993)</p>
+<p>Um médico “desconfia” que um paciente pode ter uma doença. Baseado na sua experiência, no seu conhecimento sobre esta doença e nas informações dadas pelo paciente, <strong>ele assume que a probabilidade do paciente ter a doença é 0.7</strong>. A quantidade de interesse, desconhecida, é definida como</p>
+<p><span class="math notranslate nohighlight">\(\theta = \left\{\begin{array}{l} 1,\quad \mbox{se o paciente tem a doença,} \\ 0,\quad \mbox{se o paciente não tem a doença.}\end{array}\right.\)</span></p>
+<p>Para aumentar sua quantidade de informação sobre a doença o médico aplica um teste <span class="math notranslate nohighlight">\(X\)</span> relacionado com <span class="math notranslate nohighlight">\(\theta\)</span> através da distribuição</p>
+<p><span class="math notranslate nohighlight">\(P(X=1|\theta=0)=0.40\)</span>   e</p>
+<p><span class="math notranslate nohighlight">\(P(X=1|\theta=1)=0.95\)</span></p>
+<p>e o resultado do teste foi positivo (ou seja, observou-se <span class="math notranslate nohighlight">\(X=1\)</span>).</p>
+<p>É bem intuitivo que a probabilidade de doença deve ter aumentado após este resultado e a questão aqui é quantificar este aumento. Usando o teorema de Bayes, segue que</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1|X=1)\propto l(\theta=1;X=1)p(\theta=1)=(0.95)(0.7)=0.665\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\theta=0|X=1)\propto l(\theta=0;X=1)p(\theta=0)=(0.40)(0.3)=0.120.\)</span></p>
+<p>A constante normalizadora é tal que <span class="math notranslate nohighlight">\(P(\theta=0|X=1)+P(\theta=1|X=1)=1\)</span>, i.e.,</p>
+<p><span class="math notranslate nohighlight">\(k(0.665)+k(0.120)=1\)</span> e <span class="math notranslate nohighlight">\(k=1/0.785\)</span>.</p>
+<p>Portanto, a distribuição a posteriori de <span class="math notranslate nohighlight">\(\theta\)</span> é</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1|X=1)=0.665/0.785=0.847\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\theta=0|X=1)=0.120/0.785=0.153.\)</span></p>
+<p>O aumento na probabilidade de doença não foi muito grande porque a verossimilhança <span class="math notranslate nohighlight">\(l(\theta=0;X=1)\)</span> também era grande (o modelo atribuia uma plausibilidade grande para <span class="math notranslate nohighlight">\(\theta=0\)</span> mesmo quando <span class="math notranslate nohighlight">\(X=1\)</span>).</p>
+<p>Agora o médico aplica outro teste <span class="math notranslate nohighlight">\(Y\)</span> cujo resultado está relacionado a <span class="math notranslate nohighlight">\(\theta\)</span> através da seguinte distribuição</p>
+<p><span class="math notranslate nohighlight">\(P(Y=1|\theta=0)=0.04\)</span>   e</p>
+<p><span class="math notranslate nohighlight">\(P(Y=1|\theta=1)=0.99.\)</span></p>
+<p>Mas antes de observar o resultado deste teste é interessante obter sua distribuição preditiva.</p>
+<p>Como <span class="math notranslate nohighlight">\(\theta\)</span> é uma quantidade discreta segue que</p>
+<p><span class="math notranslate nohighlight">\(p(y|x)=\sum_\theta p(y|\theta)p(\theta|x)\)</span></p>
+<p>e note que <span class="math notranslate nohighlight">\(p(\theta|x)\)</span> é a priori em relação a <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>Assim,</p>
+<p><span class="math notranslate nohighlight">\(P(Y=1|X=1)=P(Y=1|\theta=0)P(\theta=0|X=1)+P(Y=1|\theta=1)P(\theta=1|X=1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(=(0.04)(0.153) + (0.99)(0.847) = 0.845\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Y=0|X=1)=1-P(Y=1|X=1) = 0.155.\)</span></p>
+<p>O resultado deste teste foi negativo (<span class="math notranslate nohighlight">\(Y=0\)</span>).</p>
+<p>Neste caso, é também intuitivo que a probabilidade de doença deve ter diminuido e esta redução será quantificada por uma nova aplicação do teorema de Bayes,</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1|X=1,Y=0)\propto\displaystyle l(\theta=1;Y=0)P(\theta=1|X=1)\propto\displaystyle (0.01)(0.847)=0.0085\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\theta=0|X=1,Y=0)\propto\displaystyle l(\theta=0;Y=0)P(\theta=0|X=1)\propto\displaystyle (0.96)(0.153)=0.1469.\)</span></p>
+<p>A constante normalizadora é <span class="math notranslate nohighlight">\(1/(0.0085+0.1469)=1/0.1554\)</span> e assim a distribuição a posteriori de <span class="math notranslate nohighlight">\(\theta\)</span> é</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1|X=1,Y=0)=0.0085/0.1554=0.055\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\theta=0|X=1,Y=0)=0.1469/0.1554=0.945.\)</span></p>
+<p>Verifique como a probabilidade de doença se alterou ao longo do experimento</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1) = \left\{\begin{array}{ll} 0.7 &amp; \mbox{antes dos testes}\\0.847 &amp; \mbox{após o teste X}\\ 0.055 &amp; \mbox{após X e Y}\end{array}\right.\)</span></p>
+<p>Note também que o valor observado de <span class="math notranslate nohighlight">\(Y\)</span> recebia pouca probabilidade preditiva. Isto pode levar o médico a repensar o modelo, i.e.,</p>
+<p>(i) Será que <span class="math notranslate nohighlight">\(P(\theta =1)=0.7\)</span> é uma priori adequada?</p>
+<p>(ii) Será que as distribuições amostrais de <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span> estão corretas? O teste <span class="math notranslate nohighlight">\(X\)</span> é tão inexpressivo e <span class="math notranslate nohighlight">\(Y\)</span> é realmente tão poderoso?</p>
+</section>
+<section id="os-diferentes-tipos-de-prioris">
+<h2>Os diferentes tipos de prioris<a class="headerlink" href="#os-diferentes-tipos-de-prioris" title="Permalink to this headline">#</a></h2>
+<p>Destacamos as distribuições a priori</p>
+<ul class="simple">
+<li><p><strong>Priori não-informativa</strong></p>
+<ul>
+<li><p>Uniforme</p></li>
+<li><p>Priori vaga (às vezes imprópria)</p></li>
+</ul>
+</li>
+<li><p><strong>Priori informativa</strong></p>
+<ul>
+<li><p>Conhecimento do pesquisador dá informação sobre os parâmetros</p></li>
+</ul>
+</li>
+<li><p><strong>Priori conjugada</strong></p>
+<ul>
+<li><p>Priori e posteriori tem a mesma distribuição, a menos dos parâmetros (em geral facilita os cálculos)</p></li>
+</ul>
+</li>
+</ul>
+<section id="distribuicoes-conjugadas">
+<h3>Distribuições conjugadas<a class="headerlink" href="#distribuicoes-conjugadas" title="Permalink to this headline">#</a></h3>
+<p>Leituras recomendadas:</p>
+<ul class="simple">
+<li><p>Notas Ricardo Ehlers e Paulo Justiniano: <a class="reference external" href="http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html">http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html</a></p></li>
+<li><p>Conjugate Prior Explained, with examples &amp; proofs: <a class="reference external" href="https://towardsdatascience.com/conjugate-prior-explained-75957dc80bfb">https://towardsdatascience.com/conjugate-prior-explained-75957dc80bfb</a></p></li>
+</ul>
+<p>Vantagem de usar distribuições a priori conjugadas: principalmente <strong>ganho de custo computacional.</strong></p>
+ <table>
+  <tr>
+    <td> </td>
+    <th>Priori</th>
+    <th>Núcleo da Verossimilhança</th>
+    <th>Posteriori</th>
+  </tr>
+  <tr>
+    <th>$\theta$ proporção</th>
+    <td>Beta</td>
+    <td>Bernoulli </td>
+    <td>Beta</td>    
+  </tr>
+  <tr>
+    <th>$\theta$ média</th>
+    <td> Normal</td>
+    <td> Normal </td>
+    <td> Normal</td>
+  </tr>
+      <tr>
+    <th>taxa de falha</th>
+    <td> Gama</td>
+    <td> Poisson </td>
+    <td> Gama</td>
+  </tr>
+          <tr>
+    <th></th>
+    <td> Dirichlet</td>
+    <td> Multinomial </td>
+    <td> Dirichlet</td>
+  </tr>
+</table> </section>
+<section id="exemplo-de-priori-conjugada-beta-bernoulli">
+<h3>Exemplo de priori conjugada beta-Bernoulli<a class="headerlink" href="#exemplo-de-priori-conjugada-beta-bernoulli" title="Permalink to this headline">#</a></h3>
+<p>Ver <a class="reference external" href="https://towardsdatascience.com/conjugate-prior-explained-75957dc80bfb">https://towardsdatascience.com/conjugate-prior-explained-75957dc80bfb</a></p>
+<p>No exemplo do banco, se considerarmos que</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X=\left\{ \begin{array}{lll} 1, &amp;\mbox{se o cliente é classificado como inadimplente,} \\ 0, &amp;\mbox{caso contrário.} \end{array}\right.\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim Bernoulli(p)\)</span></p></li>
+<li><p>Verossimilhança:</p></li>
+</ul>
+<p>Para <span class="math notranslate nohighlight">\(n\)</span> suficientemente grande, pelo TLC sabemos que a distribuição amostral de <span class="math notranslate nohighlight">\(\bar{X}\)</span> se aproxima da normal (será usada para graficar a verossimilhança) $<span class="math notranslate nohighlight">\(\bar{X} \sim N\left(p, \displaystyle{\frac{p(1-p)}{n}}\right).\)</span>$</p>
+<p>Além disso, <span class="math notranslate nohighlight">\(Y = \sum_{i=1}^{n} X_i \sim binomial(n, p)\)</span>.</p>
+<ul class="simple">
+<li><p>Priori: <span class="math notranslate nohighlight">\(p \sim beta(2, 8)\)</span></p></li>
+<li><p>Posteriori: <span class="math notranslate nohighlight">\(p|k \sim beta(k+a, n-k+b)\)</span></p></li>
+</ul>
+<p>onde <span class="math notranslate nohighlight">\(k\)</span> é o número de sucessos observados na amostra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Indique o seu diretório se necessário</span>
+<span class="c1">#pkgdir = &#39;/hdd/MBA/ECD/Data&#39;</span>
+<span class="c1">#dados = pd.read_csv(f&#39;{pkgdir}/dados_banco.csv&#39;, index_col=0)</span>
+
+<span class="c1"># Dados banco - Leitura dos dados</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/cibelerusso/Estatistica-Ciencia-Dados/main/Data/dados_banco.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">dados</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sexo</th>
+      <th>Idade</th>
+      <th>Empresa</th>
+      <th>Salario</th>
+      <th>Saldo_cc</th>
+      <th>Saldo_poupança</th>
+      <th>Saldo_investimento</th>
+      <th>Devedor_cartao</th>
+      <th>Inadimplente</th>
+    </tr>
+    <tr>
+      <th>Cliente</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>75928</th>
+      <td>M</td>
+      <td>32</td>
+      <td>Privada</td>
+      <td>5719.00</td>
+      <td>933.79</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6023.68</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>52921</th>
+      <td>F</td>
+      <td>28</td>
+      <td>Privada</td>
+      <td>5064.00</td>
+      <td>628.37</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1578.24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8387</th>
+      <td>F</td>
+      <td>24</td>
+      <td>Autônomo</td>
+      <td>4739.00</td>
+      <td>889.18</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2578.70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54522</th>
+      <td>M</td>
+      <td>30</td>
+      <td>Pública</td>
+      <td>5215.00</td>
+      <td>1141.47</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4348.96</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>45397</th>
+      <td>M</td>
+      <td>30</td>
+      <td>Autônomo</td>
+      <td>5215.56</td>
+      <td>520.70</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1516.78</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos trabalhar com uma amostra</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">amostra</span> <span class="o">=</span> <span class="n">dados</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amostra</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;Inadimplente&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">posteriori</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> 
+
+<span class="n">k</span><span class="o">/</span><span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.268
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Eixo x entre 0 e 1 de .002 em .002.</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
+
+<span class="c1"># Plota as densidades da beta para cada conjunto de parâmetros</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    
+<span class="n">prior</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">p_chapeu</span> <span class="o">=</span> <span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;Inadimplente&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_chapeu</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_chapeu</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">p_chapeu</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">media</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">media</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">media</span><span class="p">,</span> <span class="n">dp</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;verossimilhança&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">prior</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;priori&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;posteriori&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f4baecf33d0&gt;
+</pre></div>
+</div>
+<img alt="_images/1c2050051fa2f9751cb6fff66abcee0b1e3889a541c736abe6e0a02591b457b9.png" src="_images/1c2050051fa2f9751cb6fff66abcee0b1e3889a541c736abe6e0a02591b457b9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estimador bayesiano EAP (Esperança a posteriori)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Média: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+
+<span class="c1"># E para calcular um intervalo de credibilidade, decidimos uma probabilidade </span>
+<span class="c1"># Por exemplo 95% para a credibilidade</span>
+<span class="c1"># Uma maneira seria definir que 2,5% de cada cauda como os limites do intervalo (chamado intervalo simétrico)</span>
+<span class="c1"># Este método é válido quando a posteriori se aproxima de uma distribuição simétrica, pois nesse caso tende a gerar o intervalo com menor amplitude</span>
+<span class="c1"># A seguir, apresentamos outra solução com um intervalo de credibilidade de menor amplitude.</span>
+
+<span class="n">LI</span> <span class="o">=</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.025</span><span class="p">)</span>
+<span class="n">LS</span> <span class="o">=</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.975</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Intervalo com 95</span><span class="si">% d</span><span class="s2">e credibilidade: (</span><span class="si">{:.3f}</span><span class="s2">, </span><span class="si">{:.3f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">LI</span><span class="p">,</span><span class="n">LS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Média: 0.27
+Intervalo com 95% de credibilidade: (0.229, 0.306)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estimacao-bayesiana">
+<h2>Estimação Bayesiana<a class="headerlink" href="#estimacao-bayesiana" title="Permalink to this headline">#</a></h2>
+<p>Leituras recomendadas:</p>
+<ul class="simple">
+<li><p>Notas Ricardo Ehlers e Paulo Justiniano: <a class="reference external" href="http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html">http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html</a></p></li>
+<li><p>Migon, H. S., Gamerman, D. and Louzada, F. (2014). Statistical Inference: An Integrated Approach, Second Edition, CRC Press.</p></li>
+</ul>
+<section id="introducao-a-teoria-da-decisao">
+<h3>Introdução à Teoria da Decisão<a class="headerlink" href="#introducao-a-teoria-da-decisao" title="Permalink to this headline">#</a></h3>
+<p>Um problema de decisão fica completamente especificado pela descrição dos seguintes espaços:</p>
+<p>(i) Espaço do parâmetro ou estados da natureza, <span class="math notranslate nohighlight">\(\Theta\)</span>.</p>
+<p>(ii) Espaço dos resultados possíveis de um experimento, <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<p>(iii) Espaço de possíveis ações, <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Uma regra de decisão <span class="math notranslate nohighlight">\(\delta\)</span> é uma função definida em <span class="math notranslate nohighlight">\(\Omega\)</span> que assume valores em <span class="math notranslate nohighlight">\(A\)</span>, i.e. <span class="math notranslate nohighlight">\(\delta:\Omega\rightarrow A\)</span>. A cada decisão <span class="math notranslate nohighlight">\(\delta\)</span> e a cada possível valor do parâmetro <span class="math notranslate nohighlight">\(\theta\)</span> podemos associar uma <strong>perda</strong> <span class="math notranslate nohighlight">\(L(\delta,\theta)\)</span> assumindo valores positivos. Definimos assim uma <strong>função de perda</strong>.</p>
+<p><strong>Definição:</strong> O <strong>risco de uma regra de decisão</strong>, denotado por <span class="math notranslate nohighlight">\(R(\delta)\)</span>, é a <strong>perda esperada a posteriori</strong>, i.e. $<span class="math notranslate nohighlight">\(R(\delta)=E_{\theta\vert\mathbf{x}} [L(\delta,\theta)].\)</span>$</p>
+<p>Uma regra de decisão <span class="math notranslate nohighlight">\(\delta^*\)</span> é <strong>ótima</strong> se tem risco mínimo, i.e. <span class="math notranslate nohighlight">\(R(\delta^*)&lt;R(\delta), ~\forall \delta\)</span>. Esta regra será denominada <strong>regra de Bayes</strong> e seu risco, <strong>risco de Bayes</strong>.</p>
+<p><strong>Exemplo</strong>:</p>
+<p>Um laboratório farmaceutico deve decidir pelo lançamento ou não de uma nova droga no mercado. O laboratório só lançará a droga se achar que ela é eficiente mas isto é exatamente o que é desconhecido.</p>
+<p>Podemos associar um parâmetro <span class="math notranslate nohighlight">\(\theta\)</span> aos estados da natureza:</p>
+<ul class="simple">
+<li><p>droga é eficiente (<span class="math notranslate nohighlight">\(\theta=1\)</span>),</p></li>
+<li><p>droga não é eficiente (<span class="math notranslate nohighlight">\(\theta=0\)</span>)</p></li>
+</ul>
+<p>e as possíveis ações como</p>
+<ul class="simple">
+<li><p>lança a droga (<span class="math notranslate nohighlight">\(\delta=1\)</span>),</p></li>
+<li><p>não lança a droga (<span class="math notranslate nohighlight">\(\delta=0\)</span>).</p></li>
+</ul>
+<p>Suponha que foi possível construir a seguinte tabela de perdas levando em conta a eficiência da droga,</p>
+ <table>
+  <tr>
+      <th></th> 	
+    <th>eficiente ($\theta=1$)</th> 	
+    <th>não eficiente ($\theta=0$)</th>
+  </tr>
+  <tr>      
+    <th>lança ($\delta=1$)</th> 	
+    <th>-500</th> 	
+    <th>600</th>
+    </tr>
+    <tr>      
+    <th> não lança ($\delta=0$)</th> 	
+    <th>1500</th> 	
+    <th>100</th>
+    </tr>
+  </table>
+<p>Vale notar que estas perdas traduzem uma <strong>avaliação subjetiva</strong> em relação à gravidade dos erros cometidos.</p>
+<p>Suponha agora que a incerteza sobre os estados da natureza é descrita por</p>
+<p><span class="math notranslate nohighlight">\(P(\theta=1)=\pi\)</span>, <span class="math notranslate nohighlight">\(0&lt;\pi&lt;1\)</span></p>
+<p>avaliada na distribuição atualizada de <span class="math notranslate nohighlight">\(\theta\)</span> (seja a priori ou a posteriori).</p>
+<p>Note que, para <span class="math notranslate nohighlight">\(\delta\)</span> fixo, <span class="math notranslate nohighlight">\(L(\delta,\theta)\)</span> é uma variável aleatória discreta assumindo apenas dois valores com probabilidades <span class="math notranslate nohighlight">\(\pi\)</span> e <span class="math notranslate nohighlight">\(1-\pi\)</span>.</p>
+<p>Assim, usando a definição de risco obtemos que</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle R(\delta=0) = \displaystyle E(L(0,\theta))=\pi 1500 +(1-\pi) 100 = 1400\pi + 100\)</span></p>
+<p><span class="math notranslate nohighlight">\(\displaystyle R(\delta=1) = \displaystyle E(L(1,\theta))=\pi(-500)+(1-\pi) 600 =-1100\pi + 600\)</span></p>
+<p>Uma questão que se coloca aqui é, para que valores de <span class="math notranslate nohighlight">\(\pi\)</span> a regra de Bayes será de lançar a droga.</p>
+<p>Não é difícil verificar que as duas ações levarão ao mesmo risco, i.e.</p>
+<p><span class="math notranslate nohighlight">\(R(\delta=0)=R(\delta=1)\)</span> se somente se <span class="math notranslate nohighlight">\(\pi=0.20\)</span>.</p>
+<p>Além disso, para <span class="math notranslate nohighlight">\(\pi&lt;0.20\)</span> temos que <span class="math notranslate nohighlight">\(R(\delta=0)&lt;R(\delta=1)\)</span> e a regra de Bayes consiste em <strong>não lançar a droga</strong> enquanto que <span class="math notranslate nohighlight">\(\pi&gt;0.20\)</span> implica em <span class="math notranslate nohighlight">\(R(\delta=0)&gt;R(\delta=1)\)</span> e a regra de Bayes deve ser de <strong>lançar a droga</strong>.</p>
+</section>
+<section id="estimadores-de-bayes">
+<h3>Estimadores de Bayes<a class="headerlink" href="#estimadores-de-bayes" title="Permalink to this headline">#</a></h3>
+<p>Considere uma amostra aleatória <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span>, tomada de uma distribuição com função de (densidade) de probabilidade <span class="math notranslate nohighlight">\(p(x\vert\theta)\)</span>, onde o valor do parâmetro <span class="math notranslate nohighlight">\(\theta\)</span> é desconhecido.</p>
+<p>Em um problema de inferência como este o valor de <span class="math notranslate nohighlight">\(\theta\)</span> deve ser estimado a partir dos valores observados na amostra.</p>
+<p>Se <span class="math notranslate nohighlight">\(\theta\in\Theta\)</span> então é razoável que os possíveis valores de um estimador <span class="math notranslate nohighlight">\(\widehat{\theta}(\mathbf{x})\)</span> também devam pertencer ao espaço <span class="math notranslate nohighlight">\(\Theta\)</span>.</p>
+<p>Além disso, um bom estimador é aquele para o qual, com alta probabilidade, apresenta o seguinte erro $<span class="math notranslate nohighlight">\(\widehat{\theta}(\mathbf{x})-\theta\)</span>$ próximo de zero.</p>
+</section>
+<section id="funcoes-de-perda">
+<h3>Funções de perda<a class="headerlink" href="#funcoes-de-perda" title="Permalink to this headline">#</a></h3>
+<p>Para cada possível valor de <span class="math notranslate nohighlight">\(\theta\)</span> e cada possível estimativa <span class="math notranslate nohighlight">\(a\in\Theta\)</span> vamos associar <strong>uma perda</strong> <span class="math notranslate nohighlight">\(L(a,\theta)\)</span> de modo que quanto maior a distância entre <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(\theta\)</span> maior o valor da perda. A perda esperada a posteriori é dada por</p>
+<div class="math notranslate nohighlight">
+\[E[L(a,\theta)\vert\mathbf{x}] = \int L(a,\theta)p(\theta\vert\mathbf{x}) d\theta\]</div>
+<p>O <strong>estimador de Bayes</strong> será aquele que minimiza a perda esperada.</p>
+<section id="funcao-de-perda-quadratica">
+<h4>Função de perda quadrática<a class="headerlink" href="#funcao-de-perda-quadratica" title="Permalink to this headline">#</a></h4>
+<div class="math notranslate nohighlight">
+\[L(a,\theta)=(a-\theta)^2\]</div>
+<p>O estimador de Bayes para <span class="math notranslate nohighlight">\(\theta\)</span> será a <strong>média de sua distribuição atualizada</strong> (EAP: expected a posteriori).</p>
+</section>
+<section id="funcao-de-perda-absoluta">
+<h4>Função de perda absoluta<a class="headerlink" href="#funcao-de-perda-absoluta" title="Permalink to this headline">#</a></h4>
+<p>(introduz punições que crescem linearmente com o erro de estimação)</p>
+<div class="math notranslate nohighlight">
+\[L(a,\theta)=\vert a-\theta\vert\]</div>
+<p>O estimador de Bayes para <span class="math notranslate nohighlight">\(\theta\)</span> é a <strong>mediana de sua distribuição atualizada</strong>.</p>
+</section>
+<section id="funcao-de-perda-0-1">
+<h4>Função de perda 0-1<a class="headerlink" href="#funcao-de-perda-0-1" title="Permalink to this headline">#</a></h4>
+<p>(associam uma perda fixa a um erro cometido, não importando sua magnitude)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L(a,\theta)=\left\{ \begin{array}{ccc} 1 &amp;\mbox{se}&amp; |a-\theta|&gt;\epsilon \\ 0 &amp;\mbox{se}&amp; |a-\theta|&lt;\epsilon \end{array}\right.\end{split}\]</div>
+<p>para todo <span class="math notranslate nohighlight">\(\epsilon&gt;0\)</span>.</p>
+<p>Neste caso, o estimador de Bayes é a <strong>moda da distribuição atualizada de <span class="math notranslate nohighlight">\(\theta\)</span></strong> (MAP: maximum a posteriori).</p>
+<p>A moda da posteriori de <span class="math notranslate nohighlight">\(\theta\)</span> também é chamado de estimador de máxima verossimilhança generalizado (EMVG) e é o mais fácil de ser obtido dentre os estimadores vistos até agora.</p>
+<p><strong>Exemplo:</strong></p>
+<p>Suponha que queremos estimar a proporção <span class="math notranslate nohighlight">\(\theta\)</span> de itens defeituosos em um grande lote. Para isto será tomada uma amostra aleatória <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span> de uma distribuição de Bernoulli com parâmetro <span class="math notranslate nohighlight">\(\theta\)</span>. Usando uma priori conjugada beta(<span class="math notranslate nohighlight">\(a,b\)</span>), após observar a amostra a distribuição a posteriori é beta(<span class="math notranslate nohighlight">\(a+k,b+n-k\)</span>) onde <span class="math notranslate nohighlight">\(k=\sum_{i=1}^n x_i\)</span>.</p>
+<p>A média desta distribuição beta é dada por <span class="math notranslate nohighlight">\((a+k)/(a+b+n)\)</span> e portanto o estimador de Bayes de <span class="math notranslate nohighlight">\(\theta\)</span> usando perda quadrática é</p>
+<p><span class="math notranslate nohighlight">\(\delta(\mathbf{x})= \displaystyle\frac{a+\sum_{i=1}^n X_i}{a+b+n}.\)</span></p>
+</section>
+</section>
+<section id="estimacao-por-intervalos">
+<h3>Estimação por Intervalos<a class="headerlink" href="#estimacao-por-intervalos" title="Permalink to this headline">#</a></h3>
+<p>Pode-se desenvolver a estimação por intervalos por meio do <strong>intervalo de credibilidade (ou intervalo de confiança Bayesiano)</strong> baseado no distribuição a posteriori.</p>
+<p><strong>Definição:</strong></p>
+<p>C é um <strong>intervalo de credibilidade</strong> de 100(1-<span class="math notranslate nohighlight">\(\alpha\)</span>)<span class="math notranslate nohighlight">\(\%\)</span>, ou nível de credibilidade (ou confiança) <span class="math notranslate nohighlight">\(1-\alpha\)</span>, para <span class="math notranslate nohighlight">\(\theta\)</span> se <span class="math notranslate nohighlight">\(P(\theta\in C)\ge 1-\alpha\)</span>.</p>
+<p>Obs: Quanto menor for o tamanho do intervalo, mais concentrada é a distribuição do parâmetro, ou seja o tamanho do intervalo informa sobre a dispersão de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>O <strong>intervalo com o menor comprimento possível</strong> é obtido tomando-se os valores de <span class="math notranslate nohighlight">\(\theta\)</span> com maior densidade a posteriori, e esta idéia é expressa matematicamente na definição abaixo.</p>
+<p><strong>Definição:</strong></p>
+<p>Um intervalo de credibilidade <span class="math notranslate nohighlight">\(C\)</span> de 100(1-<span class="math notranslate nohighlight">\(\alpha\)</span>)% para <span class="math notranslate nohighlight">\(\theta\)</span> é de <strong>máxima densidade a posteriori (MDP)</strong> se <span class="math notranslate nohighlight">\(C=\{\theta\in\Theta:p(\theta\vert\mathbf{x})\ge k(\alpha)\}\)</span> onde <span class="math notranslate nohighlight">\(k(\alpha)\)</span> é a maior constante tal que <span class="math notranslate nohighlight">\(P(\theta\in C)\ge 1-\alpha\)</span>.</p>
+<p>Usando esta definição, todos os pontos dentro do intervalo MDP terão densidade maior do que qualquer ponto fora do intervalo.</p>
+<p>Um problema com os intervalos MDP é que eles não são invariantes a transformações 1 a 1, a não ser para transformações lineares. O mesmo problema ocorre com intervalos de comprimento mínimo na inferência clássica.</p>
+</section>
+</section>
+<section id="computacao-bayesiana">
+<h2>Computação Bayesiana<a class="headerlink" href="#computacao-bayesiana" title="Permalink to this headline">#</a></h2>
+<p>Leituras recomendadas:</p>
+<ul class="simple">
+<li><p>Métodos de Monte Carlo: <a class="reference external" href="https://pt.wikipedia.org/wiki/M%C3%A9todo_de_Monte_Carlo">https://pt.wikipedia.org/wiki/Método_de_Monte_Carlo</a></p></li>
+<li><p>Notas Ricardo Ehlers e Paulo Justiniano: <a class="reference external" href="http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html">http://www.leg.ufpr.br/~paulojus/CE227/ce227/node1.html</a></p></li>
+<li><p>Salvatier, John; Wiecki, Thomas V.; Fonnesbeck, Christopher. Probabilistic programming in Python using PyMC3. PeerJ Computer Science, v. 2, p. e55, 2016. Disponível em <a class="reference external" href="https://peerj.com/articles/cs-55/">https://peerj.com/articles/cs-55/</a>. Acessado em 06/04/2021.</p></li>
+</ul>
+<p>A obtenção de informações a partir da distribuição a posteriori dos parâmetros pode envolver a avaliação de probabilidades ou esperanças, que exigem métodos computacionais baseados em simulações, como</p>
+<ul class="simple">
+<li><p>Método de Monte Carlo simples</p></li>
+<li><p>Monte Carlo com função de importância,</p></li>
+<li><p>Algoritmo de Metropolis-Hastings,</p></li>
+<li><p>Amostrador de Gibbs,</p></li>
+<li><p>Método do Bootstrap Bayesiano,</p></li>
+<li><p>Monte Carlo via cadeias de Markov (MCMC),</p></li>
+<li><p>Monte Carlo Hamiltoniano (HMC),</p></li>
+<li><p>No-U-Turn Sampler (NUTS).</p></li>
+</ul>
+<p>HMC e NUTS aproveitam as informações de gradiente da probabilidade e alcançam uma convergência muito mais rápida do que os métodos de amostragem tradicionais, especialmente para modelos mais complexos.</p>
+<p>O pacote PyMC3 do Python usam a programação probabilística para executar os métodos de HMC como o NUTS. Esse tipo de programação permite a especificação flexível e ajuste de modelos estatísticos bayesianos com sintaxe intuitiva e legível, embora poderosa, que é próxima da sintaxe natural que os estatísticos usam para descrever modelos.</p>
+</section>
+<section id="exemplos">
+<h2>Exemplos<a class="headerlink" href="#exemplos" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install theano</span>
+<span class="c1">#!pip install arviz==0.15.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">arviz</span> <span class="k">as</span> <span class="nn">az</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pymc</span> <span class="k">as</span> <span class="nn">pm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>show<span class="w"> </span>arviz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: arviz
+Version: 0.15.1
+Summary: Exploratory analysis of Bayesian models
+Home-page: http://github.com/arviz-devs/arviz
+Author: ArviZ Developers
+Author-email: 
+License: Apache-2.0
+Location: /home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages
+Requires: h5netcdf, matplotlib, numpy, packaging, pandas, scipy, setuptools, typing-extensions, xarray, xarray-einstats
+Required-by: pymc
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemplo-beta-bernoulli-clientes-do-banco">
+<h2>Exemplo beta-Bernoulli: clientes do banco<a class="headerlink" href="#exemplo-beta-bernoulli-clientes-do-banco" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Beta</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1">#priori</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">discrete</span><span class="o">.</span><span class="n">Bernoulli</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;Inadimplente&#39;</span><span class="p">])</span>
+
+    <span class="n">idata</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">return_inferencedata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [p]
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='14000' class='' max='14000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [14000/14000 00:01&lt;00:00 Sampling 4 chains, 0 divergences]
+    </div>
+    </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_500 tune and 2_000 draw iterations (6_000 + 8_000 draws total) took 2 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">idata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>p</th>
+      <td>0.268</td>
+      <td>0.02</td>
+      <td>0.231</td>
+      <td>0.304</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3204.0</td>
+      <td>5525.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">idata</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/17a8ad46a27eab841cbdf51455ba8636eb9c1042b2043a8e388b085ebbc1906b.png" src="_images/17a8ad46a27eab841cbdf51455ba8636eb9c1042b2043a8e388b085ebbc1906b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_forest</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">r_hat</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9d491a03b234d04531b068982639264ea95bac56ec879977c3a0c2298ed312d9.png" src="_images/9d491a03b234d04531b068982639264ea95bac56ec879977c3a0c2298ed312d9.png" />
+</div>
+</div>
+</section>
+<section id="exemplo-normal-com-dados-simulados">
+<h2>Exemplo: normal com dados simulados<a class="headerlink" href="#exemplo-normal-com-dados-simulados" title="Permalink to this headline">#</a></h2>
+<p>Fonte: <a class="reference external" href="https://docs.pymc.io/pymc-examples/examples/pymc3_howto/api_quickstart.html">https://docs.pymc.io/pymc-examples/examples/pymc3_howto/api_quickstart.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># priori</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># verossimilhança</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">basic_RVs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[mu, obs]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">free_RVs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[mu]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">observed_RVs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[obs]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="variaveis-aleatorias-nao-observaveis">
+<h3>Variáveis aleatórias não observáveis<a class="headerlink" href="#variaveis-aleatorias-nao-observaveis" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variaveis-aleatorias-observaveis">
+<h3>Variáveis aleatórias observáveis<a class="headerlink" href="#variaveis-aleatorias-observaveis" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">():</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inferencia">
+<h2>Inferência<a class="headerlink" href="#inferencia" title="Permalink to this headline">#</a></h2>
+<section id="amostragem">
+<h3>Amostragem<a class="headerlink" href="#amostragem" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+    <span class="n">idata</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">return_inferencedata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [mu]
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='14000' class='' max='14000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [14000/14000 00:01&lt;00:00 Sampling 4 chains, 0 divergences]
+    </div>
+    </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_500 tune and 2_000 draw iterations (6_000 + 8_000 draws total) took 1 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idata</span><span class="o">.</span><span class="n">posterior</span><span class="o">.</span><span class="n">dims</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frozen({&#39;chain&#39;: 4, &#39;draw&#39;: 2000})
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="amostragem-com-6-cadeias-em-paralelo">
+<h3>Amostragem com 6 cadeias em paralelo<a class="headerlink" href="#amostragem-com-6-cadeias-em-paralelo" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+    <span class="n">idata</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chains</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">return_inferencedata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (6 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [mu]
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [12000/12000 00:01&lt;00:00 Sampling 6 chains, 0 divergences]
+    </div>
+    </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 6 chains for 1_000 tune and 1_000 draw iterations (6_000 + 6_000 draws total) took 1 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idata</span><span class="o">.</span><span class="n">posterior</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 1000)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="podemos-incluir-passos-com-outros-metodos">
+<h3>Podemos incluir passos com outros métodos<a class="headerlink" href="#podemos-incluir-passos-com-outros-metodos" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+    <span class="n">step</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Metropolis</span><span class="p">()</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Metropolis: [mu]
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='8000' class='' max='8000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [8000/8000 00:00&lt;00:00 Sampling 4 chains, 0 divergences]
+    </div>
+    </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 0 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfNormal</span><span class="p">(</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1">#verossimilhança</span>
+
+    <span class="n">step1</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Metropolis</span><span class="p">(</span><span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="n">mu</span><span class="p">])</span>
+    <span class="n">step2</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Slice</span><span class="p">(</span><span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="n">sd</span><span class="p">])</span>
+    <span class="n">idata</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="n">step1</span><span class="p">,</span> <span class="n">step2</span><span class="p">],</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">return_inferencedata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CompoundStep
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;Metropolis: [mu]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;Slice: [sd]
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='44000' class='' max='44000' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [44000/44000 00:03&lt;00:00 Sampling 4 chains, 0 divergences]
+    </div>
+    </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 1_000 tune and 10_000 draw iterations (4_000 + 40_000 draws total) took 4 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analise-de-resultados">
+<h3>Análise de resultados<a class="headerlink" href="#analise-de-resultados" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_trace</span><span class="p">(</span><span class="n">idata</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/70c35793705b56b7cec7ed0501dcbce85e89fdafe82ced7ff2efd1aa5042374a.png" src="_images/70c35793705b56b7cec7ed0501dcbce85e89fdafe82ced7ff2efd1aa5042374a.png" />
+</div>
+</div>
+</section>
+<section id="estatistica-de-gelman-rubin-r-chapeu">
+<h3>Estatística de Gelman-Rubin (R chapéu)<a class="headerlink" href="#estatistica-de-gelman-rubin-r-chapeu" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">idata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hdi_3%</th>
+      <th>hdi_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mu</th>
+      <td>-0.186</td>
+      <td>0.100</td>
+      <td>-0.37</td>
+      <td>0.007</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>5484.0</td>
+      <td>6078.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>sd</th>
+      <td>1.001</td>
+      <td>0.072</td>
+      <td>0.87</td>
+      <td>1.136</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>37440.0</td>
+      <td>27241.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_forest</span><span class="p">(</span><span class="n">idata</span><span class="p">,</span> <span class="n">r_hat</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+
+<span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">idata</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6be69344730003715eceb6ba0227ae97ebc6522ada44127db3e4cc3ef0c36933.png" src="_images/6be69344730003715eceb6ba0227ae97ebc6522ada44127db3e4cc3ef0c36933.png" />
+<img alt="_images/16aa86b946f31120fa142dfed98fb85151df317f0ea5b3007c043b859a9fc25a.png" src="_images/16aa86b946f31120fa142dfed98fb85151df317f0ea5b3007c043b859a9fc25a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">az</span><span class="o">.</span><span class="n">plot_posterior</span><span class="p">(</span><span class="n">idata</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/16aa86b946f31120fa142dfed98fb85151df317f0ea5b3007c043b859a9fc25a.png" src="_images/16aa86b946f31120fa142dfed98fb85151df317f0ea5b3007c043b859a9fc25a.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ECD_05_Aula5-teste-hipoteses.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Aula 5 - Teste de hipóteses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ECD_07_Materialbase-ModelosLineares.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Aula 7 - Modelos de regressão</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programa">Programa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#o-paradigma-bayesiano">O paradigma Bayesiano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo">Exemplo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">Teorema de Bayes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicao-preditiva">Distribuição preditiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os-diferentes-tipos-de-prioris">Os diferentes tipos de prioris</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicoes-conjugadas">Distribuições conjugadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-priori-conjugada-beta-bernoulli">Exemplo de priori conjugada beta-Bernoulli</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacao-bayesiana">Estimação Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao-a-teoria-da-decisao">Introdução à Teoria da Decisão</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimadores-de-bayes">Estimadores de Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-de-perda">Funções de perda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-quadratica">Função de perda quadrática</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-absoluta">Função de perda absoluta</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda-0-1">Função de perda 0-1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacao-por-intervalos">Estimação por Intervalos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacao-bayesiana">Computação Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplos">Exemplos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-beta-bernoulli-clientes-do-banco">Exemplo beta-Bernoulli: clientes do banco</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-normal-com-dados-simulados">Exemplo: normal com dados simulados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-aleatorias-nao-observaveis">Variáveis aleatórias não observáveis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-aleatorias-observaveis">Variáveis aleatórias observáveis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia">Inferência</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amostragem">Amostragem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amostragem-com-6-cadeias-em-paralelo">Amostragem com 6 cadeias em paralelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podemos-incluir-passos-com-outros-metodos">Podemos incluir passos com outros métodos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-de-resultados">Análise de resultados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estatistica-de-gelman-rubin-r-chapeu">Estatística de Gelman-Rubin (R chapéu)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

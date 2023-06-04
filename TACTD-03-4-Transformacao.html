@@ -1,0 +1,1261 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-03-4-Transformacao';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-03-5-Codificacao_Categoricas.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-03-3-Normalizacao.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-03-4-Transformacao.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-03-4-Transformacao.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-transformacao-de-atributos-span"><span style="color:darkred">Transformação de atributos</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicoes-de-variaveis">Distribuições de variáveis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importante">Importante</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assimetria-obliquidade-ou-skewness">Assimetria (obliquidade ou <em>skewness</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacoes">Transformações</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#powertransformer-sklearn">Powertransformer (<em>sklearn</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span">
+<h3><span style="color:darkred">Coleta de dados e Preparação de atributos</span><a class="headerlink" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="span-style-color-darkred-transformacao-de-atributos-span">
+<h2><span style="color:darkred">Transformação de atributos</span><a class="headerlink" href="#span-style-color-darkred-transformacao-de-atributos-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti<br>
+<em>colaboração de Eugenio Cabral</em></p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+</section>
+<hr class="docutils" />
+<section id="distribuicoes-de-variaveis">
+<h2>Distribuições de variáveis<a class="headerlink" href="#distribuicoes-de-variaveis" title="Permalink to this headline">#</a></h2>
+<p>Variáveis possuem distribuições diferentes de valores possíveis devido a sua natureza.</p>
+<p>O senso comum vai assumir que temos uma das distribuições abaixo:</p>
+<ul class="simple">
+<li><p>uniforme</p></li>
+<li><p>normal</p></li>
+</ul>
+<p>… e que correlações são sempre:</p>
+<ul class="simple">
+<li><p>lineares</p></li>
+</ul>
+<p>Mas isso nem sempre acontece!</p>
+<p>Pode ser útil transformar as variáveis para permitir melhor analisar os dados, inclusive suas correlações em particular com dados de natureza <strong>exponencial</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carregando as bibliotecas necessárias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">skewnorm</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PowerTransformer</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># carregando dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/municipios_mba.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gid</th>
+      <th>UF</th>
+      <th>nome</th>
+      <th>Censo</th>
+      <th>PIB</th>
+      <th>pop</th>
+      <th>classe</th>
+      <th>desemprego</th>
+      <th>pop_sanea</th>
+      <th>expec_vida</th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>urbaniz</th>
+      <th>dens_pop_urbana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>752</td>
+      <td>ACRE</td>
+      <td>Acrelândia</td>
+      <td>2010.0</td>
+      <td>151120.015625</td>
+      <td>12241</td>
+      <td>2</td>
+      <td>5.2</td>
+      <td>33.532382</td>
+      <td>73.6</td>
+      <td>19.2</td>
+      <td>660</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>747</td>
+      <td>ACRE</td>
+      <td>Assis Brasil</td>
+      <td>2010.0</td>
+      <td>48347.300781</td>
+      <td>5662</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>32.252163</td>
+      <td>74.2</td>
+      <td>18.9</td>
+      <td>664</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>748</td>
+      <td>ACRE</td>
+      <td>Brasiléia</td>
+      <td>2010.0</td>
+      <td>194979.828125</td>
+      <td>20238</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>31.663354</td>
+      <td>75.3</td>
+      <td>19.5</td>
+      <td>667</td>
+      <td>baixo</td>
+      <td>média</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>754</td>
+      <td>ACRE</td>
+      <td>Bujari</td>
+      <td>2010.0</td>
+      <td>88708.031250</td>
+      <td>6772</td>
+      <td>2</td>
+      <td>4.8</td>
+      <td>33.501357</td>
+      <td>73.4</td>
+      <td>19.1</td>
+      <td>659</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>751</td>
+      <td>ACRE</td>
+      <td>Capixaba</td>
+      <td>2010.0</td>
+      <td>89052.679688</td>
+      <td>9287</td>
+      <td>1</td>
+      <td>4.4</td>
+      <td>33.431383</td>
+      <td>75.4</td>
+      <td>18.1</td>
+      <td>661</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Vamos estudar as variáveis abaixo, exibindo seus gráficos de caixa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pobreza&#39;</span><span class="p">,</span> <span class="s1">&#39;IDH&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB&#39;</span><span class="p">,</span> <span class="s1">&#39;classe&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">]</span>
+<span class="n">attrs_cat</span> <span class="o">=</span> <span class="n">attrs</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;UF&#39;</span><span class="p">,</span> <span class="s1">&#39;nome&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/14771693b70062efe1bd04d2fe962f6ae35ce4f94cf549772c461009d09f546d.png" src="_images/14771693b70062efe1bd04d2fe962f6ae35ce4f94cf549772c461009d09f546d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/718586a9ef098e436164c5b0669a9b726cba5069c4bf2e54430e3b881fa6d9f2.png" src="_images/718586a9ef098e436164c5b0669a9b726cba5069c4bf2e54430e3b881fa6d9f2.png" />
+</div>
+</div>
+<p>Parece difícil entender a variável PIB!</p>
+<p>Talvez se aplicarmos uma transformação <strong>logaritmica</strong>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_PIB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">])</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_PIB</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Log(PIB)&#39;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Log_PIB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_PIB</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bb95db71b4b5c85e9d2cfa5a49c2bfba1c9360e44622c499df63099a1cf13acd.png" src="_images/bb95db71b4b5c85e9d2cfa5a49c2bfba1c9360e44622c499df63099a1cf13acd.png" />
+</div>
+</div>
+<p>O log é o inverso da função exponencial e assim, isso busca linearizar os dados exponenciais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pobreza&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dc5bf68737dc4fc2d8208f9b377058552ff86244d8c8375ef7252a23b5db182a.png" src="_images/dc5bf68737dc4fc2d8208f9b377058552ff86244d8c8375ef7252a23b5db182a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pop&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8b81c497aa0d8ddac343b4248b42c6d2e6591ed6b47b3fcb3ce5f6c359366a1b.png" src="_images/8b81c497aa0d8ddac343b4248b42c6d2e6591ed6b47b3fcb3ce5f6c359366a1b.png" />
+</div>
+</div>
+<p>Outra função comumente utilizada (essa para linearizar dados de natureza quadrática),  é a <strong>raiz quadrada.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pop&#39;</span><span class="p">])</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_pop</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sqrt(pop)&#39;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sqrt_pop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_pop</span><span class="p">)</span>
+<span class="n">attrs</span> <span class="o">=</span> <span class="n">attrs</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Sqrt_pop&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f1110550c6ad98227e942e90253109c6d24844e0db033825c36c9fd76d03fc43.png" src="_images/f1110550c6ad98227e942e90253109c6d24844e0db033825c36c9fd76d03fc43.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Log_pop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_pop</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Log_pop&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Log(pop)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3943bd7c67f8bc42bb23d33736b983e0cdfab6371b881c68829a59cc0306c18c.png" src="_images/3943bd7c67f8bc42bb23d33736b983e0cdfab6371b881c68829a59cc0306c18c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PIB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4c1a95be054373f947252c84b0cf6d98902f62f5df71c6abe5b60108defe4f3a.png" src="_images/4c1a95be054373f947252c84b0cf6d98902f62f5df71c6abe5b60108defe4f3a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Log_pop&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Log_PIB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f70123b55372867122f0b9b9ed5aa7f286ffd82c4a7748c13dcbdaf669c12a1c.png" src="_images/f70123b55372867122f0b9b9ed5aa7f286ffd82c4a7748c13dcbdaf669c12a1c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_pobreza</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pobreza&#39;</span><span class="p">])</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_pobreza</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sqrt(pobreza)&#39;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sqrt_pobreza&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_pobreza</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/294d2a6316de6e2b9e64dec96ca7028205e7445fa50fb6c44cd7d1d1a0866607.png" src="_images/294d2a6316de6e2b9e64dec96ca7028205e7445fa50fb6c44cd7d1d1a0866607.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attrs</span> <span class="o">=</span> <span class="n">attrs</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Log_pop&#39;</span><span class="p">,</span> <span class="s1">&#39;Log_PIB&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="n">attrs</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>PIB</th>
+      <th>classe</th>
+      <th>pop</th>
+      <th>Sqrt_pop</th>
+      <th>Log_pop</th>
+      <th>Log_PIB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>pobreza</th>
+      <td>1.000000</td>
+      <td>-0.941545</td>
+      <td>-0.048598</td>
+      <td>-0.495783</td>
+      <td>-0.023310</td>
+      <td>0.010594</td>
+      <td>0.102731</td>
+      <td>-0.250301</td>
+    </tr>
+    <tr>
+      <th>IDH</th>
+      <td>-0.941545</td>
+      <td>1.000000</td>
+      <td>0.049281</td>
+      <td>0.417682</td>
+      <td>0.027717</td>
+      <td>0.007833</td>
+      <td>-0.066512</td>
+      <td>0.216077</td>
+    </tr>
+    <tr>
+      <th>PIB</th>
+      <td>-0.048598</td>
+      <td>0.049281</td>
+      <td>1.000000</td>
+      <td>0.134895</td>
+      <td>0.951643</td>
+      <td>0.644769</td>
+      <td>0.271101</td>
+      <td>0.291274</td>
+    </tr>
+    <tr>
+      <th>classe</th>
+      <td>-0.495783</td>
+      <td>0.417682</td>
+      <td>0.134895</td>
+      <td>1.000000</td>
+      <td>0.108764</td>
+      <td>0.153494</td>
+      <td>0.077594</td>
+      <td>0.517440</td>
+    </tr>
+    <tr>
+      <th>pop</th>
+      <td>-0.023310</td>
+      <td>0.027717</td>
+      <td>0.951643</td>
+      <td>0.108764</td>
+      <td>1.000000</td>
+      <td>0.777576</td>
+      <td>0.386149</td>
+      <td>0.375140</td>
+    </tr>
+    <tr>
+      <th>Sqrt_pop</th>
+      <td>0.010594</td>
+      <td>0.007833</td>
+      <td>0.644769</td>
+      <td>0.153494</td>
+      <td>0.777576</td>
+      <td>1.000000</td>
+      <td>0.828615</td>
+      <td>0.765424</td>
+    </tr>
+    <tr>
+      <th>Log_pop</th>
+      <td>0.102731</td>
+      <td>-0.066512</td>
+      <td>0.271101</td>
+      <td>0.077594</td>
+      <td>0.386149</td>
+      <td>0.828615</td>
+      <td>1.000000</td>
+      <td>0.862196</td>
+    </tr>
+    <tr>
+      <th>Log_PIB</th>
+      <td>-0.250301</td>
+      <td>0.216077</td>
+      <td>0.291274</td>
+      <td>0.517440</td>
+      <td>0.375140</td>
+      <td>0.765424</td>
+      <td>0.862196</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;pobreza&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IDH&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c3e63e14e08a13e2b550c753e5ffe4143b9134044ec49aa7dc33efb34b48abfe.png" src="_images/c3e63e14e08a13e2b550c753e5ffe4143b9134044ec49aa7dc33efb34b48abfe.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Sqrt_pobreza&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IDH&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a7a01ae169cd00485fb6817ce96fa29485bdbdc54b7aa40a35e6c6a629342d88.png" src="_images/a7a01ae169cd00485fb6817ce96fa29485bdbdc54b7aa40a35e6c6a629342d88.png" />
+</div>
+</div>
+<section id="importante">
+<h3>Importante<a class="headerlink" href="#importante" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Em muitos casos, mais de uma função de transformação pode atingir o mesmo objetivo</p></li>
+<li><p>Outras funções como (<em>e.g.</em> tan, exp) também podem ser usadas</p></li>
+</ul>
+</section>
+<section id="assimetria-obliquidade-ou-skewness">
+<h3>Assimetria (obliquidade ou <em>skewness</em>)<a class="headerlink" href="#assimetria-obliquidade-ou-skewness" title="Permalink to this headline">#</a></h3>
+<p>Intervalos de assimetria são simplificações que podem facilitar o entendimento com relação à normalidade dos dados</p>
+<ul class="simple">
+<li><p>assimetria <span class="math notranslate nohighlight">\(\sim0\)</span>: Normalmente distribuida (ou perfeitamente simétrica)</p></li>
+<li><p>assimetria <span class="math notranslate nohighlight">\(&lt; 0\)</span>: Maior concentração de dados na cauda esquerda da densidade</p></li>
+<li><p>assimetria <span class="math notranslate nohighlight">\(&gt; 0\)</span>: Maior concentração de dados na cauda direita da densidade</p></li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Intervalos</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$[-0.5, 0.5]$</td>
+            <td>Aproximadamente simétrica</td>
+        </tr>
+        <tr>
+            <td>$[-1.0,-0.5]$ ou $[0.5,1.0]$</td>
+            <td>Moderadamente assimétrica</td>
+        </tr>
+        <tr>
+            <td>$[-∞,-1.0]$ ou $[1.0,∞]$</td>
+            <td>Altamente assimétrica</td>
+        </tr>
+    </tbody>
+</table><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">low_pos</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">low_neg</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">mid_pos</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">mid_neg</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">high_pos</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">high_neg</span> <span class="o">=</span> <span class="n">skewnorm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">141</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="c1">#plt.hist(low_pos)#;plt.hist(low_neg)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Normal)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">normal</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">142</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_pos</span><span class="p">)</span><span class="c1">#; plt.hist(high_neg)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Baixa)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">low_pos</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">143</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mid_pos</span><span class="p">)</span><span class="c1">#; plt.hist(mid_neg)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Média)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">mid_pos</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">144</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_pos</span><span class="p">)</span><span class="c1">#; plt.hist(high_neg)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Alta)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">high_pos</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8eda4b111b0d108c81a9cea74919bb1917f4c4447e7bf1dc08660e70d6df3124.png" src="_images/8eda4b111b0d108c81a9cea74919bb1917f4c4447e7bf1dc08660e70d6df3124.png" />
+</div>
+</div>
+</section>
+<section id="transformacoes">
+<h3>Transformações<a class="headerlink" href="#transformacoes" title="Permalink to this headline">#</a></h3>
+<table>
+    <thead>
+        <tr>
+            <th width="100px">Nível</th>
+            <th width="150px">Assimetria Positiva</th>
+            <th width="200px">Assimetria Negativa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Baixa</td>
+            <td>$\sqrt{x + c}$</td>
+            <td>$\sqrt{\max(x+c) - x}$</td>
+        </tr>
+        <tr>
+            <td>Moderada</td>
+            <td>$log_{10}~x + c$</td>
+            <td>$log_{10}~{\max(x+c) - x}$</td>
+        </tr>
+        <tr>
+            <td>Alta</td>
+            <td>$\frac{1}{x + c}$</td>
+            <td>$\frac{1}{\max(x+c) - x}$</td>
+        </tr>
+    </tbody>
+</table><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">low_pos_tf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">low_pos</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mid_pos_tf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">mid_pos</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">high_pos_tf</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">high_pos</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">low_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Baixa)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">low_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">mid_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Média)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">mid_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">high_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Alta)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">high_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3ce13946bc72af8e4ada9eddb0d5cc00d76f4197123bf69ef1cbf8447a0c1c20.png" src="_images/3ce13946bc72af8e4ada9eddb0d5cc00d76f4197123bf69ef1cbf8447a0c1c20.png" />
+</div>
+</div>
+</section>
+<section id="powertransformer-sklearn">
+<h3>Powertransformer (<em>sklearn</em>)<a class="headerlink" href="#powertransformer-sklearn" title="Permalink to this headline">#</a></h3>
+<p>Método para transformação automática para distribuições assimétricas.</p>
+<p>Não deve ser usado de forma cega, mas tem bons resultados em geral</p>
+<p>Box-Cox: exige dados positivos<br>
+Yeo-Johnson: permite dados negativos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;low_pos&#39;</span><span class="p">:</span> <span class="n">low_pos</span><span class="p">,</span>
+    <span class="s1">&#39;low_neg&#39;</span><span class="p">:</span> <span class="n">low_neg</span><span class="p">,</span>
+    <span class="s1">&#39;mid_pos&#39;</span><span class="p">:</span> <span class="n">mid_pos</span><span class="p">,</span>
+    <span class="s1">&#39;mid_neg&#39;</span><span class="p">:</span> <span class="n">mid_neg</span><span class="p">,</span>
+    <span class="s1">&#39;high_pos&#39;</span><span class="p">:</span> <span class="n">high_pos</span><span class="p">,</span>
+    <span class="s1">&#39;high_neg&#39;</span><span class="p">:</span> <span class="n">high_neg</span>
+<span class="p">})</span>
+
+<span class="n">pf</span> <span class="o">=</span> <span class="n">PowerTransformer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;yeo-johnson&#39;</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># ou box-cox</span>
+
+<span class="n">df_tf</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+
+<span class="n">low_pos_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">low_neg_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">mid_pos_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">mid_neg_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">high_pos_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">high_neg_tf</span> <span class="o">=</span> <span class="n">df_tf</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">low_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Baixa)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">low_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">mid_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Média)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">mid_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">high_pos_tf</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sk.=</span><span class="si">{:.2f}</span><span class="s1"> (Alta)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew</span><span class="p">(</span><span class="n">high_pos_tf</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9c5b1d1084615a02ba2a38882d8d479e75b8526b8770375281f60609a6b74271.png" src="_images/9c5b1d1084615a02ba2a38882d8d479e75b8526b8770375281f60609a6b74271.png" />
+</div>
+</div>
+</section>
+<section id="resumo">
+<h3>Resumo:<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Encontrar transformações nos atributos permite novas interpretações, para além do que temos como intuição</p></li>
+<li><p>Transformações não excluem a limpeza e tratamento de dados</p></li>
+<li><p>Transformações podem funcionar como geradores de novos atributos</p></li>
+<li><p>A assimetria pode ser usada para estudar as distribuições, e planejadas transformações para obter dados mais próximos de distribuições normais</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-03-3-Normalizacao.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-03-5-Codificacao_Categoricas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-transformacao-de-atributos-span"><span style="color:darkred">Transformação de atributos</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuicoes-de-variaveis">Distribuições de variáveis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importante">Importante</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assimetria-obliquidade-ou-skewness">Assimetria (obliquidade ou <em>skewness</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacoes">Transformações</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#powertransformer-sklearn">Powertransformer (<em>sklearn</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

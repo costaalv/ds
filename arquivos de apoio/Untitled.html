@@ -1,0 +1,1023 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Questão 01 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arquivos de apoio/Untitled';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Farquivos de apoio/Untitled.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/arquivos de apoio/Untitled.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Questão 01</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Questão 01</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-02">Questão 02</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-03">Questão 03</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-04">Questão 04</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-5">Questão 5</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="questao-01">
+<h1>Questão 01<a class="headerlink" href="#questao-01" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Converte o PDF em imagens</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="s1">&#39;nfe-avaliacao.pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Salva a primeira página do PDF como PNG</span>
+<span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;nfe-avaliacao.png&#39;</span><span class="p">,</span> <span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
+
+<span class="c1"># Carrega a imagem PNG</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;nfe-avaliacao.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># Obtém a resolução da imagem</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A resolução da imagem é: </span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Converte o PDF em imagens</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pdf2image&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na primeira parte, estamos importando as funções e bibliotecas necessárias.<br>
+<strong>convert_from_path</strong> é uma função da biblioteca pdf2image que permite converter um arquivo PDF em imagens.<br>
+<strong>Image</strong> é uma classe da biblioteca PIL (Pillow) que permite manipular imagens.</p>
+<p>Nesta linha, chamamos a função <strong>convert_from_path</strong> com o caminho para o arquivo PDF como argumento. Isso retorna uma lista de imagens, onde cada imagem corresponde a uma página do PDF. Se o seu PDF tiver várias páginas, images[0] será a primeira página, images[1] será a segunda, e assim por diante.</p>
+<p>Aqui, estamos pegando a primeira imagem da lista (que corresponde à primeira página do PDF) e salvando-a como um arquivo PNG. A função <strong>save</strong> é um método da classe <strong>Image</strong> que permite salvar uma imagem em um arquivo. O primeiro argumento é o nome (e caminho, se necessário) do arquivo a ser criado, e o segundo argumento é o formato da imagem.</p>
+<p>Aqui, estamos usando a função <strong>open</strong> da classe <strong>Image</strong> para abrir a imagem PNG que acabamos de criar. Isso retorna um objeto Image que podemos usar para manipular a imagem.</p>
+<p>Aqui, estamos usando a propriedade <strong>size</strong> do objeto <strong>Image</strong> para obter a resolução da imagem. size retorna uma tupla onde o primeiro elemento é a largura da imagem e o segundo elemento é a altura.</p>
+<p>Finalmente, estamos imprimindo a resolução da imagem. A função <strong>print</strong> exibe seu argumento na saída padrão (geralmente a tela). <strong>f’A resolução da imagem é: {resolution}’</strong> é uma string formatada, que permite inserir o valor de resolution diretamente na string.</p>
+</section>
+<section id="questao-02">
+<h1>Questão 02<a class="headerlink" href="#questao-02" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytesseract</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Carrega a imagem</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;nfe-avaliacao.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplica OCR na imagem</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="c1"># Imprime o texto extraído</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Divide o texto em palavras</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="c1"># Imprime a primeira sequência de caracteres alfanuméricos</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isalnum</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A primeira sequência de caracteres alfanuméricos é:&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+
+ 
+
+DATA DE RECEBIMENTO
+
+ 
+
+JIDENTIFICACAO E ASSINATURA DO RECEBEDOR
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+IDENTIFICACAO DO EMITENTE
+
+ 
+
+DOCUMENTO AUXILIAR
+DA NOTA FISCAL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+173550010000012101043403614
+
+ 
+
+ELETRONICA
+CHAVE DE ACESSO
+0 - ENTRADA 1
+1 - SAIDA
+N°
+Série 1
+Folha 1/1 Autorizadora.
+
+Consulta de autenticidade no portal nacional da NF-e
+www.nfe.fazenda.gov.br/portal ou no site da Sefaz
+
+ 
+
+NATUREZA DE OPERACAO
+s
+
+REMESSA DE FATURAMENTO ANTECIPADO
+
+ 
+
+IPROTOCOLO DE AUTORIZAGAO DE USO
+
+2019 15:04:31
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+INSCRICAO ESTADUAL IINSCRICAO ESTADUAL DO SUBST. TRIBUT. |cNPo
+DESTINATARIO / REMETENTE
+NOME 7 RAZAO SOCIAL [CNPT 7 CPF PATA DE EMISSAO
+
+ 
+
+ 
+
+ 
+
+ 
+
+26/11/2019
+ENDERECO IBAIRRO / DISTRITO EP [DATA DA ENTRADA/SAIDA
+LOTE 227 IPARQUE TECNOLOGICO 17500-200 28/11/2019
+MUNICIPIO JFONE / FAX UF JINSCRICAO ESTADUAL JHORA DA SAIDA
+SAO CARLOS SP 08:00
+
+ 
+
+ 
+
+ 
+
+ 
+
+FATURA / DUPLICATA
+
+ 
+
+CALCULO DO IMPOSTO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BASE DE CALCULO DO ICMS [ALOR DO ICMS [BASE DE CALCULO DO ICMS S.T. VALOR DO ICMS SUBSTITUICAO (ALOR TOTAL DOS PRODUTOS
+0,00 0,00 0,00 0,00 5687,62
+VALOR DO FRETE (ALOR DO SEGURO JDESCONTO JUTRAS DESP. ACESSORIAS |VALOR TOTAL DO IPI JSALOR APROXIMADO DOS TRIBUTOS (ALOR TOTAL DA NOTA
+250,00 0,00 337,62 0,00 0,00 1425,19 5600,00
+TRANSPORTADOR / VOLUMES TRANSPORTADOS
+NOME 7 RAZAO SOCIAL JFRETE POR CONTA |CODIGO ANTT [PLACA DO VEICULO iF ‘NPI 7 CPF
+lo-eMrr. 2-TERC.
+IL-DEST. 9-S/FRETE I
+ENDERECO IUNICIPIO iF JINSCRICAO ESTADUAL
+QUANTIDADE [ESPECIE MARCA JUMERACAO JPESO BRUTO [PESO LIQUIDO
+56 JOLUMES 1358,617 1345, 008
+DADOS DOS PRODUTOS / SERVICOS
+6p. PRoDUTO DESCRIGAO DOS PRODUTOS / SERVICOS wew/sa | 8% crop] un | ouawe. | wanor unrr. | vazo tomar |p. cAtc. roms} gator rcxs| yanor xpr |ALIQ: |ALIO.
+1143 69072100] 0500/5117) M2 | 8,58 67,90 582,58 0,00 0,00 0,00 0 [0,00
+84867 69072100] 0500/5117} M2 | 16,66 134,90 2247, 43 0,00 0,00 0,00 0 [0,00
+88737 69072300) 0500|5117) M2 | 51,12 35,90 2857, 61 0,00 0,00 0,00 0 [0,00
+CALCULO DO ISSQN
+INSCRICAO MUNICIPAL (ALOR TOTAL DOS SERVICOS [BASE DE CALCULO DO ISSON (ALOR DO ISSON
+0,00 0,00 0,00
+DADOS ADICIONAIS
+INFORMACGOES COMPLEMENTARES JRESERVADO AO FISCO
+
+ 
+
+ 
+
+A primeira sequência de caracteres alfanuméricos é: DATA
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="questao-03">
+<h1>Questão 03<a class="headerlink" href="#questao-03" title="Permalink to this headline">#</a></h1>
+<p>Escreva uma expressão regular para encontrar sequências de dígitos separados por vírgulas no texto extraído no exercício 2) da avaliação. Ou seja, todas as ocorrências de uma sequência de dígitos que precedem uma vírgula, a qual é seguida por outra sequência de dígitos (por exemplo: 7545,436). Quantas sequências destes tipo foram encontradas?</p>
+<p>DICA: Combine os símbolos [], \d, +</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Aqui está uma string de exemplo, substitua &#39;text&#39; pela variável que contém o seu texto</span>
+<span class="n">text</span>
+
+<span class="c1"># A expressão regular para encontrar sequências de dígitos separados por vírgulas</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+,\d+&#39;</span>
+
+<span class="c1"># Encontra todas as ocorrências da expressão regular no texto</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Imprime as sequências encontradas</span>
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+
+<span class="c1"># Imprime o número de sequências encontradas</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Foram encontradas </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s1"> sequências.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0,00
+0,00
+0,00
+0,00
+5687,62
+250,00
+0,00
+337,62
+0,00
+0,00
+1425,19
+5600,00
+1358,617
+8,58
+67,90
+582,58
+0,00
+0,00
+0,00
+0,00
+16,66
+134,90
+0,00
+0,00
+0,00
+0,00
+51,12
+35,90
+0,00
+0,00
+0,00
+0,00
+0,00
+0,00
+0,00
+Foram encontradas 35 sequências.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="questao-04">
+<h1>Questão 04<a class="headerlink" href="#questao-04" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w*[ISU]TO\w*&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">regex_distintas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+<span class="n">contagem</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">regex_distintas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Aparecem </span><span class="si">{</span><span class="n">contagem</span><span class="si">}</span><span class="s1"> palavras distintas:</span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">regex_distintas</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aparecem 7 palavras distintas:
+ {&#39;PRoDUTO&#39;, &#39;AUTORIZAGAO&#39;, &#39;PRODUTOS&#39;, &#39;TRIBUTOS&#39;, &#39;DISTRITO&#39;, &#39;BRUTO&#39;, &#39;IMPOSTO&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Este é um script em Python que usa expressões regulares para procurar palavras que contêm as sequências ‘ITO’, ‘STO’ ou ‘UTO’. Vou explicar cada linha:</p>
+<p><em><em>regex = re.findall(‘\w</em>[ISU]TO\w</em>’, text)**:
+Este comando procura no texto todas as palavras que contêm as sequências ‘ITO’, ‘STO’ ou ‘UTO’. O padrão de expressão regular ‘\w*[ISU]TO\w*’ é dividido da seguinte maneira:</p>
+<p>\w* - corresponde a qualquer número (incluindo zero) de caracteres de palavra (isto é, letras maiúsculas e minúsculas, dígitos e sublinhados)</p>
+<p>[ISU] - corresponde a qualquer um dos caracteres ‘I’, ‘S’ ou ‘U’</p>
+<p>TO - corresponde à sequência de caracteres ‘TO’</p>
+<p>\w* - novamente, corresponde a qualquer número (incluindo zero) de caracteres de palavra</p>
+<p>A função <strong>re.findall</strong> retorna todas as correspondências não sobrepostas do padrão em string, como uma lista de strings.</p>
+<p><strong>regex_distintas = set(regex)</strong>:</p>
+<p>Este comando transforma a lista de palavras correspondentes em um conjunto. Em Python, um conjunto (set) é uma coleção não ordenada de itens únicos. Portanto, ao transformar a lista em um conjunto, todas as palavras duplicadas são removidas.</p>
+<p><strong>contagem = len(regex_distintas)</strong>:</p>
+<p>Este comando conta o número de itens no conjunto (que representa o número de palavras distintas que correspondem ao padrão de expressão regular).</p>
+<p><strong>print(f’Aparecem {contagem} palavras distintas:\n {regex_distintas}’)</strong>:</p>
+<p>Este comando imprime o número de palavras distintas e o conjunto de palavras distintas. O \n é um caractere de nova linha, o que significa que as palavras distintas serão impressas em uma nova linha após a mensagem.</p>
+<p>Portanto, este script procura palavras que contêm as sequências ‘ITO’, ‘STO’ ou ‘UTO’, remove as duplicatas e conta o número de palavras únicas que correspondem a esse padrão.</p>
+</section>
+<section id="questao-5">
+<h1>Questão 5<a class="headerlink" href="#questao-5" title="Permalink to this headline">#</a></h1>
+<p>O texto da célula abaixo foi obtido aplicando OCR em um documento PDF. Como pode ser notado, o OCR gerou alguns caracteres errados, principalmente a letra “v” da palavra “valor”, que, por alguma razão, pode não ter sido corretamente reconhecida pelo OCR. Note que em alguns casos a letra “v” nem foi identificada, resultando em “alor”, o que também foi um erro do OCR.</p>
+<p>Encontre todas as ocorrências da palavra “valor” e suas variações (como “valores” e “valorizado”), considerando os erros de identificação do OCR. Quantas ocorrências distintas foram encontradas (distintas significa não considerar a mesma palavra mais que uma vez)?</p>
+<p><strong>Dica 1</strong>: Preste atenção para não contar mais de uma vez cada palavra. Você pode utilizar o comando set para extrair as palavras distintas da lista de palavras encontradas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Substitua &#39;text&#39; pela variável que contém o seu texto</span>
+<span class="n">text</span>
+
+<span class="c1"># A expressão regular para encontrar palavras com as sequências desejadas</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b\w*l[ou]r(?:es|izado)?\b&#39;</span>
+
+<span class="c1"># Encontra todas as ocorrências da expressão regular no texto</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Cria um conjunto para armazenar palavras distintas</span>
+<span class="n">distinct_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+
+<span class="c1"># Imprime as palavras distintas encontradas</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">distinct_words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="c1"># Imprime o número de palavras distintas encontradas</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Foram encontradas </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">distinct_words</span><span class="p">)</span><span class="si">}</span><span class="s1"> palavras distintas.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Foram encontradas 0 palavras distintas.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./arquivos de apoio"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Questão 01</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-02">Questão 02</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-03">Questão 03</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-04">Questão 04</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questao-5">Questão 5</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

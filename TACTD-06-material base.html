@@ -1,0 +1,1366 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-06-material base';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-05-Extracao%20de%20Texto.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-06-material base.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-06-material base.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color="blue"> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-documento-times-palavras-bag-of-words-font"><font color="blue"> Matriz Documento <span class="math notranslate nohighlight">\(\times\)</span> Palavras - Bag of Words</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao">Introdução</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processamento">Pré-processamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtendo-string-a-partir-de-colecao-de-documentos">Obtendo String a partir de Coleção de Documentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraindo-palavras">Extraindo Palavras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-simbolos-e-caracteres-isolados">Removendo Símbolos e Caracteres Isolados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-stop-words">Removendo Stop Words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bigramas-trigramas">Bigramas, Trigramas, …</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacao-lexica">Normalização Léxica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construindo-a-matriz-documentos-times-palavras">Construindo a Matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-palavras-mais-e-menos-frequentes">Removendo palavras mais e menos frequentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizando-os-documentos">Visualizando os documentos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-and-inverse-document-frequency-tf-idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf">TF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idf">IDF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color="blue"> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font">
+<h1><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font><a class="headerlink" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-matriz-documento-times-palavras-bag-of-words-font">
+<h2><font color="blue"> Matriz Documento <span class="math notranslate nohighlight">\(\times\)</span> Palavras - Bag of Words</font><a class="headerlink" href="#font-color-blue-matriz-documento-times-palavras-bag-of-words-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="conteudo">
+<h2>Conteúdo<a class="headerlink" href="#conteudo" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Introdução</p></li>
+<li><p>Pré-processamento</p>
+<ul>
+<li><p>Extração de palavras</p></li>
+<li><p>Limpeza de símbolos</p></li>
+<li><p>Stemming</p></li>
+</ul>
+</li>
+<li><p>Construção da Matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras</p>
+<ul>
+<li><p>TF-IDF</p></li>
+<li><p>Remoção das palavras mais e menos frequentes</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Bibliografia</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nltk.org/book/">https://www.nltk.org/book/</a></p></li>
+</ul>
+<p>Os códigos abaixo fazem uso da coleção de documentos presente no diretório <code class="docutils literal notranslate"><span class="pre">DocCol1</span></code> contido no arquivo <font style="font-family: monaco"> DocCol.zip</font>, o qual pode ser baixado do Moodle.</p>
+</section>
+<section id="introducao">
+<h2>Introdução<a class="headerlink" href="#introducao" title="Permalink to this headline">#</a></h2>
+<p>Analisar, comparar e agrupar documentos textuais com base na similaridade de seus conteúdos são tarefas essenciais em muitas aplicações, como análise de sentimentos, levantamento de fatos históricos, dentre outras.</p>
+<p>Porém, documentos são conjuntos de textos no formato ASCII (ou pondem ser transformados para o formato ASCII), portanto, são dados não estruturados, o que dificulta as tarefas de análise e comparação. Desta forma, é necessário “vetorizar” textos a fim de viabilizar o emprego de processos matemáticos e computacionais como forma de tratamento e análise.</p>
+<p>Um mecanismo bastante importante para “vetorizar” documentos é a construção das chamadas matrizes <font color='blue'>Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras</font>.</p>
+<p>O processo de vetorização envolve a extração de palavras relevantes contidas nos textos, descartando símbolos, pontuação, artigos, preposições, pronomes, etc.</p>
+</section>
+<section id="pre-processamento">
+<h2>Pré-processamento<a class="headerlink" href="#pre-processamento" title="Permalink to this headline">#</a></h2>
+<p>A construção de uma matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras envolve diversas etapas de pré-processamento:</p>
+<ol class="arabic simple">
+<li><p>Obter a “string” correspondente ao texto de cada documento</p></li>
+<li><p>Extrair as palavras de cada string</p></li>
+<li><p>Remover pontuação e símbolos</p></li>
+<li><p>Remover “Stop Words”</p></li>
+<li><p>Extrair bigramas, trigramas, …</p></li>
+<li><p>Normalização Léxica</p></li>
+</ol>
+<section id="obtendo-string-a-partir-de-colecao-de-documentos">
+<h3>Obtendo String a partir de Coleção de Documentos<a class="headerlink" href="#obtendo-string-a-partir-de-colecao-de-documentos" title="Permalink to this headline">#</a></h3>
+<p>O diretório <code class="docutils literal notranslate"><span class="pre">DocCol1</span></code> contém um conjunto de documentos relacionados a dois tópicos distintos, desenvolvimento espacial (arquivos com as iniciais <em>sp</em>) e esportores (arquivos com as iniciais <em>ba</em>). O código abaixo carrega todos os documentos e concatena em uma única string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lendo o documento como uma string</span>
+<span class="kn">import</span> <span class="nn">glob</span>  <span class="c1"># glob é um pacote que permite varrer arquivos e diretorios</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;DocCol1/*&quot;</span><span class="p">)</span>  <span class="c1"># O diretório contém um conjunto de documentos já no formato ASCII</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">docs</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">docs</span> <span class="o">=</span> <span class="n">docs</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># todos os documentos</span>
+                                  <span class="c1"># são concatenadas na string &#39;docs&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;DocCol1/ba27&#39;, &#39;DocCol1/ba2&#39;, &#39;DocCol1/ba6&#39;, &#39;DocCol1/ba29&#39;, &#39;DocCol1/ba9&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extraindo-palavras">
+<h3>Extraindo Palavras<a class="headerlink" href="#extraindo-palavras" title="Permalink to this headline">#</a></h3>
+<p>Uma etapa importante do processo de construção de uma matriz <font color='blue'>Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras</font> é a identificação das palavras, separando-as dos símbolos, números, etc. O pacote <font color='blue'>nltk</font> do Python possui diversos métodos para processar conjuntos de palavras, incluindo <font color='blue'>word_tokenize</font> que separa as palavras, símbolos, números e outros ‘’tokens’’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nltk.word_tokenize transforma a string em uma lista de palavras</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="c1"># extrai as palavras</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>    <span class="c1"># 20 primeiras palavras extraidas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># nltk.word_tokenize transforma a string em uma lista de palavras</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">words</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="c1"># extrai as palavras</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;nltk&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="removendo-simbolos-e-caracteres-isolados">
+<h3>Removendo Símbolos e Caracteres Isolados<a class="headerlink" href="#removendo-simbolos-e-caracteres-isolados" title="Permalink to this headline">#</a></h3>
+<p>O resultado do método <font color='blue'>word_tokenize</font> é uma lista onde cada elemento é um ‘’token’’. Para limparmos a lista de modo a preservarmos somente as plavras (removendo símbolos, etc.) utilizando o pacote <font color='blue'>string</font> do Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="c1"># removend todos os simbolos da lista de palavras</span>
+<span class="c1"># o método &quot;isalpha&quot; retorna True quando a string é </span>
+<span class="c1"># formada apenas por letras do alphabeto</span>
+<span class="c1"># string.ascii_letters contém a lista de todas as letras do alphabeto</span>
+
+<span class="c1"># remove simbolos da</span>
+<span class="c1"># lista de palavras</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">]</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;from&#39;, &#39;rudy&#39;, &#39;rudy&#39;, &#39;wade&#39;, &#39;subject&#39;, &#39;re&#39;, &#39;bases&#39;, &#39;loaded&#39;, &#39;walk&#39;, &#39;gives&#39;, &#39;reds&#39;, &#39;win&#39;, &#39;in&#39;, &#39;in&#39;, &#39;article&#39;, &#39;tedward&#39;, &#39;edward&#39;, &#39;ted&#39;, &#39;fischer&#39;, &#39;writes&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="removendo-stop-words">
+<h3>Removendo Stop Words<a class="headerlink" href="#removendo-stop-words" title="Permalink to this headline">#</a></h3>
+<p>Algumas palavras não contribuem para a semântica dos documentos e devem ser removidas, pois geram um ruído que atrapalha as análises. O método <font color='blue'> stopwords </font> do pacote <font color='blue'> nltk </font> fornece, para várias línguas diferentes, uma lista do que se considera palavras irrelevântes para fins de análise semântica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+
+<span class="c1"># lista das stop words</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stop_words</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span> <span class="c1"># removendo palavras irrelevantes da lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Palavras Relevantes</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">words</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>                                 <span class="c1"># de palavras</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]
+Palavras Relevantes
+ [&#39;rudy&#39;, &#39;rudy&#39;, &#39;wade&#39;, &#39;subject&#39;, &#39;bases&#39;, &#39;loaded&#39;, &#39;walk&#39;, &#39;gives&#39;, &#39;reds&#39;, &#39;win&#39;, &#39;article&#39;, &#39;tedward&#39;, &#39;edward&#39;, &#39;ted&#39;, &#39;fischer&#39;, &#39;writes&#39;, &#39;article&#39;, &#39;mss&#39;, &#39;mark&#39;, &#39;singer&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /home/alvaro/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bigramas-trigramas">
+<h3>Bigramas, Trigramas, …<a class="headerlink" href="#bigramas-trigramas" title="Permalink to this headline">#</a></h3>
+<p>Algumas expressões compostas por duas (bigramas) ou mais palavras (n-gramas) contém grande significado semântico, sendo interessante mantê-las juntas na lista de palavras relevantes. O pacote <font color='blue'> nltk </font> contém métodos específicos para extrair bigramas, trigramas, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.collocations</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># collocations é o subpacote para </span>
+                                <span class="c1"># manipular n-gramas</span>
+
+<span class="c1"># BigramAssocMeasures() possui medidas de importância para n-gramas</span>
+<span class="n">bigram_measures</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">collocations</span><span class="o">.</span><span class="n">BigramAssocMeasures</span><span class="p">()</span> 
+
+<span class="c1"># encontrando os top 20 bigramas</span>
+<span class="n">finder</span> <span class="o">=</span> <span class="n">BigramCollocationFinder</span><span class="o">.</span><span class="n">from_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">finder</span><span class="o">.</span><span class="n">nbest</span><span class="p">(</span><span class="n">bigram_measures</span><span class="o">.</span><span class="n">raw_freq</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;national space&#39;, &#39;degrees fahrenheit&#39;, &#39;space center&#39;, &#39;astronomical society&#39;, &#39;degrees celsius&#39;, &#39;dewey larson&#39;, &#39;mark singer&#39;, &#39;thu apr&#39;, &#39;celsius degrees&#39;, &#39;jon leech&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="normalizacao-lexica">
+<h2>Normalização Léxica<a class="headerlink" href="#normalizacao-lexica" title="Permalink to this headline">#</a></h2>
+<p>Existem vários métodos de normalização lexica, sendo que <em>Stemming</em> e <em>Lematização</em> estão entre os mais relevantes. Nos exemplos abaixo utilizaremos o método de <em>Stemming</em>. Informações e conceitos sobre <em>Lematização</em> podem ser encontrados <a class="reference external" href="https://www.datacamp.com/community/tutorials/text-analytics-beginners-nltk">aqui</a></p>
+<section id="stemming">
+<h3>Stemming<a class="headerlink" href="#stemming" title="Permalink to this headline">#</a></h3>
+<p>O processo de stemming busca converter as palavras para sua forma base, por exemplo:</p>
+<p>ando, andando, andei, andarei <span class="math notranslate nohighlight">\(\longrightarrow\)</span> andar</p>
+<p>O pacote <font color='blue'>nltk</font> possui o método <font color='blue'>PorterStemmer</font> que executa o steeming das palavras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">PorterStemmer</span><span class="p">()</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;rudi&#39;, &#39;rudi&#39;, &#39;wade&#39;, &#39;subject&#39;, &#39;base&#39;, &#39;load&#39;, &#39;walk&#39;, &#39;give&#39;, &#39;red&#39;, &#39;win&#39;, &#39;articl&#39;, &#39;tedward&#39;, &#39;edward&#39;, &#39;ted&#39;, &#39;fischer&#39;, &#39;write&#39;, &#39;articl&#39;, &#39;mss&#39;, &#39;mark&#39;, &#39;singer&#39;, &#39;write&#39;, &#39;quot&#39;, &#39;futur&#39;, &#39;refer&#39;, &#39;shown&#39;, &#39;consist&#39;, &#39;past&#39;, &#39;overal&#39;, &#39;perform&#39;, &#39;split&#39;, &#39;even&#39;, &#39;match&#39;, &#39;style&#39;, &#39;give&#39;, &#39;advantag&#39;, &#39;use&#39;, &#39;properli&#39;, &#39;predict&#39;, &#39;futur&#39;, &#39;next&#39;, &#39;predict&#39;, &#39;sabo&#39;, &#39;like&#39;, &#39;get&#39;, &#39;hit&#39;, &#39;samuel&#39;, &#39;believ&#39;, &#39;one&#39;, &#39;two&#39;, &#39;thing&#39;, &#39;sabo&#39;, &#39;like&#39;, &#39;samuel&#39;, &#39;get&#39;, &#39;hit&#39;, &#39;good&#39;, &#39;would&#39;, &#39;done&#39;, &#39;long&#39;, &#39;run&#39;, &#39;leav&#39;, &#39;sabo&#39;, &#39;regardless&#39;, &#39;expect&#39;, &#39;actual&#39;, &#39;outcom&#39;, &#39;fact&#39;, &#39;know&#39;, &#39;perez&#39;, &#39;mind&#39;, &#39;left&#39;, &#39;sabo&#39;, &#39;support&#39;, &#39;swap&#39;, &#39;predict&#39;, &#39;opposit&#39;, &#39;fact&#39;, &#39;think&#39;, &#39;anyon&#39;, &#39;claim&#39;, &#39;predict&#39;, &#39;futur&#39;, &#39;particular&#39;, &#39;futur&#39;, &#39;event&#39;, &#39;believ&#39;, &#39;certain&#39;, &#39;trend&#39;, &#39;due&#39;, &#39;caus&#39;, &#39;whether&#39;, &#39;identifi&#39;, &#39;caus&#39;, &#39;therefor&#39;, &#39;continu&#39;, &#39;dismiss&#39;, &#39;work&#39;, &#39;state&#39;, &#39;opinion&#39;, &#39;say&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="construindo-a-matriz-documentos-times-palavras">
+<h2>Construindo a Matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras<a class="headerlink" href="#construindo-a-matriz-documentos-times-palavras" title="Permalink to this headline">#</a></h2>
+<p>A contrução de uma “Bag of Words” (matrix Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras) é feita aplicando todos os passos acima em cada documento, juntando todas as informações em um DataFrame (ou array) onde as linhas representam os documentos e as colunas o conjunto de palavras. Cada entrada <span class="math notranslate nohighlight">\((i,j)\)</span> do DataFrame representa o número de vezes que a palavra <span class="math notranslate nohighlight">\(j\)</span> aparece no documento <span class="math notranslate nohighlight">\(i\)</span>, ou seja:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}\\
+Doc_1\\
+Doc_2\\
+\vdots\\
+Doc_n
+\end{array}
+\quad\Longrightarrow\quad
+\begin{array}{lcccc}
+     &amp; palavra_1 &amp; palavra_2 &amp; \cdots &amp; palavra_m\\
+Doc_1 &amp; 0 &amp; 2 &amp;  &amp; 0\\ 
+Doc_2 &amp; 3 &amp; 0 &amp;  &amp; 1\\
+      &amp;   &amp;   &amp; \vdots &amp; \\
+Doc_n &amp; 0 &amp; 0 &amp;  &amp; 0\\     
+\end{array}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># constuindo um dicionario onde a chave é o rótulo do documento e o valor </span>
+<span class="c1"># as palavras que ocorrem no documento</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="c1"># lista das stop words</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;DocCol1/*&quot;</span><span class="p">)</span>  <span class="c1"># vamos utilizar os documento que estão no diretório DocCol3 </span>
+
+<span class="n">ddocs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># rotulo do documento</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># obtendo a lista de palavras processadas de cada documento</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="c1"># obtendo palavras do documento</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> 
+        <span class="c1"># removendo simbolos</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()]</span> 
+        <span class="c1"># removendo stop words</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+        <span class="c1"># stemming</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">PorterStemmer</span><span class="p">()</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+        <span class="c1"># calculando a frequência de palavras</span>
+        <span class="n">ddocs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ddocs</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;--&gt;&#39;</span><span class="p">,</span><span class="n">ddocs</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">ddocs</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># No processo acima não incluimos bigramas ou trigramas. </span>
+<span class="c1"># Como exercício, modifique o processo para incorporar</span>
+<span class="c1"># bigramas ou trigramas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ba27 --&gt; {&#39;rudi&#39;: 3, &#39;wade&#39;: 1, &#39;subject&#39;: 2, &#39;base&#39;: 3, &#39;load&#39;: 1, &#39;walk&#39;: 1, &#39;give&#39;: 3, &#39;red&#39;: 1, &#39;win&#39;: 1, &#39;articl&#39;: 2, &#39;tedward&#39;: 1, &#39;edward&#39;: 1, &#39;ted&#39;: 1, &#39;fischer&#39;: 1, &#39;write&#39;: 2, &#39;mss&#39;: 1, &#39;mark&#39;: 4, &#39;singer&#39;: 1, &#39;quot&#39;: 1, &#39;futur&#39;: 6, &#39;refer&#39;: 1, &#39;shown&#39;: 1, &#39;consist&#39;: 3, &#39;past&#39;: 3, &#39;overal&#39;: 2, &#39;perform&#39;: 5, &#39;split&#39;: 2, &#39;even&#39;: 2, &#39;match&#39;: 1, &#39;style&#39;: 1, &#39;advantag&#39;: 1, &#39;use&#39;: 1, &#39;properli&#39;: 1, &#39;predict&#39;: 9, &#39;next&#39;: 3, &#39;ab&#39;: 1, &#39;sabo&#39;: 6, &#39;like&#39;: 3, &#39;get&#39;: 3, &#39;hit&#39;: 9, &#39;samuel&#39;: 2, &#39;believ&#39;: 4, &#39;one&#39;: 5, &#39;two&#39;: 1, &#39;thing&#39;: 1, &#39;good&#39;: 1, &#39;would&#39;: 4, &#39;done&#39;: 1, &#39;long&#39;: 1, &#39;run&#39;: 2, &#39;leav&#39;: 1, &#39;regardless&#39;: 1, &#39;expect&#39;: 3, &#39;actual&#39;: 1, &#39;outcom&#39;: 1, &#39;fact&#39;: 2, &#39;know&#39;: 4, &#39;perez&#39;: 1, &#39;mind&#39;: 3, &#39;left&#39;: 1, &#39;support&#39;: 1, &#39;swap&#39;: 1, &#39;opposit&#39;: 2, &#39;think&#39;: 6, &#39;anyon&#39;: 1, &#39;claim&#39;: 2, &#39;particular&#39;: 2, &#39;event&#39;: 1, &#39;certain&#39;: 2, &#39;trend&#39;: 1, &#39;due&#39;: 1, &#39;caus&#39;: 2, &#39;whether&#39;: 3, &#39;identifi&#39;: 1, &#39;therefor&#39;: 1, &#39;continu&#39;: 2, &#39;dismiss&#39;: 1, &#39;work&#39;: 5, &#39;state&#39;: 3, &#39;opinion&#39;: 5, &#39;say&#39;: 4, &#39;render&#39;: 1, &#39;contrari&#39;: 1, &#39;invalid&#39;: 1, &#39;retent&#39;: 1, &#39;kind&#39;: 2, &#39;insult&#39;: 3, &#39;well&#39;: 4, &#39;ye&#39;: 2, &#39;awar&#39;: 1, &#39;exist&#39;: 4, &#39;incap&#39;: 1, &#39;understand&#39;: 1, &#39;though&#39;: 2, &#39;suspect&#39;: 1, &#39;simpli&#39;: 3, &#39;unwil&#39;: 2, &#39;yet&#39;: 2, &#39;rather&#39;: 1, &#39;forc&#39;: 1, &#39;seem&#39;: 1, &#39;worth&#39;: 1, &#39;read&#39;: 1, &#39;obvious&#39;: 1, &#39;feel&#39;: 1, &#39;topic&#39;: 1, &#39;import&#39;: 1, &#39;see&#39;: 8, &#39;peopl&#39;: 1, &#39;silli&#39;: 1, &#39;call&#39;: 2, &#39;total&#39;: 2, &#39;idiot&#39;: 2, &#39;stupid&#39;: 1, &#39;chang&#39;: 1, &#39;skill&#39;: 1, &#39;said&#39;: 1, &#39;indic&#39;: 4, &#39;set&#39;: 1, &#39;circumst&#39;: 2, &#39;right&#39;: 1, &#39;beef&#39;: 1, &#39;proven&#39;: 1, &#39;least&#39;: 1, &#39;none&#39;: 1, &#39;abl&#39;: 1, &#39;come&#39;: 1, &#39;pleas&#39;: 1, &#39;let&#39;: 1, &#39;us&#39;: 2, &#39;secret&#39;: 1, &#39;player&#39;: 4, &#39;better&#39;: 2, &#39;tuesday&#39;: 3, &#39;alway&#39;: 3, &#39;might&#39;: 4, &#39;season&#39;: 2, &#39;respond&#39;: 1, &#39;way&#39;: 1, &#39;point&#39;: 1, &#39;admit&#39;: 1, &#39;variabl&#39;: 1, &#39;known&#39;: 1, &#39;guy&#39;: 2, &#39;everi&#39;: 1, &#39;monday&#39;: 2, &#39;night&#39;: 2, &#39;mayb&#39;: 1, &#39;sport&#39;: 1, &#39;shrink&#39;: 1, &#39;morn&#39;: 1, &#39;vitamin&#39;: 1, &#39;b&#39;: 1, &#39;shot&#39;: 1, &#39;someth&#39;: 1, &#39;true&#39;: 1, &#39;mean&#39;: 2, &#39;meaning&#39;: 1, &#39;correl&#39;: 5, &#39;entir&#39;: 1, &#39;leagu&#39;: 2, &#39;day&#39;: 1, &#39;week&#39;: 1, &#39;ca&#39;: 3, &#39;make&#39;: 4, &#39;end&#39;: 1, &#39;chri&#39;: 2, &#39;bat&#39;: 5, &#39;averag&#39;: 5, &#39;clutch&#39;: 6, &#39;situat&#39;: 5, &#39;significantli&#39;: 2, &#39;lower&#39;: 1, &#39;prove&#39;: 3, &#39;happen&#39;: 1, &#39;guess&#39;: 1, &#39;wait&#39;: 1, &#39;year&#39;: 4, &#39;batter&#39;: 2, &#39;xxx&#39;: 1, &#39;amount&#39;: 1, &#39;wors&#39;: 1, &#39;anyth&#39;: 2, &#39;anoth&#39;: 1, &#39;joe&#39;: 2, &#39;carter&#39;: 2, &#39;presum&#39;: 1, &#39;random&#39;: 1, &#39;go&#39;: 2, &#39;case&#39;: 1, &#39;analysi&#39;: 1, &#39;sure&#39;: 1, &#39;find&#39;: 3, &#39;somebodi&#39;: 1, &#39;poorli&#39;: 3, &#39;also&#39;: 1, &#39;exactli&#39;: 1, &#39;tri&#39;: 1, &#39;hitter&#39;: 2, &#39;ask&#39;: 1, &#39;major&#39;: 1, &#39;ballplay&#39;: 1, &#39;high&#39;: 1, &#39;ba&#39;: 2, &#39;gambler&#39;: 2, &#39;fallaci&#39;: 2, &#39;unless&#39;: 1, &#39;reason&#39;: 4, &#39;huh&#39;: 1, &#39;deni&#39;: 2, &#39;argument&#39;: 2, &#39;noth&#39;: 1, &#39;seen&#39;: 1, &#39;detail&#39;: 1, &#39;studi&#39;: 1, &#39;someon&#39;: 1, &#39;post&#39;: 1, &#39;recent&#39;: 1, &#39;neg&#39;: 1, &#39;along&#39;: 1, &#39;line&#39;: 1, &#39;star&#39;: 1, &#39;advers&#39;: 1, &#39;condit&#39;: 1, &#39;late&#39;: 1, &#39;inning&#39;: 1, &#39;close&#39;: 1, &#39;game&#39;: 1, &#39;oppos&#39;: 1, &#39;manag&#39;: 2, &#39;bring&#39;: 1, &#39;ah&#39;: 1, &#39;pitcher&#39;: 1, &#39;face&#39;: 1, &#39;pull&#39;: 1, &#39;ph&#39;: 1, &#39;consid&#39;: 1, &#39;evid&#39;: 1, &#39;suggest&#39;: 1, &#39;wrong&#39;: 1, &#39;term&#39;: 2, &#39;fit&#39;: 3, &#39;nice&#39;: 1, &#39;tell&#39;: 1, &#39;open&#39;: 2, &#39;shoe&#39;: 1, &#39;wear&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>A variável <code class="docutils literal notranslate"><span class="pre">ddocs</span></code> é um dicionário onde cada chave é o nome de um documento e o valor correspondente é um outro dicionário, cuja chave é uma palavra relevante do documento e o valor o número de ocorrências da palavra no documeto. Ou seja:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Doc1&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="n">p1</span><span class="p">:</span> <span class="n">np1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="n">np2</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+    <span class="s1">&#39;Doc2&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="n">p1</span><span class="p">:</span> <span class="n">np1</span><span class="p">,</span> <span class="n">p5</span><span class="p">:</span><span class="n">np2</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+      <span class="p">:</span>
+      <span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># constrindo a lista de todas as palavras</span>
+<span class="c1"># precisamos desta lista para definir as colunas do DataFrame Documentos X Palavras</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ddocs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">corpus</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>  <span class="c1"># juntando as listas de </span>
+                                   <span class="c1"># palavras de cada documento</span>
+    
+<span class="n">corpus</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">corpus</span><span class="p">))</span> <span class="c1"># removendo palavras repetidas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corpus</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;enlarg&#39;, &#39;increment&#39;, &#39;liftoff&#39;, &#39;dim&#39;, &#39;duplic&#39;, &#39;human&#39;, &#39;nast&#39;, &#39;nurs&#39;, &#39;joint&#39;, &#39;shane&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construindo um DataFrame onde os rótulos das colunas são</span>
+<span class="c1"># as palavras e os das linhas os documentos</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ddocs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">BoW</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">))),</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ddocs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">BoW</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">ddocs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ddocs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="n">BoW</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  
+
+<span class="c1">#BoW.to_csv(&#39;bag_of_words.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>enlarg</th>
+      <th>increment</th>
+      <th>liftoff</th>
+      <th>dim</th>
+      <th>duplic</th>
+      <th>human</th>
+      <th>nast</th>
+      <th>nurs</th>
+      <th>joint</th>
+      <th>shane</th>
+      <th>...</th>
+      <th>samuel</th>
+      <th>ecu</th>
+      <th>radioastronomi</th>
+      <th>axi</th>
+      <th>norton</th>
+      <th>deep</th>
+      <th>chemistri</th>
+      <th>mlb</th>
+      <th>activist</th>
+      <th>pagnozzi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ba27</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ba2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ba6</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ba29</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ba9</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 6686 columns</p>
+</div></div></div>
+</div>
+<section id="removendo-palavras-mais-e-menos-frequentes">
+<h3>Removendo palavras mais e menos frequentes<a class="headerlink" href="#removendo-palavras-mais-e-menos-frequentes" title="Permalink to this headline">#</a></h3>
+<p>Palavras que aparecem em apenas um documento ou que aparece em quase todos os documentos não são úteis para discriminar os documentos, sendo necessário removê-las.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frequency</span> <span class="o">=</span> <span class="n">BoW</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># conta o número de vezes que cada palavra aparece no corpus</span>
+<span class="n">smaller</span> <span class="o">=</span> <span class="mf">1.0</span>               <span class="c1"># palavras que aparecem &quot;smaller&quot; ou menos vezes serão removidas</span>
+<span class="n">larger</span> <span class="o">=</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">BoW</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># palavras que aparecem &quot;larger&quot; ou mais vezes serão removidas</span>
+
+<span class="n">s_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&lt;=</span> <span class="n">smaller</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&gt;=</span> <span class="n">larger</span><span class="p">)</span>  <span class="c1"># mascara boleana indicando as palavras</span>
+<span class="n">words_to_remove</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">[</span><span class="n">s_mask</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># que serão removidas</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">BoW</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">BoW</span> <span class="o">=</span> <span class="n">BoW</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">words_to_remove</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># remove as colunas do DataFrame correspondentes </span>
+                                         <span class="c1"># as palavras que devem ser removidas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Foram removidas&#39;</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="n">BoW</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;palavras&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Foram removidas 3006 palavras
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizando-os-documentos">
+<h3>Visualizando os documentos<a class="headerlink" href="#visualizando-os-documentos" title="Permalink to this headline">#</a></h3>
+<p>Uma das aplicações interessantes de PCA é utilizar uma Bag of Words para encontrar tópicos associados aos documentos. A ideia é que palavras dentro de um mesmo tópico tendem a estar correlacionadas na Bag of Words e tais correlações tendem a ser capturadas pelas direções principais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">docid</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">BoW</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">docid</span><span class="p">:</span>              <span class="c1"># as duas letras iniciais do indice indicam o</span>
+      <span class="n">docid</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>                 <span class="c1"># tópico ao qual o documento está relacionado</span>
+                                        <span class="c1"># docid armazena como chave o tópico e valor </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docid</span><span class="p">)</span>                            <span class="c1"># a linha onde aparece pela primeira vez </span>
+        
+<span class="n">doc_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">docid</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">BoW</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="c1"># cria uma lista de labels indicando</span>
+                                                    <span class="c1"># a qual topico o documento pertence.  </span>
+                                                    <span class="c1"># Os labels serão utilizados para colorir</span>
+                                                    <span class="c1"># os documentos de acordo com seu tópico</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">BoW</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>               <span class="c1"># Aplica uma normalização Z-score</span>
+                                                    <span class="c1"># nos dados para melhorar o resultado do PCA</span>
+
+<span class="n">pca_obj</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Xpca</span> <span class="o">=</span> <span class="n">pca_obj</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Xpca</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1">#BoW.to_csv(&#39;bag_of_words_4.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ba&#39;: 0, &#39;sp&#39;: 6}
+(54, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">doc_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 6]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4c94436790&gt;
+</pre></div>
+</div>
+<img alt="_images/75bd8ff4cdb4a261b35811a77c97a49d31db41005a16ce11054c918ea94ab02d.png" src="_images/75bd8ff4cdb4a261b35811a77c97a49d31db41005a16ce11054c918ea94ab02d.png" />
+</div>
+</div>
+<p>O resultado do PCA mostra que existem outliers, porem, facando a visualização no cluster inferior esquerdo (veja figura abaixo), vemos uma separação dos documentos de acordo com os tópicos, mostrando que a representação via matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras, está, até certo ponto, sendo capaz de representar os documentos de acordo com os tópicos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">doc_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4c94378610&gt;
+</pre></div>
+</div>
+<img alt="_images/3330d1ac43d2ac7b37feb8258f58b98231cb50ed186e152412974d0f568c7071.png" src="_images/3330d1ac43d2ac7b37feb8258f58b98231cb50ed186e152412974d0f568c7071.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="term-frequency-and-inverse-document-frequency-tf-idf">
+<h2>Term Frequency and Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-and-inverse-document-frequency-tf-idf" title="Permalink to this headline">#</a></h2>
+<p>TF-IDF é uma técnica para quantificar a importância das palavra nos documentos.</p>
+<p><strong>Nomenclatura</strong>:</p>
+<ul class="simple">
+<li><p>t — palavra</p></li>
+<li><p>d — documento (conjunto de palavras)</p></li>
+<li><p>N — número de documentos</p></li>
+</ul>
+<section id="tf">
+<h3>TF<a class="headerlink" href="#tf" title="Permalink to this headline">#</a></h3>
+<p>TF mede a frequência de uma palavra em um documento. TF depende muito do tamanho do documento e da generalidade da palavra.</p>
+<div class="math notranslate nohighlight">
+\[
+TF(t,d)= \frac{\# t \mbox{ em } d}{\#\mbox{ palavras em } d} 
+\]</div>
+<p>onde <span class="math notranslate nohighlight">\(t\)</span> é uma palavra e <span class="math notranslate nohighlight">\(d\)</span> um documento.</p>
+</section>
+<section id="idf">
+<h3>IDF<a class="headerlink" href="#idf" title="Permalink to this headline">#</a></h3>
+<p>IDF mede o quão informativa cada palavra é no conjunto de documentos. Uma palavra que aparece frequentemente em muitos documentos não é útil para discriminar os documentos, portanto seu IDF deve ser próximo de zero.</p>
+<div class="math notranslate nohighlight">
+\[
+IDF(t) = \frac{N}{\# t \mbox{ em todos os documentos}}
+\]</div>
+<p>onde <span class="math notranslate nohighlight">\(N\)</span> é o número de documentos no corpus.</p>
+<p>Combinando as duas métricas temos o chamado TF-IDF:</p>
+<div class="math notranslate nohighlight">
+\[
+TFIDF(t,d) = TF(t,d)*\log(IDF(t))
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">BoW</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># calculando o IDF das palavras</span>
+<span class="n">X_idf</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_idf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># calculando TF de palavras em cada documento</span>
+<span class="n">X_tf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_tf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># calculando TF-IDF</span>
+<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">X_idf</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X_tf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_tfidf</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># valores negativos são zerados</span>
+<span class="n">X_tfidf</span><span class="p">[</span><span class="n">M</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3680,)
+(54, 3680)
+(54, 3680)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Os valores na matriz de Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras geralmente são substituidos pelos seus correspondentes TF-IDF, o que tende a gerar representações melhores para cada documento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">)</span>
+
+<span class="n">pca_obj</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Xpca</span> <span class="o">=</span> <span class="n">pca_obj</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Xpca</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">doc_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(54, 2)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4c94368a30&gt;
+</pre></div>
+</div>
+<img alt="_images/554e67426d7c0c220af9b06b52df12d1c19ae9a58d4a0519dc61d2be317f7c6c.png" src="_images/554e67426d7c0c220af9b06b52df12d1c19ae9a58d4a0519dc61d2be317f7c6c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Xpca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">doc_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4c942e1280&gt;
+</pre></div>
+</div>
+<img alt="_images/1ec189a9275fa869ef48b68fd1d1a60c5f5dd2a32ab14a1627e20664641a35c4.png" src="_images/1ec189a9275fa869ef48b68fd1d1a60c5f5dd2a32ab14a1627e20664641a35c4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gerando um data frame com a BoW usando TFIDF</span>
+<span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X_tfidf</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">BoW</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="n">df_out</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;bag_of_words_4.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-05-Extracao%20de%20Texto.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-matriz-documento-times-palavras-bag-of-words-font"><font color="blue"> Matriz Documento <span class="math notranslate nohighlight">\(\times\)</span> Palavras - Bag of Words</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao">Introdução</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processamento">Pré-processamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtendo-string-a-partir-de-colecao-de-documentos">Obtendo String a partir de Coleção de Documentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraindo-palavras">Extraindo Palavras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-simbolos-e-caracteres-isolados">Removendo Símbolos e Caracteres Isolados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-stop-words">Removendo Stop Words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bigramas-trigramas">Bigramas, Trigramas, …</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacao-lexica">Normalização Léxica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construindo-a-matriz-documentos-times-palavras">Construindo a Matriz Documentos <span class="math notranslate nohighlight">\(\times\)</span> Palavras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removendo-palavras-mais-e-menos-frequentes">Removendo palavras mais e menos frequentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizando-os-documentos">Visualizando os documentos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-and-inverse-document-frequency-tf-idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf">TF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#idf">IDF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

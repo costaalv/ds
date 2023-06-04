@@ -1,0 +1,105 @@
+Traceback (most recent call last):
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# preparando os atributos
+Xcla = dtrain[['tax','total','insurance']]
+Ycla = dtrain['city']
+
+# dados de teste
+ZXcla = dtest[['tax','total','insurance']]
+ZYcla = dtest['city']
+
+# classificador
+clfb = RandomForestClassifier(n_estimators=50, random_state=1)
+clfb.fit(Xcla,Ycla)
+ZYcla_ = clfb.predict(ZXcla)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/tmp/ipykernel_21818/3050324212.py[0m in [0;36m?[0;34m()[0m
+[1;32m      7[0m [0mZYcla[0m [0;34m=[0m [0mdtest[0m[0;34m[[0m[0;34m'city'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m# classificador[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mclfb[0m [0;34m=[0m [0mRandomForestClassifier[0m[0;34m([0m[0mn_estimators[0m[0;34m=[0m[0;36m50[0m[0;34m,[0m [0mrandom_state[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mclfb[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mXcla[0m[0;34m,[0m[0mYcla[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mZYcla_[0m [0;34m=[0m [0mclfb[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mZXcla[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/ensemble/_forest.py[0m in [0;36m?[0;34m(self, X, y, sample_weight)[0m
+[1;32m    341[0m [0;34m[0m[0m
+[1;32m    342[0m         [0;31m# Validate or convert input data[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    343[0m         [0;32mif[0m [0missparse[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    344[0m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"sparse multilabel-indicator for y is not supported."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 345[0;31m         X, y = self._validate_data(
+[0m[1;32m    346[0m             [0mX[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mmulti_output[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m"csc"[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mDTYPE[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    347[0m         )
+[1;32m    348[0m         [0;32mif[0m [0msample_weight[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/base.py[0m in [0;36m?[0;34m(self, X, y, reset, validate_separately, **check_params)[0m
+[1;32m    580[0m                 [0;32mif[0m [0;34m"estimator"[0m [0;32mnot[0m [0;32min[0m [0mcheck_y_params[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    581[0m                     [0mcheck_y_params[0m [0;34m=[0m [0;34m{[0m[0;34m**[0m[0mdefault_check_params[0m[0;34m,[0m [0;34m**[0m[0mcheck_y_params[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    582[0m                 [0my[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0my[0m[0;34m,[0m [0minput_name[0m[0;34m=[0m[0;34m"y"[0m[0;34m,[0m [0;34m**[0m[0mcheck_y_params[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    583[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 584[0;31m                 [0mX[0m[0;34m,[0m [0my[0m [0;34m=[0m [0mcheck_X_y[0m[0;34m([0m[0mX[0m[0;34m,[0m [0my[0m[0;34m,[0m [0;34m**[0m[0mcheck_params[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    585[0m             [0mout[0m [0;34m=[0m [0mX[0m[0;34m,[0m [0my[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    586[0m [0;34m[0m[0m
+[1;32m    587[0m         [0;32mif[0m [0;32mnot[0m [0mno_val_X[0m [0;32mand[0m [0mcheck_params[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"ensure_2d"[0m[0;34m,[0m [0;32mTrue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/validation.py[0m in [0;36m?[0;34m(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)[0m
+[1;32m   1102[0m         raise ValueError(
+[1;32m   1103[0m             [0;34mf"{estimator_name} requires y to be passed, but the target y is None"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1104[0m         )
+[1;32m   1105[0m [0;34m[0m[0m
+[0;32m-> 1106[0;31m     X = check_array(
+[0m[1;32m   1107[0m         [0mX[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1108[0m         [0maccept_sparse[0m[0;34m=[0m[0maccept_sparse[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1109[0m         [0maccept_large_sparse[0m[0;34m=[0m[0maccept_large_sparse[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/validation.py[0m in [0;36m?[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)[0m
+[1;32m    876[0m                         )
+[1;32m    877[0m                     [0marray[0m [0;34m=[0m [0mxp[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0marray[0m[0;34m,[0m [0mdtype[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    878[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    879[0m                     [0marray[0m [0;34m=[0m [0m_asarray_with_order[0m[0;34m([0m[0marray[0m[0;34m,[0m [0morder[0m[0;34m=[0m[0morder[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m,[0m [0mxp[0m[0;34m=[0m[0mxp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 880[0;31m             [0;32mexcept[0m [0mComplexWarning[0m [0;32mas[0m [0mcomplex_warning[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    881[0m                 raise ValueError(
+[1;32m    882[0m                     [0;34m"Complex data not supported\n{}\n"[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0marray[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    883[0m                 ) from complex_warning
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/sklearn/utils/_array_api.py[0m in [0;36m?[0;34m(array, dtype, order, copy, xp)[0m
+[1;32m    181[0m     [0;32mif[0m [0mxp[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    182[0m         [0mxp[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mget_namespace[0m[0;34m([0m[0marray[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    183[0m     [0;32mif[0m [0mxp[0m[0;34m.[0m[0m__name__[0m [0;32min[0m [0;34m{[0m[0;34m"numpy"[0m[0;34m,[0m [0;34m"numpy.array_api"[0m[0;34m}[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    184[0m         [0;31m# Use NumPy API to support order[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 185[0;31m         [0marray[0m [0;34m=[0m [0mnumpy[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0marray[0m[0;34m,[0m [0morder[0m[0;34m=[0m[0morder[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    186[0m         [0;32mreturn[0m [0mxp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0marray[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0mcopy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    187[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    188[0m         [0;32mreturn[0m [0mxp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0marray[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0mcopy[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/envs/pymc_env/lib/python3.11/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self, dtype)[0m
+[1;32m   1996[0m     [0;32mdef[0m [0m__array__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mdtype[0m[0;34m:[0m [0mnpt[0m[0;34m.[0m[0mDTypeLike[0m [0;34m|[0m [0;32mNone[0m [0;34m=[0m [0;32mNone[0m[0;34m)[0m [0;34m->[0m [0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1997[0m         [0mvalues[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_values[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1998[0;31m         [0marr[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0mvalues[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1999[0m         if (
+[1;32m   2000[0m             [0mastype_is_view[0m[0;34m([0m[0mvalues[0m[0;34m.[0m[0mdtype[0m[0;34m,[0m [0marr[0m[0;34m.[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2001[0m             [0;32mand[0m [0musing_copy_on_write[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: could not convert string to float: '-'
+

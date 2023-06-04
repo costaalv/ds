@@ -1,0 +1,1462 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_03_Python III';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Função ‘map’" href="PCD_03_x_map_filter_reduce.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="PCD_02_Python%20II.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_03_Python III.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_03_Python III.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:blue"> MBA em Ciência de Dados</span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span"><span style="color:blue">Programação para Ciência de Dados</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-python-parte-iii-span"><span style="color:blue">Python Parte III</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-e-pacotes">Módulos e Pacotes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-import">Comando <em>Import</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-from">Comando <em>from</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escopo-de-atributos-e-metodos-definidos-em-modulos">Escopo de Atributos e Métodos Definidos em Módulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caminho-de-busca-de-um-modulo">Caminho de Busca de um Módulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-especiais">Variáveis Especiais</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacao-funcional">Programação Funcional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-map-font"><font color="blue">map</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-filter-font"><font color="blue">filter</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-reduce-font"><font color="blue">reduce</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-e-escrita-de-arquivos-i-o">Leitura e Escrita de Arquivos (I/O)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-open-font"><font color="blue">open</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-de-arquivos">Leitura de Arquivos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#escrita-de-arquivos">Escrita de Arquivos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacao-orientada-a-objeto">Programação Orientada a Objeto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetos">Objetos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heranca">Herança</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-em-python">Classes em Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-uma-classe">Exemplo de uma classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-heranca">Exemplo de herança</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrecarga-de-operador-operator-overloading">Sobrecarga de operador (Operator Overloading)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-publicos-e-privados">Atributos públicos e privados</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-mba-em-ciencia-de-dados-span">
+<h1><span style="color:blue"> MBA em Ciência de Dados</span><a class="headerlink" href="#span-style-color-blue-mba-em-ciencia-de-dados-span" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-programacao-para-ciencia-de-dados-span">
+<h1><span style="color:blue">Programação para Ciência de Dados</span><a class="headerlink" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-blue-python-parte-iii-span">
+<h2><span style="color:blue">Python Parte III</span><a class="headerlink" href="#span-style-color-blue-python-parte-iii-span" title="Permalink to this headline">#</a></h2>
+<p><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong></p>
+<hr class="docutils" />
+<p><strong>Conteúdos:</strong></p>
+<ul class="simple">
+<li><p>Módulos e pacotes</p></li>
+<li><p>Programação Funcional</p></li>
+<li><p>I/O em python</p></li>
+<li><p>Noções básicas de classes e objetos</p></li>
+</ul>
+<p><strong>Referências:</strong></p>
+<ul class="simple">
+<li><p>Mark Lutz, Learning Python, O’Reilly, 2013</p></li>
+<li><p>Eric Matthes, Python Crash Course: A Hands-On, Project-Based Introduction to Programming, No Starch Press, 2015</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="modulos-e-pacotes">
+<h2>Módulos e Pacotes<a class="headerlink" href="#modulos-e-pacotes" title="Permalink to this headline">#</a></h2>
+<p>Um <em>módulo</em> (module) é um arquivo que pode ser importado com o comando <font color='blue'>import</font>. Essencialmente qualquer arquivo em Python é um módulo. A sintaxe para importar um módulo é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nome_do_modulo</span>
+</pre></div>
+</div>
+<p>Um pacote é um módulo que contem vários módulos, podendo incluir outros subpacotes. Tipicamente, se importa apenas as partes de um pacote necessárias para desenvolver o código desejado. Por exemplo, um pacote muito importante em Python é o Numpy (que estudaremos mais adiante no curso), que inclui vários módulos. A sintaxe para importar um dos módulos do pacote Numpy é a seguinte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span>   <span class="c1"># módulo do Numpy de geração de números randomicos</span>
+<span class="kn">import</span> <span class="nn">numpy.linalg</span>   <span class="c1"># módulo do Numpy para problemas de Algebra Linear, </span>
+                      <span class="c1"># como solução de sistemas</span>
+</pre></div>
+</div>
+<section id="comando-import">
+<h3>Comando <em>Import</em><a class="headerlink" href="#comando-import" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>O comando <font color='blue'>import</font> carrega tudo que existe no módulo indicado</p></li>
+<li><p>O módulo só é carregado uma vez, independente do número de vezes que é importado</p></li>
+</ul>
+</section>
+<section id="comando-from">
+<h3>Comando <em>from</em><a class="headerlink" href="#comando-from" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>O comando <font color='blue'>from</font> permite importar apenas elementos específicos de um módulo</p></li>
+</ul>
+<p><a class="reference external" href="https://docs.anaconda.com/anaconda/packages/py3.6_osx-64/">Neste link</a> pode-se encontrar uma lista dos principais módulos, ou pacotes do Python, indicando os que já são automaticamente instalados com a distribuição Anaconda.</p>
+<p>Os principais pacotes e módulos que iremos utilizar no decorrer do curso sao:</p>
+<ul class="simple">
+<li><p>numpy</p></li>
+<li><p>matplotlib</p></li>
+<li><p>pandas</p></li>
+<li><p>sklearn</p></li>
+<li><p>math</p></li>
+<li><p>sys</p></li>
+</ul>
+</section>
+<section id="escopo-de-atributos-e-metodos-definidos-em-modulos">
+<h3>Escopo de Atributos e Métodos Definidos em Módulos<a class="headerlink" href="#escopo-de-atributos-e-metodos-definidos-em-modulos" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Atributos e métodos definidos em um módulo são acessados utilizando a sintaxe <code class="docutils literal notranslate"><span class="pre">nome_do_modulo.nome_do_atributo</span></code> e <code class="docutils literal notranslate"><span class="pre">nome_do_modulo.nome_do_metodo</span></code></p></li>
+<li><p>O conteúdo de módulos podem ser acessado pelo atributo <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> de um módulo ou usando o método <font color='blue'>dir</font></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>  <span class="c1"># importa o módulo &#39;sys&#39;</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>    <span class="c1"># lista todos os atributos e métodos contidos no módulo &#39;sys&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__breakpointhook__&#39;,
+ &#39;__displayhook__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__excepthook__&#39;,
+ &#39;__interactivehook__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;__stderr__&#39;,
+ &#39;__stdin__&#39;,
+ &#39;__stdout__&#39;,
+ &#39;__unraisablehook__&#39;,
+ &#39;_base_executable&#39;,
+ &#39;_clear_type_cache&#39;,
+ &#39;_current_exceptions&#39;,
+ &#39;_current_frames&#39;,
+ &#39;_debugmallocstats&#39;,
+ &#39;_framework&#39;,
+ &#39;_getframe&#39;,
+ &#39;_getquickenedcount&#39;,
+ &#39;_git&#39;,
+ &#39;_home&#39;,
+ &#39;_stdlib_dir&#39;,
+ &#39;_xoptions&#39;,
+ &#39;abiflags&#39;,
+ &#39;addaudithook&#39;,
+ &#39;api_version&#39;,
+ &#39;argv&#39;,
+ &#39;audit&#39;,
+ &#39;base_exec_prefix&#39;,
+ &#39;base_prefix&#39;,
+ &#39;breakpointhook&#39;,
+ &#39;builtin_module_names&#39;,
+ &#39;byteorder&#39;,
+ &#39;call_tracing&#39;,
+ &#39;copyright&#39;,
+ &#39;displayhook&#39;,
+ &#39;dont_write_bytecode&#39;,
+ &#39;exc_info&#39;,
+ &#39;excepthook&#39;,
+ &#39;exception&#39;,
+ &#39;exec_prefix&#39;,
+ &#39;executable&#39;,
+ &#39;exit&#39;,
+ &#39;flags&#39;,
+ &#39;float_info&#39;,
+ &#39;float_repr_style&#39;,
+ &#39;get_asyncgen_hooks&#39;,
+ &#39;get_coroutine_origin_tracking_depth&#39;,
+ &#39;get_int_max_str_digits&#39;,
+ &#39;getallocatedblocks&#39;,
+ &#39;getdefaultencoding&#39;,
+ &#39;getdlopenflags&#39;,
+ &#39;getfilesystemencodeerrors&#39;,
+ &#39;getfilesystemencoding&#39;,
+ &#39;getprofile&#39;,
+ &#39;getrecursionlimit&#39;,
+ &#39;getrefcount&#39;,
+ &#39;getsizeof&#39;,
+ &#39;getswitchinterval&#39;,
+ &#39;gettrace&#39;,
+ &#39;hash_info&#39;,
+ &#39;hexversion&#39;,
+ &#39;implementation&#39;,
+ &#39;int_info&#39;,
+ &#39;intern&#39;,
+ &#39;is_finalizing&#39;,
+ &#39;maxsize&#39;,
+ &#39;maxunicode&#39;,
+ &#39;meta_path&#39;,
+ &#39;modules&#39;,
+ &#39;orig_argv&#39;,
+ &#39;path&#39;,
+ &#39;path_hooks&#39;,
+ &#39;path_importer_cache&#39;,
+ &#39;platform&#39;,
+ &#39;platlibdir&#39;,
+ &#39;prefix&#39;,
+ &#39;ps1&#39;,
+ &#39;ps2&#39;,
+ &#39;ps3&#39;,
+ &#39;pycache_prefix&#39;,
+ &#39;set_asyncgen_hooks&#39;,
+ &#39;set_coroutine_origin_tracking_depth&#39;,
+ &#39;set_int_max_str_digits&#39;,
+ &#39;setdlopenflags&#39;,
+ &#39;setprofile&#39;,
+ &#39;setrecursionlimit&#39;,
+ &#39;setswitchinterval&#39;,
+ &#39;settrace&#39;,
+ &#39;stderr&#39;,
+ &#39;stdin&#39;,
+ &#39;stdlib_module_names&#39;,
+ &#39;stdout&#39;,
+ &#39;thread_info&#39;,
+ &#39;unraisablehook&#39;,
+ &#39;version&#39;,
+ &#39;version_info&#39;,
+ &#39;warnoptions&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="caminho-de-busca-de-um-modulo">
+<h3>Caminho de Busca de um Módulo<a class="headerlink" href="#caminho-de-busca-de-um-modulo" title="Permalink to this headline">#</a></h3>
+<p>Quando importa um módulo, Python usa um caminho de busca para determinar a sua localização</p>
+<p>Os caminhos de busca compreendem:</p>
+<ul class="simple">
+<li><p>Diretório de trabalho (local o código esta sendo desenvolvido)</p></li>
+<li><p>Diretórios do PYTHONPATH</p></li>
+<li><p>Diretórios padrão de bibliotecas</p></li>
+<li><p>Os conteúdos de qualquer arquivo .pth</p></li>
+<li><p>O diretório site-packages</p></li>
+</ul>
+<p>Os caminhos de busca se encontram disponíveis no atributo <font color='blue'>sys.path</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/alvaro/ICD-CEMAI-2023&#39;, &#39;/home/alvaro/anaconda3/envs/pymc_env/lib/python311.zip&#39;, &#39;/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11&#39;, &#39;/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/lib-dynload&#39;, &#39;&#39;, &#39;/home/alvaro/anaconda3/envs/pymc_env/lib/python3.11/site-packages&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variaveis-especiais">
+<h3>Variáveis Especiais<a class="headerlink" href="#variaveis-especiais" title="Permalink to this headline">#</a></h3>
+<p>Os desenvolvedores do Python criaram uma nomenclatura para distinguir variáveis em cada módulo.</p>
+<p>Variáveis começando com <code class="docutils literal notranslate"><span class="pre">underscore</span></code> não são importadas pelo comando <font color='blue'>from</font> juntamente com <font color='blue'>*</font> <br>
+Por exemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nome_do_modulo</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># o simbolo * indica que será importado </span>
+                              <span class="c1"># do módulo tudo que for permitido</span>
+</pre></div>
+</div>
+<p>não irá importar as variáveis do módulo que começam com o símbolo ‘_’ (underscore).</p>
+<p>Os módulos possuem uma lista chamada <font color='blue'>__all__</font> e as
+variáveis descritas nesta lista serão importados quando <font color='blue'>from</font> é utilizado juntamente com <font color='blue'>*</font></p>
+<p>Pode-se acessar o nome de um módulo por meio da variável <font color='blue'>__name__</font>, também disponível nos módulos.</p>
+<p>Um recurso muito utilizado é associar um “apelido” a um módulo para facilitar seu uso no código. Um apelido é gerado com o uso do comando <font color='blue'>as</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># np é o apelido do módulo &#39;numpy&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="programacao-funcional">
+<h2>Programação Funcional<a class="headerlink" href="#programacao-funcional" title="Permalink to this headline">#</a></h2>
+<p>Python implementa um conjunto de funções, chamadas de <em>funcionais</em>, que são utilizadas para aplicar outra função em uma sequência de elementos. O uso de funcionais visa, principalmente, evitar o uso de laços (<font color='blue'>for</font> e <font color='blue'>while</font>), fornecendo implementações muito eficientes para tarefas que aparecem frequentemente em programação, como percorrer uma lista aplicando uma função a cada elemento da lista, filtrar elementos de uma lista de acordo com algum critério, dentre outras.</p>
+<p>Dentre os funcionais implementados no Python, destacam-se:</p>
+<ul class="simple">
+<li><p><font color='blue'>map</font></p></li>
+<li><p><font color='blue'>filter</font></p></li>
+<li><p><font color='blue'>reduce</font></p></li>
+</ul>
+<p>A sintaxe dos funcionais é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">funcional</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">iterador</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>onde a função <code class="docutils literal notranslate"><span class="pre">func</span></code> é a função a ser aplicada e <code class="docutils literal notranslate"><span class="pre">iterador</span></code> é uma sequência ou um iterador (método que produz uma sequência de elementos, como o <font color='blue'>range</font> por exemplo).</p>
+<section id="font-color-blue-map-font">
+<h3><font color='blue'>map</font><a class="headerlink" href="#font-color-blue-map-font" title="Permalink to this headline">#</a></h3>
+<p>O funcional <font color='blue'>map</font> aplica a função ‘func’ a todos os elementos do ‘iterador’.</p>
+<p>O resultado do funcional <font color='blue'>map</font> é um objeto <code class="docutils literal notranslate"><span class="pre">map</span></code>, não uma sequência. Para obter a sequência é preciso realizar a conversão para o tipo de sequência desejada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadrado</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>  <span class="c1"># eleva um número ao quadrado</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">quadrado</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;map object at 0x7f016c4480a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note que o resultado não é a sequência de números ao quadrado, mas sim um objeto <code class="docutils literal notranslate"><span class="pre">map</span></code>. Para obter a sequência, precisamos gerá-la.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadrado</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>  <span class="c1"># eleva um número ao quadrado</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">quadrado</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">quadrado</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span> <span class="c1"># o comando &#39;list&#39;gera a lista resultante do &#39;map&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quadrado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25]
+</pre></div>
+</div>
+</div>
+</div>
+<p>O código acima é equivalente a:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quadrado</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="n">quadrado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quadrado</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Porém, com o uso do <font color='blue'>map</font>, a execução é muito mais eficiente, pois o laço <font color='blue'>for</font> é implementado internamente de forma otimizada.</p>
+<p>É muito comum utilizar função <font color='blue'>lambda</font> em conjunto com funcionais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quadrado</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quadrado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-filter-font">
+<h3><font color='blue'>filter</font><a class="headerlink" href="#font-color-blue-filter-font" title="Permalink to this headline">#</a></h3>
+<p>O funcional <font color='blue'>filter</font> aplica a função ‘func’ a todos os elementos do ‘iterador’, retornando os elementos da sequência onde <code class="docutils literal notranslate"><span class="pre">func</span></code> retorna <font color='blue'>True</font>.
+Desta forma, o resultado de <code class="docutils literal notranslate"><span class="pre">func</span></code> deve ser um booleando (True ou False).</p>
+<p>O resultado do funcional <font color='blue'>filter</font> é um objeto <code class="docutils literal notranslate"><span class="pre">filter</span></code>. Para obter a sequência é preciso realizar a conversão para o tipo de sequência desejada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0,range(10))) # retorna os números entre 0 e 9 que são par
+<span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-reduce-font">
+<h3><font color='blue'>reduce</font><a class="headerlink" href="#font-color-blue-reduce-font" title="Permalink to this headline">#</a></h3>
+<p>O funcional <font color='blue'>reduce</font> é um método do módulo <font color='blue'>functools</font>, onde vários funcionais estão disponíveis.</p>
+<p>Este funcional aplica ‘func’ acumulativamente aos itens do ‘iterador’, da esquerda para a direita, de maneira a reduzir a sequência a apenas um elemento</p>
+<ul class="simple">
+<li><p>a função ‘func’ sempre precisa receber dois argumentos, um onde a acumulação será feita e o outro o valor a ser acumulado.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># irá acumular as soma dos números de 0 a 9 na variável x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># equivalente à</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+45
+</pre></div>
+</div>
+</div>
+</div>
+<p>O funcional <font color='blue'>reduce</font> permite especificar qual o valor inicial da variável acumulada, passando este valor como parâmetro.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># irá acumular as soma dos números de 0 a 9 na variável x, </span>
+                                          <span class="c1"># porém, a variável x é inicializada como 100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># equivalente à</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>145
+145
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="leitura-e-escrita-de-arquivos-i-o">
+<h2>Leitura e Escrita de Arquivos (I/O)<a class="headerlink" href="#leitura-e-escrita-de-arquivos-i-o" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Python manipula naturalmente arquivos <em>ascii</em>, mas arquivos binários também são possíveis de serem utilizados</p></li>
+<li><p>O conteúdo de um arquivo é sempre uma string. Desta forma, deve-se fazer a conversão de/para string na leitura/escrita</p></li>
+<li><p>Arquivos são lidos/escritos em buffers, o que significa que deve-se assegurar, principalmente no processo de escrita de arquivos, que o conteúdo foi salvo em disco</p>
+<ul>
+<li><p>fechar o arquivo (comando <font color='blue'>close</font> em Python) ou usar o comando <code class="docutils literal notranslate"><span class="pre">flush</span></code>, forçando os dados do buffer serem escritos em disco</p></li>
+</ul>
+</li>
+</ul>
+<section id="font-color-blue-open-font">
+<h3><font color='blue'>open</font><a class="headerlink" href="#font-color-blue-open-font" title="Permalink to this headline">#</a></h3>
+<p>O comando  <font color='blue'>open</font> abre um arquivo em um determinado modo. A sintaxe é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="n">nome_do_arquivo</span><span class="p">,</span> <span class="n">modo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>O resultado é um objeto tipo ‘arquivo’ (<code class="docutils literal notranslate"><span class="pre">io</span></code>).<br></p>
+<p>O parâmetro <code class="docutils literal notranslate"><span class="pre">modo</span></code> pode ser:</p>
+<ul class="simple">
+<li><p>‘r’ para leitura (read)</p></li>
+<li><p>‘w’ para escrita(write)</p></li>
+<li><p>‘a’ para acrescentar conteúdo em um arquivo existente(append)</p></li>
+<li><p>‘r+’ para leitura e escrita</p></li>
+</ul>
+<p>Se o arquivo não pode ser aberto, o interpretador envia a mensagem de erro tipo ‘IOError’<br>
+Métodos do objeto tipo ‘arquivo’ são usados para ler, escrever e controlar o processo de leitura e escrita.</p>
+<p>Para ilustrarmos a funcionalidade de leitura, vamos primeiro criar um arquivo com o commando <font color='blue'>%%writefile</font>. Este comando escreve tudo que estiver na célula do notebook para um aquivo especificado. No exemplo abaixo, o commando <code class="docutils literal notranslate"><span class="pre">%%writefile</span> <span class="pre">data.txt</span></code> irá escrever todo o conteúdo da célula no arquivo chamado ‘data.txt’</p>
+<p>Verifique no seu diretório de trabalho (onde este notebook está) que o arquivo ‘data.txt’ será criado após executar a célula abaixo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> data.txt 
+<span class="n">hello</span> <span class="n">world</span>
+<span class="n">today</span> <span class="ow">is</span> <span class="n">raining</span>
+<span class="n">winter</span> <span class="ow">is</span> <span class="n">comming</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting data.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instanciando um objeto &#39;arquivo&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;data.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="leitura-de-arquivos">
+<h4>Leitura de Arquivos<a class="headerlink" href="#leitura-de-arquivos" title="Permalink to this headline">#</a></h4>
+<p>Os principais métodos para ler um arquivo são:</p>
+<ul class="simple">
+<li><p><font color='blue'>read(size)</font></p>
+<ul>
+<li><p>lê “size” bytes, ou o arquivo inteiro se o parâmetro “size” é omitido</p></li>
+</ul>
+</li>
+<li><p><font color='blue'>readline()</font></p>
+<ul>
+<li><p>lê uma única linha do arquivo</p></li>
+</ul>
+</li>
+<li><p><font color='blue'>readlines()</font></p>
+<ul>
+<li><p>retorna uma lista contendo todas as linhas do arquivo, cada linha sendo um elemento da lista</p></li>
+</ul>
+</li>
+<li><p><font color='blue'>for line in f:</font></p>
+<ul>
+<li><p>lê cada linha do arquivo atribuindo-a a variável <code class="docutils literal notranslate"><span class="pre">line</span></code> (outro nome pode ser dado a variável)</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>  <span class="c1"># abre o aquivo criado com o comando &#39;%%writefile data.txt&#39;</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>  <span class="c1"># lê todas as linhas do aquivo e armazena na lista &#39;lines&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello world\n&#39;, &#39;today is raining\n&#39;, &#39;winter is comming\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> 
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>    <span class="c1"># lê cada linha do aquivo, atribuindo uma de cada vez a variável &#39;line&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+
+today is raining
+
+winter is comming
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uma construção muito comum quando se está fazendo leitura e escrita de aquivo é utilizar a estrutura definida pelo comando <font color='blue'>with</font>. A sintaxe é a seguinte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nome_do_arquivo</span><span class="p">,</span><span class="n">modo</span><span class="p">)</span> <span class="k">as</span> <span class="n">variavel</span><span class="p">:</span>
+    <span class="n">bloco</span> <span class="n">de</span> <span class="n">codigo</span>
+</pre></div>
+</div>
+<p>onde <code class="docutils literal notranslate"><span class="pre">variavel</span></code> é uma instância do objeto tipo ‘aquivo’ e o bloco de código é onde se executa a tarefa de leitura ou escrita.</p>
+<p>A vantagem de se empregar <font color='blue'>with</font> é que o Python se encarrega de baixar o conteúdo do buffer para disco uma vez que o bloco de código identado tenha sido executado, fechando o arquivo automaticamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># garante que o arquivo será fechado corretamente quando finalizado</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+
+today is raining
+
+winter is comming
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="escrita-de-arquivos">
+<h4>Escrita de Arquivos<a class="headerlink" href="#escrita-de-arquivos" title="Permalink to this headline">#</a></h4>
+<p>Os principais métodos para escrever conteúdo em um arquivo são:</p>
+<ul class="simple">
+<li><p><font color='blue'>write</font></p>
+<ul>
+<li><p>escreve uma string no arquivo</p></li>
+</ul>
+</li>
+<li><p><font color='blue'>writelines</font></p>
+<ul>
+<li><p>escreve uma lista de strings no arquivo</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello world</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;today is Saturday</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;winter is comming</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span> <span class="c1"># lista de strings que serão escritas no arquivo</span>
+                                                                     <span class="c1"># o símbolo &#39;\n&#39; implica em uma mudança de linha</span>
+                                                                     <span class="c1"># ou seja, cada elemento da lista será escrito</span>
+                                                                     <span class="c1"># em uma linha do arquivo</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data2write.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># abre um arquivo para escrita chamado &#39;data2write.txt&#39;</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>       <span class="c1"># escreve o conteúdo da lista &#39;lst&#39; no arquivo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Após executar a célula acima, o arquivo ‘data2write.txt’ será criado no seu diretório de trabalho. Abra o arquivo e veja o conteúdo.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="programacao-orientada-a-objeto">
+<h2>Programação Orientada a Objeto<a class="headerlink" href="#programacao-orientada-a-objeto" title="Permalink to this headline">#</a></h2>
+<p>Programação orientada a objetos abrange um universo amplo de conceitos, técnicas e ferramentas que vão muito além do escopo proposto neste módulo. O objetivo da apresentação a seguir é introduzir noções básicas de programação orientada a objetos para que se possa fazer uso de tal recurso com certa segurança e desenvoltura.</p>
+<p>Programação orientada a objetos envolve três conceitos principais:</p>
+<ul class="simple">
+<li><p>Objetos</p></li>
+<li><p>Classes</p></li>
+<li><p>Herança</p></li>
+</ul>
+<section id="objetos">
+<h3>Objetos<a class="headerlink" href="#objetos" title="Permalink to this headline">#</a></h3>
+<p>Um <strong>objeto</strong> agrega dois conceitos:</p>
+<ul class="simple">
+<li><p>Estado</p></li>
+<li><p>Comportamento</p></li>
+</ul>
+<p><em>Estado</em> diz respeio às informações salvas nos <em>atributos</em> do objeto
+<br><br>
+<em>Comportamento</em> é manifestado através de métodos (funções) associadas ao objeto</p>
+<p>Várias linguagens de programação escondem estados internamente na classe e os fazem acessíveis apenas através de métodos<br></p>
+<p>Python não faz isso. Tudo é exposto!!</p>
+</section>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<p>Uma <strong>classe</strong> é um protótipo para criar um objeto. Quando um objeto é criado a partir de um protótipo, diz-se que ele foi instanciado.</p>
+<p>Em termos de programação, uma classe especifica os atributos e métodos do objeto, que pode ser instanciado tantas vezes quanto necessário.</p>
+</section>
+<section id="heranca">
+<h3>Herança<a class="headerlink" href="#heranca" title="Permalink to this headline">#</a></h3>
+<p>Classes são capazes de herdar estados e comportamentos de outras classes.<br>
+Uma classe que herda de outra classe é chamada subclasse. <br>
+Uma classe que é herdada por outra é chamada de superclasse ou classe base.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="classes-em-python">
+<h2>Classes em Python<a class="headerlink" href="#classes-em-python" title="Permalink to this headline">#</a></h2>
+<p>A sintaxe para se criar uma classe em Python é a seguinte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>class nome_da_classe(superclass,...)
+      attributo1 = valor1      # atributos da classe
+      attributo2 = valor2
+      :
+      :
+      def __init__(self,...):  # construtor da classe
+         … default code …
+            
+      def methodo1(self,...):  # métodos da classe
+         self.attribute1 = value
+</pre></div>
+</div>
+<p>Um <em>atributo da classe</em> é uma variável que é acessível por qualquer instância da classe.<br>
+Um <em>atributo de uma instância</em> só é acessível pela instância que o criou (como uma variável local).</p>
+<p>Um <em>metodo da classe</em> é uma função que pode acessar os atributos da classe diretamente, além de receber parâmetros externos.</p>
+<p>Existem métodos especiais que realizam operações específicas, como o método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que é invocado toda vez que um objeto da classe é instanciado. Uma descrição dos métodos especiais pode ser encontrada <a class="reference external" href="https://www.tutorialspoint.com/python/python_classes_objects.htm">neste link</a>.</p>
+<section id="exemplo-de-uma-classe">
+<h3>Exemplo de uma classe<a class="headerlink" href="#exemplo-de-uma-classe" title="Permalink to this headline">#</a></h3>
+<p>O exemplo a seguir define uma classe chamada <code class="docutils literal notranslate"><span class="pre">bicycle</span></code>. Esta classe possui três métodos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> (método especial pré-definido) que é o construtor da classe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> (método especial pré-definido) que gera a string que será apresentada toda vez que o comando <font color='blue'>print</font> for aplicado a uma instância da classe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_handlebar_options</span></code> que retorna o conteúdo de um dos atributos.</p></li>
+</ul>
+<p>A classe <code class="docutils literal notranslate"><span class="pre">bicycle</span></code> também possui os atributos:</p>
+<ul class="simple">
+<li><p>bicycle_type</p></li>
+<li><p>number_of_gears</p></li>
+<li><p>handlebar_type</p></li>
+<li><p>handle_options</p></li>
+</ul>
+<p>Quando um objeto da classe <code class="docutils literal notranslate"><span class="pre">bicycle</span></code> é instanciado, o construtor <code class="docutils literal notranslate"><span class="pre">__init__</span></code> é invocado para inicializar os atributos. O construtor admite três parâmetros que podem ser especificados durante a instanciação do objeto, assumindo valores “default” quando não são especificados.</p>
+<p>O parâmetro <code class="docutils literal notranslate"><span class="pre">self</span></code> é sempre mandatório, pois é por meio dele que se distingue um atributo ou método da classe de uma variável local ou função externa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">bicycle</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bike_type</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">n_gears</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">handlebar</span> <span class="o">=</span> <span class="s1">&#39;Drop&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...building the object...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bicycle_type</span> <span class="o">=</span> <span class="n">bike_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_gears</span> <span class="o">=</span> <span class="n">n_gears</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlebar_type</span> <span class="o">=</span> <span class="n">handlebar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Drop&#39;</span><span class="p">,</span><span class="s1">&#39;Cruiser&#39;</span><span class="p">,</span><span class="s1">&#39;Flat&#39;</span><span class="p">,</span><span class="s1">&#39;Bullhorn&#39;</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">get_handlebar_options</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_options</span><span class="p">[:</span><span class="n">k</span><span class="p">])</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="s1">&#39;Type: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bicycle_type</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+               <span class="s1">&#39;Gears: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_gears</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+               <span class="s1">&#39;Handle: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handlebar_type</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_bike</span> <span class="o">=</span> <span class="n">bicycle</span><span class="p">()</span> <span class="c1"># um objeto da classe bicycle é instanciado</span>
+
+<span class="n">my_bike</span><span class="o">.</span><span class="n">bicycle_type</span> <span class="o">=</span> <span class="s1">&#39;Cruise&#39;</span> <span class="c1"># acessando variável &#39;bicycle_type&#39; e atribuindo o valor &#39;Cruise&#39; dela</span>
+<span class="n">my_bike</span><span class="o">.</span><span class="n">number_of_gears</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># acessando variável &#39;number_of_gears&#39; e atribuindo o valor 3 dela</span>
+
+<span class="n">my_bike</span><span class="o">.</span><span class="n">get_handlebar_options</span><span class="p">()</span> <span class="c1"># acessando o método &#39;get_handlebar_options&#39; que imprime as opções de guidão</span>
+<span class="n">my_bike</span><span class="o">.</span><span class="n">get_handlebar_options</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="c1"># acessando o método &#39;get_handlebar_options&#39; porém fazendo k=2, o que </span>
+                                <span class="c1"># resulta na impressão das duas primeiras opções de guidão</span>
+
+<span class="n">thy_bike</span> <span class="o">=</span> <span class="n">bicycle</span><span class="p">(</span><span class="n">bike_type</span><span class="o">=</span><span class="s1">&#39;Speed&#39;</span><span class="p">,</span><span class="n">handlebar</span><span class="o">=</span><span class="s1">&#39;Bullhorn&#39;</span><span class="p">)</span> <span class="c1"># instanciando outro objeto da classe </span>
+                                                           <span class="c1"># enviando parâmetros para o construtor</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_bike</span><span class="p">)</span> <span class="c1"># o comando print automaticamente invoca o método `__repr__`, </span>
+                <span class="c1"># que gera a string que será apresentada pelo print</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thy_bike</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...building the object...
+[&#39;Drop&#39;, &#39;Cruiser&#39;, &#39;Flat&#39;, &#39;Bullhorn&#39;]
+[&#39;Drop&#39;, &#39;Cruiser&#39;]
+...building the object...
+Type: Cruise
+Gears: 3
+Handle: Drop
+------
+Type: Speed
+Gears: 1
+Handle: Bullhorn
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemplo-de-heranca">
+<h3>Exemplo de herança<a class="headerlink" href="#exemplo-de-heranca" title="Permalink to this headline">#</a></h3>
+<p>Pode-se derivar uma subclasse de uma classe pré-definida (<em>superclasse</em>). Todos os atributos e métodos da <em>superclasse</em> são automaticamente herdados pela classe derivada. A sintaxe é simplesmente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">nome_da_subclasse</span><span class="p">(</span><span class="n">nome_da_superclasse</span><span class="p">):</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mountain_bike</span><span class="p">(</span><span class="n">bicycle</span><span class="p">):</span> <span class="c1"># a subclasse mountain_bike herda todos os</span>
+                              <span class="c1"># atibutos e métodos da superclasse bicycle </span>
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># o construtor da subclasse chama o construtor da superclasse</span>
+                         <span class="c1"># com parametros desejados</span>
+        <span class="n">bicycle</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bike_type</span><span class="o">=</span><span class="s1">&#39;Mountain&#39;</span><span class="p">,</span><span class="n">n_gears</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="n">handlebar</span><span class="o">=</span><span class="s1">&#39;Bullhorn&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_handlebar_options</span><span class="p">()</span> <span class="c1"># o método set_handlebar_options não existe na </span>
+                                     <span class="c1"># superclasse bicycle, é definido somente na subclasse</span>
+        
+    <span class="k">def</span> <span class="nf">set_handlebar_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># método da subclasse </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_options</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Cruiser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_mountain_bike</span> <span class="o">=</span> <span class="n">mountain_bike</span><span class="p">()</span>  <span class="c1"># instancia um objeto mountain_bike</span>
+<span class="n">my_mountain_bike</span><span class="o">.</span><span class="n">get_handlebar_options</span><span class="p">()</span> <span class="c1"># imprime os modelos de guidão para mountain_bike</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_mountain_bike</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...building the object...
+[&#39;Drop&#39;, &#39;Flat&#39;, &#39;Bullhorn&#39;]
+Type: Mountain
+Gears: 10
+Handle: Bullhorn
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sobrecarga-de-operador-operator-overloading">
+<h3>Sobrecarga de operador (Operator Overloading)<a class="headerlink" href="#sobrecarga-de-operador-operator-overloading" title="Permalink to this headline">#</a></h3>
+<p>Classes podem interceptar operadores especiais e sobrescrevê-los. Tais métodos são definidos por um duplo underscore. Exemplos de operadores especiais são:</p>
+<ul class="simple">
+<li><p><font color='blue'>__init__</font> construtor do objeto</p></li>
+<li><p><font color='blue'>__repr__</font> método que gera uma representação da classe</p></li>
+<li><p><font color='blue'>__add__</font> método que define a operação de soma <font color='blue'>+</font></p></li>
+<li><p><font color='blue'>__lt__</font>, <font color='blue'>__gt__</font>, para comparações X &lt; Y, X &gt; Y</p></li>
+<li><p>e outras…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">pessoa</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">sobrenome</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idade</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sobrenome</span> <span class="o">=</span> <span class="n">sobrenome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idade</span> <span class="o">=</span> <span class="n">idade</span>
+        
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>  <span class="c1"># operador &#39;&lt;&#39;</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idade</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">idade</span><span class="p">)</span>  <span class="c1"># retorna True se a idade da instancia da classe for menor</span>
+    
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>  <span class="c1"># operador &#39;&gt;&#39;</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idade</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">idade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s1">&#39;gustavo&#39;</span><span class="p">,</span><span class="n">sobrenome</span><span class="o">=</span><span class="s1">&#39;nonato&#39;</span><span class="p">,</span><span class="n">idade</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>    <span class="c1"># instancia um objeto &#39;pessoa&#39;</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s1">&#39;francisco&#39;</span><span class="p">,</span><span class="n">sobrenome</span><span class="o">=</span><span class="s1">&#39;louzada&#39;</span><span class="p">,</span><span class="n">idade</span><span class="o">=</span><span class="mi">52</span><span class="p">)</span> <span class="c1"># instancia outro objeto &#39;pessoa&#39;</span>
+
+<span class="k">if</span> <span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="s1">&#39; eh mais novo que &#39;</span><span class="p">,</span><span class="n">p2</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="s1">&#39; nao eh mais novo que &#39;</span><span class="p">,</span><span class="n">p2</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">p2</span> <span class="o">&lt;</span> <span class="n">p1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="s1">&#39; eh mais novo que &#39;</span><span class="p">,</span><span class="n">p1</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="s1">&#39; NAO eh mais novo que &#39;</span><span class="p">,</span><span class="n">p1</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gustavo  eh mais novo que  francisco
+francisco  NAO eh mais novo que  gustavo
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="atributos-publicos-e-privados">
+<h3>Atributos públicos e privados<a class="headerlink" href="#atributos-publicos-e-privados" title="Permalink to this headline">#</a></h3>
+<p>Embora todos os atributos e métodos em Python são expostos, há uma convenção de que tudo precedido por dois underscores é privado.</p>
+<ul class="simple">
+<li><p>__minha_funcao</p></li>
+<li><p>__minha_variavel</p></li>
+</ul>
+<p>Não se deve acessar externamente métodos e atributos definidos por underscore duplo</p>
+<p>Tudo precedido com um underscore simples é semi-privado, e você deve evitar acessar esse dado diretamente (externamente a classe)</p>
+<ul class="simple">
+<li><p>_b</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_02_Python%20II.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span style="color:blue"> MBA em Ciência de Dados</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PCD_03_x_map_filter_reduce.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Função ‘map’</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span"><span style="color:blue">Programação para Ciência de Dados</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-python-parte-iii-span"><span style="color:blue">Python Parte III</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-e-pacotes">Módulos e Pacotes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-import">Comando <em>Import</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-from">Comando <em>from</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escopo-de-atributos-e-metodos-definidos-em-modulos">Escopo de Atributos e Métodos Definidos em Módulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caminho-de-busca-de-um-modulo">Caminho de Busca de um Módulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-especiais">Variáveis Especiais</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacao-funcional">Programação Funcional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-map-font"><font color="blue">map</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-filter-font"><font color="blue">filter</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-reduce-font"><font color="blue">reduce</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-e-escrita-de-arquivos-i-o">Leitura e Escrita de Arquivos (I/O)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-open-font"><font color="blue">open</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-de-arquivos">Leitura de Arquivos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#escrita-de-arquivos">Escrita de Arquivos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacao-orientada-a-objeto">Programação Orientada a Objeto</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetos">Objetos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heranca">Herança</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-em-python">Classes em Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-uma-classe">Exemplo de uma classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-heranca">Exemplo de herança</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sobrecarga-de-operador-operator-overloading">Sobrecarga de operador (Operator Overloading)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-publicos-e-privados">Atributos públicos e privados</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

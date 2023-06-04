@@ -1,0 +1,2028 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-03-2-Discretizacao';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-03-3-Normalizacao.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-03-1-Coleta_Aquisicao.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-03-2-Discretizacao.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-03-2-Discretizacao.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-discretizacao-span"><span style="color:darkred">Discretização</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretizacao">Discretização</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-ou-histograma">Intervalo ou Histograma</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-intervalos-fixos-e-frequencia-variavel">Utilizando intervalos fixos e frequência variável</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-quantis-fixos-e-frequencia-balanceada">Utilizando quantis fixos e frequência balanceada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamento">Agrupamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-os-valores-nulos-faltantes">E os valores nulos / faltantes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-dos-discretizadores-bonus-sklearn">Resumo dos discretizadores + Bônus <em>sklearn</em></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span">
+<h3><span style="color:darkred">Coleta de dados e Preparação de atributos</span><a class="headerlink" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="span-style-color-darkred-discretizacao-span">
+<h2><span style="color:darkred">Discretização</span><a class="headerlink" href="#span-style-color-darkred-discretizacao-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti<br>
+<em>colaboração de Eugenio Ferreira Cabral</em></p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+</section>
+<hr class="docutils" />
+<section id="discretizacao">
+<h2>Discretização<a class="headerlink" href="#discretizacao" title="Permalink to this headline">#</a></h2>
+<p>Valores contínuos podem representar um desafio na análise de dados</p>
+<ul class="simple">
+<li><p>alguns métodos não permitem o uso de valores contínuos, seja como atributo de entrada ou saída.</p></li>
+<li><p>assumir valor contínuo pode ser inviável a depender da quantidade de dados disponíveis e sua cobertura no espaço contínuo</p></li>
+</ul>
+<p><strong>Discretizar</strong> é criar um novo atributo discreto (com valores finitos e bem definidos) a partir de um atributo contínuo.</p>
+<ul class="simple">
+<li><p>podemos também re-aplicar discretização em dados já discretos, reduzindo a quantidade de valores possíveis</p></li>
+</ul>
+<hr class="docutils" />
+<p>Vamos usar uma base com dados do PIB e população (dados reais) e outros indicadores (simulados a partir de dados reais) formulada para exemplificar esse conceito, contendo os seguintes atributos:</p>
+<ul class="simple">
+<li><p>gid - identificador geográfico do município</p></li>
+<li><p>UF - unidade federativa</p></li>
+<li><p>nome - nome do município</p></li>
+<li><p>Censo - ano do censo relativo aos dados</p></li>
+<li><p>PIB - total do PIB</p></li>
+<li><p>pop - populacao em 2009</p></li>
+<li><p>classe - classe do município (de 1 a 5)</p></li>
+<li><p>desemprego - índice de desemprego na cidade no ano do Censo</p></li>
+<li><p>pop_sanea - porcentagem da população servida por saneamento básico</p></li>
+<li><p>expec_vida - expectativa de vida ao nascer no ano de 2017</p></li>
+<li><p>pobreza - porcentagem de pessoas em extrema pobreza</p></li>
+<li><p>IDH - índice em 2010</p></li>
+<li><p>urbaniz - escala de urbanização do município: rural, baixo, médio, alto, muito alto</p></li>
+<li><p>dens_pop_urbana - índice de densidade populacional urbana: baixa, média, alta, muito alta</p></li>
+</ul>
+<p>OBS: desemprego, IDH, pobreza e pop_sanea por município foram simulados com base nos dados reais dos estados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carregando as bibliotecas necessárias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># carregando dados</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/municipios_mba.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gid</th>
+      <th>UF</th>
+      <th>nome</th>
+      <th>Censo</th>
+      <th>PIB</th>
+      <th>pop</th>
+      <th>classe</th>
+      <th>desemprego</th>
+      <th>pop_sanea</th>
+      <th>expec_vida</th>
+      <th>pobreza</th>
+      <th>IDH</th>
+      <th>urbaniz</th>
+      <th>dens_pop_urbana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>752</td>
+      <td>ACRE</td>
+      <td>Acrelândia</td>
+      <td>2010.0</td>
+      <td>151120.015625</td>
+      <td>12241</td>
+      <td>2</td>
+      <td>5.2</td>
+      <td>33.532382</td>
+      <td>73.6</td>
+      <td>19.2</td>
+      <td>660</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>747</td>
+      <td>ACRE</td>
+      <td>Assis Brasil</td>
+      <td>2010.0</td>
+      <td>48347.300781</td>
+      <td>5662</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>32.252163</td>
+      <td>74.2</td>
+      <td>18.9</td>
+      <td>664</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>748</td>
+      <td>ACRE</td>
+      <td>Brasiléia</td>
+      <td>2010.0</td>
+      <td>194979.828125</td>
+      <td>20238</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>31.663354</td>
+      <td>75.3</td>
+      <td>19.5</td>
+      <td>667</td>
+      <td>baixo</td>
+      <td>média</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>754</td>
+      <td>ACRE</td>
+      <td>Bujari</td>
+      <td>2010.0</td>
+      <td>88708.031250</td>
+      <td>6772</td>
+      <td>2</td>
+      <td>4.8</td>
+      <td>33.501357</td>
+      <td>73.4</td>
+      <td>19.1</td>
+      <td>659</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>751</td>
+      <td>ACRE</td>
+      <td>Capixaba</td>
+      <td>2010.0</td>
+      <td>89052.679688</td>
+      <td>9287</td>
+      <td>1</td>
+      <td>4.4</td>
+      <td>33.431383</td>
+      <td>75.4</td>
+      <td>18.1</td>
+      <td>661</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5560</th>
+      <td>1011</td>
+      <td>TOCANTINS</td>
+      <td>Tocantinópolis</td>
+      <td>2010.0</td>
+      <td>124657.000000</td>
+      <td>21826</td>
+      <td>1</td>
+      <td>6.5</td>
+      <td>28.405306</td>
+      <td>75.0</td>
+      <td>12.6</td>
+      <td>705</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>5561</th>
+      <td>5545</td>
+      <td>TOCANTINS</td>
+      <td>Tupirama</td>
+      <td>2010.0</td>
+      <td>34883.894531</td>
+      <td>1474</td>
+      <td>3</td>
+      <td>4.6</td>
+      <td>29.447854</td>
+      <td>74.8</td>
+      <td>12.9</td>
+      <td>694</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>5562</th>
+      <td>5546</td>
+      <td>TOCANTINS</td>
+      <td>Tupiratins</td>
+      <td>2010.0</td>
+      <td>30757.437500</td>
+      <td>2143</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>27.172728</td>
+      <td>74.2</td>
+      <td>12.6</td>
+      <td>696</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>5563</th>
+      <td>5141</td>
+      <td>TOCANTINS</td>
+      <td>Wanderlândia</td>
+      <td>2010.0</td>
+      <td>66966.773438</td>
+      <td>9493</td>
+      <td>1</td>
+      <td>5.4</td>
+      <td>27.762133</td>
+      <td>74.4</td>
+      <td>12.7</td>
+      <td>692</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+    <tr>
+      <th>5564</th>
+      <td>1107</td>
+      <td>TOCANTINS</td>
+      <td>Xambioá</td>
+      <td>2010.0</td>
+      <td>117627.132812</td>
+      <td>11099</td>
+      <td>2</td>
+      <td>4.9</td>
+      <td>26.265226</td>
+      <td>74.3</td>
+      <td>11.6</td>
+      <td>695</td>
+      <td>rural</td>
+      <td>muito baixa</td>
+    </tr>
+  </tbody>
+</table>
+<p>5565 rows × 14 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="intervalo-ou-histograma">
+<h2>Intervalo ou Histograma<a class="headerlink" href="#intervalo-ou-histograma" title="Permalink to this headline">#</a></h2>
+<p>Método que usa intervalos (bins) e distribui os elementos para cada intervalo correspondente</p>
+<p>Vamos analisar o atributo expec_vida e discretizá-lo utilizando intervalos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atts</span> <span class="o">=</span> <span class="s1">&#39;expec_vida&#39;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">atts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">atts</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[73.6 74.2 75.3 73.4 75.4 72.6 72.5 74.6 73.3 74.8 74.9 74.1 73.7 75.2
+ 73.1 72.  72.8 71.8 70.6 70.7 73.5 72.7 71.7 70.5 71.4 71.3 71.1 72.4
+ 71.9 73.  70.9 73.2 71.6 72.1 71.  72.2 70.8 71.5 72.9 71.2 73.8 75.
+ 74.3 74.4 74.  72.3 75.1 73.9 74.7 74.5 75.6 75.5 79.3 78.  77.8 77.2
+ 78.6 79.  78.4 77.1 79.4 78.3 77.5 77.9 78.5 77.3 77.  79.8 79.1 77.6
+ 79.6 79.5 77.7 79.7 77.4 78.8 79.2 78.7 80.  78.1 78.2 78.9 75.7 75.8
+ 68.7 68.9 68.8 70.2 69.1 69.  70.3 69.8 70.4 69.5 68.6 69.7 69.6 70.1
+ 69.9 69.4 69.2 70.  69.3 68.5 75.9 76.  76.4 76.6 76.2 76.9 76.1 76.8
+ 76.5 76.7 76.3 80.5 80.1 79.9 80.4 80.9 80.8 80.6 80.3 80.2 80.7]
+</pre></div>
+</div>
+<img alt="_images/9e43afc45f94bc96b16f9455c9b48480a7384b0917696b55c787785e1ff24dea.png" src="_images/9e43afc45f94bc96b16f9455c9b48480a7384b0917696b55c787785e1ff24dea.png" />
+</div>
+</div>
+<p>Olhando para o histograma, que nos dá a frequência de faixas de valores, é possível observar como os dados estão distribuídos e optar por re-definir os dados com base em novos intervalos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">atts</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5853ef6ecffee8c78ba798d9bc2ab96cf2a8506ac4cde471d232a3403ff91405.png" src="_images/5853ef6ecffee8c78ba798d9bc2ab96cf2a8506ac4cde471d232a3403ff91405.png" />
+</div>
+</div>
+<section id="utilizando-intervalos-fixos-e-frequencia-variavel">
+<h3>Utilizando intervalos fixos e frequência variável<a class="headerlink" href="#utilizando-intervalos-fixos-e-frequencia-variavel" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copiar original</span>
+<span class="n">data_orig</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># definir intervalos</span>
+<span class="n">interv_idade</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interv_idade</span><span class="p">)</span>
+
+<span class="c1"># (68-71]</span>
+<span class="c1"># (71-74]</span>
+<span class="c1"># (74-77] ....</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[68 71 74 77 80]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># realizar discretizacao e armazenar</span>
+<span class="n">expec_vida_disc</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">interv_idade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       73.6
+1       74.2
+2       75.3
+3       73.4
+4       75.4
+        ... 
+5560    75.0
+5561    74.8
+5562    74.2
+5563    74.4
+5564    74.3
+Name: expec_vida, Length: 5565, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expec_vida_disc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       (71, 74]
+1       (74, 77]
+2       (74, 77]
+3       (71, 74]
+4       (74, 77]
+          ...   
+5560    (74, 77]
+5561    (74, 77]
+5562    (74, 77]
+5563    (74, 77]
+5564    (74, 77]
+Name: expec_vida, Length: 5565, dtype: category
+Categories (4, interval[int64, right]): [(68, 71] &lt; (71, 74] &lt; (74, 77] &lt; (77, 80]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inserir nova coluna na pos. 10</span>
+<span class="n">data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">,</span> <span class="n">expec_vida_disc</span><span class="p">)</span> 
+<span class="c1">#data[&#39;expec_vida_disc&#39;] = expec_vida_disc</span>
+
+<span class="c1"># exibir o tipo da coluna</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>category
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tentando exibir histograma da nova variavel</span>
+<span class="c1">#data[&#39;expec_vida_disc&#39;].hist()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para variáveis categoricas podemos usar value_counts</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expec_vida_disc
+(74, 77]    1999
+(77, 80]    1770
+(71, 74]    1348
+(68, 71]     360
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d3330496a20d4f26e37c5dd39d852e0c7b20fa5d61140794dfc0a587dbc7fefe.png" src="_images/d3330496a20d4f26e37c5dd39d852e0c7b20fa5d61140794dfc0a587dbc7fefe.png" />
+</div>
+</div>
+<p>Ao invés dos rótulos automáticos, podemos nomear os intervalos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interv_idade</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;muito baixo&#39;</span><span class="p">,</span> <span class="s1">&#39;baixo&#39;</span><span class="p">,</span> <span class="s1">&#39;médio&#39;</span><span class="p">,</span> <span class="s1">&#39;alto&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interv_idade</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[68 71 74 77 80]
+[&#39;muito baixo&#39;, &#39;baixo&#39;, &#39;médio&#39;, &#39;alto&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data_orig</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># realizar discretizacao e armazenar</span>
+<span class="n">expec_vida_disc</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">interv_idade</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="c1"># inserir nova coluna</span>
+<span class="n">data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">,</span> <span class="n">expec_vida_disc</span><span class="p">)</span>
+
+<span class="c1"># exibir o tipo da coluna</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>category
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expec_vida_disc
+médio          1999
+alto           1770
+baixo          1348
+muito baixo     360
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d34f107ad8253525b7de6533fd4652d63e567e998b85bfa022f115f3388e82e6.png" src="_images/d34f107ad8253525b7de6533fd4652d63e567e998b85bfa022f115f3388e82e6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;UF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">expec_vida_disc</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UF         expec_vida_disc
+ACRE       médio              12
+           baixo              10
+           muito baixo         0
+           alto                0
+ALAGOAS    baixo              87
+                              ..
+SÃO PAULO  muito baixo         0
+TOCANTINS  baixo              97
+           médio              42
+           muito baixo         0
+           alto                0
+Name: count, Length: 108, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="utilizando-quantis-fixos-e-frequencia-balanceada">
+<h3>Utilizando quantis fixos e frequência balanceada<a class="headerlink" href="#utilizando-quantis-fixos-e-frequencia-balanceada" title="Permalink to this headline">#</a></h3>
+<p>Pandas ainda permite discretização baseada em <strong>quantis</strong></p>
+<p><font color="red">Aqui usamos os mesmos rótulos, mas a interpretação será diferente, pois os dados serão definidos por <em>quantis</em> e não por intervalos fixos</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;muito baixo&#39;</span><span class="p">,</span> <span class="s1">&#39;baixo&#39;</span><span class="p">,</span> <span class="s1">&#39;médio&#39;</span><span class="p">,</span> <span class="s1">&#39;alto&#39;</span><span class="p">]</span>
+
+<span class="c1"># realizar discretizacao e armazenar</span>
+<span class="n">expec_vida_qdisc</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="c1"># inserir nova coluna</span>
+<span class="n">data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;expec_vida_4quant&#39;</span><span class="p">,</span> <span class="n">expec_vida_qdisc</span><span class="p">)</span>
+
+<span class="c1"># exibir o tipo da coluna</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_4quant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expec_vida_4quant
+baixo          1409
+muito baixo    1408
+médio          1378
+alto           1370
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># realizar discretizacao e armazenar</span>
+<span class="n">expec_vida_qdisc_nolabel</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">expec_vida_qdisc_nolabel</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expec_vida
+(73.5, 75.7]      1409
+(68.499, 73.5]    1408
+(75.7, 77.6]      1378
+(77.6, 80.9]      1370
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_disc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_4quant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6a89b6035fcedadca58f9488f818d7167cc05e4c9f2de46b99a244ef44d98b38.png" src="_images/6a89b6035fcedadca58f9488f818d7167cc05e4c9f2de46b99a244ef44d98b38.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="agrupamento">
+<h2>Agrupamento<a class="headerlink" href="#agrupamento" title="Permalink to this headline">#</a></h2>
+<p>Método que agrupa valores considerando uma ou mais variáveis e considera valores discretos como o rótulo dos grupos.</p>
+<p>É fundamental nesse caso:</p>
+<ol class="arabic simple">
+<li><p>Conhecer o método de agrupamento sendo utilizado e como funciona</p></li>
+<li><p>Entender a distância utilizada para comparar os exemplos, já que algoritmos para análise de agrupamentos são fortemente dependentes da distância utilizada.</p></li>
+</ol>
+<p>Para exemplificar, vamos analisar o atributo expec_vida e discretizá-lo usando o método de agrupamento por Mistura de Gaussianas (Gaussian Mixture), e a distância Euclidiana.</p>
+<p>Importante: os rótulos atribuídos aos grupos não necessariamente indicam a ordem numérica da variável original.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">40</span><span class="p">,:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clusters</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">40</span><span class="p">])</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.982 0.    0.018 0.   ]
+ [0.073 0.001 0.926 0.   ]
+ [0.279 0.    0.721 0.   ]
+ [0.145 0.    0.854 0.   ]
+ [0.087 0.001 0.912 0.   ]
+ [0.795 0.    0.205 0.   ]
+ [0.99  0.    0.01  0.   ]
+ [0.893 0.    0.107 0.   ]
+ [0.915 0.    0.085 0.   ]
+ [0.915 0.    0.085 0.   ]]
+[0 2 2 2 2 0 0 0 0 0]
+</pre></div>
+</div>
+<img alt="_images/09a87dea29f46aba81b8a800772a3a167ffaecfa5ba3007ee19c88429df471b0.png" src="_images/09a87dea29f46aba81b8a800772a3a167ffaecfa5ba3007ee19c88429df471b0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># atribuindo a nova variável ao dataframe</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;expec_vida_clu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+
+<span class="c1"># verificando como ficou o agrupamento em termos de mínimos e máximos</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;expec_vida_clu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">expec_vida</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;expec_vida_clu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">expec_vida</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expec_vida_clu
+0    68.5
+1    75.6
+2    72.3
+3    77.7
+Name: expec_vida, dtype: float64
+expec_vida_clu
+0    72.2
+1    77.6
+2    75.5
+3    80.9
+Name: expec_vida, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e-os-valores-nulos-faltantes">
+<h2>E os valores nulos / faltantes?<a class="headerlink" href="#e-os-valores-nulos-faltantes" title="Permalink to this headline">#</a></h2>
+<p>Temos que tratar caso a caso, pois o principal problema na discretização é estar <em>indefinido</em> qual sua ordenação/posição.</p>
+</section>
+<section id="resumo-dos-discretizadores-bonus-sklearn">
+<h2>Resumo dos discretizadores + Bônus <em>sklearn</em><a class="headerlink" href="#resumo-dos-discretizadores-bonus-sklearn" title="Permalink to this headline">#</a></h2>
+<table align="center">
+	<thead>
+		<tr>
+			<th>Função</th>
+			<th>Observação</th>
+		</tr>
+    </thead>
+    <tbody>
+		<tr>
+            <td><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html">cut (pandas)</a></td>
+            <td>Cria intervalos de tamanhos iguais mas com frequencias de amostras desiguais em cada intervalo.</td>
+        </tr>
+		<tr>
+            <td><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html">qcut (pandas)</a></td>
+            <td>Cria intervalos de tamanhos diferentes mas com frequencia de amostras iguais em cada intervalo.</td>
+		</tr>
+        <tr>
+            <td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html">KBinsDiscretizer (sklearn)</a></td>
+            <td>Cria intervalos utilizando a estratégia especificada por parâmetro e permite fazer a transformação inversa.</td>
+		</tr>
+	</tbody>
+</table><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amostra</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">KBinsDiscretizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kbd</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+<span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kbd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">amostra</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kbd</span><span class="o">.</span><span class="n">bin_edges_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value_bins
+1.0    19
+2.0    19
+0.0     8
+3.0     4
+Name: count, dtype: int64
+[array([ 8.84578081, 31.0255253 , 53.20526979, 75.38501429, 97.56475878])]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kbd</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span>
+<span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kbd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">amostra</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]])</span>
+<span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value_bins
+0.0    13
+3.0    13
+2.0    12
+1.0    12
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kbd</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">)</span>
+<span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kbd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">amostra</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]])</span>
+<span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value_bins
+1.0    20
+2.0    18
+0.0     8
+3.0     4
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>OBS: cuidado novamente com uso de algoritmo de agrupamento, em particular utilizando uma única variável</p>
+<p>A vantagem do <code class="docutils literal notranslate"><span class="pre">KBinsDiscretizer</span></code> é que o modelo salva a transformação permitindo inverter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amostra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+      <th>value_bins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>36.706088</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>37.284034</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>67.686081</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>97.564759</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>62.382888</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>27.733157</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>87.460091</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>58.289273</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>11.193679</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>59.616208</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>70.482142</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>28.197802</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>73.209647</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>47.106784</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>53.009777</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>40.912937</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>63.298541</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>41.525194</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>69.364550</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>75.296416</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>63.461784</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>53.181186</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>55.236678</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>73.676761</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>74.112957</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>50.883242</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>46.478576</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>66.164686</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>8.845781</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>66.503262</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>29.349314</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>42.169590</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>70.333120</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>72.229696</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35.790093</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>48.042661</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>70.299051</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>68.856759</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>45.609200</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>52.137858</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>22.098708</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>49.948966</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>25.979646</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>82.587866</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>36.504067</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>35.056019</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>83.512499</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>28.031583</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>46.837704</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>48.523821</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amostra</span><span class="p">[</span><span class="s1">&#39;inv_bins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kbd</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">amostra</span><span class="p">[[</span><span class="s1">&#39;value_bins&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amostra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+      <th>value_bins</th>
+      <th>inv_bins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>36.706088</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>37.284034</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>67.686081</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>97.564759</td>
+      <td>3.0</td>
+      <td>87.745258</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>62.382888</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>27.733157</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>87.460091</td>
+      <td>3.0</td>
+      <td>87.745258</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>58.289273</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>11.193679</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>59.616208</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>70.482142</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>28.197802</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>73.209647</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>47.106784</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>53.009777</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>40.912937</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>63.298541</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>41.525194</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>69.364550</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>75.296416</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>63.461784</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>53.181186</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>55.236678</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>73.676761</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>74.112957</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>50.883242</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>46.478576</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>66.164686</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>8.845781</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>66.503262</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>29.349314</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>42.169590</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>70.333120</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>72.229696</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35.790093</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>48.042661</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>70.299051</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>68.856759</td>
+      <td>2.0</td>
+      <td>67.267238</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>45.609200</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>52.137858</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>22.098708</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>49.948966</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>25.979646</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>82.587866</td>
+      <td>3.0</td>
+      <td>87.745258</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>36.504067</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>35.056019</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>83.512499</td>
+      <td>3.0</td>
+      <td>87.745258</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>28.031583</td>
+      <td>0.0</td>
+      <td>21.379374</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>46.837704</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>48.523821</td>
+      <td>1.0</td>
+      <td>45.260842</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-03-1-Coleta_Aquisicao.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-03-3-Normalizacao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-coleta-de-dados-e-preparacao-de-atributos-span"><span style="color:darkred">Coleta de dados e Preparação de atributos</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-discretizacao-span"><span style="color:darkred">Discretização</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretizacao">Discretização</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-ou-histograma">Intervalo ou Histograma</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-intervalos-fixos-e-frequencia-variavel">Utilizando intervalos fixos e frequência variável</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-quantis-fixos-e-frequencia-balanceada">Utilizando quantis fixos e frequência balanceada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamento">Agrupamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-os-valores-nulos-faltantes">E os valores nulos / faltantes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo-dos-discretizadores-bonus-sklearn">Resumo dos discretizadores + Bônus <em>sklearn</em></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

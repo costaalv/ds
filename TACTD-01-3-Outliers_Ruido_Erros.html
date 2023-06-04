@@ -1,0 +1,1357 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-01-3-Outliers_Ruido_Erros';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-01-4-Desbalanceamento_Redundancia.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-01-2-Informacoes_Faltantes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-01-3-Outliers_Ruido_Erros.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-01-3-Outliers_Ruido_Erros.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span"><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-outliers-ruido-e-dados-incorretos-erros-span"><span style="color:darkred">Outliers, ruído e dados incorretos/erros</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erros">Erros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers"><em>Outliers</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-outliers">Tipos de <em>outliers</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ruido">Ruído</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h1>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span">
+<h2><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span><a class="headerlink" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="span-style-color-darkred-outliers-ruido-e-dados-incorretos-erros-span">
+<h2><span style="color:darkred">Outliers, ruído e dados incorretos/erros</span><a class="headerlink" href="#span-style-color-darkred-outliers-ruido-e-dados-incorretos-erros-span" title="Permalink to this headline">#</a></h2>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<p><img alt="outlier" src="_images/outlier.jpg" /></p>
+<p><strong>Outliers, dados incorretos e ruído</strong> são também frequentes em bases de dados.</p>
+<ul class="simple">
+<li><p><em>outlier</em> é um dado que recai fora da distribuição principal dos dados</p></li>
+<li><p><em>incorreto</em> é aquele que existe na base de dados (não é faltante), mas também não se encaixa naquela variável ou atributo de entrada, e deve ser corrigido ou removido</p></li>
+<li><p><em>ruído</em> é um dado que atrapalha a análise, dificultando encontrar padrões nos dados</p></li>
+</ul>
+<p>Os conceitos tem uma diferença tênue. Buscar por esse tipo de dado e estudar forma de compensar sua existência, corrigindo-os ou removendo-os é parte do tratamento de dados.</p>
+<hr class="docutils" />
+<p>Utilizaremos um conjunto de dados de natalidade em uma maternidade, e que contém os seguintes atributos relativos aos nascidos:</p>
+<ul class="simple">
+<li><p>sexo,</p></li>
+<li><p>peso do nascimento (em gramas),</p></li>
+<li><p>idade gestacional (em semanas),</p></li>
+<li><p>mês do nascimento,</p></li>
+<li><p>ano do nascimento.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./dados/TACTD-01-Outliers_Erros_Desbal.csv&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de observacoes na base de dados: &quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de observacoes na base de dados:  72
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F</td>
+      <td>3490</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M</td>
+      <td>3650</td>
+      <td>39</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>M</td>
+      <td>2740</td>
+      <td>34</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="erros">
+<h2>Erros<a class="headerlink" href="#erros" title="Permalink to this headline">#</a></h2>
+<p>São dados que possuem problemas provavelmente durante algum processo na entrada, transmissão ou armazenamento, em que a validação dos dados falhou.</p>
+<p>Uma forma é inspecionar os valores únicos das variáveis/colunas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coluna:&#39;</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="s1">&#39;Tipo:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coluna: Sex Tipo: object
+[&#39;F&#39; &#39;M&#39; &#39;P&#39;] 
+
+Coluna: Weight Tipo: int64
+[3490 3650 2740 3380 3820 2790 1850 3270 2800 3470 3200 3720 3730 3550
+ 2780 3600 3610 2200 3680 3570 3980 3300 3860 3120 3460 3130 3690 2950
+ 3790 3230 2500 2920 3050 4300 3580 4900 2940 3220 3480 3540 3640 3700
+ 2880 3750 4000 3880 4150 3800 3100 3280 4100 3900 3450] 
+
+Coluna: Gestational age Tipo: int64
+[38 39 34 36 35 40 37 41 33 42 43 32] 
+
+Coluna: Month Tipo: int64
+[12  1  2  3  4  5] 
+
+Coluna: Year Tipo: int64
+[ 2016 22017  2017] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dados errôneos encontrados:</p>
+<ol class="arabic simple">
+<li><p>Sexo = P</p></li>
+<li><p>Ano = 22017</p></li>
+</ol>
+<p>O valor <strong>P</strong> não pertence ao que é esperado. Esse dado foi corrompido de alguma forma e representa um dado <strong>incorreto</strong>. Devemos desconsiderá-lo, tornando-o um dado faltante.</p>
+<p>O valor <strong>22017</strong> é recuperável, corrigindo para 2017 que é com grande chance o dado correto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># defininos o dado P como sendo faltante</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># corrigimos o 22017</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">22017</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2017</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="outliers">
+<h2><em>Outliers</em><a class="headerlink" href="#outliers" title="Permalink to this headline">#</a></h2>
+<section id="tipos-de-outliers">
+<h3>Tipos de <em>outliers</em><a class="headerlink" href="#tipos-de-outliers" title="Permalink to this headline">#</a></h3>
+<p>Também chamados de pontos “fora-da-curva” ou aberrantes.</p>
+<p>Os pontos <em>não-outliers</em> são às vezes chamados de <em>inliers</em> pois recaem “dentro” do esperado.</p>
+<p>Tipos de outliers incluem :</p>
+<ol class="arabic simple">
+<li><p>Globais ou anomalias de ponto</p></li>
+<li><p>Contextuais ou condicionais</p></li>
+<li><p>Coletivos</p></li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic">
+<li><p><strong>Globais ou anomalias de ponto</strong>: são ocorrências de valores <em>individuais</em> muito diferentes da maior parte dos dados disponíveis.</p>
+<p>Uma forma simples de identificar é gerar gráficos de caixa (ou <em>boxplots</em>) dos atributos/colunas da base de dados.</p>
+<p>Esse gráfico exibe:<br>
+* o intervalo dos valores que representam 50% do total dos dados dentro de uma caixa<br>
+* a mediana como uma linha dentro da caixa<br>
+* “whiskers” ou bigodes que indicam a dispersão de 1,5 vezes o Intervalo Interquartil (IQR) com relação às bordas das caixas</p>
+</li>
+</ol>
+<p><img alt="boxplot" src="_images/boxplot.png" /></p>
+<p>Idealmente, grafamos cada variável individualmente, pois elas têm intervalos de valores distintos!</p>
+<ul class="simple">
+<li><p>por exemplo, enquanto o peso está definido ao redor de milhares de gramas, a idade gestacional é em dezenas de semanas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/21fe5e884911331367a81bd06d83661893ee1491719117d8a585da5c379732ad.png" src="_images/21fe5e884911331367a81bd06d83661893ee1491719117d8a585da5c379732ad.png" />
+</div>
+</div>
+<p>Notamos que a maior parte dos pesos recaem aproximadamente entre 2500 e 4400, mas temos alguns pontos fora desse intervalo. Vamos tentar encontrá-los:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4400</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>M</td>
+      <td>1850</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>F</td>
+      <td>2200</td>
+      <td>33</td>
+      <td>1</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>F</td>
+      <td>4900</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Há valores mais altos ou mais baixos do que a maioria. Nesses casos, parecem ser valores inputados corretamente e verdadeiros.</p>
+<p>Por desviar da maior parte dos dados são considerados <strong>outliers globais</strong>.</p>
+<p>No entanto, não iremos removê-lo a princípio pois são factíveis e não é possível dizer que são incorretos.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p><strong>Contextuais</strong>: são valores que, observados isoladamente podem não ser aberrantes, mas que ao observar o <u>contexto</u>, sim!</p>
+<ul class="simple">
+<li><p>Em dados <strong>independentes e identicamente distribuídos</strong>, na qual um exemplo (nascimento de um bebê e seus dados) não deveria afetar os próximos exemplos observados, o contexto pode estar nas variáveis envolvidas.</p></li>
+<li><p>Em dados <strong>sequenciais</strong> (como séries temporais, texto), em que uma observação influencia a próxima, o contexto é quase sempre o aspecto temporal/sequencial.</p></li>
+</ul>
+</li>
+</ol>
+<p>No nosso exemplo, podemos observar se há uma anomalia de peso com relação à idade gestacional!</p>
+<p>Considere que sabemos, por meio de um especialista que:</p>
+<ul>
+<li><p>bebês nascidos entre 38 e 42 semanas possuem peso normal se estiverem aproximadamente entre 2500 e 4000 gramas.</p>
+<p>Assim, podemos buscar por <strong>outliers contextuais</strong>, em que o peso saia fora desse intervalo <u>dentro do período gestacional</u> indicado.</p>
+<p>Podemos usar busca por fatiamento da base, e também <em>boxplots</em></p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cria visão do dataframe com base na idade gestacional</span>
+<span class="n">d_term</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gestational age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">38</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gestational age&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">42</span><span class="p">)]</span>
+
+<span class="c1"># buscando por anomalias contextuais por limiar</span>
+<span class="n">d_term</span><span class="p">[</span> <span class="p">(</span><span class="n">d_term</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">d_term</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4000</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>M</td>
+      <td>1850</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>F</td>
+      <td>4900</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>F</td>
+      <td>4150</td>
+      <td>41</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usando boxplot</span>
+<span class="n">d_term</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0d5439c18200e0cf423015e9de32593183a4a5a3265342052be89403f5827129.png" src="_images/0d5439c18200e0cf423015e9de32593183a4a5a3265342052be89403f5827129.png" />
+</div>
+</div>
+<p>É interessante notar que nossa busca específica retornou 3 enquanto o <em>boxplot</em> apenas 2 elementos como outliers</p>
+<p>Vamos inspecionar os casos segundo o critério do especialista:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_term</span><span class="p">[</span> <span class="p">(</span><span class="n">d_term</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>M</td>
+      <td>1850</td>
+      <td>38</td>
+      <td>12</td>
+      <td>2016</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Aqui, segundo as diretrizes indicadas por um especialista, é provável que temos um outlier contextual, ou seja, considerando qualquer idade gestacional não seria um outlier, mas se levarmos em conta que foram 38 semanas, então é um outlier.</p>
+<p>Quanto ao segundo caso:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_term</span><span class="p">[</span> <span class="p">(</span><span class="n">d_term</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>F</td>
+      <td>4900</td>
+      <td>42</td>
+      <td>3</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>F</td>
+      <td>4150</td>
+      <td>41</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Aqui, temos um caso limítrofe (4150) e precisamos da ajuda de especialistas para decidir o que significa esse <em>outlier</em></p>
+<p>Já 4900 parece ser outlier ainda que também possível dentro dos limites esperados.</p>
+<hr class="docutils" />
+<ol class="arabic" start="3">
+<li><p><strong>Coletivos</strong>: um conjunto de observacões cujos valores, quando analisados em grupo, indicam um evento não usual.</p>
+<p>Em geral:</p>
+<ul class="simple">
+<li><p>não são <em>outliers globais</em> pois seus valores recaem dentro da maior parte dos dados globalmente</p></li>
+<li><p>não são <em>outliers contextuais</em> pois individualmente podem ser considerados normais quando observados contextos relevantes</p></li>
+</ul>
+</li>
+</ol>
+<p>No nosso exemplo, vamos analisar os dados relativos ao nascimento de bebês do sexo masculino e feminino, mês a mês.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Month&#39;</span><span class="p">])[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016</th>
+      <th>12</th>
+      <td>12</td>
+      <td>2</td>
+      <td>F</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">2017</th>
+      <th>1</th>
+      <td>14</td>
+      <td>2</td>
+      <td>F</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>2</td>
+      <td>F</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11</td>
+      <td>2</td>
+      <td>F</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10</td>
+      <td>2</td>
+      <td>F</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>12</td>
+      <td>1</td>
+      <td>F</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Observando a estatística descritiva acima, veja que no mês 5 há 12 ocorrências, mas apenas um único valor, <strong>F</strong></p>
+<p>Vamos visualizar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Gestational age</th>
+      <th>Month</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>60</th>
+      <td>F</td>
+      <td>3120</td>
+      <td>34</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>F</td>
+      <td>3380</td>
+      <td>37</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>F</td>
+      <td>4150</td>
+      <td>41</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>F</td>
+      <td>3800</td>
+      <td>42</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>F</td>
+      <td>3100</td>
+      <td>37</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>F</td>
+      <td>3280</td>
+      <td>40</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>F</td>
+      <td>4000</td>
+      <td>38</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>F</td>
+      <td>4100</td>
+      <td>37</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>F</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>F</td>
+      <td>3450</td>
+      <td>37</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>F</td>
+      <td>3100</td>
+      <td>33</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>F</td>
+      <td>2800</td>
+      <td>35</td>
+      <td>5</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>De fato, observar apenas nascimento de bebês do sexo feminino em um determinado mês é um <strong>outlier coletivo</strong>.</p>
+<p>Note que os valores de sexo e mês individualmente não indicam <strong>outlier global</strong>, e que, quando analisamos observacoes uma a uma, é normal que um bebê do sexo feminino nasca no mês 5, então também a análise individual não mostra <strong>outlier contextual</strong>.</p>
+<p>Assim, apenas pela análise conjunta identificamos um comportamento de <strong>outlier</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ruido">
+<h2>Ruído<a class="headerlink" href="#ruido" title="Permalink to this headline">#</a></h2>
+<p>Talvez o mais desafiador dos problemas mencionados, pode ser detectado como outlier ou até mesmo como inlier, mas que representam uma quebra de padrões, dificultando a modelagem do problema.</p>
+<p>Por exemplo, suponha que queremos fazer uma modelagem do peso com relação à idade gestacional</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gestational age&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8316e3b18cc06d90bc349c530b4610fdf90581a6c74402bbae5a094f7d94f612.png" src="_images/8316e3b18cc06d90bc349c530b4610fdf90581a6c74402bbae5a094f7d94f612.png" />
+</div>
+</div>
+<p>É possível identificar pontos que são outliers, mas que representam o padrão esperado: bebês com maior idade gestacional possuem maior peso.</p>
+<p>No entanto, notamos que com 38 semanas há um bebê com um peso muito baixo. Esse dado é provavelmente <strong>ruidoso</strong>, ou seja, mesmo que real e não incorreto, levá-lo em consideração para encontrar padrões poderia prejudicar a análise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1900</span> <span class="p">]</span>
+<span class="n">data_clean</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(71, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_clean</span><span class="p">[</span><span class="s1">&#39;Gestational age&#39;</span><span class="p">],</span> <span class="n">data_clean</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/69ab26c9b7a1742af3f4675e6910c98a3b08a1b1a0b589c733c6bb1859054623.png" src="_images/69ab26c9b7a1742af3f4675e6910c98a3b08a1b1a0b589c733c6bb1859054623.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Reconhecer outliers pode ser muito útil para entender os dados, e isso pode levar a diferentes aplicações:</p>
+<ul>
+<li><p>detectar dados errôneos</p></li>
+<li><p>detectar anomalias que possam ser reportadas</p></li>
+</ul>
+</li>
+<li><p>É preciso ter conhecimento do domínio para ir além dos outliers globais, capturando também os contextuais e coletivos.</p></li>
+<li><p>Erros podem ou não ser passíveis de correção</p></li>
+<li><p>Ruído são dados que atrapalhariam análises e devemos considerar remover</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-01-2-Informacoes_Faltantes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-01-4-Desbalanceamento_Redundancia.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MBA em Ciência de Dados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-dados-estruturados-e-nao-estruturados-e-problemas-tipicos-em-bases-de-dados-span"><span style="color:darkred">Dados estruturados e não estruturados e problemas típicos em bases de dados</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-outliers-ruido-e-dados-incorretos-erros-span"><span style="color:darkred">Outliers, ruído e dados incorretos/erros</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erros">Erros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers"><em>Outliers</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-outliers">Tipos de <em>outliers</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ruido">Ruído</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

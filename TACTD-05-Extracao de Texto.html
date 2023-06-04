@@ -1,0 +1,1132 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-05-Extracao de Texto';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-06-material%20base.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-04-PCA.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-05-Extracao de Texto.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-05-Extracao de Texto.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color="blue"> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-identificacao-e-extracao-de-texto-font"><font color="blue"> Identificação e Extração de Texto </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-ocr-font"><font color="blue">OCR</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-em-imagens">OCR em Imagens</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualidade-do-resultado">Qualidade do Resultado</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-em-arquivos-pdf">OCR em arquivos PDF</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf2image">pdf2image</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outras-alternativas">Outras alternativas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-expressoes-regulares-font"><font color="blue">Expressões Regulares</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-pacote-font-color-blue-re-font-regex">O pacote <font color="blue"> re </font> (regex)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simbolo-font-color-blue-font">símbolo <font color="blue">*</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">símbolo <font color="blue">[ ] </font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">símbolo <font color="blue"> + </font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simbolos-font-color-blue-d-w-font">símbolos <font color="blue"> \d \w </font></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color="blue"> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font">
+<h1><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font><a class="headerlink" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-identificacao-e-extracao-de-texto-font">
+<h2><font color="blue"> Identificação e Extração de Texto </font><a class="headerlink" href="#font-color-blue-identificacao-e-extracao-de-texto-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="conteudo">
+<h2>Conteúdo<a class="headerlink" href="#conteudo" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>OCR</p>
+<ul>
+<li><p>Imagens</p></li>
+<li><p>Arquivos PDF</p></li>
+</ul>
+</li>
+<li><p>Expressões Regulares</p></li>
+</ul>
+<p><strong>IMPORTANTE</strong>: As imagens e arquivos PDF empregados neste notebook, nos exercícios e na avaliação estão contidos no arquivo
+<font style="font-family: monaco">arquivos de apoio.zip</font>.
+Você deve descompactar o ZIP e mover os arquivos gerados para o mesmo diretório onde os notebooks estão sendo executados.</p>
+</section>
+<section id="font-color-blue-ocr-font">
+<h2><font color='blue'>OCR</font><a class="headerlink" href="#font-color-blue-ocr-font" title="Permalink to this headline">#</a></h2>
+<p>Optical Character Recognition (OCR) é o processo de identificar e extrair textos (no formato “ascii”) que estejam contidos em imagens.</p>
+<div class="math notranslate nohighlight">
+\[
+\fbox{Imagem} \Longrightarrow \fbox{Texto (String)}
+\]</div>
+<p>Existem vários pacotes disponíveis para python dedicados a tal tarefa:</p>
+<ul class="simple">
+<li><p><strong>pytesseract</strong></p></li>
+<li><p><strong>pyocr</strong></p></li>
+<li><p><strong>textract</strong></p></li>
+</ul>
+<p>A maior parte destes pacotes são “wrappers” em Python da biblioteca Tesseract-OCR. Em particular, <font color='blue'>pytesseract</font> tem ganhado muita atenção nos últimos anos, incorporando soluções baseadas em deep learning que melhoram muito a qualidade dos resultados quando comparados aos de outros pacotes.</p>
+<p>O pacote <font color='blue'>pytesseract</font> não faz parte da instalação padrão do Anaconda, e deve ser instalado separadamente. Para realizar a instalação é necessário primeiro instalar a biblioteca <font color='blue'>tesseract</font> (não é uma biblioteca python). As instruções de instalação desta biblioteca podem ser encontradas  <a class="reference external" href="https://anaconda.org/conda-forge/tesseract">aqui</a> (assumindo que sua instalação do Python é via Anaconda).</p>
+<p>A instalação Anaconda vem com suporte à <strong>língua portuguesa</strong>. Após instalar a biblioteca <font color='blue'>tesseract</font> execute o comando abaixo (assumindo que sua instalação do Python é via Anaconda)</p>
+<div class="highlight-os notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge pytesseract 
+</pre></div>
+</div>
+<p>para instalar o “wrapper” python para <font color='blue'>tesseract</font>.</p>
+<p><strong>RECOMENDAÇÃO MUITO IMPORTANTE</strong>: Para este módulo do curso, recomendamos fortemente utilizar o <strong>Colab</strong> do Google para rodar os notebooks. Para instalar o <font color='blue'>tesseract</font> no Colab basta rodar a célula abaixo.</p>
+<p>Se você tiver dificuldade com a instalação, peça ajuda aos monitores.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalando as bibliotecas necessárias para este módulo no Colab</span>
+
+<span class="c1">#!apt install tesseract-ocr</span>
+<span class="c1">#!apt install tesseract-ocr-por</span>
+<span class="c1">#!apt install libtesseract-dev</span>
+<span class="c1">#!apt install poppler-utils</span>
+<span class="c1">#!pip install pytesseract</span>
+<span class="c1">#!pip install pdf2image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ocr-em-imagens">
+<h3>OCR em Imagens<a class="headerlink" href="#ocr-em-imagens" title="Permalink to this headline">#</a></h3>
+<p>Em geral, o procedimento de extração de texto demanda etapas de pré-processamento, que vão desde a leitura de documentos até mudanças de representação do sistema de cor.</p>
+<p>A primeira tarefa é carregar a imagem que será processada. Utilizaremos o pacote <font color='blue'>PIL</font> para este fim. A escolha do pacote <font color='blue'>PIL</font> se justifica pelo fato do pacote OCR <font color='blue'>pytesseract</font> (que será utilizado em nossos exemplos) trabalhar com objetos gerados pelo <font color='blue'>PIL</font>.</p>
+<p>Uma vez que a imagem tenha sido carregada, a utilização do <font color='blue'>pytesseract</font> se resume a enviar a imagem como argumento e receber uma string como resposta.</p>
+<section id="qualidade-do-resultado">
+<h4>Qualidade do Resultado<a class="headerlink" href="#qualidade-do-resultado" title="Permalink to this headline">#</a></h4>
+<p>A qualidade do resultado produzido pelo <font color='blue'>pytesseract</font> está diretamente relacionanda com as propriedades da imagem enviada como argumento. Considere a imagem
+<img src="arquivos de apoio/imagem_test1.png" alt="drawing" width="200"/>
+Vamos utilizar o <font color='blue'>pytesseract</font> para extrair o texto contido nesta imagem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytesseract</span> <span class="k">as</span> <span class="nn">ocr</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;arquivos de apoio/imagem_test1.png&#39;</span><span class="p">),</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pytesseract</span> <span class="k">as</span> <span class="nn">ocr</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;arquivos de apoio/imagem_test1.png&#39;</span><span class="p">),</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pytesseract&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para a imagem <code class="docutils literal notranslate"><span class="pre">imagem_test1.png</span></code>, o OCR não deve ter sido capaz de detectar e extrair o texto <em>“Texto para ser extraido”</em>. Considere agora a imagem abaixo, que é a mesma do exemplo anterior, porém com a posição do texto deslocada para baixo:
+<img src="arquivos de apoio/imagem_test2.png" alt="drawing" width="200"/></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;arquivos de apoio/imagem_test2.png&#39;</span><span class="p">),</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Texto para ser extraido
+
+ 
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note que para a imagem <code class="docutils literal notranslate"><span class="pre">imagem_test2.png</span></code> o texto foi perfeitamente extraído. A razão é que o contraste entre o fundo e o texto fica mais acentuado quando o texto foi deslocado para a região mais “clara” da imagem.</p>
+<p>Vejamos outros exemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;arquivos de apoio/imagem_test3.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Texto extraido: &#39;</span><span class="p">,</span><span class="n">phrase</span><span class="p">)</span> <span class="c1"># como o contraste entre a imagem e o fundo não é grande</span>
+                                 <span class="c1"># o OCR não consegue extrair corretamente a frase &quot;praia fantastica&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/451f62e606a1358afb207b3706c29777eec6f10a2b1597edcf8cb10020ca0b6a.png" src="_images/451f62e606a1358afb207b3706c29777eec6f10a2b1597edcf8cb10020ca0b6a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Texto extraido:   
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;arquivos de apoio/imagem_test4.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Texto extraido: &#39;</span><span class="p">,</span><span class="n">phrase</span><span class="p">)</span> <span class="c1"># mudando o contraste entre a imagem e o fundo </span>
+                                 <span class="c1"># o OCR consegue extrair corretamente a frase </span>
+                                 <span class="c1"># &quot;praia fantastica&quot;, mas alguns caracteres indesajados </span>
+                                 <span class="c1"># são obtidos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/12504f54c76c1b9d2b0c4e4e058124c07f4cef0cf757816c16a683c13887e87e.png" src="_images/12504f54c76c1b9d2b0c4e4e058124c07f4cef0cf757816c16a683c13887e87e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Texto extraido:  3 j |
+15 W
+
+ 
+
+GRITAR ROLL AR VT
+
+ 
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;arquivos de apoio/imagem_test5.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">phrase</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Texto extraido: &#39;</span><span class="p">,</span><span class="n">phrase</span><span class="p">)</span> <span class="c1"># recortando da imagem apenas o pedaço que contém a fase</span>
+                                 <span class="c1"># o OCR tem um desempenho melhor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e6c5838cda2472106326729afdf0dc6a41a76c416b6d1e31382520d9cead4ea8.png" src="_images/e6c5838cda2472106326729afdf0dc6a41a76c416b6d1e31382520d9cead4ea8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Texto extraido:  Práia fantastica
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recortando a parte da imagem que contém o texto resulta em uma extração de muito melhor qualidade.</p>
+<p>Os exemplos acima mostram que as propriedades da imagem onde o texto está inserido impactam drasticamente na qualidade do resultado do OCR.</p>
+<p>Existe um conjunto de recomendações para que se obtenha resultados satisfatórios com o OCR:</p>
+<ol class="arabic simple">
+<li><p>Deve-se sempre utilizar imagens em tons de cinza ao invés de imagens coloridas</p></li>
+<li><p>Remover ruídos da imagem</p></li>
+<li><p>Manter uma resolução de 300dpi</p></li>
+<li><p>Manter o texto alinhado na horizontal</p></li>
+<li><p>Os caracteres do texto a ser extraído devem ter pelo menos 10 pixels de altura</p></li>
+<li><p>O texto a ser extraído deve estar em uma única língua</p></li>
+<li><p>Sempre que possível recortar o pedaço da imagem onde o texto está inserido</p></li>
+</ol>
+<p>O <font color='blue'>tesseract</font> aplica técnicas de processamento de imagens internamente a fim de satisfazer as recomendações acima, porém, nem sempre o resultado é satisfatório. Desta forma, um pré-processamento manual pode ser necessário.</p>
+<p>Quando uma quantidade grande de imagens precisa ser processada, o ideal é que se estabeleça um protocolo que garanta as recomendações acima para todas as imagens na base, como por exemplo, seguir um padrão para digitalização de documentos, controlando iluminação na captura de imagens, etc.</p>
+</section>
+</section>
+<section id="ocr-em-arquivos-pdf">
+<h3>OCR em arquivos PDF<a class="headerlink" href="#ocr-em-arquivos-pdf" title="Permalink to this headline">#</a></h3>
+<p>Um procedimento bastante comum para ser extrair texto de arquivos PDF é primeiro converter o arquivo PDF em uma imagem, aplicando o OCR na imagem resultante.</p>
+<p>Exitem alguns pacotes python para converter arquivos PDF em imagens, sendo o <font color='blue'>wand</font> e <font color='blue'> pdf2image </font> os mais utilizados. Iremos utilizar  <font color='blue'> pdf2image</font>, que também não é um pacote nativo do Python. De fato, o pacote <font color='blue'> pdf2image </font> é um wrapper python para a biblioteca <font color='blue'>poppler</font>, que precisa ser instalada manualmente, como foi feito com o <font color='blue'>tesseract</font>. Detalhes de como realizar a instalação podem ser encontrados <a class="reference external" href="https://pypi.org/project/pdf2image/">aqui</a> e <a class="reference external" href="https://pdf2image.readthedocs.io/en/latest/">aqui</a>. Uma vez instalada a biblioteca, execute o comando:</p>
+<div class="highlight-os notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge pdf2image
+</pre></div>
+</div>
+<p>para instalar o wrapper <font color='blue'> pdf2image </font> para python,</p>
+<section id="pdf2image">
+<h4>pdf2image<a class="headerlink" href="#pdf2image" title="Permalink to this headline">#</a></h4>
+<p>A conversão de arquivos PDF para imagem é feita de modo que cada página do arquivo se torne uma imagem.</p>
+<div class="math notranslate nohighlight">
+\[
+\fbox{PDF}\Longrightarrow\fbox{Imagem}\Longrightarrow\fbox{Texto}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertendo as páginas do arquivo PDF &#39;pdf_test.pdf&#39; em imagens</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> 
+<span class="kn">import</span> <span class="nn">pytesseract</span> 
+<span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span> 
+
+<span class="c1"># Carrega o PDF e armazenas todas as páginas separadamente</span>
+<span class="c1"># na variável</span>
+<span class="n">imagem_paginas</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="s1">&#39;arquivos de apoio/pdf_test.pdf&#39;</span><span class="p">)</span> 
+
+<span class="c1"># Voce precisa criar um diretorio chamado &quot;paginas&quot;</span>
+<span class="c1"># na mesma pasta onde este notebook esta armazenado</span>
+
+<span class="c1"># Criando diretorio onde iremos salvar as paginas</span>
+<span class="c1"># Checar se existe o diretorio</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;paginas&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="c1"># If it doesn&#39;t exist, create it</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+<span class="c1"># Salvando cada imagem das páginas em um arquivo</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">pagina</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imagem_paginas</span><span class="p">):</span> 
+    <span class="c1"># PDF pagina 1 -&gt; pagina_1.png  </span>
+    <span class="c1"># PDF pagina 2 -&gt; pagina_2.png  </span>
+    <span class="c1"># .... </span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;paginas/pagina_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.png&quot;</span>
+      
+    <span class="c1"># Salavando a imagen da página em um arquivo</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gravando pagina: &#39;</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">pagina</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;PNG&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gravando pagina:  paginas/pagina_0.png
+Gravando pagina:  paginas/pagina_1.png
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># utilizando OCR para extrair o texto das imagens das paginas do aquivo PDF</span>
+<span class="kn">import</span> <span class="nn">pytesseract</span> <span class="k">as</span> <span class="nn">ocr</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">glob</span>  
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;paginas/*&quot;</span><span class="p">)</span>
+
+<span class="n">texto</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;por&#39;</span><span class="p">)</span>
+    <span class="n">texto</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;**&#39;</span><span class="p">,</span><span class="s1">&#39;Texto da pagina &#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;**&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>********** Texto da pagina  0 ********** 
+
+Falta de Gas em São Carlos
+
+Muitos leitores entraram em contato com o whatsapp do SCA reclamando da falta de gás
+em distribuidoras de gás de cozinha na cidade. Está muito difícil de achar o botijão GLP de
+13 kg.
+
+O SCA entrou em contato com algumas revendedoras e a resposta é que não havia o
+produto para entregar e não há previsão de chegada. Em um estabelecimento chegaram 10
+botijões que foram vendidos rapidamente para pessoas que estavam aguardando na fila na
+frente do depósito.
+
+A falta de gás se deve a grande procura do produto por causa da pandemia de coronavírus
+e os consumidores estão estocando desnecessariamente botijões. Outro fator é que
+aumentou o consumo, já que muitas pessoas estão comendo em casa, gastando mais gás,
+devido as medidas de distanciamento social.
+
+Leia mais em:
+https://www.saocarlosagora.com.br/cidade/falta-gas-de-cozinha-em-sao-carlos/124785/
+
+********** Texto da pagina  1 ********** 
+
+Corona em São Carlos
+
+A Vigilância Epidemiológica de São Carlos confirmou nesta sexta-feira (10/04) a situação
+epidemiológica do município para o novo coronavírus (COVID-19).
+
+Estão internadas neste momento 29 pessoas, sendo 16 adultos (enfermaria), 4 crianças
+(enfermaria), 7 adultos em UTI (Unidade de Terapia Intensiva) e 1 criança na UTI. Uma
+pessoa de outro município também continua internada em São Carlos na UTI.
+
+Portanto o município contabiliza neste momento 6 casos positivos, com 2 mortes
+confirmadas, outras 4 mortes suspeitas continuam em investigação. 51 casos já foram
+descartados, já que foi liberado mais 1 resultado negativo para a COVID-19 por laboratório
+credenciado ao Instituto Adolfo Lutz.
+
+NOTIFICAÇÕES -— Já passaram pelo sistema de notificação de Síndrome Gripal do
+município 1.193 pessoas desde o dia 21 de março, sendo que 687 pessoas já cumpriram o
+período de isolamento de 14 dias e 506 ainda continuam em isolamento. Essas pessoas
+não realizam mais exame para a COVID-19 (protocolo estabelecido pelo Ministério da
+Saúde).
+
+Leia mais em:
+https://www.saocarlosagora.com.br/coronavirus/sao-carlos-tem-mais-um-caso-descartado-d
+e-covid-19/125010/
+
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="outras-alternativas">
+<h3>Outras alternativas<a class="headerlink" href="#outras-alternativas" title="Permalink to this headline">#</a></h3>
+<p>O procedimento descrito acima para extrair texto de documentos PDF é bastante geral e funciona bem na maioria dos casos. Porém, existem pacotes Python capazes de extrair o texto de arquivos PDF sem a necessidade da pré-conversão das páginas para imagem. Dentre tais pacotes destacam-se:</p>
+<ul class="simple">
+<li><p>PDFPlumber</p></li>
+<li><p>PyMuPDF</p></li>
+<li><p>PDFMiner</p></li>
+</ul>
+<p>A qualidade do texto extraído por tais pacotes depende de como o PDF foi gerado. Não entraremos em detalhes sobre tais pacotes, mas fica aqui a dica.</p>
+</section>
+</section>
+<section id="font-color-blue-expressoes-regulares-font">
+<h2><font color='blue'>Expressões Regulares</font><a class="headerlink" href="#font-color-blue-expressoes-regulares-font" title="Permalink to this headline">#</a></h2>
+<p>Uma expressão regular é uma sequência de caracteres que segue um padrão específico. Por exemplo, o CPF das pessoas segue um padrão de caracteres específico, com o formato:</p>
+<div class="highlight-os notranslate"><div class="highlight"><pre><span></span>ddd.ddd.ddd-dd
+</pre></div>
+</div>
+<p>onde ‘d’ é um dígito [0-9]. Outro exemplo é a numeração de placas de veículos, que, com o padrão Mercosul, passou a ter o formato:</p>
+<div class="highlight-os notranslate"><div class="highlight"><pre><span></span>wwwdwdd
+</pre></div>
+</div>
+<p>onde ‘w’ é um caracter do alfabeto [A-Z] e ‘d’ um dígito numérico [0-9].</p>
+<p>Muitas aplicações de identificação de texto envolvem a questão de procurar por padrões específicos em um bloco de texto.</p>
+<section id="o-pacote-font-color-blue-re-font-regex">
+<h3>O pacote <font color='blue'> re </font> (regex)<a class="headerlink" href="#o-pacote-font-color-blue-re-font-regex" title="Permalink to this headline">#</a></h3>
+<p>O pacote de expressões regulares do python, chamado <font color='blue'>regex</font> e denominado <font color='blue'> re</font>, é uma poderosa ferramenta para identificar e extrair padrões como sequências de caracteres a partir de strings. Os métodos do pacote <font color='blue'> re </font> utilizam uma simbologia para representar as expressões regulares, permitindo a realização de buscas bastante complexas. Vejamos alguns exemplos da simbologia utilizada e seu funcionamento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="simbolo-font-color-blue-font">
+<h4>símbolo <font color='blue'>*</font><a class="headerlink" href="#simbolo-font-color-blue-font" title="Permalink to this headline">#</a></h4>
+<p>O símbolo ‘*’ permite encontrar zero ou mais ocorrências de uma sequência
+de caracteres que precedem o símbolo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;O pacote RE é complicado no começo mas é só no commmeço&#39;</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;com*&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># busca todas as ocorrências da </span>
+                                <span class="c1"># sequência &#39;co&#39; seguida ou não da letra</span>
+                                <span class="c1"># &#39;m&#39;, não importando o número de vezes</span>
+                                <span class="c1"># que &#39;m&#39; ocorra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;co&#39;, &#39;com&#39;, &#39;com&#39;, &#39;commm&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h4>símbolo <font color='blue'>[ ] </font><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<p>O símbolo ‘[ ]’ permite encontrar qualquer um dos caracteres que aparece
+no conjunto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;O pacote RE é complicado no começo, mas é coisa rápida conhecer&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;co[tm]&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># encontra todas as ocorrências </span>
+                                  <span class="c1"># de &#39;co&#39; seguidas de &#39;t&#39; ou &#39;m&#39;</span>
+    
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;co[tm]*&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># quando combinado com *, econtra as ocorrências</span>
+                                   <span class="c1"># de &#39;co&#39; mesmo que não sejam</span>
+                                   <span class="c1"># seguidas de &#39;t&#39; ou &#39;m&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;cot&#39;, &#39;com&#39;, &#39;com&#39;]
+[&#39;cot&#39;, &#39;com&#39;, &#39;com&#39;, &#39;co&#39;, &#39;co&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h4>símbolo <font color='blue'> + </font><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p>O símbolo ‘+’ é quivalente ao símbolo ‘*’, porém, pelo menos uma ocorrência do caractere (ou conjunto de caracteres) que precede o símbolo deve aparecer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;Nesta sequência várias vezes apareceriam ia,&#39;</span>
+<span class="n">texto</span> <span class="o">+=</span> <span class="s1">&#39; mas quantas seriammm? ia sozinho só vai aparecer &#39;</span> 
+<span class="n">texto</span> <span class="o">+=</span> <span class="s1">&#39;quando * for usado&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ia[,m]&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># busca a sequência &#39;ia&#39; seguida </span>
+                                  <span class="c1"># de &#39;,&#39; ou &#39;m&#39;  </span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ia[,m]+&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># com o &#39;+&#39; multiplas ocorrências</span>
+                                  <span class="c1"># de &#39;,&#39; ou &#39;m&#39; são válidas</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ia[,m]*&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># com o &#39;*&#39; multiplas ocorrências</span>
+                                  <span class="c1"># de &#39;,&#39; ou &#39;m&#39; também são válidas</span>
+                                
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;iam&#39;, &#39;ia,&#39;, &#39;iam&#39;]
+[&#39;iam&#39;, &#39;ia,&#39;, &#39;iammm&#39;]
+[&#39;ia&#39;, &#39;ia&#39;, &#39;iam&#39;, &#39;ia,&#39;, &#39;iammm&#39;, &#39;ia&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simbolos-font-color-blue-d-w-font">
+<h4>símbolos <font color='blue'> \d \w </font><a class="headerlink" href="#simbolos-font-color-blue-d-w-font" title="Permalink to this headline">#</a></h4>
+<p>O símbolo ‘\d’ corresponde aos dígitos [0-9] e ‘\w’ significa qualquer caractere alfanumérico [a-zA-Z0-9].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;Nesta sequência várias vezes apareceriam ia, &#39;</span>
+<span class="n">texto</span> <span class="o">+=</span> <span class="s1">&#39;mas ia0 aparece somente uma vez&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ia[a-zA-Z]&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># &#39;ia&#39; seguido que qualquer letra do alfabeto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;ia\w&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span> <span class="c1"># &#39;ia&#39; seguido que qualquer caractere alfanumérico</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ias&#39;, &#39;iam&#39;]
+[&#39;ias&#39;, &#39;iam&#39;, &#39;ia0&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;afde 86,87 asdf178,2324  45432,asg 1235&#39;</span>
+
+<span class="c1"># encontrando uma sequência de dois dígitos seguidos por vírgula</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\d\d,&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span>
+
+<span class="c1"># encontrando qualquer número com dois ou mais dígitos seguidos por vírgula</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[\d]+,&#39;</span><span class="p">,</span><span class="n">texto</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;86,&#39;, &#39;78,&#39;, &#39;32,&#39;]
+[&#39;86,&#39;, &#39;178,&#39;, &#39;45432,&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existem muitos outros símbolos que podem ser utilizados. Outros métodos de busca como <font color='blue'>search()</font>, <font color='blue'>sub()</font>, dentre outros, também estão disponíveis no pacote <font color='blue'>re</font>.</p>
+<p>Mais detalhes sobre o pacote <font color='blue'> re </font> pode ser encontrado <a class="reference external" href="https://www.w3schools.com/python/python_regex.asp">aqui</a> ou <a class="reference external" href="https://docs.python.org/3/library/re.html">aqui</a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-04-PCA.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><font color='blue'> MBA em Ciência de Dados</font></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-06-material%20base.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-tecnicas-avancadas-para-captura-e-tratamento-de-dados-font"><font color="blue">Técnicas Avançadas para Captura e Tratamento de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-identificacao-e-extracao-de-texto-font"><font color="blue"> Identificação e Extração de Texto </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-ocr-font"><font color="blue">OCR</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-em-imagens">OCR em Imagens</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualidade-do-resultado">Qualidade do Resultado</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-em-arquivos-pdf">OCR em arquivos PDF</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf2image">pdf2image</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outras-alternativas">Outras alternativas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-expressoes-regulares-font"><font color="blue">Expressões Regulares</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-pacote-font-color-blue-re-font-regex">O pacote <font color="blue"> re </font> (regex)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simbolo-font-color-blue-font">símbolo <font color="blue">*</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">símbolo <font color="blue">[ ] </font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">símbolo <font color="blue"> + </font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simbolos-font-color-blue-d-w-font">símbolos <font color="blue"> \d \w </font></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

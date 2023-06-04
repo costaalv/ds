@@ -1,0 +1,993 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TACTD-07-4 - Bag of features';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="TACTD-08-Web%20Scraping.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTACTD-07-4 - Bag of features.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TACTD-07-4 - Bag of features.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MBA em Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-bag-of-features-span"><span style="color:darkred">Bag of Features</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-1-obter-imagens-e-patches">Passo 1 - obter imagens e patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-2-obter-features-a-partir-dos-patches">Passo 2 - obter features a partir dos patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-3-obter-dicionario-codebook-vocabulario">Passo 3 - obter Dicionário / Codebook / Vocabulário</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-4-obter-histogramas-como-features-da-bag-of-featurees">Passo 4 - obter histogramas como features da Bag of Featurees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-5-utilizar-as-features-para-tarefas-de-reconhecimento">Passo 5 - utilizar as features para tarefas de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mba-em-ciencia-de-dados">
+<h1>MBA em Ciência de Dados<a class="headerlink" href="#mba-em-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<section id="tecnicas-avancadas-de-captura-e-tratamento-de-dados">
+<h2>Técnicas Avançadas de Captura e Tratamento de Dados<a class="headerlink" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados" title="Permalink to this headline">#</a></h2>
+<section id="span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span">
+<h3><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span><a class="headerlink" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="span-style-color-darkred-bag-of-features-span">
+<h3><span style="color:darkred">Bag of Features</span><a class="headerlink" href="#span-style-color-darkred-bag-of-features-span" title="Permalink to this headline">#</a></h3>
+<p>Material Produzido por Moacir Antonelli Ponti</p>
+<p>CeMEAI - ICMC/USP São Carlos</p>
+<hr class="docutils" />
+<p>O método <strong>Bag of Features</strong> é um framework genérico para obter descritores aprendidos a partir dos dados.</p>
+<p>Quando aplicado em imagens também é chamado de <em>Bag of Visual Words</em></p>
+<p>Possui os seguintes passos:</p>
+<ol class="arabic simple">
+<li><p>extrair características localmente</p></li>
+<li><p>aprender um dicionário de palavras visuais (vocabulário)</p></li>
+<li><p>quantizar ou agrupar as características usando o dicionário</p></li>
+<li><p>cada imagem é representada pela frequência das palavras visuais (histograma)</p></li>
+</ol>
+<p>Essa técnica teve origem ao mesmo tempo na literatura de texto (Bag of Words) e análise de textura (Textons).</p>
+<p>Nesse aula vamos exemplificar usando imagens.</p>
+<img src=imagens/textons1.jpg width=720><p>Temos 3 imagens, e para cada imagem aprendemos um conjunto de subimagens representativas formando um <strong>dicionário visual</strong> ou <em>codebook</em>.</p>
+<p>Podemos usar:</p>
+<ul class="simple">
+<li><p>o espaço de pixels original,</p></li>
+<li><p>o espaço de pixels projetado utilizando PCA,</p></li>
+<li><p>descritores ou vetores de características extraídos.</p></li>
+</ul>
+<p>A partir de então para cada subimagem, verificamos sua similaridade com o dicionário, e contamos a ocorrência da palavra visual mais similar, formando histogramas que serão utilizados para as tarefas de reconhecimento.</p>
+<img src=imagens/textons2.jpg width=720><hr class="docutils" />
+<p>Detalhando o método <strong>Bag of Features</strong></p>
+<ol class="arabic simple">
+<li><p>definir um conjunto de características ou descritores base</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>dos dados de treinamento: extrair as características de maneira local em <em>patches</em></p>
+<ul class="simple">
+<li><p>subimagens</p></li>
+<li><p>trechos de sinais</p></li>
+</ul>
+</li>
+</ol>
+<img src=imagens/bof1.jpg width=680>
+<ol class="arabic simple" start="3">
+<li><p>o espaço de características será formado por múltiplos vetores locais</p>
+<ul class="simple">
+<li><p>extraídos dos <em>patches</em></p></li>
+<li><p>assim temos múltiplos vetores por imagem ou sinal</p></li>
+</ul>
+</li>
+</ol>
+<img src=imagens/bof2.jpg width=680>    
+<ol class="arabic simple" start="4">
+<li><p>montar um <em>codebook</em> ou <em>dicionário</em> obtido a partir de todo o universo de vetores de treinamento,</p>
+<ol class="arabic simple">
+<li><p>definir o tamanho do dicionário <span class="math notranslate nohighlight">\(K\)</span></p></li>
+<li><p>executar um algoritmo de agrupamento e definir os centros dos <span class="math notranslate nohighlight">\(K\)</span> clusters como elementos do dicionário</p></li>
+</ol>
+</li>
+</ol>
+<img src=imagens/bof3.jpg width=680>    
+<ol class="arabic simple" start="5">
+<li><p>o vetor de características é um histograma obtido da seguinte forma:</p>
+<ol class="arabic simple">
+<li><p>o histograma tem um <em>bin</em> para cada elemento do dicionário</p></li>
+<li><p>extraia o próximo <em>patch</em></p></li>
+<li><p>conte +1 ao código do dicionário mais similar ao <em>patch</em> extraído</p></li>
+</ol>
+</li>
+</ol>
+<img src=imagens/bof4.jpg width=680>    
+</section>
+<hr class="docutils" />
+<section id="passo-1-obter-imagens-e-patches">
+<h3>Passo 1 - obter imagens e patches<a class="headerlink" href="#passo-1-obter-imagens-e-patches" title="Permalink to this headline">#</a></h3>
+<p>Vamos usar a função <code class="docutils literal notranslate"><span class="pre">extract_patches_2d()</span></code> da <code class="docutils literal notranslate"><span class="pre">sklearn.feature_extraction.image</span></code></p>
+<p>Várias outras bibliotecas serão utilizadas. Alguns destaques:</p>
+<ul class="simple">
+<li><p>joblib: Parallel, delayed - permite executar uma função em modo paralelo</p></li>
+<li><p>os: listdir - para listar arquivos numa pasta</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">imageio.v2</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.image</span> <span class="kn">import</span> <span class="n">extract_patches_2d</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+
+
+<span class="k">def</span> <span class="nf">get_patches</span><span class="p">(</span><span class="n">img_file</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">tam_patch</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">n_patches</span><span class="o">=</span><span class="mi">250</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Extração de subimagens a partir de uma imagem</span>
+<span class="sd">       Parametros</span>
+<span class="sd">           img_file: caminho para a imagem</span>
+<span class="sd">           random_state: semente aleatoria</span>
+<span class="sd">           tam_patches: tamanho de cada subimagem</span>
+<span class="sd">           n_patches: numero maximo de subimagens a extrair</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">img_file</span><span class="p">)</span>
+    
+    <span class="c1"># Extrai subimagens</span>
+    <span class="n">patch</span> <span class="o">=</span> <span class="n">extract_patches_2d</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> 
+                               <span class="n">patch_size</span><span class="o">=</span><span class="n">tam_patch</span><span class="p">,</span>
+                               <span class="n">max_patches</span><span class="o">=</span><span class="n">n_patches</span><span class="p">,</span> 
+                               <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">patch</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_patches</span><span class="p">,</span> 
+                          <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">tam_patch</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">imageio.v2</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.image</span> <span class="kn">import</span> <span class="n">extract_patches_2d</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;imageio&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Temos que definir:</p>
+<ul class="simple">
+<li><p>o tamanho de cada patch e o total de patches</p></li>
+<li><p>o diretório a buscar imagens</p></li>
+<li><p>cada patch terá ainda uma dimensão extra, relativa ao número de canais de cor (1 para cinza, 3 para RGB)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parametros do BOF</span>
+<span class="n">tam_patch</span> <span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">n_patches</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">path_imgs</span> <span class="o">=</span> <span class="s1">&#39;./dados/flickr_map_training/&#39;</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># pega lista de arquivos no caminho</span>
+<span class="n">l_imgs</span> <span class="o">=</span> <span class="n">listdir</span><span class="p">(</span><span class="n">path_imgs</span><span class="p">)</span>
+
+<span class="c1"># total de imagens</span>
+<span class="n">n_imgs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l_imgs</span><span class="p">)</span>
+
+<span class="c1"># Extrai patches de cada imagem, de forma paralela para cada imagem</span>
+<span class="c1"># retorna uma lista do mesmo tamanho do número de imagens</span>
+<span class="n">patch_arr</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">get_patches</span><span class="p">)(</span><span class="n">path_imgs</span><span class="o">+</span><span class="n">arq_img</span><span class="p">,</span> 
+                                                    <span class="n">random_state</span><span class="p">,</span>
+                                                    <span class="n">tam_patch</span><span class="p">,</span>
+                                                    <span class="n">n_patches</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">arq_img</span> <span class="ow">in</span> <span class="n">l_imgs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Patches extraídos para criação do dicionário de features&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total de imagens = &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">patch_arr</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tamanho de cada array de patches = &#39;</span><span class="p">,</span> <span class="n">patch_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># exibe alguns patches de uma imagem</span>
+<span class="n">img_ind</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">patch_arr</span><span class="p">[</span><span class="n">img_ind</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">tam_patch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tam_patch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">3</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patches extraídos para criação do dicionário de features
+Total de imagens =  80
+Tamanho de cada array de patches =  (1000, 507)
+</pre></div>
+</div>
+<img alt="_images/3669afdbe9911b37cd6478d2b252810d7e0de05f0485afcb7eb8f16fdbb4f220.png" src="_images/3669afdbe9911b37cd6478d2b252810d7e0de05f0485afcb7eb8f16fdbb4f220.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="passo-2-obter-features-a-partir-dos-patches">
+<h3>Passo 2 - obter features a partir dos patches<a class="headerlink" href="#passo-2-obter-features-a-partir-dos-patches" title="Permalink to this headline">#</a></h3>
+<p>Como o número de pixels em cada patch é de alta dimensionalidade, podemos extrair features para tornar o vetor mais compacto.</p>
+<p>Aqui utilizamos o PCA como extrator de características</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca_components</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># Criando matriz com todos os patches para aplicar PCA</span>
+<span class="n">patch_arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">patch_arr</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">patch_arr2</span> <span class="o">=</span> <span class="n">patch_arr2</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">patch_arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">patch_arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="n">patch_arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total de instancias = &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">patch_arr2</span><span class="p">),</span> <span class="s1">&#39; de tamanho = &#39;</span><span class="p">,</span> <span class="n">patch_arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Construindo modelo de componentes principais</span>
+<span class="n">modelo_PCA</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">pca_components</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">modelo_PCA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">patch_arr2</span><span class="p">)</span>
+<span class="n">patch_pca</span> <span class="o">=</span> <span class="n">modelo_PCA</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">patch_arr2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Espaço de características PCA criado&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">patches = &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">patch_pca</span><span class="p">),</span> <span class="s1">&#39; de tamanho = &#39;</span><span class="p">,</span> <span class="n">patch_pca</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total de instancias =  80000  de tamanho =  507
+Espaço de características PCA criado
+	patches =  80000  de tamanho =  20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="passo-3-obter-dicionario-codebook-vocabulario">
+<h3>Passo 3 - obter Dicionário / Codebook / Vocabulário<a class="headerlink" href="#passo-3-obter-dicionario-codebook-vocabulario" title="Permalink to this headline">#</a></h3>
+<p>Para isso utilizaremos o KMeans. É preciso definir:</p>
+<ul class="simple">
+<li><p>o número de palavras visuais no vocabulário</p>
+<ul>
+<li><p>o padrão é um valor entre 50 e 1000 elementos</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dic</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Construindo o dicionário</span>
+<span class="n">kmeans_model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_dic</span><span class="p">,</span> 
+                      <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                      <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span>
+                      <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> 
+                      <span class="n">n_init</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">kmeans_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">patch_pca</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dicionário aprendido&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dicionário aprendido
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">patch_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">patch_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans_model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Projecao 2 componentes dos patches e seus rótulos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">kmeans_model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+      dtype=int32)
+</pre></div>
+</div>
+<img alt="_images/4abe0d69b89540dd6c3baea6ad70b74214df057ebcf5d909581f0b83dbeafdb9.png" src="_images/4abe0d69b89540dd6c3baea6ad70b74214df057ebcf5d909581f0b83dbeafdb9.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="passo-4-obter-histogramas-como-features-da-bag-of-featurees">
+<h3>Passo 4 - obter histogramas como features da Bag of Featurees<a class="headerlink" href="#passo-4-obter-histogramas-como-features-da-bag-of-featurees" title="Permalink to this headline">#</a></h3>
+<p>Sabemos que cada uma das <code class="docutils literal notranslate"><span class="pre">n_imgs</span></code> imagens possui número de patches = <code class="docutils literal notranslate"><span class="pre">n_patches</span></code></p>
+<p>Vamos agora verificar a frequência de cada palavra visual no dicionário em cada uma das imagens de treinamento</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_feats</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># para cada imagem</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_imgs</span><span class="p">):</span>
+    <span class="c1"># predicao para os n_patches de uma imagem</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">kmeans_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">patch_pca</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">n_patches</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">n_patches</span><span class="p">)</span><span class="o">+</span><span class="n">n_patches</span><span class="p">])</span>
+
+    <span class="c1"># computa histograma e armazena no array de features</span>
+    <span class="n">hist_bof</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">n_dic</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">img_feats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hist_bof</span><span class="p">)</span>
+
+<span class="n">img_feats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img_feats</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de imagens e features = &#39;</span><span class="p">,</span> <span class="n">img_feats</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de imagens e features =  (80, 32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>O array <code class="docutils literal notranslate"><span class="pre">img_feats</span></code> é um índice com características para cada imagem</p>
+</section>
+<hr class="docutils" />
+<section id="passo-5-utilizar-as-features-para-tarefas-de-reconhecimento">
+<h3>Passo 5 - utilizar as features para tarefas de reconhecimento<a class="headerlink" href="#passo-5-utilizar-as-features-para-tarefas-de-reconhecimento" title="Permalink to this headline">#</a></h3>
+<p>Aqui vamos usar para <em>recuperação de imagem baseada em conteúdo</em>, a partir de uma imagem de consulta.</p>
+<p>Mas essas features podem ser usadas para realizar treinamento de modelos ou outras análises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_query</span> <span class="o">=</span> <span class="s1">&#39;./dados/flickr_map_test/flower.jpg&#39;</span>
+<span class="c1"># pegando patches</span>
+<span class="n">query_patches</span> <span class="o">=</span> <span class="n">get_patches</span><span class="p">(</span><span class="n">path_query</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">tam_patch</span><span class="p">,</span> <span class="n">n_patches</span><span class="p">)</span>
+<span class="n">query_patches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">query_patches</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Patches extraídos&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">query_patches</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># redimensionando e aplicando pca</span>
+<span class="n">query_pca</span> <span class="o">=</span> <span class="n">modelo_PCA</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">query_patches</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PCA executado&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">query_pca</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># obtem palavras visuais</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">kmeans_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">query_pca</span><span class="p">)</span>
+<span class="c1"># computa histograma como feature</span>
+<span class="n">query_feats</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">n_dic</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Features do BOF obtidas&#39;</span><span class="p">)</span>
+
+<span class="n">dists</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_imgs</span><span class="p">):</span>
+    <span class="n">diq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">img_feats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">query_feats</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">dists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diq</span><span class="p">)</span>
+
+<span class="c1"># pega imagens mais proximas    </span>
+<span class="n">k_cbir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">dists</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distancias calculadas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;imagem mais similar =&#39;</span><span class="p">,</span> <span class="n">k_cbir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39; distancia =&#39;</span><span class="p">,</span> <span class="n">dists</span><span class="p">[</span><span class="n">k_cbir</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="kn">import</span> <span class="nn">imageio.v2</span> <span class="k">as</span> <span class="nn">imageio</span>
+<span class="n">imgq</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_query</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">331</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgq</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Query&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_imgs</span><span class="o">+</span><span class="n">l_imgs</span><span class="p">[</span><span class="n">k_cbir</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dists</span><span class="p">[</span><span class="n">k_cbir</span><span class="p">[</span><span class="n">i</span><span class="p">]]));</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patches extraídos
+(1000, 507)
+PCA executado
+(1000, 20)
+Features do BOF obtidas
+Distancias calculadas
+imagem mais similar = 39  distancia = 0.254161366064947
+</pre></div>
+</div>
+<img alt="_images/8f1e8c2a49f336f7b52121c3b44cfec4aa0f340614f93a4734d2348d9314a6c7.png" src="_images/8f1e8c2a49f336f7b52121c3b44cfec4aa0f340614f93a4734d2348d9314a6c7.png" />
+</div>
+</div>
+</section>
+<section id="resumo">
+<h3>Resumo:<a class="headerlink" href="#resumo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Bag of Features é um <em>framework</em> para obter características</p>
+<ul>
+<li><p>útil para obter representações compactas e com certo grau de interpretabilidade</p></li>
+<li><p>estado da arte pré-Deep Learning</p></li>
+</ul>
+</li>
+<li><p>Etapas críticas</p>
+<ul>
+<li><p>definição do descritor base</p></li>
+<li><p>definição do dicionário</p></li>
+</ul>
+</li>
+<li><p>Pode ser usado para qualquer dado não estruturado, seguindo as mesmas etapas</p>
+<ul>
+<li><p>texto - Bag of Words</p></li>
+<li><p>sinais</p></li>
+<li><p>outros</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TACTD-07-3%20-%20Descritores%20de%20imagens.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MBA em Ciência de Dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TACTD-08-Web%20Scraping.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-avancadas-de-captura-e-tratamento-de-dados">Técnicas Avançadas de Captura e Tratamento de Dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-modulo-vii-dados-nao-estruturados-sinais-e-imagens-span"><span style="color:darkred">Módulo VII - Dados não estruturados: sinais e imagens</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-darkred-bag-of-features-span"><span style="color:darkred">Bag of Features</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-1-obter-imagens-e-patches">Passo 1 - obter imagens e patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-2-obter-features-a-partir-dos-patches">Passo 2 - obter features a partir dos patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-3-obter-dicionario-codebook-vocabulario">Passo 3 - obter Dicionário / Codebook / Vocabulário</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-4-obter-histogramas-como-features-da-bag-of-featurees">Passo 4 - obter histogramas como features da Bag of Featurees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passo-5-utilizar-as-features-para-tarefas-de-reconhecimento">Passo 5 - utilizar as features para tarefas de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

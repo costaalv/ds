@@ -1,0 +1,1940 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_08_Pandas III';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Estatística para Ciência de Dados" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="PCD_07_Pandas%20II.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_08_Pandas III.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_08_Pandas III.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color="blue"> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-iii-font"><font color="blue">Pandas Parte III</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-e-bruno-coelho-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato e Bruno Coelho</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao">Introdução</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-de-acordo-com-uma-lista-externa">Agrupando de acordo com uma lista externa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-com-multiplos-criterios-indexacao-hierarquica">Agrupando com múltiplos critérios (indexação hierárquica)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-com-funcoes">Agrupando com funções</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacoes-e-agregacoes">Transformações e Agregações</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-agregacao">Métodos de agregação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-filtragem">Métodos de filtragem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-transformacao">Métodos de transformação</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color="blue"> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-programacao-para-ciencia-de-dados-font">
+<h1><font color="blue">Programação para Ciência de Dados</font><a class="headerlink" href="#font-color-blue-programacao-para-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-pandas-parte-iii-font">
+<h2><font color="blue">Pandas Parte III</font><a class="headerlink" href="#font-color-blue-pandas-parte-iii-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-e-bruno-coelho-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato e Bruno Coelho</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-e-bruno-coelho-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+<p><strong>Conteúdo:</strong></p>
+<ul class="simple">
+<li><p>GroupBy</p>
+<ul>
+<li><p>Agregação</p></li>
+<li><p>Filtragem</p></li>
+<li><p>Transformação</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Referências</strong> <br></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/pandas.pdf">Pandas: powerful Python data analysis toolkit: Wes McKinney &amp; PyData Devel. Team</a></p></li>
+<li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/index.html">http://pandas.pydata.org/pandas-docs/stable/index.html</a></p></li>
+</ul>
+</section>
+<section id="introducao">
+<h2>Introdução<a class="headerlink" href="#introducao" title="Permalink to this headline">#</a></h2>
+<p>Frequentemente queremos aplicar transformações e filtragens  em um conjunto de dados a fim de extrair informações relevantes e padrões contidos nos dados. Por exemplo, analisar o salário médio de um grupo de profissionais considerando o sexo e a faixa etária dos profissionais.
+Muitas destas transformações podem ser realizadas por meio de uma operação denominada <em>MapReduce</em>.</p>
+<p><em>MapReduce</em> é implementada no pacote <font color='blue'>Pandas</font> por meio do método <font color='blue'>groupby</font>.</p>
+<p>Em geral, o método <font color='blue'>groupby</font> envolve 3 tarefas:</p>
+<ul class="simple">
+<li><p><strong>Split</strong>: Divide os dados em subgrupos. Por exemplo, divide os profissionais em subgrupos de acordo com a faixa etária dos profissionais.</p></li>
+<li><p><strong>Apply</strong>: Aplica alguma transformação, agregação ou filtragem para extrair informações de cada subgrupo. Por exemplo, pode-se calcular a média salarial em cada faixa etária dos profissionais.</p></li>
+<li><p><strong>Combine</strong>: Combina os resultados das transformações em um DataFrame ou Série.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ccccc}
+DataFrame &amp; &amp; Split &amp; Apply &amp; Combine\\
+\begin{array}{c|c}
+C1 &amp; C2 \\ \hline
+A &amp; 0 \\ \hline
+B &amp; 5 \\ \hline
+C &amp; 10 \\ \hline
+A &amp; 5 \\ \hline
+B &amp; 5 \\ \hline
+C &amp; 10 \\ \hline
+A &amp; 10 \\ \hline
+B &amp; 5 \\ \hline
+C &amp; 10 
+\end{array} &amp;
+\begin{array}{c}
+\nearrow \\ \\
+\rightarrow \\ \\
+\searrow
+\end{array} &amp;
+\begin{array}{c|c}
+A &amp; 0 \\ \hline
+A &amp; 5 \\ \hline
+A &amp; 10 \\ \\
+B &amp; 5 \\ \hline
+B &amp; 5 \\ \hline
+B &amp; 5 \\ \\
+C &amp; 10 \\ \hline
+C &amp; 10 \\ \hline
+C &amp; 10 
+\end{array} &amp;
+\begin{array}{c}
+\searrow\\ \\
+\rightarrow \\ \\
+\nearrow
+\end{array} &amp; 
+\begin{array}{c|c}
+A &amp; 15 \\ \hline
+B &amp; 15 \\ \hline
+C &amp; 30 
+\end{array}
+\end{array}
+\end{split}\]</div>
+<p>A etapa de “split” divide um conjunto de dados de acordo com algum critério, que pode ser valores das colunas do DataFrame, lista de valores externos ou até mesmo o resultado de uma função.</p>
+<p>Na verdade, o  <font color='blue'>pandas</font> não divide o DataFrame, mas cria uma estrutura que permite operar como se os dados estivessem divididos, evitando o uso excessivo de memória.</p>
+<p>Portanto, é importante estar atento, pois o resultado de aplicar o método <font color='blue'>groupby</font> não é um novo DataFrame (ou Serie), mas sim um objeto do tipo <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.
+Para visualizar ou acessar os grupos criados pode-se realizar uma redução (que é o resultado do “apply” e “combine”) ou utilizar algum método do objeto <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, como por exemplo:</p>
+<ul class="simple">
+<li><p><font color='blue'>first()</font>: apresenta a primeira linha de cada grupo formado</p></li>
+<li><p><font color='blue'>get_group()</font>: retorna um DataFrame com o conteúdo de um grupo</p></li>
+<li><p><font color='blue'>groups()</font>: retorna um dicionário onde as chaves são os rótulos dos grupos e os valores os índices das linhas onde elementos do grupo ocorrem</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importando o pacote &#39;pandas&#39; e &#39;numpy&#39;</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># O comando abaixo carrega o arquivo &#39;tips.csv&#39; disponível no moodle</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupando os dados de acordo com os valores da coluna &quot;sex&quot;</span>
+
+<span class="n">dfgb_sex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perceba que a variável &#39;df_sex&#39; não é um DataFrame, mas sim </span>
+<span class="c1"># um &#39;DataFrameGroupBy&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dfgb_sex</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualizando a primeira linha de cada grupo</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dfgb_sex</span><span class="o">.</span><span class="n">first</span><span class="p">()))</span>  <span class="c1"># note que ao invocar o método first() obtemos um DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> primeira linha cada grupo:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">dfgb_sex</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>  <span class="c1"># note que os rótulos das linhas são</span>
+                                                           <span class="c1"># os grupos obtidos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+
+ primeira linha cada grupo:
+         total_bill   tip smoker  day    time  size
+sex                                               
+Female       16.99  1.01     No  Sun  Dinner     2
+Male         10.34  1.66     No  Sun  Dinner     3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualizando as primeiras linhas do grupo &#39;Male&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">dfgb_sex</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Male&#39;</span><span class="p">)))</span>  <span class="c1"># o resultado do get_group é um DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> primeiras linhas do grupo &quot;Male&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+      <span class="n">dfgb_sex</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Male&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+
+ primeiras linhas do grupo &quot;Male&quot;:
+    total_bill   tip   sex smoker  day    time  size
+1       10.34  1.66  Male     No  Sun  Dinner     3
+2       21.01  3.50  Male     No  Sun  Dinner     3
+3       23.68  3.31  Male     No  Sun  Dinner     2
+5       25.29  4.71  Male     No  Sun  Dinner     4
+6        8.77  2.00  Male     No  Sun  Dinner     2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># o método &#39;groups&#39; retorna um dicionário onde as chaves </span>
+<span class="c1"># são os rótulos dos grupos formados e os valores são os índices das linhas</span>
+<span class="c1"># onde os elementos do grupo estão</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">dfgb_sex</span><span class="o">.</span><span class="n">groups</span><span class="p">))</span>  <span class="c1"># o resutlado de groups é um dicionário</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> rótulos dos grupos:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">dfgb_sex</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c1"># as chaves são os rótulos dos grupos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> indices de alguns elementos do grupo &quot;Female&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+      <span class="n">dfgb_sex</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="s1">&#39;Female&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &lt;class &#39;pandas.io.formats.printing.PrettyDict&#39;&gt;
+
+ rótulos dos grupos:
+ dict_keys([&#39;Female&#39;, &#39;Male&#39;])
+
+ indices de alguns elementos do grupo &quot;Female&quot;:
+ Index([0, 4, 11, 14, 16], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="agrupando-de-acordo-com-uma-lista-externa">
+<h3>Agrupando de acordo com uma lista externa<a class="headerlink" href="#agrupando-de-acordo-com-uma-lista-externa" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>groupby</font> pode agrupar um DataFrame de acordo com uma lista externa (que não é parte do DataFrame). Para isso, a lista deve possuir um número de elementos igual ao número de linhas do DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo DataFrame a partir de um dicionário</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">],</span> 
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># criando uma lista de 0 e 1 com o mesmo número de linhas do DataFrame</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+
+<span class="c1">#lista criada</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  key1 key2     data1     data2
+0    a  one  0.515879  0.218909
+1    a  two  0.599790  0.604739
+2    b  one  0.798807  0.812955
+3    b  two  0.071316  0.904293
+4    a  one  0.298375  0.294229
+[0, 1, 1, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupando o DataFrame de acordo com a lista &#39;ls&#39;</span>
+<span class="n">gbylist</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gbylist</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># linhas onde o valor 0 aparece na lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gbylist</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># linhas onde o valor 1 aparece na lista</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  key1 key2     data1     data2
+0    a  one  0.515879  0.218909
+3    b  two  0.071316  0.904293
+4    a  one  0.298375  0.294229
+  key1 key2     data1     data2
+1    a  two  0.599790  0.604739
+2    b  one  0.798807  0.812955
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agrupando-com-multiplos-criterios-indexacao-hierarquica">
+<h3>Agrupando com múltiplos critérios (indexação hierárquica)<a class="headerlink" href="#agrupando-com-multiplos-criterios-indexacao-hierarquica" title="Permalink to this headline">#</a></h3>
+<p>Quando mais que um conjunto de valores é enviado como parâmetro para o <font color='blue'>groupby</font>, o resultado é um agrupamento com índices organizados de forma hierárquica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo DataFrame a partir de um dicionário</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">],</span> 
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)})</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>one</td>
+      <td>0.141538</td>
+      <td>0.486819</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a</td>
+      <td>two</td>
+      <td>0.152364</td>
+      <td>0.297818</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>one</td>
+      <td>0.804233</td>
+      <td>0.894480</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b</td>
+      <td>two</td>
+      <td>0.704969</td>
+      <td>0.989818</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>one</td>
+      <td>0.765149</td>
+      <td>0.056627</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>a</td>
+      <td>two</td>
+      <td>0.588822</td>
+      <td>0.270956</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>b</td>
+      <td>two</td>
+      <td>0.456940</td>
+      <td>0.812119</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>one</td>
+      <td>0.973781</td>
+      <td>0.515939</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># agrupando com base nos valores das colunas &#39;key1&#39; e &#39;key2&#39;</span>
+<span class="n">dfh</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+
+<span class="c1"># imprimindo o conteúdo de cada grupo com um laço for</span>
+<span class="c1"># &#39;groupname&#39; corresponde ao índice do grupo, uma tupla neste caso</span>
+<span class="c1"># &#39;group&#39; corresponde ao grupo\ própriamente dito</span>
+<span class="k">for</span> <span class="n">groupname</span><span class="p">,</span><span class="n">group</span> <span class="ow">in</span> <span class="n">dfh</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rotulo do Grupo: &#39;</span><span class="p">,</span><span class="n">groupname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rotulo do Grupo:  (&#39;a&#39;, &#39;one&#39;)
+  key1 key2     data1     data2
+0    a  one  0.141538  0.486819
+4    a  one  0.765149  0.056627
+7    a  one  0.973781  0.515939 
+
+Rotulo do Grupo:  (&#39;a&#39;, &#39;two&#39;)
+  key1 key2     data1     data2
+1    a  two  0.152364  0.297818
+5    a  two  0.588822  0.270956 
+
+Rotulo do Grupo:  (&#39;b&#39;, &#39;one&#39;)
+  key1 key2     data1    data2
+2    b  one  0.804233  0.89448 
+
+Rotulo do Grupo:  (&#39;b&#39;, &#39;two&#39;)
+  key1 key2     data1     data2
+3    b  two  0.704969  0.989818
+6    b  two  0.456940  0.812119 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agrupando-com-funcoes">
+<h3>Agrupando com funções<a class="headerlink" href="#agrupando-com-funcoes" title="Permalink to this headline">#</a></h3>
+<p>Uma função pode ser enviada como parâmetro de agrupamento para o <font color='blue'>groupby</font>. Neste caso, a função é aplicada aos rótulos das linhas do DataFrame e o resultado é utilizado como rótulo do grupo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># constuindo DataFrame com rótulos de linhas e colunas</span>
+<span class="n">dfp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span>
+               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> 
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Joe&#39;</span><span class="p">,</span><span class="s1">&#39;Michel&#39;</span><span class="p">,</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span><span class="s1">&#39;Wes&#39;</span><span class="p">,</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span><span class="s1">&#39;Travis&#39;</span><span class="p">])</span>
+<span class="n">dfp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Joe</th>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Michel</th>
+      <td>6</td>
+      <td>5</td>
+      <td>8</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Steve</th>
+      <td>8</td>
+      <td>8</td>
+      <td>5</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Wes</th>
+      <td>7</td>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Jim</th>
+      <td>5</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Travis</th>
+      <td>4</td>
+      <td>3</td>
+      <td>9</td>
+      <td>1</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># agrupando de acordo com o número de caracteres nos rótulos das linhas</span>
+<span class="n">gbf</span> <span class="o">=</span> <span class="n">dfp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">gbf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Grupo: &#39;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grupo:  3
+     a  b  c  d  e
+Joe  4  6  5  2  6
+Wes  7  5  0  3  9
+Jim  5  1  3  5  6 
+
+Grupo:  5
+       a  b  c  d  e
+Steve  8  8  5  2  8 
+
+Grupo:  6
+        a  b  c  d  e
+Michel  6  5  8  3  5
+Travis  4  3  9  1  7 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="transformacoes-e-agregacoes">
+<h1>Transformações e Agregações<a class="headerlink" href="#transformacoes-e-agregacoes" title="Permalink to this headline">#</a></h1>
+<p>Em geral, temos 5 tipos de operações que podem ser aplicadas aos grupos gerados pelo <font color='blue'>groupby</font>:</p>
+<ul class="simple">
+<li><p><strong>Métodos de agregação</strong>: Combinam várias linhas em um único valor. Exemplos incluem a média, soma e mediana de cada coluna em cada grupo.</p></li>
+<li><p><strong>Métodos de filtragem</strong>: Retornam apenas um subconjunto dos dados originais.</p></li>
+<li><p><strong>Métodos de tranformação</strong>: Retornam um DataFrame com o mesmo tamanho e índices dos dados originais, mas com valores transformados com base nos grupos.</p></li>
+</ul>
+<section id="metodos-de-agregacao">
+<h2>Métodos de agregação<a class="headerlink" href="#metodos-de-agregacao" title="Permalink to this headline">#</a></h2>
+<p>Pandas fornece <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#aggregation">diversas funções</a> estatísticas de agregação, como <font color='blue'>sum, mean, std, max, min </font>. Pode-se ainda calcular várias agregações simultaneamente com o método <font color='blue'>agg</font> (de “aggregate”)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importando o pacote &#39;pandas&#39;</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Carregando o arquivo &#39;tips.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtendo a maior gorjeta dos grupos &#39;Male&#39; e &#39;Female&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gorjeta máxima&quot;</span><span class="p">)</span>
+
+<span class="c1"># Agrupamos por sexo, depois selecionamos a coluna &quot;tip&quot; (gorjeta)</span>
+<span class="c1"># e pegamos o máximo dela.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gorjeta máxima
+sex
+Female     6.5
+Male      10.0
+Name: tip, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pode-se calcular várias agregações simultaneamente via método &quot;agg&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Média e Desvio Padrão das gorjetas em cada grupo:&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Média e Desvio Padrão das gorjetas em cada grupo:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>2.833448</td>
+      <td>1.159495</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>3.089618</td>
+      <td>1.489102</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Importante</strong>: O resultado de uma agregação, transformação ou filtragem  é um novo DataFrame onde os rótulos das linhas são os valores utilizados para realizar o agrupamento.
+Caso queiramos um DataFrame com linhas indexadas com valores <span class="math notranslate nohighlight">\(0,1,...\)</span>, devemos empregar o método <font color='blue'>reset_index</font>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando as colunas de agregação como índices</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rotulos dos grupos:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rotulos das colunas:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            mean       std
+sex                       
+Female  2.833448  1.159495
+Male    3.089618  1.489102 
+
+Rotulos dos grupos:
+ Index([&#39;Female&#39;, &#39;Male&#39;], dtype=&#39;object&#39;, name=&#39;sex&#39;)
+
+Rotulos das colunas:
+ Index([&#39;mean&#39;, &#39;std&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reindexando com reset_index(), os rótulos se tornam uma nova coluna</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rotulos dos grupos:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rotulos das colunas:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sex      mean       std
+0  Female  2.833448  1.159495
+1    Male  3.089618  1.489102 
+
+Rotulos dos grupos:
+ RangeIndex(start=0, stop=2, step=1)
+
+Rotulos das colunas:
+ Index([&#39;sex&#39;, &#39;mean&#39;, &#39;std&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pode-se aplicar agregações diferentes para cada coluna com o uso de dicionário.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1"># calculando a média das gorjetas, </span>
+<span class="c1"># o valor máximo das refeições </span>
+<span class="c1"># e o dia da semana mais frequente (moda) de cada grupo &#39;Male&#39; e &#39;Female&#39;</span>
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;tip&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> 
+                         <span class="s2">&quot;total_bill&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mode</span><span class="p">()})</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">dfm</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   total_bill   tip     sex smoker  day    time  size
+0       16.99  1.01  Female     No  Sun  Dinner     2
+1       10.34  1.66    Male     No  Sun  Dinner     3
+2       21.01  3.50    Male     No  Sun  Dinner     3
+3       23.68  3.31    Male     No  Sun  Dinner     2
+4       24.59  3.61  Female     No  Sun  Dinner     4
+
+              tip  total_bill   day
+sex                               
+Female  2.833448       44.30  Thur
+Male    3.089618       50.81   Sat
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pode-se renomear as colunas do DataFrame gerado durante a agregação</span>
+<span class="c1"># renomeando colunas com agg</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">mean_tip</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+                              <span class="n">max_bill</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">),</span>
+                              <span class="n">most_freq_day</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mode</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        mean_tip  max_bill most_freq_day
+sex                                     
+Female  2.833448     44.30          Thur
+Male    3.089618     50.81           Sat
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metodos-de-filtragem">
+<h2>Métodos de filtragem<a class="headerlink" href="#metodos-de-filtragem" title="Permalink to this headline">#</a></h2>
+<p>O método mais comum de filtragem é o <font color='blue'>filter </font>que retorna os elementos do grupo que satisfaz uma condição dada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo DataFrame a partir de um dicionário</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;data0&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)})</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>data0</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>0.183756</td>
+      <td>0.583297</td>
+      <td>0.122711</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>c</td>
+      <td>0.922489</td>
+      <td>0.321135</td>
+      <td>0.492179</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>0.012566</td>
+      <td>0.612187</td>
+      <td>0.223547</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>c</td>
+      <td>0.941280</td>
+      <td>0.341120</td>
+      <td>0.836239</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>0.244098</td>
+      <td>0.482691</td>
+      <td>0.640601</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>a</td>
+      <td>0.357244</td>
+      <td>0.704267</td>
+      <td>0.711974</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>b</td>
+      <td>0.352615</td>
+      <td>0.522808</td>
+      <td>0.721317</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>0.827711</td>
+      <td>0.369170</td>
+      <td>0.724336</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>c</td>
+      <td>0.039077</td>
+      <td>0.401784</td>
+      <td>0.417871</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>b</td>
+      <td>0.630918</td>
+      <td>0.107499</td>
+      <td>0.698860</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># média geral da coluna &#39;data1&#39;</span>
+<span class="n">data1_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;media da coluna &quot;data1&quot;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">data1_mean</span><span class="p">)</span>
+
+<span class="c1"># calculando a média de cada coluna em cada grupo dado pela coluna &#39;key1&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">media de cada grupo</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># filtrando os grupos cuja média da coluna &#39;data1&#39; é maior que a média </span>
+<span class="c1"># geral da coluna &#39;data1&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> grupos cuja média da coluna &quot;data1&quot; é maior que a média geral de &quot;data1&quot;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">data1_mean</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>media da coluna &quot;data1&quot;
+ 0.44459572969646377
+
+media de cada grupo
+          data0     data1     data2
+key1                              
+a     0.403202  0.534856  0.549906
+b     0.332033  0.414165  0.547908
+c     0.634282  0.354680  0.582097
+
+ grupos cuja média da coluna &quot;data1&quot; é maior que a média geral de &quot;data1&quot;
+
+  key1     data0     data1     data2
+0    a  0.183756  0.583297  0.122711
+4    a  0.244098  0.482691  0.640601
+5    a  0.357244  0.704267  0.711974
+7    a  0.827711  0.369170  0.724336
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metodos-de-transformacao">
+<h2>Métodos de transformação<a class="headerlink" href="#metodos-de-transformacao" title="Permalink to this headline">#</a></h2>
+<p>O método <font color='blue'>transform</font> retorna um DataFrame com o <strong>mesmo número de linhas</strong> que o DataFrame original. A transformação é realizada em cada elemento de cada grupo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo DataFrame a partir de um dicionário</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;data0&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)})</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>data0</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>0.914434</td>
+      <td>0.868848</td>
+      <td>0.181927</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>c</td>
+      <td>0.045758</td>
+      <td>0.592262</td>
+      <td>0.445936</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>0.662101</td>
+      <td>0.983055</td>
+      <td>0.142222</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>c</td>
+      <td>0.095523</td>
+      <td>0.281924</td>
+      <td>0.254838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>0.872678</td>
+      <td>0.137231</td>
+      <td>0.390535</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>a</td>
+      <td>0.742163</td>
+      <td>0.770445</td>
+      <td>0.721901</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>b</td>
+      <td>0.044793</td>
+      <td>0.542806</td>
+      <td>0.943895</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>0.342286</td>
+      <td>0.161618</td>
+      <td>0.222161</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>c</td>
+      <td>0.223436</td>
+      <td>0.402738</td>
+      <td>0.717938</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>b</td>
+      <td>0.338126</td>
+      <td>0.594173</td>
+      <td>0.794097</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcula a diferença entre a média do grupo e </span>
+<span class="c1"># o elemento do grupo (em cada coluna)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;média de cada grupo</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;d1&#39;</span><span class="p">,</span><span class="s1">&#39;d2&#39;</span><span class="p">,</span><span class="s1">&#39;d3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>média de cada grupo
+          data0     data1     data2
+key1                              
+a     0.717891  0.484536  0.379131
+b     0.348340  0.706678  0.626738
+c     0.121572  0.425641  0.472904
+
+   key1     data0     data1     data2        d1        d2        d3
+0    a  0.914434  0.868848  0.181927  0.196544  0.384313 -0.197204
+1    c  0.045758  0.592262  0.445936 -0.075815  0.166621 -0.026968
+2    b  0.662101  0.983055  0.142222  0.313761  0.276377 -0.484516
+3    c  0.095523  0.281924  0.254838 -0.026049 -0.143717 -0.218066
+4    a  0.872678  0.137231  0.390535  0.154788 -0.347305  0.011404
+5    a  0.742163  0.770445  0.721901  0.024273  0.285910  0.342770
+6    b  0.044793  0.542806  0.943895 -0.303547 -0.163872  0.317157
+7    a  0.342286  0.161618  0.222161 -0.375605 -0.322917 -0.156970
+8    c  0.223436  0.402738  0.717938  0.101864 -0.022904  0.245034
+9    b  0.338126  0.594173  0.794097 -0.010214 -0.112505  0.167359
+</pre></div>
+</div>
+</div>
+</div>
+<p>O método <font color='blue'>apply</font> aplica uma função em cada grupo e retorna um DataFrame com o resultado da função em cada grupo. Os rótulos das linhas do DataFrame gerado são os identificadores dos grupos. O método <font color='blue'>apply</font> é o mais versátil dos métodos de transformação.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo DataFrame a partir de um dicionário</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;data0&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)})</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>data0</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>0.908546</td>
+      <td>0.226659</td>
+      <td>0.492541</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>c</td>
+      <td>0.202110</td>
+      <td>0.419674</td>
+      <td>0.150370</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>0.007410</td>
+      <td>0.655634</td>
+      <td>0.197607</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>c</td>
+      <td>0.477969</td>
+      <td>0.418537</td>
+      <td>0.999426</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>0.765424</td>
+      <td>0.963960</td>
+      <td>0.907034</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>a</td>
+      <td>0.363631</td>
+      <td>0.886918</td>
+      <td>0.354400</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>b</td>
+      <td>0.501298</td>
+      <td>0.916386</td>
+      <td>0.117690</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>0.568199</td>
+      <td>0.041178</td>
+      <td>0.585486</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>c</td>
+      <td>0.558303</td>
+      <td>0.581502</td>
+      <td>0.219854</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>b</td>
+      <td>0.796625</td>
+      <td>0.963835</td>
+      <td>0.798071</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># agrupando pela coluna &#39;key1&#39; e calculando a </span>
+<span class="c1"># diferença entre o maior e o menor valor de cada coluna em cada grupo</span>
+<span class="c1"># e retornando a menor diferença</span>
+
+<span class="c1"># diferença entre o maior e menor valor em cada coluna em cada grupo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())))</span>
+
+<span class="c1"># menor diferença em cada grupo</span>
+<span class="n">max_min</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_min</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         data0     data1     data2
+key1                              
+a     0.544915  0.922781  0.552634
+b     0.789215  0.308201  0.680380
+c     0.356193  0.162964  0.849057
+key1
+a    0.544915
+b    0.308201
+c    0.162964
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Comentário: MapReduce</strong></p>
+<p>Embora frequentemente chamamos qualquer operação split-apply-combine de <em>MapReduce</em>, originalmente esse nome foi dado ao modelo de programação desenvolvido pela Apache.</p>
+<p>Sua funcionalidade é a mesma do <em>GroupBy</em> do Pandas, porém foi implementado para operar em grandes volumes de dados utilizando algoritmos distribuidos em uma arquitetura de computação paralela (cluster de computadores), garantindo que cada máquina opere sobre um subconjunto específico dos dados, sendo o padrão para tecnologias de Big Data como <a class="reference external" href="https://hadoop.apache.org/">Hadoop</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_07_Pandas%20II.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Estatística para Ciência de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-iii-font"><font color="blue">Pandas Parte III</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-e-bruno-coelho-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato e Bruno Coelho</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao">Introdução</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-de-acordo-com-uma-lista-externa">Agrupando de acordo com uma lista externa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-com-multiplos-criterios-indexacao-hierarquica">Agrupando com múltiplos critérios (indexação hierárquica)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupando-com-funcoes">Agrupando com funções</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacoes-e-agregacoes">Transformações e Agregações</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-agregacao">Métodos de agregação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-filtragem">Métodos de filtragem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-transformacao">Métodos de transformação</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1514 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_04_Numpy I ';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="PCD_05_Numpy%20II%20e%20Matplotlib.html" />
+    <link rel="prev" title="Função ‘map’" href="PCD_03_x_map_filter_reduce.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_07_Pandas%20II.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_04_Numpy I .html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_04_Numpy I .ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:blue"> MBA em Ciência de Dados</span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span"><span style="color:blue">Programação para Ciência de Dados</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-numpy-parte-i-span"><span style="color:blue">Numpy Parte I</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construindo-arrays">Construindo arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acessando-os-elementos-de-um-array">Acessando os elementos de um array</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percorrendo-elementos-com-laco-font-color-blue-for-font">Percorrendo elementos com laço <font color="blue">for</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fatiando-arrays-slicing">Fatiando arrays (slicing)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-font-color-blue-flatten-font-font-color-blue-ravel-font-e-font-color-blue-reshape-font">Métodos <font color="blue">flatten</font> , <font color="blue">ravel</font> e <font color="blue">reshape</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposta-de-uma-matriz">Transposta de uma matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mascara-booleanas">Máscara booleanas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacoes-view">Visualizações  (<strong>view</strong>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-com-font-color-blue-numpy-font">I/O com <font color="blue">numpy</font></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-mba-em-ciencia-de-dados-span">
+<h1><span style="color:blue"> MBA em Ciência de Dados</span><a class="headerlink" href="#span-style-color-blue-mba-em-ciencia-de-dados-span" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-programacao-para-ciencia-de-dados-span">
+<h1><span style="color:blue">Programação para Ciência de Dados</span><a class="headerlink" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span" title="Permalink to this headline">#</a></h1>
+<section id="span-style-color-blue-numpy-parte-i-span">
+<h2><span style="color:blue">Numpy Parte I</span><a class="headerlink" href="#span-style-color-blue-numpy-parte-i-span" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+<p><strong>Conteúdo:</strong></p>
+<ul class="simple">
+<li><p>Numpy - Parte I:</p>
+<ul>
+<li><p>Visão geral</p></li>
+<li><p>Básico de arrays</p></li>
+<li><p>Manipulação das dimensões</p></li>
+<li><p>Iterar e repartir</p></li>
+<li><p>Indexação estilosa</p></li>
+<li><p>Cópias e visualizações</p></li>
+</ul>
+</li>
+<li><p>I/O com Numpy</p>
+<ul>
+<li><p>Leitura e escrita de arrays</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Referencias:</strong></p>
+<p><a class="reference external" href="https://www.python-course.eu/numpy.php">Numpy Tutorial</a></p>
+</section>
+<hr class="docutils" />
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h2>
+<p><font color='blue'>Numpy</font> é um pacote Python para processamento matricial (computação orientada a matriz) onde:</p>
+<ul class="simple">
+<li><p>as classes e métodos são majoritariamente escrito em C, garantindo eficiência computacional</p></li>
+<li><p>possui muitos recursos para computação científica e problemas de álgebra linear</p></li>
+</ul>
+<p>Vários outros pacotes do Python dependem fortemente do <font color='blue'>numpy</font> , como por exemplo:</p>
+<ul class="simple">
+<li><p>pandas</p></li>
+<li><p>matplotlib</p></li>
+<li><p>sklearn</p></li>
+</ul>
+<p>Numpy é um pacote, precisa portanto ser importado. A forma típica de importar o <font color='blue'>numpy</font> é</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>porém, outras formas também podem ser utilizadas, como por exemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>A estruta de dados base do <font color='blue'>numpy</font> são os <code class="docutils literal notranslate"><span class="pre">arrays</span></code>, que funcionam de forma semelhante às listas em Python, no entanto:</p>
+<ul class="simple">
+<li><p>Todos os elementos em um array deve ser do mesmo tipo, tipicamente um tipo numérico como <font color='blue'>float</font> ou <font color='blue'>int</font></p></li>
+<li><p>Os arrays viabilizam a realização eficiente de operações numéricas envolvendo grandes quantidades de dados, sendo para este fim, muito mais eficientes que as listas.</p></li>
+<li><p>Cada dimensão de um array é chamada de eixo (<em>axis</em>)</p></li>
+<li><p>Os eixos são numerados a partir de <span class="math notranslate nohighlight">\(0\)</span></p></li>
+<li><p>Os elementos são acessados utilizando colchetes <font color='blue'>[]</font> (semelhante às listas do Python)</p></li>
+</ul>
+<section id="construindo-arrays">
+<h3>Construindo arrays<a class="headerlink" href="#construindo-arrays" title="Permalink to this headline">#</a></h3>
+<p>Arrays podem ser construidos de muitas formas diferentes:</p>
+<ul class="simple">
+<li><p>convertendo listas</p></li>
+<li><p>via métodos do <font color='blue'>numpy</font></p></li>
+<li><p>convertendo DataFrames</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># criando um array unidimensional a partir de uma lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1D array&quot;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">a1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1d</span><span class="p">)</span>
+
+<span class="c1"># note que na impressão de um array, as vírgulas entre elementos não aparecem como no caso de listas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1D array ----- 
+
+[ 1  3  5  7  9 10]
+[1, 3, 5, 7, 9, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando arrays unidimensionais a partir de métodos do numpy</span>
+<span class="n">b1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># array com oito elementos iguais a zero</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d=&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="p">)</span>
+
+<span class="n">c1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># array com oito elementos iguais a um</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c1d=&#39;</span><span class="p">,</span><span class="n">c1d</span><span class="p">)</span>
+
+<span class="n">d1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># array com numeros entre 0 e 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;d1d=&#39;</span><span class="p">,</span><span class="n">d1d</span><span class="p">)</span>
+
+<span class="n">e1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#array com 5 números igualmente espaçados no intervalo entre 1 e 2 </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;e1d=&#39;</span><span class="p">,</span><span class="n">e1d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b1d= [0. 0. 0. 0. 0. 0. 0. 0.]
+c1d= [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+d1d= [0 1 2 3 4 5 6 7 8 9]
+e1d= [1.   1.25 1.5  1.75 2.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando array bidimensional (matriz) a partir de uma lista de listas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> 2D array&quot;</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">a2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2D array ---------- 
+
+a2d=
+ [[ 1  3  5  7  9 11]
+ [ 2  4  6  8 10 12]
+ [ 0  1  2  3  4  5]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando arrays ubidimensionais a partir de métodos do numpy</span>
+<span class="n">b2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># criando matriz 5X3 de zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b2d=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b2d</span><span class="p">)</span>
+
+<span class="n">c2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># criando matriz 5X10 de uns</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="p">)</span>
+
+<span class="n">d2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># criando matrix identidade 3X3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;d2d=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">d2d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b2d=
+ [[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+c2d=
+ [[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+d2d=
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy arrays são objetos chamados <em>ndarrays</em> e possuem diversos atributos</p>
+<ul class="simple">
+<li><p>ndarray.ndim - número de eixos (dimensões) do array</p></li>
+<li><p>ndarray.shape - uma tupla de inteiros indicando o tamanho do array em cada dimensão</p></li>
+<li><p>ndarray.size - o número total de elementos do array</p></li>
+<li><p>ndarray.dtype - tipo dos elementos no array</p></li>
+<li><p>ndarray.itemsize - o tamanho em bytes de cada elemento do array</p></li>
+<li><p>ndarray.data - o buffer de memória contendo os elementos do array</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># considere os arrays &#39;a1d&#39;, &#39;b1d&#39;, &#39;a2d&#39;, &#39;b2d&#39; e &#39;c2d&#39; criados nas células anteriores</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ndim: numero de eixos dos arrays&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.ndim =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.ndim =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.ndim =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.ndim =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> shape: tamanho do array em cada dimensao&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.shape =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.shape =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.shape =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.shape =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ndim: numero de eixos dos arrays
+a1d.ndim = 1
+b1d.ndim = 1
+a2d.ndim = 2
+c2d.ndim = 2
+
+ shape: tamanho do array em cada dimensao
+a1d.shape = (6,)
+b1d.shape = (8,)
+a2d.shape = (3, 6)
+c2d.shape = (5, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> size: numero total de elementos&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.size =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.size =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.size =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.size =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> dtype: tipo dos elementos&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.dtype =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.dtype =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.dtype =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.dtype =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> size: numero total de elementos
+a1d.size = 6
+b1d.size = 8
+a2d.size = 18
+c2d.size = 50
+
+ dtype: tipo dos elementos
+a1d.dtype = int64
+b1d.dtype = float64
+a2d.dtype = int64
+c2d.dtype = float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> itemsize: tamanho em bytes de cada elemento&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.itemsize =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.itemsize =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.itemsize =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.itemsize =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> data: buffer contendo os elementos do array&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1d.data =&#39;</span><span class="p">,</span><span class="n">a1d</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b1d.data =&#39;</span><span class="p">,</span><span class="n">b1d</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a2d.data =&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c2d.data =&#39;</span><span class="p">,</span><span class="n">c2d</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> itemsize: tamanho em bytes de cada elemento
+a1d.itemsize = 8
+b1d.itemsize = 8
+a2d.itemsize = 8
+c2d.itemsize = 8
+
+ data: buffer contendo os elementos do array
+a1d.data = &lt;memory at 0x7fad3a922680&gt;
+b1d.data = &lt;memory at 0x7fad3a922680&gt;
+a2d.data = &lt;memory at 0x7fad3a957370&gt;
+c2d.data = &lt;memory at 0x7fad3a957370&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Importante:</strong> Arrays unidimensionais podem ter uma das dimensões livres.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a.shape = &#39;</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b.shape = &#39;</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a.ndim = &#39;</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b.ndim = &#39;</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a.shape =  (5,)
+b.shape =  (5, 1)
+a.ndim =  1
+b.ndim =  2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note que o array cujo <font color='blue'>shape</font> é (5,) possui apenas 1 eixo, enquanto que o array com <font color='blue'>shape</font> (5,1) possui 2 eixos (ndim =2). Este último corresponde a uma matrix com 5 linhas e 1 coluna.</p>
+</section>
+<section id="acessando-os-elementos-de-um-array">
+<h3>Acessando os elementos de um array<a class="headerlink" href="#acessando-os-elementos-de-um-array" title="Permalink to this headline">#</a></h3>
+<p>Como no caso de sequências, os índices de um array variam de 0 a <span class="math notranslate nohighlight">\(k_i-1\)</span>, onde <span class="math notranslate nohighlight">\(k_i\)</span> é o número de elementos na dimensão <span class="math notranslate nohighlight">\( i \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acessando elementos do array</span>
+<span class="c1"># Índices variam de 0 a ki-1 em cada dimensão, onde ki é o número de elementos no dimensão i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento 0 = &#39;</span><span class="p">,</span><span class="n">a1d</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento de indice 3 = &#39;</span><span class="p">,</span><span class="n">a1d</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ultimo elemento do array = &#39;</span><span class="p">,</span><span class="n">a1d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># -1 corresponde ao último elemento do array</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">45</span><span class="o">*</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;linha de indice 1 = &#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># quando apenas um índice é fornecido </span>
+                                     <span class="c1"># para um array bidimensional</span>
+                                     <span class="c1"># o que é retornado é a linha correspondente </span>
+                                     <span class="c1"># ao índice fornecido</span>
+            
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento na linha 0 coluna 1 = &#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento na linha 1 coluna 2 = &#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento na ultima linha e ultima coluna = &#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1  3  5  7  9 10]
+elemento 0 =  1
+elemento de indice 3 =  7
+ultimo elemento do array =  10
+---------------------------------------------
+[[ 1  3  5  7  9 11]
+ [ 2  4  6  8 10 12]
+ [ 0  1  2  3  4  5]]
+linha de indice 1 =  [ 2  4  6  8 10 12]
+elemento na linha 0 coluna 1 =  3
+elemento na linha 1 coluna 2 =  6
+elemento na ultima linha e ultima coluna =  5
+</pre></div>
+</div>
+</div>
+</div>
+<section id="percorrendo-elementos-com-laco-font-color-blue-for-font">
+<h4>Percorrendo elementos com laço <font color='blue'>for</font><a class="headerlink" href="#percorrendo-elementos-com-laco-font-color-blue-for-font" title="Permalink to this headline">#</a></h4>
+<p>A iteração é feita por linhas, se o que se busca são os elementos, deve-se utilizar um laço duplo ou então a versão ‘flat’ do array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percorrendo as linhas</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a2d</span><span class="p">):</span> <span class="c1"># o comando &#39;enumerate&#39; enumera a iteração e retorna o elemento</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;linha &#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39; = &#39;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="s1">&#39; iterando o array&#39;</span><span class="p">)</span>
+<span class="c1"># percorrendo elementos</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a2d</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento &#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="s1">&#39; = &#39;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="s1">&#39; utilizando indices&#39;</span><span class="p">)</span>
+<span class="c1"># pode-se também utilizar indices diretamente</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a2d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>      <span class="c1"># .shape[0] fornece numero linhas</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a2d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  <span class="c1"># .shape[1] fornece numero colunas</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elemento &#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="s1">&#39; = &#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="s1">&#39; utilizando flat&#39;</span><span class="p">)</span>
+<span class="c1"># o atributo &#39;flat&#39; coloca todos os elementos como em uma lista</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a2d</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>linha  0  =  [ 1  3  5  7  9 11]
+linha  1  =  [ 2  4  6  8 10 12]
+linha  2  =  [0 1 2 3 4 5]
+
+ ----------  iterando o array
+elemento  0   0  =  1
+elemento  0   1  =  3
+elemento  0   2  =  5
+elemento  0   3  =  7
+elemento  0   4  =  9
+elemento  0   5  =  11
+elemento  1   0  =  2
+elemento  1   1  =  4
+elemento  1   2  =  6
+elemento  1   3  =  8
+elemento  1   4  =  10
+elemento  1   5  =  12
+elemento  2   0  =  0
+elemento  2   1  =  1
+elemento  2   2  =  2
+elemento  2   3  =  3
+elemento  2   4  =  4
+elemento  2   5  =  5
+
+ ----------  utilizando indices
+elemento  0   0  =  1
+elemento  0   1  =  3
+elemento  0   2  =  5
+elemento  0   3  =  7
+elemento  0   4  =  9
+elemento  0   5  =  11
+elemento  1   0  =  2
+elemento  1   1  =  4
+elemento  1   2  =  6
+elemento  1   3  =  8
+elemento  1   4  =  10
+elemento  1   5  =  12
+elemento  2   0  =  0
+elemento  2   1  =  1
+elemento  2   2  =  2
+elemento  2   3  =  3
+elemento  2   4  =  4
+elemento  2   5  =  5
+
+ ----------  utilizando flat
+1
+3
+5
+7
+9
+11
+2
+4
+6
+8
+10
+12
+0
+1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fatiando-arrays-slicing">
+<h4>Fatiando arrays (slicing)<a class="headerlink" href="#fatiando-arrays-slicing" title="Permalink to this headline">#</a></h4>
+<p>A melhor forma de se percorrer um array é por meio de ‘slicing’, evitando o uso de laços <font color='blue'>for</font>, que são computacionalmente muito menos eficientes.</p>
+<ul class="simple">
+<li><p>Array slicing funciona como em listas, mas em múltiplas dimensões</p></li>
+<li><p>Omitir um índice corresponde a recuperar toda a dimensão omitida</p></li>
+<li><p>Um slice é uma “visão” (<strong>VIEW</strong>) do array original (similar a uma referencia), isto é, o dado não é copiado</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span>     <span class="c1"># criando um array bidimensional a partir de uma</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span>  <span class="c1"># lista de listas</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a2d</span><span class="p">)</span>
+
+<span class="c1"># slicing de colunas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[1,:] - Recupera a linha de indice 1 (equivalent to a2d[1])</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+
+<span class="c1"># slicing de linhas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[:,2] - Recupera a coluna de indice 2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># slicing de blocos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[1:,2:5] - Recupera o bloco a partir da linha de indice 1 e colunas 2,3 e 4</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[[0,2]] - Recupera as linhas 0 e 2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span> 
+                                                    <span class="c1"># note que uma lista com o indice</span>
+                                                    <span class="c1"># das linhas é passada para o slicing</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[:,[0,2,5]] - Recuperando as colunas 0,2 e 5 </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span> 
+                                                    <span class="c1"># note que uma lista com o indice</span>
+                                                    <span class="c1"># das colunas é passada para o slicing</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">a2d[[0,1,2],[0,2,5]] - Recuperando os elementos das posicoes 0,0 1,2 e 2,5 </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a2d</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="c1"># quando duas listas, uma com indices de linhas e outra com indices de colunas, são passadas</span>
+<span class="c1"># para o slicing, elementos dos pares de posicoes são recuperados. As duas listas devem</span>
+<span class="c1"># conter o mesmo número de elementos (indices)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3  5  7  9 11]
+ [ 2  4  6  8 10 12]
+ [ 0  1  2  3  4  5]]
+
+a2d[1,:] - Recupera a linha de indice 1 (equivalent to a2d[1])
+ [ 2  4  6  8 10 12]
+
+a2d[:,2] - Recupera a coluna de indice 2
+ [5 6 2]
+
+a2d[1:,2:5] - Recupera o bloco a partir da linha de indice 1 e colunas 2,3 e 4
+ [[ 6  8 10]
+ [ 2  3  4]]
+
+a2d[[0,2]] - Recupera as linhas 0 e 2
+ [[ 1  3  5  7  9 11]
+ [ 0  1  2  3  4  5]]
+
+a2d[:,[0,2,5]] - Recuperando as colunas 0,2 e 5 
+ [[ 1  5 11]
+ [ 2  6 12]
+ [ 0  2  5]]
+
+a2d[[0,1,2],[0,2,5]] - Recuperando os elementos das posicoes 0,0 1,2 e 2,5 
+ [1 6 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a: matrix 3x3&#39;</span><span class="p">)</span>
+
+<span class="c1"># Quando uma linha ou coluna é fixada</span>
+<span class="c1"># o slicing gera um array unidimensional (secunda dimensão livre)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quando uma linha ou coluna é fixada o slicing gera um array unidimensional (segunda dimensão livre)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[:2,1]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[:,-1]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[2]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[2,:]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Quando os símbolo &#39;:&#39; é utilizado</span>
+<span class="c1"># o slicing fixa a dimensão </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quando os símbolo &quot;:&quot; é utilizado o slicing fixa a segunda dimensão livre&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[2:,:]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:,:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[:2,1:]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[:2,-1:]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[:,-1:]&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a: matrix 3x3
+Quando uma linha ou coluna é fixada o slicing gera um array unidimensional (segunda dimensão livre)
+[:2,1] (2,)
+[:,-1] (3,)
+[2] (3,)
+[2,:] (3,)
+Quando os símbolo &quot;:&quot; é utilizado o slicing fixa a segunda dimensão livre
+[2:,:] (1, 3)
+[:2,1:] (2, 2)
+[:2,-1:] (2, 1)
+[:,-1:] (3, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="metodos-font-color-blue-flatten-font-font-color-blue-ravel-font-e-font-color-blue-reshape-font">
+<h3>Métodos <font color='blue'>flatten</font> , <font color='blue'>ravel</font> e <font color='blue'>reshape</font><a class="headerlink" href="#metodos-font-color-blue-flatten-font-font-color-blue-ravel-font-e-font-color-blue-reshape-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>reshape</font> permite reformatar o array modificando o número de linhas e colunas, porém, a nova ‘shape’ tem que possuir o mesmo número de elementos do array original.</p>
+<p>O método <font color='blue'>ravel</font> concatena as linhas da matriz em um array unidimensional.</p>
+<p>O método <font color='blue'>flatten</font> também concatena as linhas da matriz em um array unidimensional, porém, faz uma cópia dos elementos. O método <font color='blue'>ravel</font> gera uma <strong>view</strong>, portanto se algum elemento for modificado, o array original também é modificado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando um array randomico on números entre 0 e 8 e </span>
+<span class="c1"># reformatando para a forma de uma matrix 3x3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># concatenando as linhas de a (ravel não faz cópia)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">b = a.ravel():</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># modificando elemento b[2]</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">b[2] modificado :&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># elemento a[0,2] é afetado pela modificacao de b[2]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">elemento a[0,2] é afetado quando b[2] foi alterado, pois &quot;ravel nao faz copia&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:
+ [[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+b = a.ravel():
+ [0 1 2 3 4 5 6 7 8]
+
+b[2] modificado : [ 0  1 -2  3  4  5  6  7  8]
+
+elemento a[0,2] é afetado quando b[2] foi alterado, pois &quot;ravel nao faz copia
+[[ 0  1 -2]
+ [ 3  4  5]
+ [ 6  7  8]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando um array randomico on números entre 0 e 8 e </span>
+<span class="c1"># reformatando para a forma de uma matrix 3x3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># concatenando as linhas de &#39;a&#39; com flatten()</span>
+<span class="c1"># uma cópia dos elementos de &#39;a&#39; é feita</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">c = a.flatten():</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+
+<span class="c1"># alterando elemento c[2]</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">elemento c[2] alterado</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c1"># elemento a[0,2] NÃO é afetado pela modificacao de c[2]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">elemento a[0,2] NAO e afetado quando c[2] foi alterado, pois &quot;flatten faz copia&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:
+ [[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+c = a.flatten():
+ [0 1 2 3 4 5 6 7 8]
+
+elemento c[2] alterado
+ [ 0  1 -1  3  4  5  6  7  8]
+
+elemento a[0,2] NAO e afetado quando c[2] foi alterado, pois &quot;flatten faz copia
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transposta-de-uma-matriz">
+<h3>Transposta de uma matriz<a class="headerlink" href="#transposta-de-uma-matriz" title="Permalink to this headline">#</a></h3>
+<p>A transposta de uma matriz pode ser calculada simplesmente invocando o atributo <font color='blue'>.T</font> do objeto ‘ndarray’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># matriz 5x3 com valores 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Obtendo a transposta&#39;</span><span class="p">)</span>
+<span class="n">a_transposta</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_transposta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_transposta</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+(5, 3)
+
+Obtendo a transposta
+[[1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1.]]
+(3, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mascara-booleanas">
+<h3>Máscara booleanas<a class="headerlink" href="#mascara-booleanas" title="Permalink to this headline">#</a></h3>
+<p>Um array de valores booleanos (máscara booleana) pode ser usado para selecionar elementos em um array.</p>
+<p>Máscaras boolenas também podem ser empregadas para fazer atribuições de maneira eficiente e elegante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gerando numeros entre 0 e 17 e reformatando em uma matriz 3x6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># calculando uma máscara booleana onde o valor True </span>
+<span class="c1"># corresponde aos elementos maiores que 7</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Mascara booleana da matriz para valores maiores que 7&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Recuperando apenas os elementos maiores que 7&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Modificando apenas os elementos maiores que 7&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4  5]
+ [ 6  7  8  9 10 11]
+ [12 13 14 15 16 17]]
+
+Mascara booleana da matriz para valores maiores que 7
+[[False False False False False False]
+ [False False  True  True  True  True]
+ [ True  True  True  True  True  True]]
+
+Recuperando apenas os elementos maiores que 7
+[ 8  9 10 11 12 13 14 15 16 17]
+
+Modificando apenas os elementos maiores que 7
+[[0 1 2 3 4 5]
+ [6 7 0 0 0 0]
+ [0 0 0 0 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizacoes-view">
+<h3>Visualizações  (<strong>view</strong>)<a class="headerlink" href="#visualizacoes-view" title="Permalink to this headline">#</a></h3>
+<p>Como visto anteriormente, slicing cria uma <strong>view</strong> de um array, não uma cópia</p>
+<ul class="simple">
+<li><p>Uma <strong>view</strong> é criada ao fatiar (slicing) o array</p></li>
+<li><p>Uma <strong>view</strong> é uma referência a uma parte de um array</p></li>
+<li><p>Alterar elementos da <strong>view</strong> afeta o array original</p></li>
+<li><p>Se necessário, você pode explicitamente fazer uma cópia utilizando o método <font color='blue'>copy</font></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gerando 18 números randomicamente entre 0 e 10</span>
+<span class="c1"># e reformatando em uma matriz 3x6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># criando uma view do bloco consistindo das linhas 1 e 2 e das colunas 0,1 e 2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># y é um view de x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matrix original</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">View consistindo das linhas 1 e 2 e das colunas 0,1 e 2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># modificando um elemento da view</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Modificando um elemento da view também afeta o array original&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Elemento [1,1] da view modificado para -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Matriz original também é afetada</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix original
+ [[5 6 9 6 7 6]
+ [5 9 9 2 0 2]
+ [4 3 2 5 6 6]]
+
+View consistindo das linhas 1 e 2 e das colunas 0,1 e 2
+ [[5 9 9]
+ [4 3 2]]
+
+Modificando um elemento da view também afeta o array original
+
+Elemento [1,1] da view modificado para -1
+
+[[ 5  9  9]
+ [ 4 -1  2]]
+
+Matriz original também é afetada
+
+[[ 5  6  9  6  7  6]
+ [ 5  9  9  2  0  2]
+ [ 4 -1  2  5  6  6]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gerando 18 números randomicamente entre 0 e 10</span>
+<span class="c1"># e reformatando em uma matriz 3x6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># criando uma copia do bloco consistindo das linhas 1 e 2 e das colunas 0,1 e 2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># y é uma copia do bloco de x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matrix original</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Copia das linhas 1 e 2 e das colunas 0,1 e 2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># modificando um elemento da copia</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Modificando um elemento da copia NAO afeta o array original&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Elemento [1,1] da copia modificado para -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Matriz original NAO é afetada</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix original
+ [[0 6 9 7 7 8]
+ [3 2 6 5 0 0]
+ [3 3 1 7 5 5]]
+
+ Copia das linhas 1 e 2 e das colunas 0,1 e 2
+ [[3 2 6]
+ [3 3 1]]
+
+Modificando um elemento da copia NAO afeta o array original
+
+Elemento [1,1] da copia modificado para -1
+
+[[ 3  2  6]
+ [ 3 -1  1]]
+
+Matriz original NAO é afetada
+
+[[0 6 9 7 7 8]
+ [3 2 6 5 0 0]
+ [3 3 1 7 5 5]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="i-o-com-font-color-blue-numpy-font">
+<h2>I/O com <font color='blue'>numpy</font><a class="headerlink" href="#i-o-com-font-color-blue-numpy-font" title="Permalink to this headline">#</a></h2>
+<p>Numpy fornece métodos para ler e escrever arrays em arquivos. A sintaxe básica para leitura de array a partir de arquivo é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nome_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;nome_do_arquivo&#39;</span><span class="p">)</span> <span class="c1"># carregando array a partir de um arquivo</span>
+</pre></div>
+</div>
+<p>Os valores no arquivo devem estar separados por espaços e cada linha do arquivo se torna uma linha do array resultante. Vários parâmetros podem ser especificados, veja a documentação do método <span class="xref myst">loadtxt</span></p>
+<p>A sintaxe básica para escrita de array em arquivo é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nome_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;nome_do_arquivo&#39;</span><span class="p">,</span><span class="n">ndarray</span><span class="p">)</span> <span class="c1"># escrevendo array em arquivo</span>
+</pre></div>
+</div>
+<p>Vários parâmetros podem ser especificados, veja a documentação do método <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savetxt.html">savetxt</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gerando 18 números randomicos entre 0 e 10</span>
+<span class="c1"># e reformatando em uma matriz 3x6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># salvando a matriz x em um arquivo chamado &#39;exemplo_escrita.txt&#39;</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;exemplo_escrita.txt&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> 
+
+<span class="c1"># utilize um editor de texto para verificar o conteudo</span>
+<span class="c1"># do arquivo &#39;exemplo_escrita.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carregando o arquivo &#39;exemplo_escrita.txt&#39;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;exemplo_escrita.txt&#39;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># o parâmetro &#39;dtype=int&#39; força que os </span>
+                                                <span class="c1"># elementos da matriz sejam números inteiros</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;exemplo_escrita.txt&#39;</span><span class="p">)</span> <span class="c1"># veja o que acontece &#39;dtype&#39; não é especificado</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">elementos da matriz são do tipo &quot;float&quot;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 8 9 9 7 6]
+ [5 0 5 8 3 8]
+ [0 5 9 6 9 3]]
+
+elementos da matriz são do tipo &quot;float&quot;
+
+[[3. 8. 9. 9. 7. 6.]
+ [5. 0. 5. 8. 3. 8.]
+ [0. 5. 9. 6. 9. 3.]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_03_x_map_filter_reduce.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Função ‘map’</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PCD_05_Numpy%20II%20e%20Matplotlib.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="color:blue"> MBA em Ciência de Dados</span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-programacao-para-ciencia-de-dados-span"><span style="color:blue">Programação para Ciência de Dados</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-numpy-parte-i-span"><span style="color:blue">Numpy Parte I</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construindo-arrays">Construindo arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acessando-os-elementos-de-um-array">Acessando os elementos de um array</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percorrendo-elementos-com-laco-font-color-blue-for-font">Percorrendo elementos com laço <font color="blue">for</font></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fatiando-arrays-slicing">Fatiando arrays (slicing)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-font-color-blue-flatten-font-font-color-blue-ravel-font-e-font-color-blue-reshape-font">Métodos <font color="blue">flatten</font> , <font color="blue">ravel</font> e <font color="blue">reshape</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposta-de-uma-matriz">Transposta de uma matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mascara-booleanas">Máscara booleanas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacoes-view">Visualizações  (<strong>view</strong>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o-com-font-color-blue-numpy-font">I/O com <font color="blue">numpy</font></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

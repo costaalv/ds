@@ -1,0 +1,2207 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MBA em Ciência de Dados &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCD_07_Pandas II';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MBA em Ciência de Dados" href="PCD_08_Pandas%20III.html" />
+    <link rel="prev" title="MBA em Ciência de Dados" href="PCD_06_Pandas%20I.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ICD-CEMAI-2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula1.html">Aula 01 - MBA em Ciência de Dados: Bibliotecas importantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.1-limpeza.html">Aula 02.01 - MBA em Ciência de Dados: Tratamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula2.2-est-descritiva.html">Aula 02.02 - MBA em Ciência de Dados: Estatística descritiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula3-regress%C3%A3o.html">Aula 03 - MBA em Ciência de Dados: Modelos de regressão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula4-classificacao-Knn-NB-RL.html">Aula 04 - MBA em Ciência de Dados: knn, Regressão Logistica e Naive Bayes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula5-arvores-avaliacao.html">Aula 05 - MBA em Ciência de Dados: Árvores e avaliação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula6-Selecao-Ajuste.html">Aula 06 - Ciência de Dados: Seleção e ajuste de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula7-clustering.html">Aula 07 - MBA em Ciência de Dados: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ICD_Aula8-Projeto-Titanic.html">Aula 08 - Projeto de Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCD_01_Python%20I.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_02_Python%20II.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_Python%20III.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_03_x_map_filter_reduce.html">Função ‘map’</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_04_Numpy%20I%20.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_05_Numpy%20II%20e%20Matplotlib.html"><span style="color:blue"> MBA em Ciência de Dados</span></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_06_Pandas%20I.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PCD_08_Pandas%20III.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_01_Material_base_Visualiza%C3%A7%C3%A3o_de_dados.html">Estatística para Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_02_Aula2.html">Aula 2: Probabilidades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_03_Aula3.html">Aula 3: Modelos Probabilísticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_04_Aula4-Normal-TCL-LGN.html">Distribuição Normal e Teoremas Limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_05_Aula5-teste-hipoteses.html">Aula 5 - Teste de hipóteses</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-1-Tipos_de_dados.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-2-Informacoes_Faltantes.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-3-Outliers_Ruido_Erros.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-4-Desbalanceamento_Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-01-5-Pipeline.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">MBA em Ciência de Dados</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">MBA em Ciência de Dados</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">MBA em Ciência de Dados</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-3-Normalizacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-4-Transformacao.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-03-5-Codificacao_Categoricas.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-04-PCA.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-05-Extracao%20de%20Texto.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-06-material%20base.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-1%20-%20Representacoes%20de%20dados%20nao%20estruturados.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-2%20-%20Descritores%20de%20sinais.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-3%20-%20Descritores%20de%20imagens.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-07-4%20-%20Bag%20of%20features.html">MBA em Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TACTD-08-Web%20Scraping.html"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCD_07_Pandas II.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCD_07_Pandas II.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color="blue"> MBA em Ciência de Dados</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-ii-font"><font color="blue">Pandas Parte II</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relembrando">Relembrando</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-faltantes">Dados faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-isnull-font"><font color="blue">isnull</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-dropna-font"><font color="blue">dropna</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-fillna-font"><font color="blue">fillna</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processando-os-dados">Processando os dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-duplicated-font-e-font-color-blue-drop-duplicates-font"><font color="blue">duplicated</font> e <font color="blue">drop_duplicates</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-map-font"><font color="blue">map</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-replace-font"><font color="blue">replace</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-rename-font"><font color="blue">rename</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinando-e-transformando">Combinando e transformando</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-merge-font"><font color="blue">merge</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-baseado-nos-valores-de-duas-colunas">Merge baseado nos valores de duas colunas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-baseado-nos-valores-de-uma-coluna-em-um-dataframe-e-rotulos-das-linhas-no-outro-dataframe">Merge baseado nos valores de uma coluna em um DataFrame e rótulos das linhas no outro DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-concat-font"><font color="blue">concat</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estatisticas">Estatísticas</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-mba-em-ciencia-de-dados-font">
+<h1><font color="blue"> MBA em Ciência de Dados</font><a class="headerlink" href="#font-color-blue-mba-em-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="font-color-blue-programacao-para-ciencia-de-dados-font">
+<h1><font color="blue">Programação para Ciência de Dados</font><a class="headerlink" href="#font-color-blue-programacao-para-ciencia-de-dados-font" title="Permalink to this headline">#</a></h1>
+<section id="font-color-blue-pandas-parte-ii-font">
+<h2><font color="blue">Pandas Parte II</font><a class="headerlink" href="#font-color-blue-pandas-parte-ii-font" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos">
+<h2><strong>Material Produzido por Luis Gustavo Nonato</strong><br>
+<strong>Cemeai - ICMC/USP São Carlos</strong><a class="headerlink" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos" title="Permalink to this headline">#</a></h2>
+<p><strong>Conteúdo:</strong></p>
+<ul class="simple">
+<li><p>Dados faltantes</p></li>
+<li><p>Processando dados</p></li>
+<li><p>Combinando e transformando</p></li>
+<li><p>Estatísticas</p></li>
+</ul>
+<p><strong>Referências</strong> <br></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/pandas.pdf">Pandas: powerful Python data analysis toolkit: Wes McKinney &amp; PyData Devel. Team</a></p></li>
+<li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/index.html">http://pandas.pydata.org/pandas-docs/stable/index.html</a></p></li>
+</ul>
+</section>
+<section id="relembrando">
+<h2>Relembrando<a class="headerlink" href="#relembrando" title="Permalink to this headline">#</a></h2>
+<p>Pandas permite estruturar dados como:</p>
+<p><strong>Series</strong></p>
+<ul class="simple">
+<li><p>Objeto similar a um array unidimensional, contendo dados e rótulos (indice de linhas)</p></li>
+</ul>
+<p><strong>DataFrame</strong></p>
+<ul class="simple">
+<li><p>Similar a uma planilha, contendo dados com rótulos para linhas e colunas</p></li>
+</ul>
+</section>
+<section id="dados-faltantes">
+<h2>Dados faltantes<a class="headerlink" href="#dados-faltantes" title="Permalink to this headline">#</a></h2>
+<p>Dados faltantes são muito comuns em aplicações reais, ou seja, valores dos elementos não são fornecidos para algumas entradas de uma Série ou DataFrame. Dados faltantes são representados pelo <font color='blue'>pandas</font> com o símbolo ‘NaN’.</p>
+<p>Pandas fornece diversas funcionalidades para lidar com dados faltantes, por exemplo:</p>
+<ul class="simple">
+<li><p>detectar dados faltantes com os métodos <font color='blue'>isnull</font> e <font color='blue'>notnull</font></p></li>
+<li><p>remover linhas que contenham dados faltantes utilizando o método <font color='blue'>dropna</font></p>
+<ul>
+<li><p>linhas faltando qualquer elemento</p></li>
+<li><p>linhas faltando todos os dados</p></li>
+<li><p>linhas faltando um número específico de dados</p></li>
+</ul>
+</li>
+<li><p>Substituir os valores faltantes (NaN) por um valor específico utilizando o método  <font color='blue'>fillna</font></p></li>
+<li><p>Especificar valores para substituir dados faltantes em operações aritmétricas</p></li>
+</ul>
+<p>A célula abaixo gera um arquivo chamado <font style="font-family: monaco">missing.csv</font> com vários dados faltantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> missing.csv
+<span class="n">Colorado</span><span class="p">,,,,</span>
+<span class="n">Ohio</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span>
+<span class="n">Oregon</span><span class="p">,,,,</span>
+<span class="n">Texas</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,,</span>
+<span class="n">Utah</span><span class="p">,,,,</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting missing.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;missing.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># carregando o arquivo &#39;missing.csv&#39;</span>
+                                            <span class="c1"># como o arquivo não possui rótulos para as</span>
+                                            <span class="c1"># colunas, o comando &#39;header=None&#39; cria os </span>
+                                            <span class="c1"># rótulos automaticamente com valores de 0 até n-1</span>
+                                            <span class="c1"># onde n é o número de colunas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          0    1     2    3    4
+0  Colorado  NaN   NaN  NaN  NaN
+1      Ohio  3.0   5.0  6.0  9.0
+2    Oregon  NaN   NaN  NaN  NaN
+3     Texas  9.0  12.0  NaN  NaN
+4      Utah  NaN   NaN  NaN  NaN
+</pre></div>
+</div>
+</div>
+</div>
+<section id="font-color-blue-isnull-font">
+<h3><font color='blue'>isnull</font><a class="headerlink" href="#font-color-blue-isnull-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>isnull</font> cria uma máscara booleana onde os valores <code class="docutils literal notranslate"><span class="pre">True</span></code> correspondem às entradas com dados faltantes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># o método &#39;isnull&#39; cria uma máscara booleana onde os valores True </span>
+<span class="c1"># correspondem às entradas com dados faltantes</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0      1      2      3      4
+0  False   True   True   True   True
+1  False  False  False  False  False
+2  False   True   True   True   True
+3  False  False  False   True   True
+4  False   True   True   True   True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-dropna-font">
+<h3><font color='blue'>dropna</font><a class="headerlink" href="#font-color-blue-dropna-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>dropna</font> remove todas as linhas onde dados faltantes aparecem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># o método &#39;dropna&#39; remove todas as linhas onde existem dados faltantes;</span>
+<span class="c1"># como apenas a linha de índice 1 não possui dados faltantes, o resultado é</span>
+<span class="c1"># um DataFrame com apenas uma linha</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      0    1    2    3    4
+1  Ohio  3.0  5.0  6.0  9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># o método parâmetro &#39;how&#39; permite especificar se apenas as linhas com todos </span>
+<span class="c1"># os dados faltantes devem ser removidas (how=&#39;all&#39;) ou se linhas que contenham </span>
+<span class="c1"># algum dado faltante deve ser removida (how=&#39;any&#39;)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">))</span>  <span class="c1"># remove linhas onde todos os dados estejam faltando</span>
+
+
+<span class="c1"># o parâmetro &#39;axis&#39; pode ser especificado para que, ao invés de linhas, colunas </span>
+<span class="c1"># com dados faltantes serão removidas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># remove colunas que contenham algum dado faltante,</span>
+                                   <span class="c1"># neste exemplo, apenas a coluna de índice 0</span>
+                                   <span class="c1"># não contém dados faltantes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          0    1     2    3    4
+0  Colorado  NaN   NaN  NaN  NaN
+1      Ohio  3.0   5.0  6.0  9.0
+2    Oregon  NaN   NaN  NaN  NaN
+3     Texas  9.0  12.0  NaN  NaN
+4      Utah  NaN   NaN  NaN  NaN
+          0
+0  Colorado
+1      Ohio
+2    Oregon
+3     Texas
+4      Utah
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># o parâmetro &#39;thresh&#39; remove linhas com k+1 ou mais dados faltantes, ou seja,</span>
+<span class="c1"># para que uma linha não seja removida, ela precisa ter no máximo k dados faltantes</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># remove linhas com 3 ou mais dados faltantes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    1     2    3    4
+1   Ohio  3.0   5.0  6.0  9.0
+3  Texas  9.0  12.0  NaN  NaN
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-fillna-font">
+<h3><font color='blue'>fillna</font><a class="headerlink" href="#font-color-blue-fillna-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>fillna</font> permite substituir dados faltantes por algum valor especificado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">DataFrame original&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Substitui valores faltantes por zero e guarda em um novo DataFrame </span>
+                   <span class="c1"># O DataFrame original não é afetado</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DataFrame com valores faltantes substituidos por 0&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame original
+          0    1     2    3    4
+0  Colorado  NaN   NaN  NaN  NaN
+1      Ohio  3.0   5.0  6.0  9.0
+2    Oregon  NaN   NaN  NaN  NaN
+3     Texas  9.0  12.0  NaN  NaN
+4      Utah  NaN   NaN  NaN  NaN
+DataFrame com valores faltantes substituidos por 0
+          0    1     2    3    4
+0  Colorado  0.0   0.0  0.0  0.0
+1      Ohio  3.0   5.0  6.0  9.0
+2    Oregon  0.0   0.0  0.0  0.0
+3     Texas  9.0  12.0  0.0  0.0
+4      Utah  0.0   0.0  0.0  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pode-se utilizar um dicionário para empregar um valor diferente para cada coluna</span>
+<span class="c1"># a chave do dicionário deve ser o rótulo da coluna e o valor correspondente é</span>
+<span class="c1"># o valor que substituirá o dado faltante na coluna</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">1</span><span class="p">}))</span> <span class="c1"># substitui o valor faltante da coluna 1 por -1</span>
+                                 <span class="c1"># da coluna 3 por 0 e da coluna 4 por 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          0    1     2    3    4
+0  Colorado -1.0   NaN  0.0  1.0
+1      Ohio  3.0   5.0  6.0  9.0
+2    Oregon -1.0   NaN  0.0  1.0
+3     Texas  9.0  12.0  0.0  1.0
+4      Utah -1.0   NaN  0.0  1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="processando-os-dados">
+<h2>Processando os dados<a class="headerlink" href="#processando-os-dados" title="Permalink to this headline">#</a></h2>
+<p><font color='blue'>Pandas</font> fornece diversos mecanismos para manipular um DataFrame (ou Série). Exemplos de métodos são:</p>
+<ul class="simple">
+<li><p><font color='blue'>duplicated</font> e <font color='blue'>drop_duplicates</font>: encontra e remove linhas duplicadas, respectivamente</p></li>
+<li><p><font color='blue'>map</font>: transforma valores ou adiciona novas colunas com valores processados a partir de outras colunas</p></li>
+<li><p><font color='blue'>replace</font> substitui um valor específico</p></li>
+<li><p><font color='blue'>rename</font> modifica os rótulos das linhas ou colunas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c0&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;c1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]})</span>  <span class="c1"># gerando um DataFrame a partir </span>
+                                           <span class="c1"># de um dicionário</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    c0  c1
+0  one   1
+1  one   1
+2  one   2
+3  two   3
+4  two   3
+5  two   4
+6  two   4
+</pre></div>
+</div>
+</div>
+</div>
+<section id="font-color-blue-duplicated-font-e-font-color-blue-drop-duplicates-font">
+<h3><font color='blue'>duplicated</font> e <font color='blue'>drop_duplicates</font><a class="headerlink" href="#font-color-blue-duplicated-font-e-font-color-blue-drop-duplicates-font" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># detecta linhas duplicadas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">())</span>  <span class="c1"># gera uma série booleana onde os valores True correspondem</span>
+                        <span class="c1"># às linhas do DataFrame que estão duplicadas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">())</span>  <span class="c1"># remove todas as linhas duplicadas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2    False
+3    False
+4     True
+5    False
+6     True
+dtype: bool
+
+     c0  c1
+0  one   1
+2  one   2
+3  two   3
+5  two   4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-map-font">
+<h3><font color='blue'>map</font><a class="headerlink" href="#font-color-blue-map-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>map</font> assume como parâmetro uma regra, que pode ser uma função ou um dicionário, a fim de transformar os valores de uma coluna com base na regra ou no dicionário.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;food&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bread&#39;</span><span class="p">,</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span><span class="s1">&#39;Cheese&#39;</span><span class="p">],</span>  <span class="c1"># construindo um DataFrame a partir de um dicionário</span>
+      <span class="s1">&#39;ounces&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span>
+      <span class="s1">&#39;type&#39;</span><span class="p">:[</span><span class="s1">&#39;grain&#39;</span><span class="p">,</span><span class="s1">&#39;fruit&#39;</span><span class="p">,</span><span class="s1">&#39;dairy&#39;</span><span class="p">]</span>
+     <span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     food  ounces   type
+0   Bread       4  grain
+1   Apple       3  fruit
+2  Cheese      12  dairy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># modificando os valores da coluna &#39;type&#39; para que fiquem em letras maiusculas</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     food  ounces   type
+0   Bread       4  GRAIN
+1   Apple       3  FRUIT
+2  Cheese      12  DAIRY
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># O resultado da transformação pode ser atribuído a uma nova coluna no DataFrame</span>
+
+<span class="n">calories_by_type</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Cheese&#39;</span><span class="p">:</span><span class="s1">&#39;high&#39;</span><span class="p">,</span><span class="s1">&#39;Apple&#39;</span><span class="p">:</span><span class="s1">&#39;low&#39;</span><span class="p">,</span><span class="s1">&#39;Bread&#39;</span><span class="p">:</span><span class="s1">&#39;high&#39;</span><span class="p">}</span> <span class="c1"># a chave do dicionário</span>
+                                                        <span class="c1"># corresponde ao valor da coluna</span>
+                                                        <span class="c1"># que será mapeado. O valor associado</span>
+                                                        <span class="c1"># à chave é o resultado do mapeamento</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;calories&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;food&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">calories_by_type</span><span class="p">)</span> <span class="c1"># uma nova coluna é criada pelo mapeamento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     food  ounces   type calories
+0   Bread       4  GRAIN     high
+1   Apple       3  FRUIT      low
+2  Cheese      12  DAIRY     high
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-replace-font">
+<h3><font color='blue'>replace</font><a class="headerlink" href="#font-color-blue-replace-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>replace</font> permite:</p>
+<ul class="simple">
+<li><p>substituir valores no DataFrame todo</p>
+<ul>
+<li><p>para isso o parâmetro passado para o ‘replace’ deve ser um dicionário ou duas listas</p></li>
+</ul>
+</li>
+<li><p>substituir valores em colunas específicas</p>
+<ul>
+<li><p>neste caso o parâmetro deve ser um dicionário de dicionários</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># criando um DataFrame a partir de um dicionário</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="s1">&#39;c2&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;c3&#39;</span><span class="p">:[</span><span class="s1">&#39;bla&#39;</span><span class="p">,</span><span class="s1">&#39;cla&#39;</span><span class="p">,</span><span class="s1">&#39;dla&#39;</span><span class="p">,</span><span class="s1">&#39;ela&#39;</span><span class="p">,</span><span class="s1">&#39;fla&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;c4&#39;</span><span class="p">:[</span><span class="s1">&#39;cla&#39;</span><span class="p">,</span><span class="s1">&#39;bla&#39;</span><span class="p">,</span><span class="s1">&#39;fla&#39;</span><span class="p">,</span><span class="s1">&#39;ela&#39;</span><span class="p">,</span><span class="s1">&#39;dla&#39;</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1  c2   c3   c4
+0   1   2  bla  cla
+1   2   4  cla  bla
+2   3   6  dla  fla
+3   4   8  ela  ela
+4   5  10  fla  dla
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Substituindo valores no DataFrame todo utilizando duas listas</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># substituindo valores no DataFrame todo utilizando duas listas:</span>
+<span class="c1"># a primeira lista corresponde aos valores que serão modificados</span>
+<span class="c1"># a segunda lista contém os novos valores;</span>
+<span class="c1"># no exemplo abaixo, 2 será substituido por -2 e &#39;cla&#39; por &#39;clam&#39;</span>
+
+<span class="n">dfr</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;cla&#39;</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;clam&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c1</th>
+      <th>c2</th>
+      <th>c3</th>
+      <th>c4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-2</td>
+      <td>bla</td>
+      <td>clam</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-2</td>
+      <td>4</td>
+      <td>clam</td>
+      <td>bla</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+      <td>dla</td>
+      <td>fla</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>8</td>
+      <td>ela</td>
+      <td>ela</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>10</td>
+      <td>fla</td>
+      <td>dla</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Substituindo valores no DataFrame todo utilizando um dicionário</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># um dicionário pode ser utilizado como parâmetro para método &#39;replace&#39;, onde</span>
+<span class="c1"># as chaves correspondem aos valores que serão modificados e os valores</span>
+<span class="c1"># correspondentes são os novos valores</span>
+<span class="c1"># no exemplo abaixo 4 será substituido por -4 e &#39;fla&#39; por &#39;palm&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dfr</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;fla&#39;</span><span class="p">:</span><span class="s1">&#39;palm&#39;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1  c2    c3    c4
+0   1   2   bla   cla
+1   2  -4   cla   bla
+2   3   6   dla  palm
+3  -4   8   ela   ela
+4   5  10  palm   dla
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Substituindo valores em colunas do DataFrame utilizando dicionário de dicionários</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># um dicionário de dicionários pode ser utilizado como parâmetro para substituir</span>
+<span class="c1"># valores em colunas específicas;</span>
+<span class="c1"># as chaves do dicionário principal correspondem aos rótulos das colunas que serão modificadas </span>
+<span class="c1"># os pares (chave, valor) dos dicionários &quot;secundários&quot; correspondem aos valores que serão modificados</span>
+<span class="c1"># e ao novo valor, respectivamente;</span>
+<span class="c1"># no exemplo abaixo, na coluna &#39;c1&#39; o valor 4 será substituido por -4 e 2 por -2</span>
+<span class="c1"># na coluna &#39;c3&#39; a string &#39;ela&#39; será substituida por &#39;eles&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dfr</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:{</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">},</span><span class="s1">&#39;c3&#39;</span><span class="p">:{</span><span class="s1">&#39;ela&#39;</span><span class="p">:</span><span class="s1">&#39;eles&#39;</span><span class="p">}}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1  c2    c3   c4
+0   1   2   bla  cla
+1  -2   4   cla  bla
+2   3   6   dla  fla
+3  -4   8  eles  ela
+4   5  10   fla  dla
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="font-color-blue-rename-font">
+<h3><font color='blue'>rename</font><a class="headerlink" href="#font-color-blue-rename-font" title="Permalink to this headline">#</a></h3>
+<p><font color='blue'>rename</font> pode ser utilizado para renomear os rótulos de linhas ou colunas. Uma função deve ser empregada para mapear os rótulos utilizando os parâmetros ‘index’ e ‘columns’. A sintaxe do método é:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nome_func_renomeia_rotulos_linhas</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">nome_func_renomeia_rotulos_linhas</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>onde <code class="docutils literal notranslate"><span class="pre">nome_func_renomeia_rotulos_linhas</span></code> e <code class="docutils literal notranslate"><span class="pre">nome_func_renomeia_rotulos_linhas</span></code> são funções que recebem um rótulo como parâmetro e retorna o novo rótulo (tipicamente são definidas como funções <font color='blue'>lambda</font>) ou um dicionário onde as chaves e valores correspondem aos rótulos antigos e novos respectivamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># criando um DataFrame a partir de um dicionário</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="s1">&#39;c2&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;c3&#39;</span><span class="p">:[</span><span class="s1">&#39;bla&#39;</span><span class="p">,</span><span class="s1">&#39;cla&#39;</span><span class="p">,</span><span class="s1">&#39;dla&#39;</span><span class="p">,</span><span class="s1">&#39;ela&#39;</span><span class="p">,</span><span class="s1">&#39;fla&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;c4&#39;</span><span class="p">:[</span><span class="s1">&#39;cla&#39;</span><span class="p">,</span><span class="s1">&#39;bla&#39;</span><span class="p">,</span><span class="s1">&#39;fla&#39;</span><span class="p">,</span><span class="s1">&#39;ela&#39;</span><span class="p">,</span><span class="s1">&#39;dla&#39;</span><span class="p">]})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DataFrame com rótulos originais&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rótulos das linhas:&#39;</span><span class="p">,</span><span class="n">dfr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rótulos das colunas:&#39;</span><span class="p">,</span><span class="n">dfr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">DataFrame com rótulos modificados&#39;</span><span class="p">)</span>
+<span class="c1"># o comando abaixo adiciona o caracter &#39;a&#39; aos rótulos das linhas e torna</span>
+<span class="c1"># os caracteres dos rótulos das colunas maiúsculos</span>
+<span class="n">dfr_modificado</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfr_modificado</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rótulos das linhas:&#39;</span><span class="p">,</span><span class="n">dfr_modificado</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rótulos das colunas:&#39;</span><span class="p">,</span><span class="n">dfr_modificado</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame com rótulos originais
+   c1  c2   c3   c4
+0   1   2  bla  cla
+1   2   4  cla  bla
+2   3   6  dla  fla
+3   4   8  ela  ela
+4   5  10  fla  dla
+Rótulos das linhas: [0 1 2 3 4]
+Rótulos das colunas: [&#39;c1&#39; &#39;c2&#39; &#39;c3&#39; &#39;c4&#39;]
+
+DataFrame com rótulos modificados
+    C1  C2   C3   C4
+0a   1   2  bla  cla
+1a   2   4  cla  bla
+2a   3   6  dla  fla
+3a   4   8  ela  ela
+4a   5  10  fla  dla
+Rótulos das linhas: [&#39;0a&#39; &#39;1a&#39; &#39;2a&#39; &#39;3a&#39; &#39;4a&#39;]
+Rótulos das colunas: [&#39;C1&#39; &#39;C2&#39; &#39;C3&#39; &#39;C4&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combinando-e-transformando">
+<h2>Combinando e transformando<a class="headerlink" href="#combinando-e-transformando" title="Permalink to this headline">#</a></h2>
+<p><font color='blue'>Pandas</font> fornece um conjunto de métodos para combinar DataFrames, o que é extremamente útil em cenários envolvendo múltiplas fontes de dados. Em particular, os métodos:</p>
+<ul class="simple">
+<li><p><font color='blue'>merge</font> combina DataFrames com base nos rótulos das linhas ou valores das colunas</p></li>
+<li><p><font color='blue'>concatenate</font> combina DataFrames a partir de um eixo específico</p></li>
+<li><p><font color='blue'>reshaping</font> transforma as linhas/colunas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="font-color-blue-merge-font">
+<h3><font color='blue'>merge</font><a class="headerlink" href="#font-color-blue-merge-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>merge</font> “funde” dois DataFrames, duas séries, ou uma série com um DataFrame.</p>
+<p>A fusão pode ser feita com base nos:</p>
+<ul class="simple">
+<li><p>valores de duas colunas específicas, uma em cada DataFrame</p></li>
+<li><p>valores de uma coluna em um dos DataFrame e rótulos das linhas no outro</p></li>
+<li><p>valores dos rótulos das linhas em ambos os DataFrames (ou Séries)</p></li>
+</ul>
+<section id="merge-baseado-nos-valores-de-duas-colunas">
+<h4>Merge baseado nos valores de duas colunas<a class="headerlink" href="#merge-baseado-nos-valores-de-duas-colunas" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construindo dois DataFrames que serão fundidos com o método &#39;merge&#39;</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> 
+                   <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)})</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> 
+                   <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  key  data1
+0   b      0
+1   b      1
+2   a      2
+3   c      3
+4   a      4
+5   a      5
+6   b      6
+
+   key  data2
+0   a      0
+1   b      1
+2   d      2
+3   b      3
+4   d      4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Como ambos os DataFrames possuem uma coluna chamada &#39;key&#39;, pode-se fundir com base nos</span>
+<span class="c1"># valores de tal coluna. Neste caso a sintaxe é:</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>  <span class="c1"># Note que apenas os valores que aparencem em </span>
+                            <span class="c1"># ambos DataFrames são utilizados no &#39;merge&#39;</span>
+                            <span class="c1"># No exemplo, apenas os valores &#39;b&#39; e &#39;a&#39; aparencem</span>
+                            <span class="c1"># na coluna &#39;key&#39; de ambos DataFrames df1 e df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>b</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>b</td>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>a</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>a</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># O parâmetro &quot;how=&#39;outer&#39;&quot; pode ser utilizado para forçar que valores presentes</span>
+<span class="c1"># em apenas um dos DataFrames apareçam no resutlado do &#39;merge&#39;. Neste caso, um valor</span>
+<span class="c1"># &#39;NaN&#39; é utilizado para marcar o dado faltante em um dos DataFrames</span>
+
+<span class="c1"># how = &#39;outer&#39; --&gt; união entre os dados</span>
+<span class="c1"># how = &#39;inner&#39; --&gt; intersecção entre os dados (default, utilizado no exemplo anterior)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>  <span class="c1"># o valor &#39;c&#39; aparece na coluna &#39;key&#39;</span>
+                                        <span class="c1"># apenas em df1, enquanto o valor &#39;d&#39;</span>
+                                        <span class="c1"># aparece apenas em df2    </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>b</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b</td>
+      <td>1.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b</td>
+      <td>6.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>b</td>
+      <td>6.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>a</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>a</td>
+      <td>5.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>c</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>d</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>d</td>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quando os DataFrames não possuem colunas com o mesmo rótulo, é possível </span>
+<span class="c1"># especificar quais colunas serão utilizadas em cada DataFrame por meio</span>
+<span class="c1"># dos parâmetros &#39;left_on&#39; e &#39;right_on&#39;</span>
+
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="c1"># os DataFrames df1 e df2 nao </span>
+                   <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)})</span>                     <span class="c1"># possuem colunas com mesmo rótulo</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span>  
+                   <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span> 
+            <span class="c1"># &#39;left_on&#39; se refere a coluna do DataFrame correspondendo ao primeiro parâmetro </span>
+            <span class="c1"># (parâmetro da esquerda), neste exemplo, df1</span>
+            <span class="c1"># &#39;right_on&#39; se refere a coluna do DataFrame correspondendo ao segundo parâmetro </span>
+            <span class="c1"># (parâmetro da direita), neste exemplo, df2</span>
+            <span class="c1"># Note que neste caso ambas as colunas são inseridas no DataFrame resultante</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>data1</th>
+      <th>key2</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>b</td>
+      <td>0.0</td>
+      <td>b</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>0.0</td>
+      <td>b</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>1.0</td>
+      <td>b</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b</td>
+      <td>1.0</td>
+      <td>b</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b</td>
+      <td>6.0</td>
+      <td>b</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>b</td>
+      <td>6.0</td>
+      <td>b</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>a</td>
+      <td>2.0</td>
+      <td>a</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a</td>
+      <td>4.0</td>
+      <td>a</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>a</td>
+      <td>5.0</td>
+      <td>a</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>c</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>d</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>d</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="merge-baseado-nos-valores-de-uma-coluna-em-um-dataframe-e-rotulos-das-linhas-no-outro-dataframe">
+<h4>Merge baseado nos valores de uma coluna em um DataFrame e rótulos das linhas no outro DataFrame<a class="headerlink" href="#merge-baseado-nos-valores-de-uma-coluna-em-um-dataframe-e-rotulos-das-linhas-no-outro-dataframe" title="Permalink to this headline">#</a></h4>
+<p>Para realizar o merging com base em colunas e rótulos, deve-se especificar os parâmetros
+‘left_on’, ‘right_on’, ‘left_index’ e ‘right_index’ de forma apropriada.</p>
+<ul class="simple">
+<li><p><strong>left_on</strong> = nome da coluna a ser utilizada no DataFrame da esquerda (primeiro parâmetro)</p></li>
+<li><p><strong>left_index</strong> = True indica que os rótulos das linhas no DataFrame da esquerda (primeiro parâmetro) serão utilizados</p></li>
+<li><p><strong>right_on</strong> = nome da coluna a ser utilizada no DataFrame da direita (segundo parâmetro)</p></li>
+<li><p><strong>right_index</strong> = True indica que os rótulos das linhas no DataFrame da direita (segundo parâmetro) serão utilizados</p></li>
+</ul>
+<p><strong>Obs:</strong> Se o parâmetro <strong>left_on</strong> for utilizando, não se pode empregrar ao mesmo tempo <strong>left_index</strong>. O mesmo vale para o uso concomitante de <strong>right_on</strong> e <strong>right_index</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)})</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;group_val&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># Merge utilizando a coluna &quot;key&quot; de df1 e os rótulos das linhas em df2</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  key  value
+0   a      0
+1   b      1
+2   a      2
+3   a      3
+4   b      4
+5   c      5
+
+    group_val
+a        3.5
+b        7.0
+a        3.0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>value</th>
+      <th>group_val</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>0</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>a</td>
+      <td>2</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>a</td>
+      <td>2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a</td>
+      <td>3</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>1</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b</td>
+      <td>4</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>c</td>
+      <td>5</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># criando DataFrames a partir de lista de listas e especificando rótulos de linha e coluna</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> 
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span><span class="s1">&#39;Nevada&#39;</span><span class="p">])</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]],</span> 
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Missouri&#39;</span><span class="p">,</span><span class="s1">&#39;Alabama&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># merge utilizando rótulos dos dois DataFrames, </span>
+<span class="c1"># o parâmetro &#39;inner&#39; (default, pode ser omitido) faz </span>
+<span class="c1"># com que apenas os rótulos que aparecem em ambos sejam considerados</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Ohio  Nevada
+a     1       2
+c     3       4
+e     5       6
+
+    Missouri  Alabama
+b         7        8
+c         9       10
+d        11       12
+e        13       14
+e         0        5
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ohio</th>
+      <th>Nevada</th>
+      <th>Missouri</th>
+      <th>Alabama</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+      <td>4</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>5</td>
+      <td>6</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>5</td>
+      <td>6</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="font-color-blue-concat-font">
+<h3><font color='blue'>concat</font><a class="headerlink" href="#font-color-blue-concat-font" title="Permalink to this headline">#</a></h3>
+<p>O método <font color='blue'>concat</font> é utilizado para juntar DataFrames ou Séries com base em um dos eixos.</p>
+<ul class="simple">
+<li><p><strong>axis = 0</strong> concatena por linhas</p></li>
+<li><p><strong>axis = 1</strong> concatena por colunas. Quando empregado em um conjunto de séries resulta em um DataFrame</p></li>
+</ul>
+<p>O método assume como parâmetro uma lista de DataFrames ou Séries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construindo 3 séries especificando os rótulos das linhas</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+
+<span class="c1"># Contatenando as 3 séries na vertical (axis=0 por default)</span>
+<span class="c1"># o resultado é uma nova séria (rótulos podem estar repetidos)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0
+b    1
+dtype: int64
+c    2
+d    3
+e    4
+dtype: int64
+a    1
+f    5
+d    6
+dtype: int64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0
+b    1
+c    2
+d    3
+e    4
+a    1
+f    5
+d    6
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># concatenando as 3 séries por colunas especificando o parâmetro &#39;axis=1&#39;</span>
+<span class="c1"># o resutado é um DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0    1    2
+a  0.0  NaN  1.0
+b  1.0  NaN  NaN
+c  NaN  2.0  NaN
+d  NaN  3.0  6.0
+e  NaN  4.0  NaN
+f  NaN  NaN  5.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estatisticas">
+<h2>Estatísticas<a class="headerlink" href="#estatisticas" title="Permalink to this headline">#</a></h2>
+<p>O <font color='blue'> pandas</font> possui vários métodos para se calcular estatísticas básicas em um DataFrame (ou série). Uma lista dos métodos estatíticos disponíveis pode ser encontrada <a class="reference external" href="https://chrisalbon.com/python/data_wrangling/pandas_dataframe_descriptive_stats/">aqui</a></p>
+<p>A maioria dos métodos estatísticos são agregações, isto é, produzem um escalar a partir de conjuntos de números. Quando aplicados a um DataFrame, aceitam o argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code> para definir se as estatísticas serão calculadas nas linhas ou colunas (o padrão é <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">0</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># matriz 10x3 com números randômicos entre</span>
+                                                   <span class="c1"># 0 e 10</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">D</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span><span class="s1">&#39;c2&#39;</span><span class="p">])</span> <span class="c1"># constrói o DataFrame a partir do array</span>
+                                                   <span class="c1"># especificando o rótulo das colunas</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c0</th>
+      <th>c1</th>
+      <th>c2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7.127729</td>
+      <td>2.586554</td>
+      <td>5.859429</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.628402</td>
+      <td>8.654414</td>
+      <td>3.488075</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.439154</td>
+      <td>9.415448</td>
+      <td>4.497968</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9.597510</td>
+      <td>5.707831</td>
+      <td>4.460595</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.541171</td>
+      <td>0.306637</td>
+      <td>3.271443</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5.430022</td>
+      <td>3.614565</td>
+      <td>4.202739</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5.928077</td>
+      <td>1.060874</td>
+      <td>1.959679</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7.189471</td>
+      <td>3.681681</td>
+      <td>9.867076</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>5.853988</td>
+      <td>4.028823</td>
+      <td>2.407311</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3.175755</td>
+      <td>8.026370</td>
+      <td>0.651453</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Somando os eixos de um DataFrame</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;soma colunas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># resultado é uma série onde os rótulos das linhas são os </span>
+                      <span class="c1"># rótulos das colunas do DataFrame</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">soma linhas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># resultado é uma série com os mesmos rótulos das linhas do </span>
+                      <span class="c1"># DataFrame original</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>soma colunas
+c0    55.911279
+c1    47.083198
+c2    40.665768
+dtype: float64
+
+soma linhas
+0    15.573712
+1    15.770891
+2    21.352570
+3    19.765936
+4     4.119251
+5    13.247326
+6     8.948631
+7    20.738228
+8    12.290123
+9    11.853579
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculando a média em um eixo determinado</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;media por colunas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># calcula a média dos valores em cada coluna</span>
+                        <span class="c1"># resultado é uma série onde os rótulos das linhas são os </span>
+                        <span class="c1"># rótulos das colunas do DataFrame</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">media linhas&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># calcula a média dos valores em cada linha</span>
+                       <span class="c1"># resultado é uma série com os mesmos rótulos das linhas do </span>
+                       <span class="c1"># DataFrame original</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>media por colunas
+c0    5.591128
+c1    4.708320
+c2    4.066577
+dtype: float64
+
+media linhas
+0    5.191237
+1    5.256964
+2    7.117523
+3    6.588645
+4    1.373084
+5    4.415775
+6    2.982877
+7    6.912743
+8    4.096708
+9    3.951193
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># O método &#39;describe&#39; fornece um resumo estatístico das colunas do DataFrame</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># o resultado é um DataFrame onde as linhas correspondem</span>
+              <span class="c1"># a medidas estatísticas de cada coluna</span>
+              <span class="c1"># Por exemplo, a linha com rótulo &#39;25%&#39; informa o valor do primeiro quartil</span>
+              <span class="c1"># de cada coluna. A linha com rótulo &#39;min&#39; o valor mínimo em cada coluna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c0</th>
+      <th>c1</th>
+      <th>c2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10.000000</td>
+      <td>10.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.591128</td>
+      <td>4.708320</td>
+      <td>4.066577</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.577232</td>
+      <td>3.155766</td>
+      <td>2.517542</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.541171</td>
+      <td>0.306637</td>
+      <td>0.651453</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.078807</td>
+      <td>2.843557</td>
+      <td>2.623344</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.891033</td>
+      <td>3.855252</td>
+      <td>3.845407</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.174035</td>
+      <td>7.446735</td>
+      <td>4.488625</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>9.597510</td>
+      <td>9.415448</td>
+      <td>9.867076</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PCD_06_Pandas%20I.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><font color=blue> MBA em Ciência de Dados</font></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="PCD_08_Pandas%20III.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><font color="blue"> MBA em Ciência de Dados</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><font color="blue"> MBA em Ciência de Dados</font></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-programacao-para-ciencia-de-dados-font"><font color="blue">Programação para Ciência de Dados</font></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-pandas-parte-ii-font"><font color="blue">Pandas Parte II</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-produzido-por-luis-gustavo-nonato-br-cemeai-icmc-usp-sao-carlos"><strong>Material Produzido por Luis Gustavo Nonato</strong><br/>
+<strong>Cemeai - ICMC/USP São Carlos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relembrando">Relembrando</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-faltantes">Dados faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-isnull-font"><font color="blue">isnull</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-dropna-font"><font color="blue">dropna</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-fillna-font"><font color="blue">fillna</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processando-os-dados">Processando os dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-duplicated-font-e-font-color-blue-drop-duplicates-font"><font color="blue">duplicated</font> e <font color="blue">drop_duplicates</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-map-font"><font color="blue">map</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-replace-font"><font color="blue">replace</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-rename-font"><font color="blue">rename</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinando-e-transformando">Combinando e transformando</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-merge-font"><font color="blue">merge</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-baseado-nos-valores-de-duas-colunas">Merge baseado nos valores de duas colunas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-baseado-nos-valores-de-uma-coluna-em-um-dataframe-e-rotulos-das-linhas-no-outro-dataframe">Merge baseado nos valores de uma coluna em um DataFrame e rótulos das linhas no outro DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-blue-concat-font"><font color="blue">concat</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estatisticas">Estatísticas</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
