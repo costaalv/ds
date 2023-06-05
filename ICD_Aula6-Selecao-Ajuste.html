@@ -178,7 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="TACTD-02-1-Redundancia.html">Aula 2.1 - Redundância: dados não informativos ou irrelevantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TACTD-02-2-Outliers.html">Aula 2.2 - Detecção e remoção de outliers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TACTD-02-3-Faltantes.html">Aula 2.3 - Informações faltantes</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="TACTD-02-4-Desbalanceamento.html">Aula 2.4 - Tratamento de desbalanceamento: subamostragem e aumentação de dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TACTD-03-1-Coleta_Aquisicao.html">Aula 3.1 - Coleta e Aquisição de Dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TACTD-03-2-Discretizacao.html">Aula 3.2 - Discretização</a></li>
@@ -474,10 +473,10 @@ Copyright: Creative Commons</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.5487375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.547525
 </pre></div>
 </div>
-<img alt="_images/c81d568285f0a394b398bb053915e8fece77fd77180c931a106242fc52914bc6.png" src="_images/c81d568285f0a394b398bb053915e8fece77fd77180c931a106242fc52914bc6.png" />
+<img alt="_images/a322718304c59622730bc8ba780ba34efeca012390420210f52028b3b175b95b.png" src="_images/a322718304c59622730bc8ba780ba34efeca012390420210f52028b3b175b95b.png" />
 </div>
 </div>
 <p>Portanto, podemos ter uma alta ou baixa acurácia, dependendo da execução.</p>
@@ -672,7 +671,7 @@ Accuracy: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 10, &#39;weights&#39;: &#39;distance&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cosine&#39;, &#39;n_neighbors&#39;: 9, &#39;weights&#39;: &#39;distance&#39;}
 Accuracy: 0.6125
 </pre></div>
 </div>
@@ -718,8 +717,8 @@ Accuracy: 0.6125
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 200}
-Accuracy: 0.646875
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 50}
+Accuracy: 0.684375
 </pre></div>
 </div>
 </div>
@@ -1044,25 +1043,26 @@ Accuracy: 0.646875
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsRegressor()
-	Training time: 0.001s
+	Training time: 0.000s
 	Prediction time: 0.001s
 	Explained variance: 0.7174701843340899
 	Mean absolute error: 2.6305882352941174
 	R2 score: 0.7127831521637411
-
-RandomForestRegressor()
-	Training time: 0.177s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestRegressor()
+	Training time: 0.182s
 	Prediction time: 0.004s
-	Explained variance: 0.8844757245014276
-	Mean absolute error: 2.047058823529413
-	R2 score: 0.8838486025801351
+	Explained variance: 0.8705066343503608
+	Mean absolute error: 2.057578431372549
+	R2 score: 0.8701722325940435
 
 DecisionTreeRegressor()
 	Training time: 0.002s
 	Prediction time: 0.000s
-	Explained variance: 0.6864912803040895
-	Mean absolute error: 2.727450980392157
-	R2 score: 0.6864270571476521
+	Explained variance: 0.7046879679934857
+	Mean absolute error: 2.648039215686274
+	R2 score: 0.7045646464263589
 
 LinearRegression()
 	Training time: 0.001s
