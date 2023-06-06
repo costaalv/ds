@@ -168,9 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
 
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TACTD</span></p>
 <ul class="nav bd-sidenav">
@@ -477,10 +474,10 @@ Copyright: Creative Commons</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.54600625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.5483499999999999
 </pre></div>
 </div>
-<img alt="_images/caac73b510fe03b4947ab866d965e968f9ce445598dbda6dd2cff051267ce08b.png" src="_images/caac73b510fe03b4947ab866d965e968f9ce445598dbda6dd2cff051267ce08b.png" />
+<img alt="_images/7ab1a16b2c32b89b2ae275925ae20a85aa7c66dc5cbf77e6a3437a936af0e518.png" src="_images/7ab1a16b2c32b89b2ae275925ae20a85aa7c66dc5cbf77e6a3437a936af0e518.png" />
 </div>
 </div>
 <p>Portanto, podemos ter uma alta ou baixa acurácia, dependendo da execução.</p>
@@ -675,8 +672,8 @@ Accuracy: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 8, &#39;weights&#39;: &#39;distance&#39;}
-Accuracy: 0.603125
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 9, &#39;weights&#39;: &#39;distance&#39;}
+Accuracy: 0.646875
 </pre></div>
 </div>
 </div>
@@ -721,8 +718,8 @@ Accuracy: 0.603125
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;log2&#39;, &#39;n_estimators&#39;: 200}
-Accuracy: 0.628125
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;log2&#39;, &#39;n_estimators&#39;: 50}
+Accuracy: 0.6375
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1044,7 @@ Accuracy: 0.628125
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsRegressor()
-	Training time: 0.001s
+	Training time: 0.000s
 	Prediction time: 0.001s
 	Explained variance: 0.7174701843340899
 	Mean absolute error: 2.6305882352941174
@@ -1056,33 +1053,33 @@ Accuracy: 0.628125
 RandomForestRegressor()
 	Training time: 0.173s
 	Prediction time: 0.004s
-	Explained variance: 0.8765619149906126
-	Mean absolute error: 2.07728431372549
-	R2 score: 0.875746734763659
+	Explained variance: 0.881496483952573
+	Mean absolute error: 2.0598431372549033
+	R2 score: 0.880968431744442
 
 DecisionTreeRegressor()
 	Training time: 0.002s
 	Prediction time: 0.000s
-	Explained variance: 0.6925746418562915
-	Mean absolute error: 2.7186274509803923
-	R2 score: 0.6925192657673223
+	Explained variance: 0.6788702591055723
+	Mean absolute error: 2.7598039215686274
+	R2 score: 0.6788214888269796
 
 LinearRegression()
-	Training time: 0.010s
+	Training time: 0.001s
 	Prediction time: 0.000s
 	Explained variance: 0.6667009534619168
 	Mean absolute error: 3.200754757340823
 	R2 score: 0.6659408703343037
 
 Lasso()
-	Training time: 0.001s
+	Training time: 0.000s
 	Prediction time: 0.000s
 	Explained variance: 0.6248316409950724
 	Mean absolute error: 3.46484952823374
 	R2 score: 0.6242880160354785
 
 Ridge()
-	Training time: 0.001s
+	Training time: 0.000s
 	Prediction time: 0.000s
 	Explained variance: 0.6665968598157075
 	Mean absolute error: 3.1971747130988697
