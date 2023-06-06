@@ -473,10 +473,10 @@ Copyright: Creative Commons</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.5481375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.5490625
 </pre></div>
 </div>
-<img alt="_images/18305558ab9631762bccc4f4d9215ad936f0cf11931975739c1c61eae714528d.png" src="_images/18305558ab9631762bccc4f4d9215ad936f0cf11931975739c1c61eae714528d.png" />
+<img alt="_images/f474d49f3152b7f74d0b3c107ade025c9c498102a40b129f4d6228e127e92aa5.png" src="_images/f474d49f3152b7f74d0b3c107ade025c9c498102a40b129f4d6228e127e92aa5.png" />
 </div>
 </div>
 <p>Portanto, podemos ter uma alta ou baixa acurácia, dependendo da execução.</p>
@@ -671,8 +671,8 @@ Accuracy: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 6, &#39;weights&#39;: &#39;distance&#39;}
-Accuracy: 0.6125
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cosine&#39;, &#39;n_neighbors&#39;: 10, &#39;weights&#39;: &#39;distance&#39;}
+Accuracy: 0.621875
 </pre></div>
 </div>
 </div>
@@ -717,8 +717,8 @@ Accuracy: 0.6125
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 200}
-Accuracy: 0.625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;log2&#39;, &#39;n_estimators&#39;: 200}
+Accuracy: 0.659375
 </pre></div>
 </div>
 </div>
@@ -1043,28 +1043,28 @@ Accuracy: 0.625
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsRegressor()
-	Training time: 0.000s
+	Training time: 0.001s
 	Prediction time: 0.001s
 	Explained variance: 0.7174701843340899
 	Mean absolute error: 2.6305882352941174
 	R2 score: 0.7127831521637411
 
 RandomForestRegressor()
-	Training time: 0.181s
+	Training time: 0.178s
 	Prediction time: 0.004s
-	Explained variance: 0.8680292758401347
-	Mean absolute error: 2.107980392156862
-	R2 score: 0.8673076706198248
+	Explained variance: 0.8746607344077841
+	Mean absolute error: 2.121098039215686
+	R2 score: 0.8742486264396931
 
 DecisionTreeRegressor()
 	Training time: 0.002s
 	Prediction time: 0.000s
-	Explained variance: 0.6870348441293507
-	Mean absolute error: 2.7490196078431377
-	R2 score: 0.6870259839551156
+	Explained variance: 0.6765909399633021
+	Mean absolute error: 2.8480392156862746
+	R2 score: 0.6763990437932199
 
 LinearRegression()
-	Training time: 0.001s
+	Training time: 0.010s
 	Prediction time: 0.000s
 	Explained variance: 0.6667009534619168
 	Mean absolute error: 3.200754757340823
@@ -1078,7 +1078,7 @@ Lasso()
 	R2 score: 0.6242880160354785
 
 Ridge()
-	Training time: 0.000s
+	Training time: 0.001s
 	Prediction time: 0.000s
 	Explained variance: 0.6665968598157075
 	Mean absolute error: 3.1971747130988697
