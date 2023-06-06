@@ -167,7 +167,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ECD_06_MaterialBase-Infer%C3%AAncia%20Bayesiana.html">Aula 6 - Inferência Bayesiana</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ECD_07_Materialbase-ModelosLineares.html">Aula 7 - Modelos de regressão</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ECD_08_MaterialBase-MLGs.html">Aula 8 - Modelos Lineares Generalizados</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TACTD</span></p>
 <ul class="nav bd-sidenav">
@@ -474,10 +473,10 @@ Copyright: Creative Commons</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.5483499999999999
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acuracia media: 0.545275
 </pre></div>
 </div>
-<img alt="_images/7ab1a16b2c32b89b2ae275925ae20a85aa7c66dc5cbf77e6a3437a936af0e518.png" src="_images/7ab1a16b2c32b89b2ae275925ae20a85aa7c66dc5cbf77e6a3437a936af0e518.png" />
+<img alt="_images/e5cdc2c5eebb01ad2c858421484d355401c2a93cf3b31384a4f5af7f7135cc6b.png" src="_images/e5cdc2c5eebb01ad2c858421484d355401c2a93cf3b31384a4f5af7f7135cc6b.png" />
 </div>
 </div>
 <p>Portanto, podemos ter uma alta ou baixa acurácia, dependendo da execução.</p>
@@ -672,8 +671,8 @@ Accuracy: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 9, &#39;weights&#39;: &#39;distance&#39;}
-Accuracy: 0.646875
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;metric&#39;: &#39;cityblock&#39;, &#39;n_neighbors&#39;: 8, &#39;weights&#39;: &#39;distance&#39;}
+Accuracy: 0.58125
 </pre></div>
 </div>
 </div>
@@ -718,7 +717,7 @@ Accuracy: 0.646875
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;log2&#39;, &#39;n_estimators&#39;: 50}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 8, &#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 200}
 Accuracy: 0.6375
 </pre></div>
 </div>
@@ -1051,18 +1050,18 @@ Accuracy: 0.6375
 	R2 score: 0.7127831521637411
 
 RandomForestRegressor()
-	Training time: 0.173s
+	Training time: 0.180s
 	Prediction time: 0.004s
-	Explained variance: 0.881496483952573
-	Mean absolute error: 2.0598431372549033
-	R2 score: 0.880968431744442
+	Explained variance: 0.8768138231143281
+	Mean absolute error: 2.1113529411764715
+	R2 score: 0.8763405692226801
 
 DecisionTreeRegressor()
 	Training time: 0.002s
 	Prediction time: 0.000s
-	Explained variance: 0.6788702591055723
-	Mean absolute error: 2.7598039215686274
-	R2 score: 0.6788214888269796
+	Explained variance: 0.6909978978319153
+	Mean absolute error: 2.7382352941176475
+	R2 score: 0.6904470859647134
 
 LinearRegression()
 	Training time: 0.001s
